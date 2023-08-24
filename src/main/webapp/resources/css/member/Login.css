@@ -1,0 +1,110 @@
+*{
+    box-sizing: border-box;
+}
+
+div{
+    border: 1px solid black;
+}
+
+.totalContainer{ /* 페이지 전체 div */
+    width: 100%;
+    height: 1200px;
+}
+
+.headerContainer{ /* 헤더부분 전체 div */
+    width: 100%;
+    min-width: 1800px;
+    height: 20%;
+    display: flex;
+}
+
+.headerContainer > div:nth-child(1){ /* 공백 부분 */
+    width: 40%;
+    height: 100%;
+}
+
+.headerContainer > div:nth-child(2){ /* 로고부분 */
+    width: 20%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#gotoHomeLogo{
+    width: 100%;
+    height: 100%;
+}
+
+#homeLogo{ /* 로고 이미지  */
+    width: 100%;
+    height: 100%;
+}
+
+.logoPart{ /* 로고 a태그*/
+    width: 50%;
+    height: 80%;
+    border-radius: 50%;
+   
+}
+
+.headerContainer > div:nth-child(3){ /* 공백 부분 */
+    width: 40%;
+    height: 100%;
+
+}
+
+
+
+.navContainer{ /* nav부분 전체 div */
+    width: 100%;
+    height: 5%;
+    display: flex;
+    min-width: 1800px;
+}
+
+.navContainer > div:nth-child(1){ /* info 부분 */
+    width: 20%;
+    margin: auto;
+    text-align: center;
+    font-size: 25px;
+}
+
+.navContainer > div:nth-child(2){ /* matching 부분 */
+    width: 20%;
+    margin: auto;
+    text-align: center;
+    font-size: 25px;
+}
+
+.navContainer > div:nth-child(3){ /* 공백 부분 */
+    width: 20%;
+
+}
+
+.navContainer > div:nth-child(4){ /* community 부분 */
+    width: 20%;
+    margin: auto;
+    text-align: center;
+    font-size: 25px;
+}
+
+.navContainer > div:nth-child(5){ /* guide 부분 */
+    width: 20%;
+    margin: auto;
+    text-align: center;
+    font-size: 25px;
+}
+
+
+.bodyContainer{/* 바디부분 전체 div */
+    width: 100%;
+    height: 60%;
+}
+
+.footerContainer{ /* 풋터부분 전체 div */
+    width: 100%;
+    height: 15%;
+}
+
