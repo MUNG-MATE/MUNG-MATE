@@ -1,0 +1,127 @@
+* {
+    box-sizing: border-box;
+}
+
+/* 헤더 */
+.header {
+    height: 200px;
+    width: 100%;
+    margin: auto;
+    border: 1px solid black;
+}
+
+/* 컨텐츠 전체 */
+.content {
+    width: 1200px;
+    border: 1px solid black;
+    height: 100%;
+    margin: auto;
+}
+
+/* 멍메이트 글씨*/
+.mungMate {
+    display: flex;
+    width: 1200px;
+    height: 180px;
+    flex-direction : column-reverse;
+    padding-left: 120px;
+    font-size: 25px;
+    text-decoration: underline  solid black;
+}
+
+/* 사진 */
+.picture {
+    display: flex;
+    width: 1200px;
+    height: 600px;
+    justify-content: center;
+}
+
+.picture img {
+    width: 600px;
+    height: 600px;
+    margin-top: -10px;
+}
+
+/* 소개글 전체 */
+.PetSitterIntroduction{
+    width: 1000px;
+    height: 900px;
+    border-bottom: 2px solid #ddd;
+    margin: auto;
+}
+
+/* 소개글 내용 */
+.PetSitterIntroduction pre {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* 펫시터 소개 전체 */
+.PetsitterInformation{
+    width: 1200px;
+    height: 1200px;
+    border: 1px solid black;
+}
+
+/* 펫시터를 소개합니다 글자 */
+.PetsitterInformation h1{
+    padding : 30px  90px;
+    text-decoration: underline  solid black;
+}
+
+/* 펫시터 소개란 첫번쨰 행 */
+.row1 {
+    display: flex;
+justify-content: space-evenly;
+ width: 1200px;
+ height: 400px;
+ border: 1px solid black;
+ 
+ 
+}
+
+/* 소개란 1개 */
+.row1 div{
+    width: 300px;
+    height: 400px;
+    border: 1px solid black;
+    border-radius: 5%;
+    overflow: hidden;
+}
+
+/* 펫시터 소개란 두번쨰 행 */
+.row2 {
+display: flex;
+justify-content:space-evenly;
+ width: 1200px;
+ height: 400px;
+ border: 1px solid black;
+ margin-top: 70px;
+}
+
+/* 소개란 1개  */
+.row2 div{
+    width: 300px;
+    height: 400px;
+    border: 1px solid black;
+    border-radius: 5%;
+    overflow: hidden;
+}
+
+/*  펫시터 정보 */
+.petSitterInfo{
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+}
+
+/* 펫시터 얼굴 사진 */
+.petSitterInfo img {
+    width: 300px;
+    height: 200px;
+}
+
+
+

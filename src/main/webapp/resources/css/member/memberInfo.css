@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box;
+}
+
+/* 헤더 */
+.header {
+    height: 200px;
+    width: 100%;
+    margin: auto;
+    border: 1px solid black;
+}
+
+/* 컨텐츠 */
+.content {
+    width: 1200px;
+    border: 1px solid black;
+    height: 100%;
+    margin: auto;
+}
+
+/* 회원 정보 제목 */
+.infoTitle{
+    display: flex;
+    width: 1200px;
+    height: 180px;
+    flex-direction : column-reverse;
+    font-size: 20px;
+    border-bottom: 2px solid #ddd;
+}
+
+/* 프로필이랑 정보 들어가있는 칸 */
+.memberInfo{
+    display: flex;
+    height: 500px;
+    width: 1200px;
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 20px;
+}
+
+/* 프로필 칸 */
+.profileImage {
+    display: flex;
+    flex-direction: row-reverse;
+    height: 400px;
+    width: 600px;
+    padding:60px;
+    align-items: center;
+}
+
+/* 정보 칸 */
+.info{
+    height: 400px;
+    width: 600px;
+    font-size: 23px;
+    padding-top: 66px ;
+}
+
+/* 프로필 이미지 */
+.profile-image-area{
+    width: 250px;
+    height: 250px;
+    border: 3px solid #ccc;
+    border-radius: 50%;
+
+    position: relative;
+
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#profileImage{
+    height: 100%;
+}
+
+
+/* 수정하기 버튼 */
+
+.updateBtn{
+    width: 1200px;
+    height: 100px;
+    display: flex;
+    flex-direction: row-reverse;
+    
+}
+
+#updateBtn {
+    width: 83px;
+    height: 44px;
+    margin-right: 70px;
+    border-style: none;
+    background-color: rgb(208, 53, 49);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#updateBtn:hover {
+   border: 2px solid  rgb(208, 53, 49);
+    background-color: white;
+    color:  rgb(208, 53, 49);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+.footer{
+    height: 200px;
+    width: 100%;
+    margin: auto;
+    border: 1px solid black;
+}
+
