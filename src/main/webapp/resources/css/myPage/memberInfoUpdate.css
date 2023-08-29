@@ -31,7 +31,7 @@
 /* 프로필이랑 정보 들어가있는 칸 */
 .memberInfo{
     display: flex;
-    height: 500px;
+    height: 600px;
     width: 1200px;
     margin: auto;
     margin-top: 20px;
@@ -41,22 +41,22 @@
 .profileImage {
     display: flex;
     flex-direction: row-reverse;
+    flex-direction: column;
     height: 385px;
-    width: 596px;
+    width: 400px;
     padding:60px;
-    align-items: center;
+    margin-left: 180px;
+
 }
 
 /* 정보 칸 */
 .info{
     height: 400px;
-    width: 300px;
+    width: 279px;
     font-size: 20px;
     padding-top: 66px;
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
 
 
 }
@@ -80,6 +80,28 @@
     height: 100%;
 }
 
+.email{
+    display: flex;
+}
+
+#emailBtn {
+    width: 70px;
+    height: 35px;
+    border-style: none;
+    background-color: rgb(208, 53, 49);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#emailBtn:hover {
+    border: 2px solid  rgb(208, 53, 49);
+    background-color: white;
+    color:  rgb(208, 53, 49);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
 
 /* 수정하기 버튼 */
 
@@ -90,6 +112,30 @@
     flex-direction: row-reverse;
     
 }
+
+#imageInput{ display: none;}
+
+.profile-btn-area{
+    padding-top: 10px;
+}
+
+.profile-btn-area > *{
+    width: 110px;
+    height: 34px;
+    padding: 8px 15px;
+    border-radius: 10px;
+
+    background-color: white;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    border-style: none;
+    background-color: rgb(208, 53, 49);
+    color: white;
+    cursor: pointer;
+}
+
+
 
 #updateBtn {
     width: 83px;
@@ -104,6 +150,41 @@
 
 #updateBtn:hover {
    border: 2px solid  rgb(208, 53, 49);
+    background-color: white;
+    color:  rgb(208, 53, 49);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.info input{
+    border: none;
+    border-bottom: 1px solid #ccc;
+    font-size: 20px;
+    padding: 7px 7px;
+}
+
+.info input:focus {
+    outline : none;
+}
+
+.address {
+    display: flex;
+    padding-top: 13px;
+}
+
+#addressBtn{
+    width: 70px;
+    height: 35px;
+    margin-right: 70px;
+    border-style: none;
+    background-color: rgb(208, 53, 49);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#addressBtn:hover {
+    border: 2px solid  rgb(208, 53, 49);
     background-color: white;
     color:  rgb(208, 53, 49);
     border-radius: 10px;
