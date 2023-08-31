@@ -275,7 +275,7 @@
     padding-top: 20px;
 }
 
-#searchYesBtn{ /* 확인 버튼 */
+.searchYesBtn{ /* 확인 버튼 */
     width: 100%;
     height: 100%;
 }
@@ -289,7 +289,7 @@
 }
 
 
-#searchNoBtn{ /* 취소 버튼 */
+.searchNoBtn{ /* 취소 버튼 */
     width: 100%;
     height: 100%;
 }
@@ -297,3 +297,127 @@
 
 /*---------------------------------------------------------------------------*/
 /*비밀번호 찾기 영역*/
+
+#searchInputEmail{ /* 이메일 입력란 */
+    width: 60%;
+    height: 100%;
+}
+
+#checkNumberBtn{ /* 인증번호 전송버튼 */
+    width: 35%;
+    height: 100%;
+}
+
+.checkNumberArea{ /*  */
+    width: 100%;
+    height: 100%;
+}
+
+.emailAPITime{ /* 인증번호 시간부분 */
+    padding-bottom: 30px;
+}
+
+.profilePasswordCheck{ /* 비밀번호 찾기 영역 content 부분 */
+    width: 500px;
+    height: 550px;
+    background-color: white;
+    
+}
+
+
+.profilePasswordCheck > div:nth-child(1){ /* 아이디/비밀번호 찾기 글씨 영역 */
+    width: 80%;
+    height: 100px;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    padding-left: 10px;
+    font-size: 25px;
+    font-weight:bold;
+
+}
+
+.profilePasswordCheck > div:nth-child(2){ /* 인증된 이메일만 정보 찾기가 가능합니다 글씨 영역 */
+    width: 80%;
+    height: 50px;
+    padding-left: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profilePasswordCheck > div:nth-child(3){ /* 아이디 찾기 비밀번호 찾기 checkbox 부분 */
+    width: 67%;
+    height: 50px;
+    border-top: 1px solid #ddd;
+    padding-right: 60px;
+    margin:auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.profilePasswordCheck > div:nth-child(4){ /* 이메일 글씨 부분 */
+    width: 80%;
+    height: 30px;
+    margin: auto;
+    padding-left: 35px;
+}
+
+.profilePasswordCheck > div:nth-child(5){ /* 이메일 input태그 영역 */
+    width: 67%;
+    height: 35px;
+
+    margin: auto;
+}
+
+.profilePasswordCheck > div:nth-child(6){ /* 인증번호 시간 글씨 부분 */
+    width: 80%;
+    height: 30px;
+    margin: auto;
+    padding-left: 35px;
+    padding-top: 5px;
+}
+
+.profilePasswordCheck > div:nth-child(7){ /* 인증번호글씨 영역 */
+    width: 67%;
+    height: 45px;
+    padding-top: 10px;
+
+    margin: auto;
+}
+
+.profilePasswordCheck > div:nth-child(8){ /* 인증번호 input 영역 */
+    width: 67%;
+    height: 40px;
+    margin: auto;
+}
+
+#inputCheckNumber{ /* 인증번호 입력 input */
+    width: 100%;
+    height: 70%;
+
+    border-radius: 5px;
+
+}
+
+.profilePasswordCheck > div:nth-child(9){ /* 확인 버튼 영역 */
+    width: 67%;
+    height: 60px;
+    margin: auto;
+
+    padding: 10px 0;
+
+}
+
+.profilePasswordCheck > div:nth-child(10){ /* 취소 버튼 영역 */
+    width: 67%;
+    height: 60px;
+    margin: auto;
+
+    padding: 10px 0;
+
+}

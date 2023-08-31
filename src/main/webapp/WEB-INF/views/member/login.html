@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>로그인</title>
 
     <link rel="stylesheet" href="../../../resources/css/member/Login.css">
 </head>
@@ -75,14 +75,14 @@
                 <div>
                 <input type="text" id="searchInputPhone"> 
                 </div>
-                <div><button id="searchYesBtn">확인</button></div>
-                <div><button id="searchNoBtn">취소</button></div>
+                <div><button class="searchYesBtn">확인</button></div>
+                <div><button class="searchNoBtn">취소</button></div>
             
             </div>            
         </div>
 
         <div class="findprofileArea">
-            <div class="profileCheck">
+            <div class="profilePasswordCheck">
                 <div>아이디/비밀번호 찾기</div>
                 <div>인증된 이메일만 정보 찾기가 가능합니다 :)</div>
                 <div>
@@ -90,6 +90,19 @@
                     <input type="radio" id="searchPassword" name="findRadio"> <label for="searchPassword">비밀번호 찾기</label>
                 </div>
                 <div>이메일</div>
+                <div>
+                    <input type="text" id="searchInputEmail">
+                    <button id="checkNumberBtn">인증번호 전송</button>
+                </div>
+                <div>05:00</div>
+                <div>인증번호</div>
+                <div>
+                    <input type="text" id="inputCheckNumber">
+                </div>
+                <div><button class="searchYesBtn">확인</button></div>
+                <div><button class="searchNoBtn">취소</button></div>
+
+                
             </div>
 
         </div>
