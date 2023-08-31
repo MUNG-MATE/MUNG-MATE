@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box;
+}
+
+/* 헤더 */
+.header {
+    height: 200px;
+    width: 100%;
+    margin: auto;
+    border: 1px solid black;
+}
+
+/* 컨텐츠 */
+.content{
+    width: 1200px;
+    height: 100%;
+    border: 1px solid black;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 회원 탈퇴 글씨 */
+.secessionTitle{
+    width: 1200px;
+    height: 95px;
+    font-size: 20px;
+    border-bottom: 2px solid #ddd;
+    
+}
+
+/* 비밀번호 입력창 div */
+.password{
+    width: 400px;
+    height: 200px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    font-size: 20px;
+    margin: auto;
+    margin-left: 95px;
+
+}
+
+/* 비밀번호 입력창 */
+.password input {
+    border: none;
+    border-bottom: 1px solid #ddd;
+    outline: none;
+    font-size: 25px;
+}
+
+/* 회원 탈퇴 약관 글씨 */
+.terms{
+    font-size: 20px;
+    padding-top: 50px;
+}
+
+/* 약관 내용 */
+.termsContent{
+    width: 500px;
+    height: 500px;
+    border: 1px solid #ddd;
+    overflow-y:scroll;
+}
+
+/* 약관 동의 체크박스 div */
+.agree{
+    width: 200px;
+    height: 50px;
+}
+
+
+.secessionBtn{
+    padding : 20px 10px;
+    width: 300px;
+    height: 100px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+
+}
+
+
+/* 탈퇴 동의 버튼 */
+#secessionBtn{
+    width: 83px;
+    height: 44px;
+    border-style: none;
+    background-color: rgb(208, 53, 49);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#secessionCancelBtn{
+    width: 83px;
+    height: 44px;
+    border-style: none;
+    background-color: rgb(208, 53, 49);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#secessionBtn:hover{
+    border: 2px solid  rgb(208, 53, 49);
+    background-color: white;
+    color:  rgb(208, 53, 49);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#secessionCancelBtn:hover{
+    border: 2px solid  rgb(208, 53, 49);
+    background-color: white;
+    color:  rgb(208, 53, 49);
+    border-radius: 10px;
+    cursor: pointer;
+}
