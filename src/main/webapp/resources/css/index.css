@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+/* 헤더 */
+.header {
+    height: 200px;
+    width: 100%;
+    margin: auto;
+    border: 1px solid black;
+}
+
+.mainImage{
+    width: 100%;
+    height: 800px;
+}
+
+.mainImageIn {
+    position: relative;
+    bottom: 557px;
+    left: 222px;
+}
+
+.mainImageIn h1 {
+    color: #c1752a ;
+}
+
+.mainImage img{
+    width: 100%;
+    height: 100%;
+}
+
+#goReservation {
+    width: 100px;
+    height: 35px;
+    border-style: none;
+    background-color: rgb(208, 53, 49);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
