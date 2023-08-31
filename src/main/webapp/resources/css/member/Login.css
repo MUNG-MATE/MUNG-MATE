@@ -2,105 +2,155 @@
     box-sizing: border-box;
 }
 
-div{
-    border: 1px solid black;
+.display{
+    display: none;
 }
 
 .totalContainer{ /* 페이지 전체 div */
     width: 100%;
-    height: 1200px;
+    min-width: 1500px;
+    height: 750px;
 }
 
 .headerContainer{ /* 헤더부분 전체 div */
     width: 100%;
-    min-width: 1800px;
-    height: 20%;
+    min-width: 800px;
+    height: 10%;
     display: flex;
 }
-
-.headerContainer > div:nth-child(1){ /* 공백 부분 */
-    width: 40%;
-    height: 100%;
-}
-
-.headerContainer > div:nth-child(2){ /* 로고부분 */
-    width: 20%;
-    height: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#gotoHomeLogo{
-    width: 100%;
-    height: 100%;
-}
-
-#homeLogo{ /* 로고 이미지  */
-    width: 100%;
-    height: 100%;
-}
-
-.logoPart{ /* 로고 a태그*/
-    width: 50%;
-    height: 80%;
-    border-radius: 50%;
-   
-}
-
-.headerContainer > div:nth-child(3){ /* 공백 부분 */
-    width: 40%;
-    height: 100%;
-
-}
-
-
 
 .navContainer{ /* nav부분 전체 div */
     width: 100%;
     height: 5%;
     display: flex;
-    min-width: 1800px;
+    min-width: 800px;
 }
-
-.navContainer > div:nth-child(1){ /* info 부분 */
-    width: 20%;
-    margin: auto;
-    text-align: center;
-    font-size: 25px;
-}
-
-.navContainer > div:nth-child(2){ /* matching 부분 */
-    width: 20%;
-    margin: auto;
-    text-align: center;
-    font-size: 25px;
-}
-
-.navContainer > div:nth-child(3){ /* 공백 부분 */
-    width: 20%;
-
-}
-
-.navContainer > div:nth-child(4){ /* community 부분 */
-    width: 20%;
-    margin: auto;
-    text-align: center;
-    font-size: 25px;
-}
-
-.navContainer > div:nth-child(5){ /* guide 부분 */
-    width: 20%;
-    margin: auto;
-    text-align: center;
-    font-size: 25px;
-}
-
 
 .bodyContainer{/* 바디부분 전체 div */
     width: 100%;
     height: 60%;
+
+}
+
+.contentContainer{ /* 바디 컨텐츠 부분 */
+    width: 1200px;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contentContainer > div:nth-child(1){/* 로그인 오른쪽 공백 */
+    height: 100%;
+    width: 20%;
+}
+
+.contentContainer > div:nth-child(2){/* 로그인 부분 전체 div */
+    width: 60%;
+    height: 80%;
+    background-color: rgb(255, 175, 175);
+    ;
+}
+
+.contentContainer div{
+    padding: 5px;
+}
+.loginNonepart{ /* 로그인 공백 파트 */
+    height: 80px;
+}
+
+.InputEmailArea{/* 이메일 이미지 + 입력창 */
+    display: flex;
+    justify-content: center;
+}
+
+.emailImg{ /* 이메일 이미지 */
+    width: 30px;
+    height: 100%;
+}
+
+#inputEmail{ /* 이메일 입력창 */
+    width: 300px;
+    height: 30px;
+}
+
+.InputPasswordArea{/* 비밀번호 이미지 + 입력창 */
+    display: flex;
+    justify-content: center;
+}
+
+.passwordImg{ /* 비밀번호 이미지 */
+    width: 30px;
+    height: 100%;
+}
+
+#inputPassword{/* 비밀번호 입력창 */
+    width: 300px;
+    height: 30px;
+}
+
+.checkboxArea{/* 체크박스 + 아이디 비밀번호 찾기 */
+    display: flex;
+    justify-content: center;
+    margin-left: 40px;
+}   
+
+.checkboxArea a{ /* 이메일 찾기 + 비밀번호 찾기 a태그*/
+    font-size: 13px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.loginBtnArea{/* 로그인 버튼 영역 */
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#loginBtn{ /* 로그인 버튼 */
+    margin-left: 40px;
+    width: 300px;
+    border-radius: 10px;
+    background-color: rgb(208, 53, 49);
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    border: 1px solid white;
+}
+
+#loginBtn:hover{ /* 로그인 버튼 hover */
+    background-color: white;
+    color:rgb(208, 53, 49);
+    border: 1px solid rgb(208, 53, 49);
+}
+
+.siguUpArea{ /* 회원가입 영역 */
+    display: flex;
+    justify-content: center;
+    
+}
+
+.siguUpArea > div:nth-child(1){ /* 혹시 회원이 아니신가요? + 회원가입 a태그 */
+    width: 250px;
+    text-align: center;
+}
+
+.siguUpArea a{ /* 회원가입 a태그 */
+    font-size: 15px;
+    text-decoration: none;
+}
+
+
+.checkboxArea > div:nth-child(2){/* 체크박스 공백부분 */
+    width: 50px;
+}
+
+.contentContainer > div:nth-child(3){/* 로그인 왼쪽 공백 */
+    height: 100%;
+    width: 20%;
 }
 
 .footerContainer{ /* 풋터부분 전체 div */
@@ -108,3 +158,142 @@ div{
     height: 15%;
 }
 
+
+/* ---------------------------------------------------------------------------------- */
+/* 이메일 찾기 영역 */
+
+.findprofileArea{ /* 찾기 영역 전체 */
+    width: 100%;
+    height: 100%;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profileCheck{ /* 찾기 영역 content 부분 */
+    width: 500px;
+    height: 550px;
+    background-color: white;
+    
+}
+
+.findContentArea{ /* 찾기 영역 내부 부분 */
+    width: 80%;
+    height: 100%;
+    margin: auto;
+}
+
+.profileCheck > div:nth-child(1){ /* 아이디/비밀번호 찾기 글씨 영역 */
+    width: 80%;
+    height: 100px;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    padding-left: 10px;
+    font-size: 25px;
+    font-weight:bold;
+
+}
+
+.profileCheck > div:nth-child(2){ /* 인증된 이메일만 정보 찾기가 가능합니다 글씨 영역 */
+    width: 80%;
+    height: 50px;
+    padding-left: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profileCheck > div:nth-child(3){ /* 아이디 찾기 비밀번호 찾기 checkbox 부분 */
+    width: 67%;
+    height: 50px;
+    border-top: 1px solid #ddd;
+    padding-right: 60px;
+    margin:auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#searchPassword{ /* 비밀번호 찾기 checkbox */
+   margin-left: 50px;
+}
+
+.profileCheck > div:nth-child(4){ /* 이름 글씨 부분 */
+    width: 80%;
+    height: 30px;
+    margin: auto;
+    padding-left: 35px;
+}
+
+.profileCheck > div:nth-child(5){ /* 이름 input태그 영역 */
+    width: 67%;
+    height: 35px;
+
+    margin: auto;
+}
+
+#searchInputName{ /* 이름 input태그 */
+    width: 100%;
+    height: 100%;
+
+    border-radius: 5px;
+}
+
+.profileCheck > div:nth-child(6){ /* 휴대전화번호 글씨 부분 */
+    width: 80%;
+    height: 30px;
+    margin: auto;
+    padding-left: 35px;
+    padding-top: 15px;
+}
+
+.profileCheck > div:nth-child(7){ /* 휴대전화번호 input태그 영역 */
+    width: 67%;
+    height: 45px;
+    padding-top: 10px;
+
+    margin: auto;
+}
+
+#searchInputPhone{ /* 휴대전화번호 input태그 */
+    width: 100%;
+    height: 100%;
+
+    border-radius: 5px;
+}
+
+.profileCheck > div:nth-child(8){ /* 확인버튼 영역 */
+    width: 67%;
+    height: 70px;
+    margin: auto;
+
+    padding-top: 20px;
+}
+
+#searchYesBtn{ /* 확인 버튼 */
+    width: 100%;
+    height: 100%;
+}
+
+.profileCheck > div:nth-child(9){ /* 취소 버튼 영역 */
+    width: 67%;
+    height: 70px;
+    margin: auto;
+
+    padding-top: 20px;
+}
+
+
+#searchNoBtn{ /* 취소 버튼 */
+    width: 100%;
+    height: 100%;
+}
+
+
+/*---------------------------------------------------------------------------*/
+/*비밀번호 찾기 영역*/
