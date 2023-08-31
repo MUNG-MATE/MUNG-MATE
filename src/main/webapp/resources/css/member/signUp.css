@@ -1,0 +1,438 @@
+*{
+    box-sizing: border-box;
+}
+
+/* div{
+    border: 1px solid black;
+} */
+
+.totalContainer{ /* 페이지 전체 div */
+    width: 100%;
+    min-width: 1500px;
+    height: 1500px;
+}
+
+.headerContainer{ /* 헤더부분 전체 div */
+    width: 100%;
+    min-width: 800px;
+    height: 5%;
+    display: flex;
+}
+
+.navContainer{ /* nav부분 전체 div */
+    width: 100%;
+    height: 5%;
+    display: flex;
+    min-width: 800px;
+}
+
+.bodyContainer{/* 바디부분 전체 div */
+    width: 100%;
+    height: 100%;
+}
+
+.contentContainer{ /* 바디 컨텐츠 부분 */
+    width: 1200px;
+    height: 100%;
+    display: flex;
+    margin: auto;
+    padding-top: 100px;
+
+    flex-direction: column;
+    align-items: center;
+}
+
+.signUpTitle{/* 회원가입 타이틀 영역 */
+    width: 100%;
+    height: 900px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 30px;
+    font-weight: bold;
+    background-color: rgb(255, 175, 175);
+    color: white;
+}
+
+
+/* ---------------------------------------------------------- */
+
+.signUpName{/* 회원가입 이름 영역 */
+    width: 70%;
+    height: 50px;
+    margin: 30px;
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.signUpName > div:nth-child(1) { /* 이름 타이틀 */
+    padding-right: 470px;
+    color: #aaa;
+}
+
+#signUpInputName{ /* 이름 input */
+    width: 60%;
+    height: 40px;
+    border: none;
+    border-bottom: 2px solid #ddd;
+}
+
+/* ---------------------------------------------------------- */
+
+.signUpNickname{/* 회원가입 닉네임 영역 */
+    width: 70%;
+    height: 50px;
+    margin: 30px;
+
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.signUpNickname > div:nth-child(1) { /* 닉네임 타이틀 */
+    padding-right: 460px;
+    color: #aaa;
+}
+
+#signUpInputNickname{ /* 닉네임 input */
+    width: 60%;
+    height: 40px;
+
+    border: none;
+    border-bottom: 2px solid #ddd;
+}
+
+/* ---------------------------------------------------------- */
+
+.signUpEmail{/* 회원가입 아이디(이메일) 영역 */
+    width: 70%;
+    height: 50px;
+    margin: 30px;
+
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.signUpEmail > div:nth-child(1) { /* 아이디(이메일) 타이틀 */
+    padding-right: 400px;
+    color: #aaa;
+}
+
+.signUpEmail > div:nth-child(2) { /* 아이디(이메일) input + 버튼 영역 */
+    height: 200px;
+}
+
+#signUpInputEmail{ /* 아이디(이메일) input */
+    width: 45%;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    height: 100%;
+}
+
+#emailCheck{ /* 이메일 인증번호 버튼 */
+    width: 120px;
+    height: 45px;
+
+    border-radius: 20px;
+    border: 3px solid rgb(255, 175, 175);
+    color:rgb(255, 175, 175);
+    font-size: 15px;
+    font-weight: bold;
+    background-color: white;
+    
+}
+
+#emailCheck:hover{ /* 인증번호 전송 */
+    background-color:  rgb(255, 175, 175);
+    color: white;
+}
+/* ---------------------------------------------------------- */
+
+.signUpEmailcheck{/* 인증번호 영역 */
+    width: 70%;
+    height: 50px;
+    margin: 30px;
+
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.signUpEmailcheck > div:nth-child(1) { /* 인증번호 타이틀 */
+    padding-right: 405px;
+    color: #aaa;
+}
+
+.signUpEmailcheck > div:nth-child(2) { /* 인증번호 input +  인증 버튼 영역 */
+    height: 200px;
+}
+
+.signUpEmailcheck > div:nth-child(3) { /* 인증번호 시간 */
+    margin-right: 460px;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+#signUpInputEmailCheck{ /* 인증번호 input */
+    width: 45%;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    height: 100%;
+}
+
+#checkclear{ /* 이메일 인증번호 버튼 */
+    width: 120px;
+    height: 45px;
+
+    border-radius: 20px;
+    border: 3px solid rgb(255, 175, 175);
+    color:rgb(255, 175, 175);
+    font-size: 15px;
+    font-weight: bold;
+    background-color: white;
+}
+
+#checkclear:hover{ /* 인증버튼 hover */
+    background-color:  rgb(255, 175, 175);
+    color: white;
+}
+
+
+
+/* ---------------------------------------------------------- */
+
+.signUpPassword{/* 회원가입 비밀번호 영역 */
+    width: 70%;
+    height: 50px;
+    margin: 30px;
+
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.signUpPassword > div:nth-child(1) { /* 비밀번호 타이틀 */
+    padding-right: 440px;
+    color: #aaa;
+}
+
+.signUpPassword > div:nth-child(3) {/* 비밀번호 정규식 글씨 부분  */
+    margin-right: 210px;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+#signUpInputPassword{ /* 비밀번호 input */
+    width: 60%;
+    height: 40px;
+    border: none;
+    border-bottom: 2px solid #ddd;
+}
+
+/* ---------------------------------------------------------- */
+
+.signUpPasswordCheck{/* 비밀번호 확인 영역 */
+    width: 70%;
+    height: 50px;
+    margin: 30px;
+
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.signUpPasswordCheck > div:nth-child(1) { /* 비밀번호 확인 타이틀 */
+    padding-right: 400px;
+    color: #aaa;
+}
+
+.signUpPasswordCheck > div:nth-child(3) {/* 비밀번호 정규식 글씨 부분  */
+    margin-right: 310px;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+#signUpInputPasswordCheck{ /* 비밀번호 확인 input */
+    width: 60%;
+    height: 40px;
+    border: none;
+    border-bottom: 2px solid #ddd;
+}
+
+/* ---------------------------------------------------------- */
+
+.signUpPhone{/* 전화번호 영역 */
+    width: 70%;
+    height: 50px;
+    margin: 30px;
+
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.signUpPhone > div:nth-child(1) { /* 전화번호 타이틀 */
+    padding-right: 400px;
+    color: #aaa;
+}
+
+#signUpInputPhone{ /* 전화번호 input */
+    width: 60%;
+    height: 40px;
+    border: none;
+    border-bottom: 2px solid #ddd;
+}
+
+/* ---------------------------------------------------------- */
+
+.signUpAddress{/* 회원가입 주소 영역 */
+    width: 70%;
+    height: 15%;
+    margin: 30px;
+
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.signUpAddress > div:nth-child(1) { /* 주소 타이틀 */
+    padding-right: 400px;
+    color: #aaa;
+}
+
+.signUpAddress > div:nth-child(2) { /* 주소 input + 버튼 영역 */
+    height: 200px;
+}
+.signUpAddress > div:nth-child(3) { /* 주소 input*/
+    margin: 10px;
+    height: 200px;
+}
+.signUpAddress > div:nth-child(4) { /* 주소 input*/
+    margin: 10px;
+    height: 200px;
+}
+
+#signUpInputAddress{ /* 주소 input */
+    width: 45%;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    height: 100%;
+}
+
+#AddressAPI{ /* 우편번호 찾기 버튼 */
+    width: 120px;
+    height: 45px;
+
+    border-radius: 20px;
+    border: 3px solid rgb(255, 175, 175);
+    color:rgb(255, 175, 175);
+    font-size: 15px;
+    font-weight: bold;
+    background-color: white;
+    
+}
+
+#AddressAPI:hover{ /* 우편번호 찾기 버튼 */
+    background-color:  rgb(255, 175, 175);
+    color: white;
+}
+
+.signUpInputAddress{ /* 주소 input태그 */
+    width: 61%;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    height: 100%;
+    margin: 15px;
+}
+/* ---------------------------------------------------------- */
+
+.agreeArea{ /* 약관동의 area */
+    width: 61%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.checkboxTitle{ /* 약관동의 타이틀 */
+    font-size: 20px;
+    font-weight: bold;
+    
+}
+
+.checkboxSlogan{ /* 약관동의 슬로건 */
+    font-size: 12px;
+    color: #ddd;
+}
+
+.checkboxArea{ /* 체크박스 영역 */
+    display: flex;
+    margin-top: 10px;
+}
+
+.checkboxArea > div:nth-child(2){ /* 동의하지 않음 체크박스 */
+    margin-left: 70px;
+}
+
+.checkBoxBtnArea{ /* 약관동의 버튼 영역 */
+    margin-left: 70px;
+}
+
+.checkBoxBtnArea > button{ /* 약관 동의 버튼 */
+    width: 90px;
+    height: 40px;
+    
+    border-radius: 20px;
+    border: 3px solid rgb(255, 175, 175);
+    color:rgb(255, 175, 175);
+    font-size: 15px;
+    font-weight: bold;
+    background-color: white;
+}
+
+.checkBoxBtnArea > button:hover{ /* 약관 동의 버튼 hover */
+    background-color:  rgb(255, 175, 175);
+    color: white;
+}
+/*-----------------------------------------------------------------*/
+
+.signUpBtnArea{ /* 회원가입 버튼 영역 */
+    width: 61%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#signUpBtn{ /* 회원가입 버튼 */
+    width: 70%;
+    height: 50px;
+    
+    border-radius: 10px;
+    border: 3px solid rgb(255, 175, 175);
+    color:rgb(255, 175, 175);
+    font-size: 15px;
+    font-weight: bold;
+    background-color: white;
+}
+
+#signUpBtn:hover{ /* 회원가입 hover */
+    background-color:  rgb(255, 175, 175);
+    color: white;
+}
+
+.footerContainer{ /* 풋터부분 전체 div */
+    width: 100%;
+    height: 10%;
+}
