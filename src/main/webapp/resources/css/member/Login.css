@@ -1,38 +1,43 @@
-*{
+* {
     box-sizing: border-box;
 }
 
-.display{
+.display {
     display: none;
 }
 
-.totalContainer{ /* 페이지 전체 div */
+.totalContainer {
+    /* 페이지 전체 div */
     width: 100%;
     min-width: 1500px;
     height: 750px;
 }
 
-.headerContainer{ /* 헤더부분 전체 div */
+.headerContainer {
+    /* 헤더부분 전체 div */
     width: 100%;
     min-width: 800px;
     height: 10%;
     display: flex;
 }
 
-.navContainer{ /* nav부분 전체 div */
+.navContainer {
+    /* nav부분 전체 div */
     width: 100%;
     height: 5%;
     display: flex;
     min-width: 800px;
 }
 
-.bodyContainer{/* 바디부분 전체 div */
+.bodyContainer {
+    /* 바디부분 전체 div */
     width: 100%;
     height: 60%;
 
 }
 
-.contentContainer{ /* 바디 컨텐츠 부분 */
+.contentContainer {
+    /* 바디 컨텐츠 부분 */
     width: 1200px;
     height: 100%;
     margin: auto;
@@ -41,119 +46,206 @@
     justify-content: center;
 }
 
-.contentContainer > div:nth-child(1){/* 로그인 오른쪽 공백 */
+.contentContainer>div:nth-child(1) {
+    /* 로그인 오른쪽 공백 */
     height: 100%;
     width: 20%;
 }
 
-.contentContainer > div:nth-child(2){/* 로그인 부분 전체 div */
+.contentContainer>div:nth-child(2) {
+    /* 로그인 부분 전체 div */
     width: 60%;
     height: 80%;
-    background-color: rgb(255, 175, 175);
-    ;
+    
+    border: 3px solid rgb(255, 175, 175);
+    border-radius: 10px;
 }
 
-.contentContainer div{
+.contentContainer div {
     padding: 5px;
 }
-.loginNonepart{ /* 로그인 공백 파트 */
+
+.loginNonepart {
+    /* 로그인 공백 파트 */
     height: 80px;
 }
 
-.InputEmailArea{/* 이메일 이미지 + 입력창 */
+.InputEmailArea {
+    /* 이메일 이미지 + 입력창 */
     display: flex;
     justify-content: center;
 }
 
-.emailImg{ /* 이메일 이미지 */
+.emailImg {
+    /* 이메일 이미지 */
     width: 30px;
     height: 100%;
 }
 
-#inputEmail{ /* 이메일 입력창 */
+#inputEmail {
+    /* 이메일 입력창 */
     width: 300px;
     height: 30px;
 }
 
-.InputPasswordArea{/* 비밀번호 이미지 + 입력창 */
+.InputPasswordArea {
+    /* 비밀번호 이미지 + 입력창 */
     display: flex;
     justify-content: center;
 }
 
-.passwordImg{ /* 비밀번호 이미지 */
+.passwordImg {
+    /* 비밀번호 이미지 */
     width: 30px;
     height: 100%;
 }
 
-#inputPassword{/* 비밀번호 입력창 */
+#inputPassword {
+    /* 비밀번호 입력창 */
     width: 300px;
     height: 30px;
 }
 
-.checkboxArea{/* 체크박스 + 아이디 비밀번호 찾기 */
+.checkboxArea {
+    /* 체크박스 + 아이디 비밀번호 찾기 */
     display: flex;
     justify-content: center;
     margin-left: 40px;
-}   
+}
 
-.checkboxArea a{ /* 이메일 찾기 + 비밀번호 찾기 a태그*/
+#saveId{ /* 아이디 저장 체크박스 */
+    cursor: pointer;
+}
+
+/* 초기 상태 (focus 전) */
+input {
+    border: none;
+    border-bottom: 2px solid #ddd;
+    outline: none; /* 기본 outline 제거 */
+    transition: outline-color 0.3s ease, outline-offset 0.3s ease;
+}
+
+/* focus 상태 (outline 색상 및 offset 변경) */
+input:focus {
+    outline: none !important; border-color: rgb(255, 175, 175); box-shadow: 0 0 10px rgb(255, 175, 175);
+}
+
+label{ /* 아이디 저장 글씨 */
+    cursor: pointer;
+}
+
+.checkboxArea a {
+    /* 이메일 찾기 + 비밀번호 찾기 a태그*/
     font-size: 13px;
     text-decoration: none;
     display: flex;
     align-items: center;
+    color: black;
 }
 
-.loginBtnArea{/* 로그인 버튼 영역 */
+.checkboxArea a:hover{
+    color : rgb(255, 175, 175);
+}
+
+.loginBtnArea {
+    /* 로그인 버튼 영역 */
+    width: auto;
     display: flex;
     justify-content: center;
     text-align: center;
 }
 
-#loginBtn{ /* 로그인 버튼 */
-    margin-left: 40px;
-    width: 300px;
-    border-radius: 10px;
-    background-color: rgb(208, 53, 49);
+#loginBtn {
+    /* 로그인 버튼 */
     border: none;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    color: rgb(255, 175, 175);
+    font-weight: 700;
     font-size: 15px;
-    font-weight: bold;
-    color: white;
-    border: 1px solid white;
-}
-
-#loginBtn:hover{ /* 로그인 버튼 hover */
     background-color: white;
-    color:rgb(208, 53, 49);
-    border: 1px solid rgb(208, 53, 49);
+    padding: 17px 60px;
+    margin-left: 180px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.20);
+    width: 340px;
 }
 
-.siguUpArea{ /* 회원가입 영역 */
+#loginBtn span {
+    /* 로그인 글씨 영역 */
+    position: relative;
+    z-index: 1;
+}
+
+#loginBtn:hover {
+    color: white;
+}
+
+
+#loginBtn:after {
+    /* 로그인 버튼 효과 */
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 600%;
+    width: 140%;
+    background: rgb(255, 175, 175);
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+    transform: translateX(-98%) translateY(-25%) rotate(45deg);
+}
+
+
+#loginBtn:hover:after {
+    /* 로그인 버튼 호버 효과 */
+    -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    transform: translateX(-9%) translateY(-25%) rotate(45deg);
+}
+
+
+.siguUpArea {
+    /* 회원가입 영역 */
     display: flex;
     justify-content: center;
-    
+
 }
 
-.siguUpArea > div:nth-child(1){ /* 혹시 회원이 아니신가요? + 회원가입 a태그 */
+.siguUpArea>div:nth-child(1) {
+    /* 혹시 회원이 아니신가요? + 회원가입 a태그 */
     width: 250px;
     text-align: center;
 }
 
-.siguUpArea a{ /* 회원가입 a태그 */
+.siguUpArea a {
+    /* 회원가입 a태그 */
     font-size: 15px;
     text-decoration: none;
+    color: black;
 }
 
+.siguUpArea a:hover{
+    color: rgb(255, 175, 175);
+}
 
-.checkboxArea > div:nth-child(2){/* 체크박스 공백부분 */
+.checkboxArea>div:nth-child(2) {
+    /* 체크박스 공백부분 */
     width: 50px;
 }
 
-.contentContainer > div:nth-child(3){/* 로그인 왼쪽 공백 */
+.contentContainer>div:nth-child(3) {
+    /* 로그인 왼쪽 공백 */
     height: 100%;
     width: 20%;
 }
 
-.footerContainer{ /* 풋터부분 전체 div */
+.footerContainer {
+    /* 풋터부분 전체 div */
     width: 100%;
     height: 15%;
 }
@@ -162,7 +254,8 @@
 /* ---------------------------------------------------------------------------------- */
 /* 이메일 찾기 영역 */
 
-.findprofileArea{ /* 찾기 영역 전체 */
+.findprofileArea {
+    /* 찾기 영역 전체 */
     width: 100%;
     height: 100%;
     background-color: #ddd;
@@ -171,20 +264,23 @@
     align-items: center;
 }
 
-.profileCheck{ /* 찾기 영역 content 부분 */
+.profileCheck {
+    /* 찾기 영역 content 부분 */
     width: 500px;
     height: 550px;
     background-color: white;
-    
+
 }
 
-.findContentArea{ /* 찾기 영역 내부 부분 */
+.findContentArea {
+    /* 찾기 영역 내부 부분 */
     width: 80%;
     height: 100%;
     margin: auto;
 }
 
-.profileCheck > div:nth-child(1){ /* 아이디/비밀번호 찾기 글씨 영역 */
+.profileCheck>div:nth-child(1) {
+    /* 아이디/비밀번호 찾기 글씨 영역 */
     width: 80%;
     height: 100px;
     display: flex;
@@ -192,11 +288,12 @@
     justify-content: center;
     padding-left: 10px;
     font-size: 25px;
-    font-weight:bold;
+    font-weight: bold;
 
 }
 
-.profileCheck > div:nth-child(2){ /* 인증된 이메일만 정보 찾기가 가능합니다 글씨 영역 */
+.profileCheck>div:nth-child(2) {
+    /* 인증된 이메일만 정보 찾기가 가능합니다 글씨 영역 */
     width: 80%;
     height: 50px;
     padding-left: 75px;
@@ -206,12 +303,13 @@
     justify-content: center;
 }
 
-.profileCheck > div:nth-child(3){ /* 아이디 찾기 비밀번호 찾기 checkbox 부분 */
+.profileCheck>div:nth-child(3) {
+    /* 아이디 찾기 비밀번호 찾기 checkbox 부분 */
     width: 67%;
     height: 50px;
     border-top: 1px solid #ddd;
     padding-right: 60px;
-    margin:auto;
+    margin: auto;
 
     display: flex;
     align-items: center;
@@ -219,32 +317,37 @@
 
 }
 
-#searchPassword{ /* 비밀번호 찾기 checkbox */
-   margin-left: 50px;
+#searchPassword {
+    /* 비밀번호 찾기 checkbox */
+    margin-left: 50px;
 }
 
-.profileCheck > div:nth-child(4){ /* 이름 글씨 부분 */
+.profileCheck>div:nth-child(4) {
+    /* 이름 글씨 부분 */
     width: 80%;
     height: 30px;
     margin: auto;
     padding-left: 35px;
 }
 
-.profileCheck > div:nth-child(5){ /* 이름 input태그 영역 */
+.profileCheck>div:nth-child(5) {
+    /* 이름 input태그 영역 */
     width: 67%;
     height: 35px;
 
     margin: auto;
 }
 
-#searchInputName{ /* 이름 input태그 */
+#searchInputName {
+    /* 이름 input태그 */
     width: 100%;
     height: 100%;
 
     border-radius: 5px;
 }
 
-.profileCheck > div:nth-child(6){ /* 휴대전화번호 글씨 부분 */
+.profileCheck>div:nth-child(6) {
+    /* 휴대전화번호 글씨 부분 */
     width: 80%;
     height: 30px;
     margin: auto;
@@ -252,7 +355,8 @@
     padding-top: 15px;
 }
 
-.profileCheck > div:nth-child(7){ /* 휴대전화번호 input태그 영역 */
+.profileCheck>div:nth-child(7) {
+    /* 휴대전화번호 input태그 영역 */
     width: 67%;
     height: 45px;
     padding-top: 10px;
@@ -260,14 +364,16 @@
     margin: auto;
 }
 
-#searchInputPhone{ /* 휴대전화번호 input태그 */
+#searchInputPhone {
+    /* 휴대전화번호 input태그 */
     width: 100%;
     height: 100%;
 
     border-radius: 5px;
 }
 
-.profileCheck > div:nth-child(8){ /* 확인버튼 영역 */
+.profileCheck>div:nth-child(8) {
+    /* 확인버튼 영역 */
     width: 67%;
     height: 70px;
     margin: auto;
@@ -275,12 +381,62 @@
     padding-top: 20px;
 }
 
-.searchYesBtn{ /* 확인 버튼 */
+.loginPageBtn{ /* 로그인, 이메일 비밀번호 찾기 확인, 취소 버튼들 */
+    border: none;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    color: rgb(255, 175, 175);
+    font-weight: 700;
+    font-size: 15px;
+    background-color: white;
+    padding: 17px 60px;
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.20);
+}
+
+.loginPageBtn span{
+    position: relative;
+    z-index: 1;
+}
+
+.loginPageBtn:after {
+    /* 로그인 버튼 효과 */
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 1000%;
+    width: 140%;
+    background: rgb(255, 175, 175);
+    -webkit-transition: all 1.5s ease-in-out;
+    transition: all .5s ease-in-out;
+    -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+    transform: translateX(-98%) translateY(-25%) rotate(45deg);
+}
+
+.loginPageBtn:hover {
+    color: white;
+}
+
+.loginPageBtn:hover:after {
+    /* 로그인 버튼 호버 효과 */
+    -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    transform: translateX(-9%) translateY(-25%) rotate(45deg);
+}
+
+#searchYesBtn {
+    /* 확인 버튼 */
     width: 100%;
     height: 100%;
 }
 
-.profileCheck > div:nth-child(9){ /* 취소 버튼 영역 */
+.profileCheck>div:nth-child(9) {
+    /* 취소 버튼 영역 */
     width: 67%;
     height: 70px;
     margin: auto;
@@ -289,7 +445,8 @@
 }
 
 
-.searchNoBtn{ /* 취소 버튼 */
+#searchNoBtn {
+    /* 취소 버튼 */
     width: 100%;
     height: 100%;
 }
@@ -298,34 +455,52 @@
 /*---------------------------------------------------------------------------*/
 /*비밀번호 찾기 영역*/
 
-#searchInputEmail{ /* 이메일 입력란 */
+#searchInputEmail {
+    /* 이메일 입력란 */
     width: 60%;
     height: 100%;
 }
 
-#checkNumberBtn{ /* 인증번호 전송버튼 */
+#checkNumberBtn {
+    /* 인증번호 전송버튼 */
     width: 35%;
     height: 100%;
+    border-radius: 10px;
+    border: 3px solid rgb(255, 175, 175);
+    color:rgb(255, 175, 175);
+    font-size: 15px;
+    font-weight: bold;
+    background-color: white;
+    cursor: pointer;
 }
 
-.checkNumberArea{ /*  */
+#checkNumberBtn:hover{
+    background-color:  rgb(255, 175, 175);
+    color: white;
+}
+
+.checkNumberArea {
+    /*  */
     width: 100%;
     height: 100%;
 }
 
-.emailAPITime{ /* 인증번호 시간부분 */
+.emailAPITime {
+    /* 인증번호 시간부분 */
     padding-bottom: 30px;
 }
 
-.profilePasswordCheck{ /* 비밀번호 찾기 영역 content 부분 */
+.profilePasswordCheck {
+    /* 비밀번호 찾기 영역 content 부분 */
     width: 500px;
     height: 550px;
     background-color: white;
-    
+
 }
 
 
-.profilePasswordCheck > div:nth-child(1){ /* 아이디/비밀번호 찾기 글씨 영역 */
+.profilePasswordCheck>div:nth-child(1) {
+    /* 아이디/비밀번호 찾기 글씨 영역 */
     width: 80%;
     height: 100px;
     display: flex;
@@ -333,11 +508,12 @@
     justify-content: center;
     padding-left: 10px;
     font-size: 25px;
-    font-weight:bold;
+    font-weight: bold;
 
 }
 
-.profilePasswordCheck > div:nth-child(2){ /* 인증된 이메일만 정보 찾기가 가능합니다 글씨 영역 */
+.profilePasswordCheck>div:nth-child(2) {
+    /* 인증된 이메일만 정보 찾기가 가능합니다 글씨 영역 */
     width: 80%;
     height: 50px;
     padding-left: 75px;
@@ -347,12 +523,13 @@
     justify-content: center;
 }
 
-.profilePasswordCheck > div:nth-child(3){ /* 아이디 찾기 비밀번호 찾기 checkbox 부분 */
+.profilePasswordCheck>div:nth-child(3) {
+    /* 아이디 찾기 비밀번호 찾기 checkbox 부분 */
     width: 67%;
     height: 50px;
     border-top: 1px solid #ddd;
     padding-right: 60px;
-    margin:auto;
+    margin: auto;
 
     display: flex;
     align-items: center;
@@ -360,21 +537,24 @@
 
 }
 
-.profilePasswordCheck > div:nth-child(4){ /* 이메일 글씨 부분 */
+.profilePasswordCheck>div:nth-child(4) {
+    /* 이메일 글씨 부분 */
     width: 80%;
     height: 30px;
     margin: auto;
     padding-left: 35px;
 }
 
-.profilePasswordCheck > div:nth-child(5){ /* 이메일 input태그 영역 */
+.profilePasswordCheck>div:nth-child(5) {
+    /* 이메일 input태그 영역 */
     width: 67%;
     height: 35px;
 
     margin: auto;
 }
 
-.profilePasswordCheck > div:nth-child(6){ /* 인증번호 시간 글씨 부분 */
+.profilePasswordCheck>div:nth-child(6) {
+    /* 인증번호 시간 글씨 부분 */
     width: 80%;
     height: 30px;
     margin: auto;
@@ -382,7 +562,8 @@
     padding-top: 5px;
 }
 
-.profilePasswordCheck > div:nth-child(7){ /* 인증번호글씨 영역 */
+.profilePasswordCheck>div:nth-child(7) {
+    /* 인증번호글씨 영역 */
     width: 67%;
     height: 45px;
     padding-top: 10px;
@@ -390,13 +571,15 @@
     margin: auto;
 }
 
-.profilePasswordCheck > div:nth-child(8){ /* 인증번호 input 영역 */
+.profilePasswordCheck>div:nth-child(8) {
+    /* 인증번호 input 영역 */
     width: 67%;
     height: 40px;
     margin: auto;
 }
 
-#inputCheckNumber{ /* 인증번호 입력 input */
+#inputCheckNumber {
+    /* 인증번호 입력 input */
     width: 100%;
     height: 70%;
 
@@ -404,20 +587,73 @@
 
 }
 
-.profilePasswordCheck > div:nth-child(9){ /* 확인 버튼 영역 */
+.profilePasswordCheck>div:nth-child(9) {
+    /* 확인 버튼 영역 */
     width: 67%;
-    height: 60px;
+    height: 70px;
     margin: auto;
 
     padding: 10px 0;
 
 }
 
-.profilePasswordCheck > div:nth-child(10){ /* 취소 버튼 영역 */
+.profilePasswordCheck>div:nth-child(10) {
+    /* 취소 버튼 영역 */
     width: 67%;
-    height: 60px;
+    height: 70px;
     margin: auto;
 
     padding: 10px 0;
 
+}
+
+[type="radio"], span {
+    vertical-align: middle;
+}
+
+[type="radio"] {
+    appearance: none;
+    border: max(2px, 0.1em) solid gray;
+    border-radius: 50%;
+    width: 1.50em;
+    height: 1.25em;
+    transition: border 0.3s ease-in-out;
+}
+
+[type="radio"]:checked {
+    border: 0.4em solid rgb(255, 175, 175);
+}
+
+[type="radio"]:focus-visible {
+    outline-offset: max(2px, 0.3em);
+    outline: max(2px, 0.2em) dotted rgb(255, 175, 175);
+}
+
+[type="radio"]:hover {
+    box-shadow: 0 0 0 max(4px, 0.3em) rgb(255, 175, 175);
+    cursor: pointer;
+}
+
+[type="radio"]:hover + span {
+    cursor: pointer;
+}
+
+[type="radio"]:disabled {
+    background-color: lightgray;
+    box-shadow: none;
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+[type="radio"]:disabled + span {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.searchEmail{
+    font-size: 14px;
+}
+
+.searchPassword{
+    font-size: 14px;
 }
