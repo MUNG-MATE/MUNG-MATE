@@ -7,6 +7,7 @@
 <title>MUNGMATE</title>
 </head>
 <body>
+	<jsp:include page="/WEB-INF/views/common/header.jsp" />
 	멍메이트 입니당
 	
 	
