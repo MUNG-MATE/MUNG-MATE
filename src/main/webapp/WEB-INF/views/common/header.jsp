@@ -4,13 +4,13 @@
 
 <%-- 문자열 관련 함수(메소드) 제공 JSTL (EL 형식으로 작성) --%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<link rel="stylesheet" href="${contextPath}/resources/css/header.css">
+<link rel="stylesheet" href="/resources/css/header.css">
 <header class="head">
 
     <!-- 로고 영역 -->
     <div>
         <a href="#">
-            <img src="../image/logo.png" alt="" class="headerLogo">
+            <img src="/resources/images/MungMateLogo.png" alt="" class="headerLogo">
         </a>
     </div>
     
