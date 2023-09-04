@@ -1,4 +1,5 @@
 
+
 *{
 
     box-sizing: border-box;
@@ -7,6 +8,10 @@
 /* div{
     border: 1px solid black;
 } */
+
+.display{
+    display: none;
+}
 
 .error{
     color: red;
@@ -126,6 +131,10 @@ input:focus {
     border-bottom: 2px solid #ddd;
 }
 
+#nickMessage { /* 정규식 문구 부분 */
+    font-size: 13px;
+}
+
 
 /* ---------------------------------------------------------- */
 
@@ -151,9 +160,7 @@ input:focus {
 }
 
 #emailMessage { /* 정규식 문구 부분 */
-
     margin-top: 10px;
-    margin-bottom: 20px;
     font-size: 13px;
 }
 
@@ -187,7 +194,8 @@ input:focus {
 .signUpEmailcheck{/* 인증번호 영역 */
     width: 70%;
     height: 50px;
-    margin: 30px;
+    margin: 15px;
+    margin-top: 50px;
 
 
     display: flex;
@@ -205,10 +213,16 @@ input:focus {
     height: 200px;
 }
 
+
 .signUpEmailcheck > div:nth-child(3) { /* 인증번호 시간 */
     margin-right: 450px;
     margin-top: 10px;
     margin-bottom: 20px;
+    font-size: 13px;
+}
+
+#authKeyMessage { /* 정규식 문구 부분 */
+    margin-top: 30px;
     font-size: 13px;
 }
 
@@ -245,7 +259,7 @@ input:focus {
 .signUpPassword{/* 회원가입 비밀번호 영역 */
     width: 70%;
     height: 50px;
-    margin: 30px;
+    margin-top: 80px;
 
 
     display: flex;
@@ -259,9 +273,10 @@ input:focus {
     margin: 10px;
 }
 
-.signUpPassword > div:nth-child(3) {/* 비밀번호 정규식 글씨 부분  */
-    margin-right: 250px;
-    margin-top: 10px;
+#pwMessage1 { /* 정규식 문구 부분 */
+
+    margin-top: 30px;
+    margin-bottom: 20px;
     font-size: 13px;
 }
 
@@ -291,11 +306,12 @@ input:focus {
     margin: 10px;
 }
 
-.signUpPasswordCheck > div:nth-child(3) {/* 비밀번호 정규식 글씨 부분  */
-    margin-right: 340px;
-    margin-top: 10px;
+#pwMessage2 { /* 정규식 문구 부분 */
+
+    margin-bottom: 20px;
     font-size: 13px;
 }
+
 
 #signUpInputPasswordCheck{ /* 비밀번호 확인 input */
     width: 60%;
@@ -309,7 +325,7 @@ input:focus {
 .signUpPhone{/* 전화번호 영역 */
     width: 70%;
     height: 50px;
-    margin: 30px;
+    margin-bottom: 30px;
 
 
     display: flex;
@@ -329,6 +345,14 @@ input:focus {
     border: none;
     border-bottom: 2px solid #ddd;
 }
+
+#telMessage { /* 정규식 문구 부분 */
+
+    margin-bottom: 20px;
+    font-size: 13px;
+}
+
+
 
 /* ---------------------------------------------------------- */
 

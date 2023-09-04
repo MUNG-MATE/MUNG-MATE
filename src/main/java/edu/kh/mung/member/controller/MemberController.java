@@ -31,4 +31,11 @@ public class MemberController {
 		return service.CheckEmail(email);
 	}
 	
+	// 회원가입 중 닉네임 중복 검사
+	@GetMapping("/dupCheck/nickname")
+	@ResponseBody
+	public int checkNickname(String nickname) {
+		
+		return service.checkNickname(nickname);
+	}
 }
