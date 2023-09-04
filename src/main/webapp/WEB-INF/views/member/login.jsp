@@ -102,9 +102,7 @@
                 <div><button class="loginPageBtn" id="searchYesBtn"><span>확인</span></button></div>
                 <div><button class="loginPageBtn" id="searchNoBtn"><span>취소</span></button></div>
 
-                
             </div>
-
         </div>
     </div>
 </body>
