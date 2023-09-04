@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family:'Montserrat','pretendard';
 }
 
 
@@ -124,6 +125,10 @@ justify-content:space-evenly;
     height: 200px;
     margin: auto;
     margin-top: 0;
+}
+
+.petSitterInfo span {
+    padding-left: 20px;
 }
 
 

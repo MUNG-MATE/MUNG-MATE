@@ -2,13 +2,6 @@
     box-sizing: border-box;
 }
 
-/* 헤더 */
-.header {
-    height: 200px;
-    width: 100%;
-    margin: auto;
-    border: 1px solid black;
-}
 
 .body {
     margin: 0;
@@ -22,13 +15,13 @@
 
 .mainImage{
     width: 100%;
-    height: 800px;
+    height: 830px;
 }
 
 .mainImageIn {
     position: relative;
     bottom: 557px;
-    left: 222px;
+    left: 310px;
     width: 350px;
 }
 
@@ -50,11 +43,6 @@
     border-radius: 10px;
     cursor: pointer;
 }
-
-*{
-    box-sizing: border-box;
-}
-
 
 
 
@@ -99,7 +87,6 @@
 }
 
 .imgArea{ /* 이미지 영역 */
-    border: 1px solid black;
     width: 50%;
     height: 60%;
     border-radius: 100%;
@@ -107,14 +94,15 @@
 }
 
 .imgArea > img{ /* img태그 */
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
 }
 
 .fade-in > div:nth-child(2){ /* 타이틀 영역 */
     font-size: 20px;
     font-weight: bold;
     text-align: center;
+    padding-top: 10px;
 }
 .fade-in > div:nth-child(3){ /* 내용 영역 */
     text-align: center;

@@ -132,5 +132,6 @@ Mung Mate 개발자 일동
     </div>
 
 </body>
+<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
 </html>
