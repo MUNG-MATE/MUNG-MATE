@@ -2,18 +2,11 @@
     box-sizing: border-box;
 }
 
-/* 헤더 */
-.header {
-    height: 200px;
-    width: 100%;
-    margin: auto;
-    border: 1px solid black;
-}
+
 
 /* 컨텐츠 전체 */
 .content {
     width: 1200px;
-    border: 1px solid black;
     height: 100%;
     margin: auto;
 }

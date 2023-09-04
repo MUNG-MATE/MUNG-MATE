@@ -10,6 +10,10 @@
     border: 1px solid black;
 }
 
+.body {
+    margin: 0;
+}
+
 .content {
     width: 1200px;
     height: 100%;
@@ -51,8 +55,6 @@
     box-sizing: border-box;
 }
 
-div{
-}
 
 
 
@@ -151,7 +153,7 @@ div{
   justify-content: space-evenly;
   align-items: center;
   padding-left: 24px;
-  padding-top: 100px;
+  padding-top: 190px;
 }
 
 .slideAll img {
