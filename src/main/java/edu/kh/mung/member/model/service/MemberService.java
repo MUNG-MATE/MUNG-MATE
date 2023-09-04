@@ -8,4 +8,10 @@ public interface MemberService {
 	 */
 	int CheckEmail(String email);
 
+
+ 	/** 회원가입 중 닉네임 중복 검사
+	 * @param nickname
+	 * @return count
+	 */
+	int checkNickname(String nickname);
 }
