@@ -131,6 +131,6 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
     
     <script src="/resources/js/Administrator/code.jquery.com_jquery-3.7.1.min.js"></script>
-    <script src="/resources/js/Administrator/sidebar.js"></script>
+    <script src="/resources/js/Administrator/faq.js"></script>
 </body>
 </html>
