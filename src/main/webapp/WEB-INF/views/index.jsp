@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>메인 페이지</title>
+    <title>MUNG MATE</title>
     <link rel="stylesheet" href="/resources/css/index.css">
 </head>
 
@@ -26,7 +26,7 @@
         <div class="mainPageContent3">
             <div class="fade-in">
                 <div class="imgArea">
-                    <img src="/resources/images/MungMateLogo.png">
+                    <img src="/resources/images/house-heart.svg">
                 </div>
                 <div>
                     24시간 가정 돌봄
@@ -38,7 +38,7 @@
             </div>
             <div class="fade-in">
                 <div class="imgArea">
-                    <img src="/resources/images/MungMateLogo.png">
+                    <img src="/resources/images/산책.png">
                 </div>
                 <div>매일매일 산책하기</div>
                 <div>
@@ -48,7 +48,7 @@
             </div>
             <div class="fade-in">
                 <div class="imgArea">
-                    <img src="/resources/images/MungMateLogo.png">
+                    <img src="/resources/images/search.svg">
                 </div>
                 <div>
                     체계적 검증시스템
@@ -60,7 +60,7 @@
             </div>
             <div class="fade-in">
                 <div class="imgArea">
-                    <img src="/resources/images/MungMateLogo.png">
+                    <img src="/resources/images/핸드폰.gif">
                 </div>
                 <div>
                     모바일에서도 원스톱
@@ -72,7 +72,7 @@
             </div>
             <div class="fade-in">
                 <div class="imgArea">
-                    <img src="/resources/images/MungMateLogo.png">
+                    <img src="/resources/images/안전.png">
                 </div>
                 <div>
                     안전보장 프로그램
@@ -314,11 +314,11 @@
 
 
         </div>
+
+
+
 		<jsp:include page="/WEB-INF/views/common/footer.jsp" />
-
-
-        <script src="/resources/js/index.js"></script>
-
 </body>
+        <script src="/resources/js/index.js"></script>
 
 </html>
