@@ -8,10 +8,18 @@
     border: 1px solid black;
 } */
 
+.error{
+    color: red;
+}
+
+.confirm{
+    color: green;
+}
+
 .totalContainer{ /* 페이지 전체 div */
     width: 100%;
     min-width: 1500px;
-    height: 1500px;
+    height: 100%;
 }
 
 .headerContainer{ /* 헤더부분 전체 div */
@@ -39,7 +47,7 @@
 
 .signUpTitle{/* 회원가입 타이틀 영역 */
     width: 100%;
-    height: 900px;
+    height: 100px;
 
     display: flex;
     align-items: center;
@@ -118,6 +126,7 @@ input:focus {
     border-bottom: 2px solid #ddd;
 }
 
+
 /* ---------------------------------------------------------- */
 
 .signUpEmail{/* 회원가입 아이디(이메일) 영역 */
@@ -139,6 +148,13 @@ input:focus {
 
 .signUpEmail > div:nth-child(2) { /* 아이디(이메일) input + 버튼 영역 */
     height: 200px;
+}
+
+#emailMessage { /* 정규식 문구 부분 */
+
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 13px;
 }
 
 #signUpInputEmail{ /* 아이디(이메일) input */
@@ -190,8 +206,9 @@ input:focus {
 }
 
 .signUpEmailcheck > div:nth-child(3) { /* 인증번호 시간 */
-    margin-right: 460px;
+    margin-right: 450px;
     margin-top: 10px;
+    margin-bottom: 20px;
     font-size: 13px;
 }
 
@@ -243,7 +260,7 @@ input:focus {
 }
 
 .signUpPassword > div:nth-child(3) {/* 비밀번호 정규식 글씨 부분  */
-    margin-right: 210px;
+    margin-right: 250px;
     margin-top: 10px;
     font-size: 13px;
 }
@@ -269,13 +286,13 @@ input:focus {
 }
 
 .signUpPasswordCheck > div:nth-child(1) { /* 비밀번호 확인 타이틀 */
-    padding-right: 400px;
+    padding-right: 410px;
     color: #aaa;
     margin: 10px;
 }
 
 .signUpPasswordCheck > div:nth-child(3) {/* 비밀번호 정규식 글씨 부분  */
-    margin-right: 310px;
+    margin-right: 340px;
     margin-top: 10px;
     font-size: 13px;
 }
@@ -301,7 +318,7 @@ input:focus {
 }
 
 .signUpPhone > div:nth-child(1) { /* 전화번호 타이틀 */
-    padding-right: 400px;
+    padding-right: 410px;
     color: #aaa;
     margin: 10px;
 }
@@ -327,21 +344,21 @@ input:focus {
 }
 
 .signUpAddress > div:nth-child(1) { /* 주소 타이틀 */
-    padding-right: 400px;
+    padding-right: 470px;
     color: #aaa;
     margin: 10px;
 }
 
 .signUpAddress > div:nth-child(2) { /* 주소 input + 버튼 영역 */
-    height: 200px;
+    height: 50px;
 }
 .signUpAddress > div:nth-child(3) { /* 주소 input*/
     margin: 10px;
-    height: 200px;
+    height: 50px;
 }
 .signUpAddress > div:nth-child(4) { /* 주소 input*/
     margin: 10px;
-    height: 200px;
+    height: 50px;
 }
 
 #signUpInputAddress{ /* 주소 input */
@@ -384,6 +401,10 @@ input:focus {
     display: flex;
     justify-content: center;
     align-self: center;
+}
+
+.agreeArea > div:nth-child(1){
+    width: 47%;
 }
 
 .checkboxTitle{ /* 약관동의 타이틀 */
@@ -490,6 +511,7 @@ input:focus {
     align-items: center;
     justify-content: center;
     margin-top: 70px;
+    margin-bottom: 70px;
 }
 
 #signUpBtn{ /* 회원가입 버튼 */
