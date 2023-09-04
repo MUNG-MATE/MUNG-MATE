@@ -1,0 +1,273 @@
+@charset "utf-8";
+
+*{margin: 0; padding: 0; box-sizing: border-box;}
+li{list-style: none;} a{text-decoration: none; color: inherit;} img{vertical-align: top;}
+
+main{
+    width: 1200px;
+    height: auto;
+    margin: 0 auto;
+}
+body{
+    position: relative;
+}
+/* -------------------------------------사이드바----------------------------------------------- */
+.nav {
+    width: 335px;
+    height: 100%;
+    text-align: center;
+    position: absolute;
+    right: 0;
+    background-color: antiquewhite;
+    z-index: 10;
+    display: none;
+}
+.gnb {
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+}
+.gnb> li{
+    min-width: 360px;
+}
+.gnb > li > a {
+    display: block;
+    max-width: 100%;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+.gnb > li > a:hover {
+    color: rgb(208, 53, 49);
+}
+.sub_gnb {
+    height: 200px;
+    width: 100%;
+    display: none;
+}
+
+.sub_gnb > li{
+    width: 100%;
+    color: #ffffff;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: rgb(255, 175, 175);
+    cursor: pointer;
+}
+
+.sub_gnb > li:hover {
+    color: rgb(208, 53, 49);
+}
+
+.toggle {
+    position: absolute;
+    right: 1.5%;
+    top: 1.5%;
+}
+
+.toggle_btn {
+    position: relative;
+    width: 30px;
+    height: 24px;
+    cursor: pointer;
+    transition: 1s;
+    z-index: 999999;
+
+}
+
+.toggle_btn span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: black;
+    border-radius: 4px;
+    transition: 1s;
+}
+
+.toggle_btn span:nth-child(1) {
+    top: 0;
+}
+
+.toggle_btn span:nth-child(2) {
+    top: 10px;
+}
+
+.toggle_btn span:nth-child(3) {
+    bottom: 0px;
+}
+
+.toggle_btn.active span:nth-child(1) {
+    transform: translateY(10px) rotate(-45deg);
+}
+
+.toggle_btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.toggle_btn.active span:nth-child(3) {
+    transform: translateY(-10px) rotate(45deg);
+}
+/* ------------------------------------FAQ , 설명 부문 ------------------------------------------------ */
+section:nth-of-type(1){
+    width: 100%;
+    height: 1000px;
+}
+.title-box{
+    width: 1200px;
+    height: 150px;
+    margin: 100px auto 0 auto;
+    text-align: center;
+}
+.title-box h1{
+    font-size: 50px;
+    color: #333;
+    margin: 0 auto;
+}
+.title-box > div {
+    border: 2px solid #eee;
+    width: 900px;
+    height: 80px;
+    padding: 15px;
+    margin: 15px auto 0;
+    color: rgb(56, 119, 236);
+    position: relative;
+}
+.title-box img{
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    right: -15px;
+    top: -90px;
+}
+/* -------------------------------------- 검색 영역-----------------------------------------------*/
+.search-box{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 150px;
+    height: 100px;
+}
+#faqCat{
+    width: 120px;
+    height: 35px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #dddddd;
+}
+#faq{
+    width: 200px;
+    height: 35px;
+    padding-left: 10px;
+    border: 1px solid #dddddd;
+    outline: none;
+}
+.search-box button{
+    background-color: antiquewhite;
+    width: 90px;
+    height: 35px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.search-box button:hover{
+    background-color: rgb(255, 175, 175);
+    color: rgb(208, 53, 49);
+
+}
+/* -------------------------------------- 내용부문-----------------------------------------------*/
+.faq-content{
+    width: 900px;
+    height: auto;
+    margin: 0 auto;
+}
+.faq-content> div >ul{
+    width: 100%;
+    height: 50px;
+    display: flex;
+}
+.faq-content > div > ul > li{
+    width: 120px;
+    height: 50px;
+    line-height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+.faq-content >div:nth-of-type(1){
+    border-bottom: 2px solid #c4c2c2;
+    
+}
+.faq-content > div > ul > li:hover{
+    background-color: rgb(208, 53, 49);
+    color: white;
+}
+.td-img{
+    width: 30px;
+    height: 30px;
+}
+.faq-content table{
+    width: 100%;
+}
+.faq-content .t-tr{
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #c4c2c2;
+    height: 60px;
+}
+.faq-content td{
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+.faq-content .t-tr > td:nth-child(1){
+    width: 30px;
+    margin-right: 10px;
+}
+.faq-content .t-tr > td:nth-child(2){
+    width: 100px;
+    border-radius: 15px;
+    background-color: #eee;
+    margin-right: 20px;
+}
+.faq-content .t-tr > td:nth-child(3){
+    width: 710px;
+    text-align: left;
+}
+.faq-content .t-tr> td:nth-child(4){
+    width: 30px;
+    cursor: pointer;
+}
+.faq-answer{
+    width: 100%;
+    align-items: normal !important;
+    height: 150px !important;
+    background-color: #eee;
+    padding: 20px;
+    display: none;
+}
+/* -------------------------------------------------------------------------------------- */
+.pagination{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* -------------------------------------------------------------------------------------- */
+footer{
+    background-color: #333;
+    width: 100%;
+    height: 200px;
+}
