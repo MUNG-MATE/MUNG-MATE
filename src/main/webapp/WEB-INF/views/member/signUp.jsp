@@ -1,21 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>회원가입</title>
 
     <link rel="stylesheet" href="../../../resources/css/member/signUp.css">
 </head>
 <body>
     <div class="totalContainer">
        
-        <div class="headerContainer">
-           헤더
-        </div>
-        <div class="navContainer">
-          nav
-        </div>
+        <jsp:include page="/WEB-INF/views/common/header.jsp" />
         <div class="bodyContainer">
             
             <div class="contentContainer">
@@ -74,8 +71,8 @@
                         <div class="checkboxTitle">개인정보 마케팅 활용 동의</div>
                         <div class="checkboxSlogan">MUNGMATE에서의 개인정보 마케팅 활용에 동의하시겠습니까?</div>
                         <div class="checkboxArea">
-                            <div><input type="radio" id="agree1" name="agree"><label for="agree1">동의함</label></div>
-                            <div><input type="radio" id="notAgree1" name="agree"><label for="notAgree1">동의하지않음</label></div>
+                            <div><input type="radio" id="agree1" name="agree" class="radiopart"><label for="agree1">동의함</label></div>
+                            <div><input type="radio" id="notAgree1" name="agree" class="radiopart"><label for="notAgree1">동의하지않음</label></div>
                         </div>
                     </div>
                     <div class="checkBoxBtnArea"><button>약관 확인</button></div>
@@ -86,8 +83,8 @@
                         <div class="checkboxTitle">개인정보 제3자 제공 동의</div>
                         <div class="checkboxSlogan">서비스 제공을 위한 개인정보 제 3자 제공에 동의하시겠습니까?</div>
                         <div class="checkboxArea">
-                            <div><input type="radio" id="agree2" name="agree2"><label for="agree2">동의함</label></div>
-                            <div><input type="radio" id="notAgree2" name="agree2"><label for="notAgree2">동의하지않음</label></div>
+                            <div><input type="radio" id="agree2" name="agree2" class="radiopart"><label for="agree2"><span>동의함</span></label></div>
+                            <div><input type="radio" id="notAgree2" name="agree2" class="radiopart"><label for="notAgree2"><span>동의하지않음</span></label></div>
                         </div>
                     </div>
                     <div class="checkBoxBtnArea"><button>약관 확인</button></div>

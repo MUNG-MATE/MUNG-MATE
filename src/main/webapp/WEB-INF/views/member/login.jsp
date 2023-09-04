@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +12,7 @@
 <body>
     <div class="totalContainer">
        
-        <div class="headerContainer">
-           헤더
-        </div>
+        <jsp:include page="/WEB-INF/views/common/header.jsp" />
         <div class="navContainer">
           nav
         </div>
@@ -38,12 +38,12 @@
                         </div>
                     </div>
                     <div class="checkboxArea">
-                        <div><input type="checkbox">아이디 저장</div>
+                        <div><input type="checkbox" id="saveId"><label for="saveId">아이디 저장</label></div>
                         <div></div>
-                        <div><a href="#">이메일/비밀번호 찾기</a></div>
+                        <div><a href="#">이메일 / 비밀번호 찾기</a></div>
                     </div>
                     <div class="loginBtnArea">
-                        <button id="loginBtn">로그인</button>
+                        <button class="loginPageBtn" id="loginBtn"><span>로그인</span></button>
                     </div>
                     <div class="siguUpArea">
                         <div>혹시 회원이 아니신가요?</div>
@@ -64,8 +64,8 @@
                 <div>아이디/비밀번호 찾기</div>
                 <div>인증된 이메일만 정보 찾기가 가능합니다 :)</div>
                 <div>
-                    <input type="radio" id="searchEmail" name="findRadio"> <label for="searchEmail">아이디 찾기</label> 
-                    <input type="radio" id="searchPassword" name="findRadio"> <label for="searchPassword">비밀번호 찾기</label>
+                    <input type="radio" id="searchEmail" name="findRadio"> <label for="searchEmail" class="searchEmail">아이디 찾기</label> 
+                    <input type="radio" id="searchPassword" name="findRadio"> <label for="searchPassword" class="searchPassword">비밀번호 찾기</label>
                 </div>
                 <div>이름</div>
                 <div>
@@ -75,8 +75,8 @@
                 <div>
                 <input type="text" id="searchInputPhone"> 
                 </div>
-                <div><button class="searchYesBtn">확인</button></div>
-                <div><button class="searchNoBtn">취소</button></div>
+                <div><button class="loginPageBtn" id="searchYesBtn"><span>확인</span></button></div>
+                <div><button class="loginPageBtn" id="searchNoBtn"><span>취소</span></button></div>
             
             </div>            
         </div>
@@ -86,8 +86,8 @@
                 <div>아이디/비밀번호 찾기</div>
                 <div>인증된 이메일만 정보 찾기가 가능합니다 :)</div>
                 <div>
-                    <input type="radio" id="searchEmail" name="findRadio"> <label for="searchEmail">아이디 찾기</label> 
-                    <input type="radio" id="searchPassword" name="findRadio"> <label for="searchPassword">비밀번호 찾기</label>
+                    <input type="radio" id="searchEmail" name="findRadio"> <label for="searchEmail" class="searchEmail">아이디 찾기</label> 
+                    <input type="radio" id="searchPassword" name="findRadio"> <label for="searchPassword" class="searchPassword">비밀번호 찾기</label>
                 </div>
                 <div>이메일</div>
                 <div>
@@ -99,8 +99,8 @@
                 <div>
                     <input type="text" id="inputCheckNumber">
                 </div>
-                <div><button class="searchYesBtn">확인</button></div>
-                <div><button class="searchNoBtn">취소</button></div>
+                <div><button class="loginPageBtn" id="searchYesBtn"><span>확인</span></button></div>
+                <div><button class="loginPageBtn" id="searchNoBtn"><span>취소</span></button></div>
 
                 
             </div>

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,10 +11,8 @@
 </head>
 <body>
     <div class="totalContainer">
-       
-        <div class="headerContainer">
-           헤더
-        </div>
+       <jsp:include page="/WEB-INF/views/common/header.jsp" />
+        
         <div class="navContainer">
           nav
         </div>
@@ -44,7 +44,7 @@
                         비밀번호가 일치하지 않습니다.
                     </div>
                     <div class="changePwBtnArea">
-                        <button id="changePwBtn">비밀번호 변경</button>
+                        <button id="changePwBtn"><span>비밀번호 변경</span></button>
                     </div>
                 </div>
                 <div></div>

@@ -1,4 +1,6 @@
+
 *{
+
     box-sizing: border-box;
 }
 
@@ -17,13 +19,6 @@
     min-width: 800px;
     height: 5%;
     display: flex;
-}
-
-.navContainer{ /* nav부분 전체 div */
-    width: 100%;
-    height: 5%;
-    display: flex;
-    min-width: 800px;
 }
 
 .bodyContainer{/* 바디부분 전체 div */
@@ -62,7 +57,7 @@
 .signUpName{/* 회원가입 이름 영역 */
     width: 70%;
     height: 50px;
-    margin: 30px;
+    margin: 10px;
 
     display: flex;
     flex-direction: column;
@@ -71,7 +66,9 @@
 
 .signUpName > div:nth-child(1) { /* 이름 타이틀 */
     padding-right: 470px;
+    height: 30px;
     color: #aaa;
+    margin: 10px;
 }
 
 #signUpInputName{ /* 이름 input */
@@ -79,7 +76,20 @@
     height: 40px;
     border: none;
     border-bottom: 2px solid #ddd;
+   
 }
+
+/* 초기 상태 (focus 전) */
+input {
+    outline: none; /* 기본 outline 제거 */
+    transition: outline-color 0.3s ease, outline-offset 0.3s ease;
+}
+
+/* focus 상태 (outline 색상 및 offset 변경) */
+input:focus {
+    outline: none !important; border-color: rgb(255, 175, 175); box-shadow: 0 0 10px rgb(255, 175, 175);
+}
+
 
 /* ---------------------------------------------------------- */
 
@@ -97,6 +107,7 @@
 .signUpNickname > div:nth-child(1) { /* 닉네임 타이틀 */
     padding-right: 460px;
     color: #aaa;
+    margin: 10px;
 }
 
 #signUpInputNickname{ /* 닉네임 input */
@@ -123,6 +134,7 @@
 .signUpEmail > div:nth-child(1) { /* 아이디(이메일) 타이틀 */
     padding-right: 400px;
     color: #aaa;
+    margin: 10px;
 }
 
 .signUpEmail > div:nth-child(2) { /* 아이디(이메일) input + 버튼 영역 */
@@ -146,6 +158,7 @@
     font-size: 15px;
     font-weight: bold;
     background-color: white;
+    cursor: pointer;
     
 }
 
@@ -169,6 +182,7 @@
 .signUpEmailcheck > div:nth-child(1) { /* 인증번호 타이틀 */
     padding-right: 405px;
     color: #aaa;
+    margin: 10px;
 }
 
 .signUpEmailcheck > div:nth-child(2) { /* 인증번호 input +  인증 버튼 영역 */
@@ -186,6 +200,7 @@
     border: none;
     border-bottom: 2px solid #ddd;
     height: 100%;
+    margin-left: 5px;
 }
 
 #checkclear{ /* 이메일 인증번호 버튼 */
@@ -198,6 +213,7 @@
     font-size: 15px;
     font-weight: bold;
     background-color: white;
+    cursor: pointer;
 }
 
 #checkclear:hover{ /* 인증버튼 hover */
@@ -223,6 +239,7 @@
 .signUpPassword > div:nth-child(1) { /* 비밀번호 타이틀 */
     padding-right: 440px;
     color: #aaa;
+    margin: 10px;
 }
 
 .signUpPassword > div:nth-child(3) {/* 비밀번호 정규식 글씨 부분  */
@@ -254,6 +271,7 @@
 .signUpPasswordCheck > div:nth-child(1) { /* 비밀번호 확인 타이틀 */
     padding-right: 400px;
     color: #aaa;
+    margin: 10px;
 }
 
 .signUpPasswordCheck > div:nth-child(3) {/* 비밀번호 정규식 글씨 부분  */
@@ -285,6 +303,7 @@
 .signUpPhone > div:nth-child(1) { /* 전화번호 타이틀 */
     padding-right: 400px;
     color: #aaa;
+    margin: 10px;
 }
 
 #signUpInputPhone{ /* 전화번호 input */
@@ -310,6 +329,7 @@
 .signUpAddress > div:nth-child(1) { /* 주소 타이틀 */
     padding-right: 400px;
     color: #aaa;
+    margin: 10px;
 }
 
 .signUpAddress > div:nth-child(2) { /* 주소 input + 버튼 영역 */
@@ -341,7 +361,7 @@
     font-size: 15px;
     font-weight: bold;
     background-color: white;
-    
+    cursor: pointer;
 }
 
 #AddressAPI:hover{ /* 우편번호 찾기 버튼 */
@@ -369,12 +389,14 @@
 .checkboxTitle{ /* 약관동의 타이틀 */
     font-size: 20px;
     font-weight: bold;
+    margin: 10px 0;
     
 }
 
 .checkboxSlogan{ /* 약관동의 슬로건 */
     font-size: 12px;
     color: #ddd;
+    margin: 10px 0;
 }
 
 .checkboxArea{ /* 체크박스 영역 */
@@ -400,19 +422,74 @@
     font-size: 15px;
     font-weight: bold;
     background-color: white;
+    cursor: pointer;
 }
 
 .checkBoxBtnArea > button:hover{ /* 약관 동의 버튼 hover */
     background-color:  rgb(255, 175, 175);
     color: white;
 }
+
+
+/*------------------- input radio 효과 ------------------------------- */
+[type="radio"], span {
+    vertical-align: middle;
+}
+
+[type="radio"] {
+    appearance: none;
+    border: max(2px, 0.1em) solid gray;
+    border-radius: 50%;
+    width: 1.25em;
+    height: 1.25em;
+    transition: border 0.3s ease-in-out;
+}
+
+[type="radio"]:checked {
+    border: 0.4em solid rgb(255, 175, 175);
+}
+
+[type="radio"]:focus-visible {
+    outline-offset: max(2px, 0.3em);
+    outline: max(2px, 0.2em) dotted rgb(255, 175, 175);
+}
+
+[type="radio"]:hover {
+    box-shadow: 0 0 0 max(4px, 0.3em) rgb(255, 175, 175);
+    cursor: pointer;
+}
+
+[type="radio"]:hover + span {
+    cursor: pointer;
+}
+
+[type="radio"]:disabled {
+    background-color: lightgray;
+    box-shadow: none;
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+[type="radio"]:disabled + span {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+/*------------------- input radio 효과 ------------------------------- */
+
+
+
+
+
+
 /*-----------------------------------------------------------------*/
 
 .signUpBtnArea{ /* 회원가입 버튼 영역 */
     width: 61%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 70px;
 }
 
 #signUpBtn{ /* 회원가입 버튼 */
@@ -425,6 +502,7 @@
     font-size: 15px;
     font-weight: bold;
     background-color: white;
+    cursor: pointer;
 }
 
 #signUpBtn:hover{ /* 회원가입 hover */
