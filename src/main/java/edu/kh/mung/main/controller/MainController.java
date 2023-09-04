@@ -11,5 +11,10 @@ public class MainController {
 		return "index";
 		
 	}
+	
+	@RequestMapping("/info")
+	public String info() {
+		return "info";
+	}
 
 }

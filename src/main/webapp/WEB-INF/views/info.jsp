@@ -7,12 +7,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회사 소개 및 펫시터 소개</title>
-    <link rel = "stylesheet" href="../../resources/css/info.css">
+    <link rel = "stylesheet" href="/resources/css/info.css">
 </head>
 
 <body>
     <!-- 헤더 -->
-    <div class="header"></div>
+     <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
     <!-- 컨텐츠 -->
     <div class="content">
@@ -130,7 +130,6 @@ Mung Mate 개발자 일동
 
         </div>
     </div>
-    <div class="footer"></div>
 
 </body>
 
