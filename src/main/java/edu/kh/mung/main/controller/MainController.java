@@ -16,5 +16,11 @@ public class MainController {
 	public String info() {
 		return "info";
 	}
+	
+	@RequestMapping("/Administrator/faq")
+	public String faq() {
+		return "Administrator/faq";
+		
+	}
 
 }
