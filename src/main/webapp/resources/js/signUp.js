@@ -5,7 +5,8 @@ const checkObj = {
     "signUpInputPassword" : false,
     "signUpInputPasswordCheck" : false,
     "signUpInputPhone" : false,
-    "authKey" : false
+    "authKey" : false,
+    "agree" : false
 };
 
 
@@ -253,8 +254,8 @@ signUpInputPhone.addEventListener("input", ()=>{
 // -------------------------- 이메일 인증 -------------------------
 
 // 인증번호 발송
-const emailCheck = document.getElementById("emailCheck");
-const authKeyMessage = document.getElementById("authKeyMessage");
+const emailCheck = document.getElementById("emailCheck"); // 인증번호 전송 버튼
+const authKeyMessage = document.getElementById("authKeyMessage"); // 인증번호 관련 메시지 창
 const authKeyTime = document.getElementById("authKeyTime");
 let authTimer;
 let authMin = 4;
@@ -272,7 +273,7 @@ emailCheck.addEventListener("click", function(){
     if(checkObj.signUpInputEmail){ // 중복이 아닌 이메일인 경우
 
         /* fetch() API 방식 ajax */
-        fetch("/member/sendEmail/signUp?email="+signUpInputEmail.value)
+        fetch("/sendEmail/signUp?email="+signUpInputEmail.value)
         .then(resp => resp.text())
         .then(result => {
             if(result > 0){
@@ -295,7 +296,7 @@ emailCheck.addEventListener("click", function(){
 
         authTimer = window.setInterval(()=>{
                         // 일정 시간이 지날때 마다 변화하는 구문
-                        authKeyTime.innerText = "0" + authMin + ":" + (authSec<10 ? "0" + authSec : authSec);
+        authKeyTime.innerText = "0" + authMin + ":" + (authSec<10 ? "0" + authSec : authSec);
            
             // 남은 시간이 0분 0초인 경우
             if(authMin == 0 && authSec == 0){
@@ -322,18 +323,20 @@ emailCheck.addEventListener("click", function(){
 });
 
 // 인증 확인
-const signUpInputEmailCheck = document.getElementById("signUpInputEmailCheck");
-const checkclear = document.getElementById("checkclear");
+const signUpInputEmailCheck = document.getElementById("signUpInputEmailCheck"); // 인증번호 입력란
+const checkclear = document.getElementById("checkclear"); // 인증 버튼
 
 checkclear.addEventListener("click", function(){
 
     if(authMin > 0 || authSec > 0){ // 시간 제한이 지나지 않은 경우에만 인증번호 검사 진행
         /* fetch API */
-        const obj = {"inputKey":authKey.value, "email":tempEmail}
+        console.log(tempEmail);
+        console.log(signUpInputEmailCheck.value);
+        const obj = {"inputKey":signUpInputEmailCheck.value, "email":tempEmail}
         const query = new URLSearchParams(obj).toString()
         // inputKey = 123456&email=user01
 
-        fetch("/member/sendEmail/checkAuthKey?" + query)
+        fetch("/sendEmail/checkAuthKey?" + query)
         .then(resp => resp.text())
         .then(result => {
             if(result > 0){
@@ -343,49 +346,23 @@ checkclear.addEventListener("click", function(){
                 checkObj.authKey = true;
 
             } else{
-                alert("인증번호가 일치하지 않습니다.")
+                alert("인증번호가 일치하지 않습니다.");
                 checkObj.authKey = false;
             }
         })
         .catch(err => console.log(err));
 
     } else{
-        alert("인증 시간이 만료되었습니다. 다시 시도해주세요.")
+        alert("인증 시간이 만료되었습니다. 다시 시도해주세요.");
     }
 
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 document.getElementById("signUpFrm").addEventListener("submit", e=> {
-
-    // checkObj에 모든 value가 true인지 검사
-
-    // (배열용 for문)
-    // for ... of : 향상된 for문 
-    //          -> iterator(반복자) 속성을 지닌 배열, 유사 배열 사용 가능
-
-
-    // (객체용 for문)
-    // *** for ... in : 향상된 for문 ***
-    // -> JS 객체가 가지고 있는 key를 순서대로 하나씩 꺼내는 반복문
 
     for(let key in checkObj){
 
-        if(!checkObj[key]){// 각 key에 대한 value(true/false)를 얻어와
-                // false인 경우 == 유효하지 않다!
+        if(!checkObj[key]){
 
             switch(key){
                 case "signUpInputEmail" : alert("이메일이 유효하지 않습니다."); break;
@@ -397,15 +374,14 @@ document.getElementById("signUpFrm").addEventListener("submit", e=> {
                 case "signUpInputNickname" : alert("닉네임이 유효하지 않습니다"); break;
 
                 case "signUpInputPhone" : alert("전화번호가 유효하지 않습니다."); break;
-            }
 
-            // 유효하지 않은 input 태그로 focus 이동
-            // - key를 input의 id와 똑같이 설정했음
+                case "authKey" : alert("이메일 인증 오류!!!"); break;
+
+            }
             document.getElementById(key).focus();
 
-            // form 태그 기본 이벤트 제거
             e.preventDefault();
-            return; // 함수 종료
+            return;
         }
 
 

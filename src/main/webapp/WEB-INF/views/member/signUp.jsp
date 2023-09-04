@@ -14,7 +14,9 @@
     <div class="totalContainer">
        
         <jsp:include page="/WEB-INF/views/common/header.jsp" />
+
         <form action="/member/signUp" method="POST" name="signUpFrm" id="signUpFrm">
+
         <div class="bodyContainer">
             
             <div class="contentContainer">
@@ -67,7 +69,7 @@
 
                     <div class="signUpAddress">
                         <div>주소</div>
-                        <div><input type="text" id="signUpInputAddress"> <button id="AddressAPI">우편번호 찾기</button></div>
+                        <div><input type="text" id="signUpInputAddress"> <button id="AddressAPI" type="button" onclick="sample6_execDaumPostcode()">우편번호 찾기</button></div>
                         <div><input type="text" class="signUpInputAddress"></div>
                         <div><input type="text" class="signUpInputAddress"></div>
                     </div>
@@ -96,13 +98,14 @@
                         <div class="checkBoxBtnArea"><button type="button">약관 확인</button></div>
                     </div>
     
-                    <div class="signUpBtnArea"><button id="signUpBtn" >회원가입</button></div>
+                    <div class="signUpBtnArea"><button id="signUpBtn">회원가입</button></div>
                 </div>
             </div>
         </form>
        <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
     </div>
+
 
     <script src="/resources/js/signUp.js"></script>
 </body>
