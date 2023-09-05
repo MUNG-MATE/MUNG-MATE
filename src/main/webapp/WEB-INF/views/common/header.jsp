@@ -9,7 +9,7 @@
     <!-- 로고 영역 -->
     <div>
         <a href="/">
-            <img src="/resources/images/MungMateLogo.png" alt="" class="headerLogo">
+            <img src="/resources/images/newlogo.png" alt="" class="headerLogo">
         </a>
     </div>
     

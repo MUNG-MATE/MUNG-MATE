@@ -9,10 +9,12 @@ import javax.mail.internet.MimeMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.kh.mung.member.model.dao.MemberDAO;
+import edu.kh.mung.member.model.dto.Member;
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -20,6 +22,8 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired
 	private MemberDAO dao;
 
+	@Autowired
+	private BCryptPasswordEncoder bcrypt;
     
 	// 회원가입 중 이메일 검사
 	@Transactional(rollbackFor = Exception.class)
@@ -34,6 +38,18 @@ public class MemberServiceImpl implements MemberService {
 	public int checkNickname(String nickname) {
 
 		return dao.checkNickname(nickname);
+	}
+	
+	// 회원가입
+	@Override
+	public int insertNewMember(Member newMember) {
+		
+		String encPw = bcrypt.encode(newMember.getMemberPw());
+		newMember.setMemberPw(encPw);
+		
+		int result = dao.insertNewMember(newMember);
+		
+		return result;
 	}
 
 

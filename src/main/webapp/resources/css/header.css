@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family:'Montserrat','pretendard';
+    font-family:'pretendard';
 }
 
 
@@ -12,7 +12,7 @@
     justify-content: space-between;
     font-weight: bold;
     font-size: 20px;
-    color: rgb(208, 53, 49);
+    color: rgb(0, 30, 60);
     border-bottom: 2px solid #ddd;
     padding-bottom: 6px;
 }
@@ -21,7 +21,7 @@
 
 .head a{
     text-decoration: none;
-    color: rgb(208, 53, 49);
+    color: rgb(0, 30, 60);
 }
 
 /* 헤더 로고 */

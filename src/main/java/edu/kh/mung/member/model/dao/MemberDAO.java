@@ -6,6 +6,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import edu.kh.mung.member.model.dto.Member;
+
 @Repository
 public class MemberDAO {
 
@@ -28,6 +30,15 @@ public class MemberDAO {
 	 */
 	public int checkNickname(String nickname) {
 		return sqlSession.selectOne("memberMapper.checkNickname", nickname);
+	}
+
+
+	/** 회원가입
+	 * @param newMember
+	 * @return result
+	 */
+	public int insertNewMember(Member newMember) {
+		return sqlSession.insert("memberMapper.insertNewMember", newMember);
 	}
 
 
