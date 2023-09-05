@@ -21,6 +21,20 @@ public class MemberController {
 	@Autowired
 	private MemberService service;
 
+	@GetMapping("/login")
+	public String login() {
+		return "member/login";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@GetMapping("/signUp")
 	public String signUp() {
 		return "member/signUp";
@@ -41,6 +55,8 @@ public class MemberController {
 		
 		return service.checkNickname(nickname);
 	}
+	
+	
 	
 	// 회원 가입
 	@PostMapping("/signUp")
