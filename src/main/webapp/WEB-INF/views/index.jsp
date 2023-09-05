@@ -8,16 +8,15 @@
     <title>MUNG MATE</title>
     <link rel="stylesheet" href="/resources/css/index.css">
 </head>
-
+    <jsp:include page="/WEB-INF/views/common/header.jsp" />
 <body>
 
-    <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
     <div class="mainImage">
         <img src="/resources/images/mainImage2.jpg">
         <div class="mainImageIn">
             <h1>언제나 가까운 곳에서<br> 안심할 수 있게</h1>
-            <button id="goReservation">예약하러 가기</button>
+            <button id="goReservation"><span>예약하러 가기</span></button>
         </div>
     </div>
 
