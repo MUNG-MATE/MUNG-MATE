@@ -2,8 +2,14 @@
     box-sizing: border-box;
 }
 
-.display {
-    display: none;
+body{
+    position: relative;
+}
+
+.modalbg{
+    width: 100%;
+    height: 100%;
+    background-color: #ddd;
 }
 
 .totalContainer {
@@ -32,7 +38,9 @@
 .bodyContainer {
     /* 바디부분 전체 div */
     width: 100%;
-    height: 60%;
+    height: 500px;
+    margin-top: 100px;
+    margin-bottom: 100px;
 
 }
 
@@ -57,8 +65,9 @@
     width: 60%;
     height: 80%;
     
-    border: 3px solid rgb(255, 175, 175);
+    border: 3px solid rgb(0,30,60);
     border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.20);
 }
 
 .contentContainer div {
@@ -127,24 +136,27 @@ input {
 
 /* focus 상태 (outline 색상 및 offset 변경) */
 input:focus {
-    outline: none !important; border-color: rgb(255, 175, 175); box-shadow: 0 0 10px rgb(255, 175, 175);
+    outline: none !important; border-color: rgb(0,30,60); box-shadow: 0 0 10px rgb(0,30,60);
 }
 
 label{ /* 아이디 저장 글씨 */
     cursor: pointer;
 }
 
-.checkboxArea a {
+.checkboxArea button {
     /* 이메일 찾기 + 비밀번호 찾기 a태그*/
     font-size: 13px;
     text-decoration: none;
     display: flex;
     align-items: center;
     color: black;
+    border: none;
+    background-color: white;
+    cursor: pointer;
 }
 
-.checkboxArea a:hover{
-    color : rgb(255, 175, 175);
+.checkboxArea button:hover{
+    color : rgb(0,30,60);
 }
 
 .loginBtnArea {
@@ -165,7 +177,7 @@ label{ /* 아이디 저장 글씨 */
     outline: none;
     overflow: hidden;
     position: relative;
-    color: rgb(255, 175, 175);
+    color: rgb(0,30,60);
     font-weight: 700;
     font-size: 15px;
     background-color: white;
@@ -192,9 +204,9 @@ label{ /* 아이디 저장 글씨 */
     position: absolute;
     left: 0;
     top: 0;
-    height: 600%;
+    height: 950%;
     width: 140%;
-    background: rgb(255, 175, 175);
+    background: rgb(0,30,60);
     -webkit-transition: all .5s ease-in-out;
     transition: all .5s ease-in-out;
     -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
@@ -230,7 +242,7 @@ label{ /* 아이디 저장 글씨 */
 }
 
 .siguUpArea a:hover{
-    color: rgb(255, 175, 175);
+    color: rgb(0,30,60);
 }
 
 .checkboxArea>div:nth-child(2) {
@@ -238,6 +250,9 @@ label{ /* 아이디 저장 글씨 */
     width: 50px;
 }
 
+.checkboxArea>div:nth-child(3){
+    display: flex;
+}
 .contentContainer>div:nth-child(3) {
     /* 로그인 왼쪽 공백 */
     height: 100%;
@@ -256,20 +271,20 @@ label{ /* 아이디 저장 글씨 */
 
 .findprofileArea {
     /* 찾기 영역 전체 */
-    width: 100%;
-    height: 100%;
-    background-color: #ddd;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+
 }
 
 .profileCheck {
     /* 찾기 영역 content 부분 */
+    z-index: 100;
     width: 500px;
     height: 550px;
     background-color: white;
-
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .findContentArea {
@@ -286,7 +301,7 @@ label{ /* 아이디 저장 글씨 */
     display: flex;
     align-items: end;
     justify-content: center;
-    padding-left: 10px;
+    padding-right: 100px;
     font-size: 25px;
     font-weight: bold;
 
@@ -296,7 +311,7 @@ label{ /* 아이디 저장 글씨 */
     /* 인증된 이메일만 정보 찾기가 가능합니다 글씨 영역 */
     width: 80%;
     height: 50px;
-    padding-left: 75px;
+    padding-left: 35px;
 
     display: flex;
     align-items: center;
@@ -390,7 +405,7 @@ label{ /* 아이디 저장 글씨 */
     outline: none;
     overflow: hidden;
     position: relative;
-    color: rgb(255, 175, 175);
+    color: rgb(0,30,60);
     font-weight: 700;
     font-size: 15px;
     background-color: white;
@@ -412,7 +427,7 @@ label{ /* 아이디 저장 글씨 */
     top: 0;
     height: 1000%;
     width: 140%;
-    background: rgb(255, 175, 175);
+    background: rgb(0,30,60);
     -webkit-transition: all 1.5s ease-in-out;
     transition: all .5s ease-in-out;
     -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
@@ -435,6 +450,12 @@ label{ /* 아이디 저장 글씨 */
     height: 100%;
 }
 
+#searchYesBtn1 {
+    /* 확인 버튼 */
+    width: 100%;
+    height: 100%;
+}
+
 .profileCheck>div:nth-child(9) {
     /* 취소 버튼 영역 */
     width: 67%;
@@ -446,6 +467,12 @@ label{ /* 아이디 저장 글씨 */
 
 
 #searchNoBtn {
+    /* 취소 버튼 */
+    width: 100%;
+    height: 100%;
+}
+
+#searchNoBtn2 {
     /* 취소 버튼 */
     width: 100%;
     height: 100%;
@@ -466,8 +493,8 @@ label{ /* 아이디 저장 글씨 */
     width: 35%;
     height: 100%;
     border-radius: 10px;
-    border: 3px solid rgb(255, 175, 175);
-    color:rgb(255, 175, 175);
+    border: 3px solid rgb(0,30,60);
+    color:rgb(0,30,60);;
     font-size: 15px;
     font-weight: bold;
     background-color: white;
@@ -475,7 +502,7 @@ label{ /* 아이디 저장 글씨 */
 }
 
 #checkNumberBtn:hover{
-    background-color:  rgb(255, 175, 175);
+    background-color:  rgb(0,30,60);;
     color: white;
 }
 
@@ -492,9 +519,14 @@ label{ /* 아이디 저장 글씨 */
 
 .profilePasswordCheck {
     /* 비밀번호 찾기 영역 content 부분 */
+    z-index: 100;
     width: 500px;
     height: 550px;
     background-color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
 }
 
@@ -506,7 +538,7 @@ label{ /* 아이디 저장 글씨 */
     display: flex;
     align-items: end;
     justify-content: center;
-    padding-left: 10px;
+    padding-right: 100px;
     font-size: 25px;
     font-weight: bold;
 
@@ -516,7 +548,7 @@ label{ /* 아이디 저장 글씨 */
     /* 인증된 이메일만 정보 찾기가 가능합니다 글씨 영역 */
     width: 80%;
     height: 50px;
-    padding-left: 75px;
+    padding-left: 15px;
 
     display: flex;
     align-items: center;
@@ -621,16 +653,16 @@ label{ /* 아이디 저장 글씨 */
 }
 
 [type="radio"]:checked {
-    border: 0.4em solid rgb(255, 175, 175);
+    border: 0.4em solid rgb(0,30,60);;
 }
 
 [type="radio"]:focus-visible {
     outline-offset: max(2px, 0.3em);
-    outline: max(2px, 0.2em) dotted rgb(255, 175, 175);
+    outline: max(2px, 0.2em) dotted rgb(0,30,60);;
 }
 
 [type="radio"]:hover {
-    box-shadow: 0 0 0 max(4px, 0.3em) rgb(255, 175, 175);
+    box-shadow: 0 0 0 max(4px, 0.3em) rgb(0,30,60);;
     cursor: pointer;
 }
 
@@ -657,3 +689,77 @@ label{ /* 아이디 저장 글씨 */
 .searchPassword{
     font-size: 14px;
 }
+
+
+
+
+
+.modal{
+    background-color: rgba(0,0,0,0.4);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+
+    display: none;
+}
+
+.modal.show{ /* 클래스로 modal, show를 동시에 가진 요소 선택 */
+    display: flex;
+
+    animation-name : show; /* @keyframes show 적용 */
+    animation-duration : 0.5s; /* 애니메이션 수행 시간 */
+}
+
+
+.modal.hide{
+    animation-name : hide; /* @keyframes show 적용 */
+    animation-duration : 0.5s; /* 애니메이션 수행 시간 */
+}
+
+#modal-image {
+    background-color: white;
+    margin: auto;
+    border-radius: 10px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+/* 닫기 버튼 */
+#modal-close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+
+    transition-duration: 0.2s;
+    cursor: pointer;
+}
+
+#modal-close:hover{
+    transform: scale(1.2);
+}
+
+
+/* @keyframes : 
+애니메이션 중간중간의 특정 지점들을 거칠 수 있는 키프레임들을 설정함으로써
+CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  */
+@keyframes show {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes hide {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+

@@ -13,10 +13,8 @@
     <div class="totalContainer">
        
         <jsp:include page="/WEB-INF/views/common/header.jsp" />
-        <div class="navContainer">
-          nav
-        </div>
-        <div class="bodyContainer">
+
+        <div class="bodyContainer" id="bodyAllContainer">
             <div class="contentContainer">
                 <div></div>
                 <div>
@@ -40,7 +38,9 @@
                     <div class="checkboxArea">
                         <div><input type="checkbox" id="saveId"><label for="saveId">아이디 저장</label></div>
                         <div></div>
-                        <div><a href="#">이메일 / 비밀번호 찾기</a></div>
+                        <div>
+                            <button type="button" id="findInfoBtn1">이메일 찾기</button> &nbsp;&nbsp;&nbsp;&nbsp; <button type="button" id="findInfoBtn2">비밀번호 찾기</button>
+                        </div>
                     </div>
                     <div class="loginBtnArea">
                         <button class="loginPageBtn" id="loginBtn"><span>로그인</span></button>
@@ -56,38 +56,40 @@
                 <div></div>
             </div>
         </div>
-        <div class="footerContainer"></div>
 
-        <div class="findprofileArea">
+        <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
+    </div>
+
+        <div class="findprofileArea modal" id=findprofile>
             <div class="profileCheck">
-              
-                <div>아이디/비밀번호 찾기</div>
-                <div>인증된 이메일만 정보 찾기가 가능합니다 :)</div>
-                <div>
-                    <input type="radio" id="searchEmail" name="findRadio"> <label for="searchEmail" class="searchEmail">아이디 찾기</label> 
-                    <input type="radio" id="searchPassword" name="findRadio"> <label for="searchPassword" class="searchPassword">비밀번호 찾기</label>
+    
+                <div>아이디 찾기</div>
+                <div>인증된 이메일만 정보 찾기가 가능합니다</div>
+                <div id="findInfoContent">
+            
                 </div>
-                <div>이름</div>
+                <div id="findInfoTitle1">이름</div>
                 <div>
-                    <input type="text" id="searchInputName">
+                    <input type="text" id="searchInputName" name="findInfovalue1">
                 </div>
-                <div>휴대전화번호</div>
+                <div id="findInfoTitle2">전화번호</div>
                 <div>
-                <input type="text" id="searchInputPhone"> 
+                    <input type="text" id="searchInputPhone" name="findInfovalue2">
                 </div>
                 <div><button class="loginPageBtn" id="searchYesBtn"><span>확인</span></button></div>
-                <div><button class="loginPageBtn" id="searchNoBtn"><span>취소</span></button></div>
-            
-            </div>            
+                <div><button class="loginPageBtn" id="searchNoBtn"><span>돌아가기</span></button></div>
+        
+            </div>
         </div>
 
-        <div class="findprofileArea">
+
+        <div class="findprofileArea modal" id="findprofilePassword">
             <div class="profilePasswordCheck">
-                <div>아이디/비밀번호 찾기</div>
-                <div>인증된 이메일만 정보 찾기가 가능합니다 :)</div>
+                <div>비밀번호 찾기</div>
+                <div>인증된 이메일만 정보 찾기가 가능합니다</div>
                 <div>
-                    <input type="radio" id="searchEmail" name="findRadio"> <label for="searchEmail" class="searchEmail">아이디 찾기</label> 
-                    <input type="radio" id="searchPassword" name="findRadio"> <label for="searchPassword" class="searchPassword">비밀번호 찾기</label>
+                
                 </div>
                 <div>이메일</div>
                 <div>
@@ -99,11 +101,12 @@
                 <div>
                     <input type="text" id="inputCheckNumber">
                 </div>
-                <div><button class="loginPageBtn" id="searchYesBtn"><span>확인</span></button></div>
-                <div><button class="loginPageBtn" id="searchNoBtn"><span>취소</span></button></div>
+                <div><button class="loginPageBtn" id="searchYesBtn1"><span>확인</span></button></div>
+                <div><button class="loginPageBtn" id="searchNoBtn2"><span>돌아가기</span></button></div>
 
             </div>
         </div>
-    </div>
+    <script src="/resources/js/member/login.js"></script>
+    
 </body>
 </html>
