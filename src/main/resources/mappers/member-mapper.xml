@@ -2,6 +2,26 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="memberMapper">
 
+	<resultMap type="Member" id="member_rm">
+  	
+  		<!-- DB에 기본 키(PRIMARY KEY, 복합키면 여러개 작성) -->
+  		<id property="memberNo" column="MEMBER_NO" />
+  	
+  		<!-- DB에 일반 컬럼들 -->
+  		<result property="memberName" column="MEMBER_NM" />
+  		<result property="memberEmail" column="MEMBER_EMAIL" />
+  		<result property="memberNickname" column="MEMBER_NICKNAME" />
+  		<result property="memberPw" column="MEMBER_PW" />
+  		<result property="memberTel" column="MEMBER_TEL" />
+  		<result property="memberAddress" column="MEMBER_ADDRESS" />
+  		<result property="secessionFlag" column="SECESSION_FL" />
+  		<result property="adminFlag" column="MEMBER_ADMIN" />
+  		<result property="petsitterFlag" column="MEMBER_PETSITTER" />
+  		<result property="profileImage" column="PROFILE_IMG" />
+  		<result property="enrollDate" column="ENROLL_DATE" />
+  	
+  	</resultMap>
+
 	<!-- 이메일 중복 검사 -->
 	<select id="CheckEmail" resultType="_int">
 		SELECT COUNT(*) 
@@ -17,4 +37,17 @@
 		WHERE MEMBER_NICKNAME = #{nickname}
 		AND SECESSION_FL = 'N'
 	</select>
+	
+	<insert id="insertNewMember">
+		INSERT INTO "MEMBER" 
+  		VALUES(SEQ_MEMBER_NO.NEXTVAL
+  				, #{memberName}
+				, #{memberEmail}
+				, #{memberNickname}
+				, #{memberPw}
+				, #{memberTel}
+				, #{memberAddress}
+				, DEFAULT, DEFAULT, DEFAULT, NULL, DEFAULT)
+	</insert>
+	
 </mapper>
