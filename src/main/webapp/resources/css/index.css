@@ -23,6 +23,7 @@
     bottom: 557px;
     left: 310px;
     width: 350px;
+    color: rgb(0, 30, 60);
 }
 
 
@@ -192,7 +193,7 @@
 }
 
 .reviewContent:hover {
-    border: 2px solid rgb(255, 175, 175);
+    border: 2px solid rgb(0, 30, 60);
     transform: translate(0,-50px);
 }
 
