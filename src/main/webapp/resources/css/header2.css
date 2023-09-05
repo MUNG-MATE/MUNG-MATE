@@ -1,0 +1,46 @@
+.head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(208, 53, 49);
+
+    position: sticky;
+    top: 0;
+    background-color: white;
+
+}
+
+.head a{
+    text-decoration: none;
+    color: rgb(208, 53, 49);
+}
+
+/* 헤더 로고 */
+.headerLogo{
+    width: 150px;
+    height: auto;
+}
+
+/* 헤더 텍스트 부분 */
+.menu{
+    width: 500px;
+    display: block;
+    justify-content: end;
+}
+
+/* 상단 메뉴 */
+.menu-2{
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu-2 > img {
+    width: 50px;
+    height: auto;
+    position: relative;
+    bottom: 7px;
+    cursor: pointer;
+}
