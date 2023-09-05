@@ -22,5 +22,9 @@ public class MainController {
 		return "Administrator/faq";
 		
 	}
-
+	@RequestMapping("/Administrator/declaration")
+	public String declaration() {
+		return "Administrator/declaration";
+		
+	}
 }
