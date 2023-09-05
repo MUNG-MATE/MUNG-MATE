@@ -20,6 +20,7 @@
     flex-direction : column-reverse;
     padding-left: 120px;
     font-size: 25px;
+    color: rgb(0,30,60);
 }
 
 /* 사진 */
@@ -42,6 +43,11 @@
     height: 800px;
     border-bottom: 2px solid #ddd;
     margin: auto;
+    color: rgb(0,30,60);
+}
+
+.PetsitterInformation h1 {
+    color: rgb(0,30,60);
 }
 
 /* 소개글 내용 */
