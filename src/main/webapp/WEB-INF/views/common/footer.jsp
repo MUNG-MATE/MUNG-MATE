@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="/resources/css/footer.css">
 
 	<footer class="footer">
-		<ul class="quick_menu_list">
+		<!-- <ul class="quick_menu_list">
 			<li><a href="#"><img src="/resources/images/footer/footer_menu01.png" alt="우리가최고조">
 					<p>일석2조</p> </a></li>
 			<li><a href="#"><img src="/resources/images/footer/footer_menu02.png" alt="우리가최고조">
@@ -13,7 +13,7 @@
 					<p>일석2조</p> </a></li>
 			<li><a href="#"><img src="/resources/images/footer/footer_menu04.png" alt="우리가최고조">
 					<p>일석2조</p> </a></li>
-		</ul>
+		</ul> -->
 		<div class="footer_wrap">
 			<div class="container">
 				<ul class="footer_sns_icon">
