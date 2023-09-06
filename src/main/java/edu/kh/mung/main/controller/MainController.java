@@ -27,4 +27,15 @@ public class MainController {
 		return "Administrator/declaration";
 		
 	}
+	@RequestMapping("/Administrator/management")
+	public String management() {
+		return "Administrator/management";
+		
+	}
+	@RequestMapping("/Administrator/reserve")
+	public String reserve() {
+		return "Administrator/reserve";
+		
+	}
+	
 }

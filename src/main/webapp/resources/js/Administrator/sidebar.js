@@ -5,11 +5,6 @@ $(".toggle_btn").click(function () {
 
 $(".toggle_btn").click(function () {
 
-    // if($(".toggle_btn").hasClass("active") === false){
-    //     $(".gnb").hide();
-    // }else{
-    //     $(".gnb").show();
-    // }
 
     $(".nav").stop().animate({ width: "toggle"}, 800)
 
