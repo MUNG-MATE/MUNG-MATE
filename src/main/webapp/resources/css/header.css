@@ -13,8 +13,8 @@
     font-weight: bold;
     font-size: 20px;
     color: rgb(0, 30, 60);
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 6px;
+    border-bottom: 2px solid rgb(0, 30, 60);
+    padding-bottom: 17px;
 }
 
 

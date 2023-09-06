@@ -1,15 +1,28 @@
-.head{
+* {
+    box-sizing: border-box;
+    font-family:'pretendard';
+}
+
+
+.headArea{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-weight: 900;
+    font-weight: bold;
     font-size: 20px;
     color: rgb(0, 30, 60);
-
+    margin: 0 auto;
     position: sticky;
     top: 0;
     background-color: white;
+    border-bottom: 2px solid rgb(0, 30, 60);
+    z-index: 1;
 
+}
+
+.logoArea{
+
+    margin-left: 50px;
 }
 
 .head a{
@@ -24,10 +37,11 @@
 }
 
 /* 헤더 텍스트 부분 */
-.menu{
+.menuArea{
     width: 500px;
     display: block;
     justify-content: end;
+    margin-right: 30px;
 }
 
 /* 상단 메뉴 */
