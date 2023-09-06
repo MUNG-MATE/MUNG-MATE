@@ -8,8 +8,8 @@
     <title>MUNG MATE</title>
     <link rel="stylesheet" href="/resources/css/index.css">
 </head>
-    <jsp:include page="/WEB-INF/views/common/header.jsp" />
-    <jsp:include page="/WEB-INF/views/common/header2.jsp" />
+    <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
+    
 <body>
 
 
