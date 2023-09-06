@@ -44,7 +44,7 @@
                                 </div>
                             </div>
                             <div class="checkboxArea">
-                                <div><input type="checkbox" id="saveId"><label for="saveId" autocomplete="off" ${chk}>아이디 저장</label></div>
+                                <div><input type="checkbox" id="saveId" ${chk}><label for="saveId" autocomplete="off" >아이디 저장</label></div>
                                 <div></div>
                                 <div>
                                     <button type="button" id="findInfoBtn1">이메일 찾기</button> &nbsp;&nbsp;&nbsp;&nbsp;

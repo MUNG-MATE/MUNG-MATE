@@ -4,6 +4,7 @@ import java.util.Map;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.serviceloader.ServiceListFactoryBean;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.mung.member.model.dto.Member;
@@ -30,55 +32,8 @@ public class MemberController {
 
 	@Autowired
 	private MemberService service;
-
-	@GetMapping("/login")
-	public String login() {
-		return "member/login";
-	}
 	
-	@PostMapping("/login")
-	public String login(Member inputMember, Model model
-						,@RequestHeader(value="referer") String referer
-						,@RequestParam(value="saveId", required=false) String saveId
-						,HttpServletResponse resp
-						,RedirectAttributes ra) {
-
-		Member loginMember = service.login(inputMember);
-		
-		String path = "redirect:";
-		
-		if(loginMember != null) {
-			path += "/";
-
-			model.addAttribute("loginMember",loginMember);
-
-			Cookie cookie = new Cookie("saveId", loginMember.getMemberEmail());
-			
-			if(saveId != null) {
-		
-				cookie.setMaxAge(60 * 60 * 24 * 30);
-				
-			}else {
-
-				cookie.setMaxAge(0);
-			}
-			
-			cookie.setPath("/");
-			
-			resp.addCookie(cookie);
-			
-		}else {
-			path += referer;
-		
-			ra.addFlashAttribute("message","아이디 또는 비밀번호가 일치하지 않습니다.");
-		}
-		
-		return path;
-		
-	}
-	
-
-	
+	// 회원가입 화면 출력
 	@GetMapping("/signUp")
 	public String signUp() {
 		return "member/signUp";
@@ -138,6 +93,56 @@ public class MemberController {
 		return path;
 	}
 	
+	
+	// 로그인 화면 출력
+	@GetMapping("/login")
+	public String login() {
+		return "member/login";
+	}
+	
+	// 로그인 기능 구현
+	@PostMapping("/login")
+	public String login(Member inputMember, Model model
+						,@RequestHeader(value="referer") String referer
+						,@RequestParam(value="saveId", required=false) String saveId
+						,HttpServletResponse resp
+						,RedirectAttributes ra) {
+
+		Member loginMember = service.login(inputMember);
+		
+		String path = "redirect:";
+		
+		if(loginMember != null) {
+			path += "/";
+
+			model.addAttribute("loginMember",loginMember);
+
+			Cookie cookie = new Cookie("saveId", loginMember.getMemberEmail());
+			
+			if(saveId != null) {
+		
+				cookie.setMaxAge(60 * 60 * 24 * 30);
+				
+			}else {
+
+				cookie.setMaxAge(0);
+			}
+			
+			cookie.setPath("/");
+			
+			resp.addCookie(cookie);
+			
+		}else {
+			path += referer;
+		
+			ra.addFlashAttribute("message","아이디 또는 비밀번호가 일치하지 않습니다.");
+		}
+		
+		return path;
+		
+	}
+	
+	
 	@PostMapping(value="findEmail", produces = "application/json; charset=UTF-8")
 	@ResponseBody
 	public String findEmail(@RequestBody Map<String, Object> paramMap) {
@@ -148,10 +153,12 @@ public class MemberController {
 	}
 	
 	
-	
-	
-	
-	
+	@GetMapping("/logout")
+	public String logout(SessionStatus status, HttpSession session) {
+		
+		status.setComplete();
+		return "redirect:/";
+	}
 	
 	
 	
