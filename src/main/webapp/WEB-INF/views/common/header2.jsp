@@ -27,3 +27,20 @@
     </div>
 
 </header>
+
+<script>
+
+    window.addEventListener('scroll', function(){
+
+        
+
+        if(scroll > 0 ){
+
+
+
+        }
+    });
+
+
+
+</script>
