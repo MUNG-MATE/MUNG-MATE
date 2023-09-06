@@ -11,17 +11,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회원 정보</title>
-    <link rel = "stylesheet" href = "../../../resources/css/myPage/memberInfo.css">
+    <title>${loginMember.memberNickname}님의 마이페이지</title>
+    <link rel = "stylesheet" href ="/resources/css/myPage/memberInfo.css">
 </head>
 <body>
-     <!-- 헤더 -->
-     <div class="header"></div>
+    
+    <jsp:include page="/WEB-INF/views/common/sidebar.jsp" />
+    <jsp:include page="/WEB-INF/views/common/header.jsp" />
+
      <div class="content">
 
         <!-- 일석이님의 회원 정보 -->
         <div class="infoTitle">
-            <h1>일석이님의 회원 정보</h1></div>
+            <h1>${loginMember.memberNickname}님의 회원 정보</h1></div>
      
 
      <!-- 회원 정보 다 들어가있는 칸 -->
@@ -30,7 +32,7 @@
         <div class="profileImage">
              <div class="profile-image-area">
 
-                        <img src="../../../resources/images/user.png" id="profileImage">
+                        <img src="/resources/images/user.png" id="profileImage">
 
                     </div>
 
@@ -38,15 +40,15 @@
 
         <!-- 이메일, 이름, 닉네임, 전화번호, 주소 -->
         <div class="info">
-            <div>이메일 : user01@naver.com</div><br>
+            <div>이메일 : ${loginMember.memberEmail}</div><br>
 
-            <div>이름 : 유저일</div><br>
+            <div>이름 : ${loginMember.memberName}</div><br>
 
-            <div>닉네임 : 유저일이지롱</div><br>
+            <div>닉네임 : ${loginMember.memberNickname}</div><br>
 
-            <div>전화번호 : 010-1231-1231</div><br>
+            <div>전화번호 : ${loginMember.memberTel}</div><br>
 
-            <div>주소 : 서울특별시 강남구 테헤란로 2</div>
+            <div>주소 : ${loginMember.memberAddress}</div>
         </div>
     </div>
 
@@ -55,9 +57,27 @@
         <button id = "updateBtn">수정하기</button>
     </div>
     </div>
-     <div class="footer"></div>
+     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
 
+
+ <div class="modal" id="modal">
+                <form action = "/myPage/pwCheck" method = "POST">
+                <div class="modal_body1">
+                   <p>회원님의 비밀번호를 입력해주세요</p>
+                   <input type = "text" id = "memberPw" name = "memberPw">
+                    <button id="yes" type="buttn">확인</button>
+                    <button id="back" type="buttn">취소</button>
+                </div>                
+            </div>
+            </form>
 
 </body>
+
+    <script src="/resources/js/myPage/memberInfo.js"></script>
+
+
 </html>
+
+
+

@@ -12,17 +12,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원 탈퇴</title>
-    <link rel="stylesheet" href="../../../resources/css/myPage/memberSecession.css">
+    <link rel="stylesheet" href="/resources/css/myPage/memberSecession.css">
 </head>
 
 <body>
-
-    <div class="header"></div>
+    <jsp:include page="/WEB-INF/views/common/header.jsp" />
+    
     <div class="content">
         <div class="secessionTitle">
             <h1>회원 탈퇴</h1>
         </div>
-        <form action="secession" method="POST" name="secessionFrm" id="secessionFrm">
+        <form action="memberSecession" method="POST" name="secessionFrm" id="secessionFrm">
 
             <!-- 회원 탈퇴 약관 -->
             <div class="terms">
@@ -124,7 +124,11 @@
 
     </div>
 
-
+    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+      <script src="/resources/js/myPage/memberSecession.js"></script>
 </body>
+
+
+
 
 </html>
