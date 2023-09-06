@@ -1,13 +1,17 @@
 package edu.kh.mung.member.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.serviceloader.ServiceListFactoryBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,11 +42,7 @@ public class MemberController {
 						,@RequestParam(value="saveId", required=false) String saveId
 						,HttpServletResponse resp
 						,RedirectAttributes ra) {
-		
-		System.out.println(inputMember.getMemberEmail());
-		System.out.println(inputMember.getMemberPw());
-		
-		
+
 		Member loginMember = service.login(inputMember);
 		
 		String path = "redirect:";
@@ -137,5 +137,46 @@ public class MemberController {
 		
 		return path;
 	}
+	
+	@PostMapping(value="findEmail", produces = "application/json; charset=UTF-8")
+	@ResponseBody
+	public String findEmail(@RequestBody Map<String, Object> paramMap) {
+		
+		String result = service.findEmail(paramMap);
+			
+		return result;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

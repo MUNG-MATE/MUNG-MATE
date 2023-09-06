@@ -51,4 +51,14 @@ public class MemberDAO {
 	}
 
 
+	/** 아이디 찾기
+	 * @param paramMap
+	 * @return result
+	 */
+	public String findEmail(Map<String, Object> paramMap) {
+		
+		return sqlSession.selectOne("memberMapper.findEmail", paramMap);
+	}
+
+
 }

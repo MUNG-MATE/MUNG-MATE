@@ -12,11 +12,16 @@
     </head>
 
     <body>
+
+        <c:if test="${ !empty cookie.saveId.value}">
+            <c:set var="chk" value="checked"/>
+        </c:if>
+
         <div class="totalContainer">
 
             <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
-            <form action="/member/login" method="POST">
+            <form action="/member/login" method="POST" id="loginForm">
                 <div class="bodyContainer" id="bodyAllContainer">
                     <div class="contentContainer">
                         <div></div>
@@ -27,7 +32,7 @@
                                     <img src="../../../resources/images/person-circle.svg" class="emailImg">
                                 </div>
                                 <div class="emailInputPart">
-                                    <input type="text" id="inputEmail" name="memberEmail"  placeholder="이메일" autocomplete="off">
+                                    <input type="text" id="inputEmail" name="memberEmail"  placeholder="이메일" value="${cookie.saveId.value}" autocomplete="off">
                                 </div>
                             </div>
                             <div class="InputPasswordArea">
@@ -39,7 +44,7 @@
                                 </div>
                             </div>
                             <div class="checkboxArea">
-                                <div><input type="checkbox" id="saveId"><label for="saveId" autocomplete="off">아이디 저장</label></div>
+                                <div><input type="checkbox" id="saveId"><label for="saveId" autocomplete="off" ${chk}>아이디 저장</label></div>
                                 <div></div>
                                 <div>
                                     <button type="button" id="findInfoBtn1">이메일 찾기</button> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -64,10 +69,9 @@
             <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
         </div>
-
+    
         <div class="findprofileArea modal" id=findprofile>
             <div class="profileCheck">
-
                 <div>아이디 찾기</div>
                 <div>인증된 이메일만 정보 찾기가 가능합니다</div>
                 <div id="findInfoContent">
@@ -82,33 +86,35 @@
                     <input type="text" id="searchInputPhone" name="findInfovalue2" autocomplete="off">
                 </div>
                 <div><button class="loginPageBtn" id="searchYesBtn"><span>확인</span></button></div>
-                <div><button class="loginPageBtn" id="searchNoBtn"><span>돌아가기</span></button></div>
+                <div><button class="loginPageBtn" id="searchNoBtn" ><span>돌아가기</span></button></div>
 
             </div>
         </div>
 
 
         <div class="findprofileArea modal" id="findprofilePassword">
-            <div class="profilePasswordCheck">
-                <div>비밀번호 찾기</div>
-                <div>인증된 이메일만 정보 찾기가 가능합니다</div>
-                <div>
+            <form action="/member/findPw" method="POST">
+                <div class="profilePasswordCheck">
+                    <div>비밀번호 찾기</div>
+                    <div>인증된 이메일만 정보 찾기가 가능합니다</div>
+                    <div>
+
+                    </div>
+                    <div>이메일</div>
+                    <div>
+                        <input type="text" id="searchInputEmail" autocomplete="off">
+                        <button id="checkNumberBtn">인증번호 전송</button>
+                    </div>
+                    <div>05:00</div>
+                    <div>인증번호</div>
+                    <div>
+                        <input type="text" id="inputCheckNumber" autocomplete="off">
+                    </div>
+                    <div><button class="loginPageBtn" id="searchYesBtn1"><span>확인</span></button></div>
+                    <div><button type="button" class="loginPageBtn" id="searchNoBtn2"><span>돌아가기</span></button></div>
 
                 </div>
-                <div>이메일</div>
-                <div>
-                    <input type="text" id="searchInputEmail" autocomplete="off">
-                    <button id="checkNumberBtn">인증번호 전송</button>
-                </div>
-                <div>05:00</div>
-                <div>인증번호</div>
-                <div>
-                    <input type="text" id="inputCheckNumber" autocomplete="off">
-                </div>
-                <div><button class="loginPageBtn" id="searchYesBtn1"><span>확인</span></button></div>
-                <div><button class="loginPageBtn" id="searchNoBtn2"><span>돌아가기</span></button></div>
-
-            </div>
+            </form>
         </div>
         <script src="/resources/js/member/login.js"></script>
 

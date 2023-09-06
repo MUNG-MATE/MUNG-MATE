@@ -51,6 +51,7 @@
 				, DEFAULT, DEFAULT, DEFAULT, DEFAULT, NULL)
 	</insert>
 	
+	<!-- 로그인 -->
 	<select id="login" resultMap="member_rm">
 	  	SELECT MEMBER_NO, MEMBER_NM, MEMBER_EMAIL, MEMBER_NICKNAME, MEMBER_PW,
 	  		MEMBER_TEL, MEMBER_ADDRESS, SECESSION_FL, MEMBER_ADMIN, MEMBER_PETSITTER, PROFILE_IMG,
@@ -59,6 +60,14 @@
 		WHERE SECESSION_FL = 'N'
 		AND MEMBER_EMAIL = #{memberEmail}
   	</select>
+	
+	<!-- 아이디 찾기  -->
+	<select id="findEmail" resultType="string">
+		SELECT MEMBER_EMAIL FROM "MEMBER"
+		WHERE MEMBER_NM = #{memberName}
+		AND MEMBER_TEL = #{memberTel}
+		AND SECESSION_FL = 'N'
+	</select>
 	
 	
 </mapper>

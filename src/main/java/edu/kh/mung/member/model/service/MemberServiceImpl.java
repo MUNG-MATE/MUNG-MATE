@@ -41,6 +41,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	// 회원가입
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public int insertNewMember(Member newMember) {
 		
@@ -53,14 +54,12 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	// 로그인
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public Member login(Member inputMember) {
-		
-		System.out.println("암호화 확인 : " + bcrypt.encode(inputMember.getMemberPw()));
+
 		Member loginMember = dao.login(inputMember);
-		System.out.println("DB에 있는 비밀번호 :" + loginMember.getMemberPw());
-		
-		
+
 		if(loginMember != null) {
 		
 			if(bcrypt.matches(inputMember.getMemberPw(), 
@@ -75,6 +74,13 @@ public class MemberServiceImpl implements MemberService {
 		}
 
 		return loginMember;
+	}
+	
+	// 아이디 찾기
+	@Override
+	public String findEmail(Map<String, Object> paramMap) {
+		
+		return dao.findEmail(paramMap);
 	}
 
 

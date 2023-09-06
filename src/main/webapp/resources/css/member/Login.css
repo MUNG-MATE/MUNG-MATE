@@ -6,12 +6,6 @@ body{
     position: relative;
 }
 
-.modalbg{
-    width: 100%;
-    height: 100%;
-    background-color: #ddd;
-}
-
 .totalContainer {
     /* 페이지 전체 div */
     width: 100%;
@@ -433,6 +427,8 @@ label{ /* 아이디 저장 글씨 */
     transition: all .5s ease-in-out;
     -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
     transform: translateX(-98%) translateY(-25%) rotate(45deg);
+    color: white;
+    
 }
 
 .loginPageBtn:hover {
@@ -443,6 +439,7 @@ label{ /* 아이디 저장 글씨 */
     /* 로그인 버튼 호버 효과 */
     -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
     transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    
 }
 
 #searchYesBtn {
@@ -750,7 +747,6 @@ label{ /* 아이디 저장 글씨 */
 #modal-close:hover{
     transform: scale(1.2);
 }
-
 
 /* @keyframes : 
 애니메이션 중간중간의 특정 지점들을 거칠 수 있는 키프레임들을 설정함으로써
