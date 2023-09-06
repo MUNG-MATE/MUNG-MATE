@@ -6,11 +6,11 @@
 	<nav class="nav">
                 <ul class="gnb">
                     <li>
-                        <a href="#">멍메이트</a>
+                        <a href="#">My Page</a>
                         <ul class="sub_gnb">
-                            <li>1</li>
-                            <li>2</li>
-                            <li>3</li>
+                            <li><a href = "/myPage/memberInfo">내 정보</a></li>
+                            <li><a href = "/myPage/memberInfoUpdate">내 정보 수정</a></li>
+                            <li><a href = "/myPage/memberSecession">계정 탈퇴</a></li>
                             <li>4</li>
                         </ul>
                     </li>
