@@ -53,7 +53,7 @@
                                 <div>혹시 회원이 아니신가요?</div>
                                 <div></div>
                                 <div>
-                                    <a href="#">회원가입</a>
+                                    <a href="signUp">회원가입</a>
                                 </div>
                             </div>
                         </div>

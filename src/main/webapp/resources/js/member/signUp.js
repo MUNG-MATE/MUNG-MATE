@@ -358,6 +358,14 @@ checkclear.addEventListener("click", function(){
 
 });
 
+const rollcheckbtn1 = document.getElementById("rollcheckbtn1");
+const modal = document.querySelector('.modal');
+const btnOpenPopup = document.querySelector('.btn-open-popup');
+
+rollcheckbtn1.addEventListener('click', () => {
+  modal.style.display = 'block';
+});
+
 document.getElementById("signUpFrm").addEventListener("submit", e=> {
 
     for(let key in checkObj){

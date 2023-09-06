@@ -90,7 +90,7 @@
                                             for="notAgree1">동의하지않음</label></div>
                                 </div>
                             </div>
-                            <div class="checkBoxBtnArea"><button type="button">약관 확인</button></div>
+                            <div class="checkBoxBtnArea" id="rollcheckbtn1"><button type="button">약관 확인</button></div>
                         </div>
 
                         <div class="agreeArea">
@@ -104,7 +104,7 @@
                                             for="notAgree2"><span>동의하지않음</span></label></div>
                                 </div>
                             </div>
-                            <div class="checkBoxBtnArea"><button type="button">약관 확인</button></div>
+                            <div class="checkBoxBtnArea" id="rollcheckbtn2"><button type="button">약관 확인</button></div>
                         </div>
 
                         <div class="signUpBtnArea"><button id="signUpBtn">회원가입</button></div>
@@ -113,6 +113,17 @@
             </form>
             <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
+        </div>
+
+        <div class="modal">
+            <div class="modal_body">
+                <textarea cols="30" rows="10">
+                    하
+                    이
+                    요
+                    
+                </textarea>
+            </div>                
         </div>
 
         <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
