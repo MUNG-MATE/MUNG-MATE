@@ -48,7 +48,7 @@
 				, #{memberPw}
 				, #{memberTel}
 				, #{memberAddress}
-				, DEFAULT, DEFAULT, DEFAULT, NULL, DEFAULT)
+				, DEFAULT, DEFAULT, DEFAULT, DEFAULT, NULL)
 	</insert>
 	
 	<select id="login" resultMap="member_rm">
