@@ -17,9 +17,16 @@
 
         <!-- 회원가입 및 로그인 영역 -->
         <div class="menu-1">
+        <c:if test="${empty loginMember}" >
             <a href="/member/login">Login</a>
             <span>|</span>
             <a href="/member/signUp">Join</a>
+        </c:if>
+        <c:if test="${!empty loginMember}" >
+        <a href = "/myPage/memberInfo"></a>
+        <span>|</span>
+             <a href="/member/login">Logout</a>
+        </c:if>
         </div>
 
 
