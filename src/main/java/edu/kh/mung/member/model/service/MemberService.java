@@ -1,5 +1,7 @@
 package edu.kh.mung.member.model.service;
 
+import java.util.Map;
+
 import edu.kh.mung.member.model.dto.Member;
 
 public interface MemberService {
@@ -30,4 +32,11 @@ public interface MemberService {
 	 * @return loginmember
 	 */
 	Member login(Member inputMember);
+
+
+	/** 아이디 찾기
+	 * @param paramMap
+	 * @return result
+	 */
+	String findEmail(Map<String, Object> paramMap);
 }

@@ -359,12 +359,47 @@ checkclear.addEventListener("click", function(){
 });
 
 const rollcheckbtn1 = document.getElementById("rollcheckbtn1");
-const modal = document.querySelector('.modal');
 const btnOpenPopup = document.querySelector('.btn-open-popup');
+const rollcheckbtn2 = document.getElementById("rollcheckbtn2");
+const agreepart1 = document.getElementById("agreepart1");
+const agreepart2 = document.getElementById("agreepart2");
+const rollCloseBtn1 = document.getElementById("rollCloseBtn1");
+const rollCloseBtn2 = document.getElementById("rollCloseBtn2");
 
-rollcheckbtn1.addEventListener('click', () => {
-  modal.style.display = 'block';
-});
+if(rollcheckbtn1 != null){
+
+    rollcheckbtn1.addEventListener('click', () => {
+        agreepart1.style.display = 'flex';
+    });
+    
+}
+
+if(rollcheckbtn2 != null){
+    rollcheckbtn2.addEventListener('click', () => {
+        agreepart2.style.display = 'flex';
+      });
+  
+}
+
+if(rollCloseBtn1 != null){
+
+    rollCloseBtn1.addEventListener('click', () => {
+        agreepart1.style.display = 'none';
+    });
+    
+}
+
+
+if(rollCloseBtn2 != null){
+
+    rollCloseBtn2.addEventListener('click', () => {
+        agreepart2.style.display = 'none';
+    });
+    
+}
+
+
+
 
 document.getElementById("signUpFrm").addEventListener("submit", e=> {
 
