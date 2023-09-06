@@ -285,6 +285,7 @@ label{ /* 아이디 저장 글씨 */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.20);
 }
 
 .findContentArea {
@@ -527,6 +528,8 @@ label{ /* 아이디 저장 글씨 */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.20);
+
 
 }
 

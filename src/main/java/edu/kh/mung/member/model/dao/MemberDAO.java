@@ -41,5 +41,14 @@ public class MemberDAO {
 		return sqlSession.insert("memberMapper.insertNewMember", newMember);
 	}
 
+	
+	/** 로그인	
+	 * @param inputMember
+	 * @return loginMember
+	 */
+	public Member login(Member inputMember) {
+		return sqlSession.selectOne("memberMapper.login", inputMember);
+	}
+
 
 }
