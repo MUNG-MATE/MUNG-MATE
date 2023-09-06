@@ -23,9 +23,9 @@
             <a href="/member/signUp">Join</a>
         </c:if>
         <c:if test="${!empty loginMember}" >
-        <a href = "/myPage/memberInfo"></a>
+        <a href = "/myPage/memberInfo">My Page</a>
         <span>|</span>
-             <a href="/member/login">Logout</a>
+             <a href="/member/logout">Logout</a>
         </c:if>
         </div>
 
