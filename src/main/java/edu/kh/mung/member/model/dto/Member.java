@@ -21,6 +21,8 @@ public class Member {
 	private String memberAddress;
 	private String profileImage;
 	private String enrollDate;
-	private String memberDeleteFlag;
+	private String sessionFlag;
+	private String adminFlag;
+	private String petsitterFlag;
 	private int authority;
 }

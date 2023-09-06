@@ -23,4 +23,11 @@ public interface MemberService {
 	 * @return result
 	 */
 	int insertNewMember(Member newMember);
+
+
+	/** 로그인
+	 * @param inputMember
+	 * @return loginmember
+	 */
+	Member login(Member inputMember);
 }

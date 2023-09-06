@@ -9,7 +9,7 @@ const searchNoBtn2 = document.getElementById("searchNoBtn2");
 if(findInfoBtn1 != null){
     findInfoBtn1.addEventListener("click", ()=>{
         findprofile.classList.toggle("modal");
-
+        
     });
 }
 

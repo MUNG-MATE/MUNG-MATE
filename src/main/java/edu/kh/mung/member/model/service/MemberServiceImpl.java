@@ -51,6 +51,31 @@ public class MemberServiceImpl implements MemberService {
 		
 		return result;
 	}
+	
+	// 로그인
+	@Override
+	public Member login(Member inputMember) {
+		
+		System.out.println("암호화 확인 : " + bcrypt.encode(inputMember.getMemberPw()));
+		Member loginMember = dao.login(inputMember);
+		System.out.println("DB에 있는 비밀번호 :" + loginMember.getMemberPw());
+		
+		
+		if(loginMember != null) {
+		
+			if(bcrypt.matches(inputMember.getMemberPw(), 
+							  loginMember.getMemberPw())) {
+				
+				loginMember.setMemberPw(null);
+				
+			}else {
+				loginMember = null; 
+			}
+			
+		}
+
+		return loginMember;
+	}
 
 
 	
