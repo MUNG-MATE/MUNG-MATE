@@ -66,8 +66,8 @@
                 <div class="modal_body1">
                    <p>회원님의 비밀번호를 입력해주세요</p>
                    <input type = "text" id = "memberPw" name = "memberPw">
-                    <button id="yes" type="buttn">확인</button>
-                    <button id="back" type="buttn">취소</button>
+                    <button id="yes">확인</button>
+                    <button id="back">취소</button>
                 </div>                
             </div>
             </form>

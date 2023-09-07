@@ -14,10 +14,6 @@
 	</update>
 	
 	
-	<select id="pwCheck" resultType="string" parameterType="String">
-	SELECT MEMBER_PW FROM MEMBER WHERE MEMBER_PW = #{memberPw}
-	</select>
-	
 
 
 
