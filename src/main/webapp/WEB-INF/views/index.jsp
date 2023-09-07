@@ -12,7 +12,6 @@
     
 <body>
 
-
     <div class="mainImage">
         <img src="/resources/images/mainImage2.jpg">
         <div class="mainImageIn">
