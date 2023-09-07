@@ -8,8 +8,12 @@ updateBtn.addEventListener("click", function(){
 })
 
 // 모달창 취소를 눌렀을 때 
-document.getElementById("back").addEventListener("click", function(){
+document.getElementById("back").addEventListener("click", function(e){
     modal.style.display="none";
+
+    e.preventDefault();
+    return;
+
 })
 
 

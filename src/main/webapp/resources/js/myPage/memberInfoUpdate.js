@@ -104,7 +104,7 @@ let initCheck;
 let deleteCheck = -1; // 프로필 상태
 let originalImage; // 초기 프로필 이미지 파일 경로
 
-// imageInput에 값이 있을 경우
+// 화면에 
 if(imageInput != null){
 
     originalImage = profileImage.getAttribute("src");
@@ -126,6 +126,25 @@ if(imageInput != null){
 
             return;
         }
+
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+
+        reader.onload = e => {
+            const url = e.target.result;
+            profileImage.setAttribute("src", url);
+
+            deleteCheck = 1;
+        }
     })
+
+    // 사진을 지웠을 때
+    deleteImage.addEventListener("click", () => {
+        profileImage.setAttribute("src", "/resources/images/user.png");
+        imageInput.value = "";
+
+        deleteCheck = 0;
+    })
+
 
 }

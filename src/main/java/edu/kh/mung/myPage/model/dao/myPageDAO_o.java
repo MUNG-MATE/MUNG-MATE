@@ -4,6 +4,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import edu.kh.mung.member.model.dto.Member;
+
 @Repository
 public class myPageDAO_o {
 
@@ -36,5 +38,23 @@ public class myPageDAO_o {
 	 */
 	public int pwCheck(String memberPw) {
 		return sqlSession.selectOne("myPageMapper.pwCheck", memberPw);
+	}
+
+
+	/** 회원 정보 수정
+	 * @param member
+	 * @return
+	 */
+	public int infoUpdate(Member member) {
+		return sqlSession.update("myPageMapper.infoUpdate", member);
+	}
+
+
+	/** 회원 프로필 사진 수정
+	 * @param loginMember
+	 * @return
+	 */
+	public int profileUpdate(Member loginMember) {
+		return sqlSession.update("myPageMapper.profileUpdate", loginMember);
 	}
 }
