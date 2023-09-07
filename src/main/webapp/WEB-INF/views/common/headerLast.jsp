@@ -43,7 +43,6 @@
 </header>
 
 <header class="headArea">
-    
     <!-- 로고 영역 -->
     <div class="logoArea">
         <a href="#">
@@ -62,7 +61,6 @@
             <img src="/resources/images/menuIcon.png" alt="메뉴 아이콘">
         </div>
     </div>
-
 </header>
 
 <script>
