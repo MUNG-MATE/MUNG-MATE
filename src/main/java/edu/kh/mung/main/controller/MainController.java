@@ -37,5 +37,10 @@ public class MainController {
 		return "Administrator/reserve";
 		
 	}
+	@RequestMapping("/Administrator/petManagement")
+	public String petManagement() {
+		return "Administrator/petManagement";
+		
+	}
 	
 }
