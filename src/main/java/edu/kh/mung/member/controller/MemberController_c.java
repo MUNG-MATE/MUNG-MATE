@@ -22,16 +22,16 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.mung.member.model.dto.Member;
-import edu.kh.mung.member.model.service.MemberService;
+import edu.kh.mung.member.model.service.MemberService_c;
 
 
 @Controller
 @RequestMapping("/member")
 @SessionAttributes("loginMember")
-public class MemberController {
+public class MemberController_c {
 
 	@Autowired
-	private MemberService service;
+	private MemberService_c service;
 	
 	// 회원가입 화면 출력
 	@GetMapping("/signUp")
@@ -39,7 +39,7 @@ public class MemberController {
 		return "member/signUp";
 	}
 	
-	// 회원가입 중 이메일 졍규식 검사
+	// 회원가입 중 이메일 정규식 검사
 	@GetMapping("/dupCheck/email")
 	@ResponseBody
 	public int dupCheckEmail(String email) {
@@ -143,6 +143,7 @@ public class MemberController {
 	}
 	
 	
+	// 이메일 찾기 비동기 통신(ajax)
 	@PostMapping(value="findEmail", produces = "application/json; charset=UTF-8")
 	@ResponseBody
 	public String findEmail(@RequestBody Map<String, Object> paramMap) {
@@ -152,13 +153,32 @@ public class MemberController {
 		return result;
 	}
 	
+	// 비밀번호 변경 화면 출력
+	@PostMapping("/findPw")
+	public String findPw() {
+		return "member/changePw";
+	}
 	
+	// 로그아웃 
 	@GetMapping("/logout")
-	public String logout(SessionStatus status, HttpSession session) {
+	public String logout(SessionStatus status) {
 		
 		status.setComplete();
 		return "redirect:/";
 	}
+	
+	@PostMapping("/changePw")
+	public String changePw(String newPw
+						  ,String newPwCheck
+						  ,RedirectAttributes ra) {
+		
+		System.out.println(newPw);
+		System.out.println(newPwCheck);
+		
+		
+		return "redirect:/member/login";
+	}
+	
 	
 	
 	

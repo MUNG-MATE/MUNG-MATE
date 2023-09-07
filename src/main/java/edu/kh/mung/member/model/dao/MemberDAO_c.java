@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import edu.kh.mung.member.model.dto.Member;
 
 @Repository
-public class MemberDAO {
+public class MemberDAO_c {
 
 	@Autowired
 	private SqlSessionTemplate sqlSession;

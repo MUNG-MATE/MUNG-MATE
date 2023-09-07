@@ -16,15 +16,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
-import edu.kh.mung.member.model.dao.EmailDAO;
+import edu.kh.mung.member.model.dao.EmailDAO_c;
 
 
 @Service
-public class EmailServiceImpl implements EmailService {
+public class EmailServiceImpl_c implements EmailService_c {
 
 
     @Autowired
-    private EmailDAO dao;
+    private EmailDAO_c dao;
     
     @Autowired
     private JavaMailSender mailSender;

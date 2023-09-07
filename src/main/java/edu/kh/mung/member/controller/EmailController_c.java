@@ -13,20 +13,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import edu.kh.mung.member.model.service.EmailService;
+import edu.kh.mung.member.model.service.EmailService_c;
 
 @Controller
 @RequestMapping("/sendEmail")
 @SessionAttributes("authKey")
-public class EmailController {
+public class EmailController_c {
     
     @Autowired
-    private EmailService service;
+    private EmailService_c service;
     
     @GetMapping("/signUp")
     @ResponseBody
     public int signUp(String email) {
-        return service.signUp(email, "회원 가입");
+        return service.signUp(email, "이메일");
     }
     
     
