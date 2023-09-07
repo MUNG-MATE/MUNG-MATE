@@ -72,7 +72,7 @@
         const headerSticky = document.querySelector(".headArea"); // 스티키 헤더 엘리먼트를 선택
         const scrollY = window.scrollY; // 스크롤 위치 가져오기
 
-        if (scrollY > 167) {
+        if (scrollY > 167.000) {
             header.style.display = 'none'; 
             header.style.opacity = '0'; 
             headerSticky.style.display = 'flex';
