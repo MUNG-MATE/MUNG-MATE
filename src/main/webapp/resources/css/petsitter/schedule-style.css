@@ -1,0 +1,250 @@
+/* * {
+    box-sizing: border-box;
+
+    border: 1px solid black;
+
+} */
+
+
+
+body{
+    margin: 0;
+}
+
+.main{
+    width: 1200px;
+}
+
+.main_container{
+    width: 1000px;
+    margin:auto;
+}
+.main_first{
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding-left: 40px;
+    padding-bottom: 80px;
+
+}
+.main_first > div:nth-child(1){
+    font-size: 40px;
+    font-weight: bolder;
+    padding-bottom: 10px;
+}
+
+.main_second{
+    padding-left: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.main_second > div{
+    padding: 20px;
+}
+.content{
+    background-color: rgb(255, 247, 247);
+    border:none;
+    border-radius: 15px;
+    width: 250px;
+    padding: 5px;
+
+    box-shadow: 0px 4px 8px rgb(143, 71, 71);
+
+    
+}
+
+.content > div:first-child{
+    display:flex;
+    justify-content: center;
+}
+
+#petPhoto{
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    margin: 10px;
+    border:none;
+   
+}
+
+#detailPhoto{
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    border:none;
+}
+
+.info{
+    text-align: center;
+}
+
+.select-btn{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.custom-btn {
+    width: 80px;
+    height: 40px;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px 25px;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+}
+.btn-15 {
+  background: rgb(255, 123, 123);
+  border: none;
+  z-index: 1;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+.btn-15:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  background-color: orangered;
+  border-radius: 10px;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  transition: all 0.3s ease;
+}
+.btn-15:hover {
+  color: #fff;
+}
+.btn-15:hover:after {
+  left: 0;
+  width: 100%;
+}
+.btn-15:active {
+  top: 1px;
+}
+
+.btn-16 {
+  background: pink;
+  border: none;
+  z-index: 1;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+.btn-16:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  background-color: rgb(255, 123, 123);
+  border-radius: 10px;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  transition: all 0.3s ease;
+}
+.btn-16:hover {
+  color: #fff;
+}
+.btn-16:hover:after {
+  left: 0;
+  width: 100%;
+}
+.btn-16:active {
+  top: 1px;
+}
+
+.scroll-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    font-size: 18px;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    background: rgb(255, 175, 175);
+    color: white;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.3s, opacity 0.5s, visibility 0.5s;
+    opacity: 0;
+    visibility: hidden;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.scroll-top-btn:hover {
+    background: white;
+    color: rgb(255, 175, 175);
+}
+
+.scroll-top-btn.show {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+
+
+}
+
+/*팝업레이어*/
+#addTargetPopupLayer{
+    position: fixed;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1200;
+    background-color: rgb(255, 175, 175);
+    border: none;
+    border-radius: 15px;
+
+    width: 450px;
+    height: 600px;
+
+}
+.detail{
+
+    margin: 20px;
+    
+}
+.detail > div{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    color: white;
+}
+.popup-layer-close{ display: none;  }
+
+#closeBtn{
+    position: absolute;
+   top: -1px;
+    right: 2px;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+}
+
+
+
+

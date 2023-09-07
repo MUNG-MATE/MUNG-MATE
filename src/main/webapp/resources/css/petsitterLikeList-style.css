@@ -1,0 +1,207 @@
+/* * {
+    box-sizing: border-box;
+
+    border: 1px solid black;
+
+} */
+
+body{
+    margin: 0;
+}
+
+.main{
+    width: 1200px;
+}
+
+.main_container{
+    width: 1000px;
+    margin:auto;
+
+}
+
+
+
+.main_first{
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding-left: 40px;
+    padding-bottom: 80px;
+}
+.main_first > div:nth-child(1){
+    font-size: 40px;
+    font-weight: bolder;
+    padding-bottom: 10px;
+    color:rgb(0,30,60);
+}
+.main_first > div:last-child{
+    color:gray;
+}
+
+.main_second{
+ 
+    padding : 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.petsitter-photo{
+    width: 350px;
+    height: 100%;
+    border-radius: 5px;
+    border: 2px double lightgray;
+}
+
+.main_content{
+    display: flex;
+    padding: 30px;
+    background-color: white;
+    border:none;
+    border-radius: 10px;
+    position: relative;
+    
+    box-shadow: 0px 4px 8px rgb(0,30,60);
+}
+
+.main_content > div:last-child{
+    padding-left: 40px;
+}
+
+.like_header{
+    display: flex;
+    justify-content: space-between;
+}
+.like_header > div:last-child{
+    display: flex;
+    align-items: center;
+}
+
+.like_title{
+    padding-top: 5px;
+    font-size: 30px;
+    font-weight: bolder;
+    padding-bottom: 10px;
+    color: rgb(0,30,60);
+}
+
+
+
+.petsitter-profile{
+    border-radius: 50%;
+    width: 70px;
+    border: none;
+}
+
+#delete{
+    position: absolute;
+    top: 2px;
+    right: 8px;
+    cursor: pointer;
+    font-size: 25px;
+}
+.like_explain{
+    color: gray;
+    font-size: 15px;
+    line-height: 30px;
+    
+}
+.book-btn{
+    height: 80px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+
+.custom-btn {
+    width: 110px;
+    height: 40px;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px 25px;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+}
+.btn-15 {
+  background: lightblue;
+  border: none;
+  z-index: 1;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+.btn-15:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  background-color: rgb(0,30,60);
+  border-radius: 10px;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  transition: all 0.3s ease;
+}
+.btn-15:hover {
+  color: #fff;
+}
+.btn-15:hover:after {
+  left: 0;
+  width: 100%;
+}
+.btn-15:active {
+  top: 1px;
+}
+
+.scroll-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    font-size: 18px;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    background: rgb(0,30,60);
+    color: white;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.3s, opacity 0.5s, visibility 0.5s;
+    opacity: 0;
+    visibility: hidden;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.scroll-top-btn:hover {
+    background: white;
+    color: rgb(0,30,60);
+}
+
+.scroll-top-btn.show {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+
+
+}
+
+
+
+
+
