@@ -1,0 +1,64 @@
+body {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+#resTitle {
+    margin: 50px 0 10px;
+}
+
+#resSubTitle {
+    margin: 0 0 50px;
+    font-weight: normal;
+}
+
+h2 {
+    width: 300px;
+    margin: 20px auto;
+}
+
+select, input {
+    width: 300px;
+    height: 40px;
+    display: block;
+    margin: 20px auto;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    border: 1px solid rgb(118, 118, 118);
+}
+
+input:focus, select:focus {
+    outline: 1px solid rgb(0,30,60);
+}
+
+.btnStyle {
+    width: 100px;
+    height: 50px;
+    border-radius: 30px;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    border: 0;
+    box-shadow: 3px 2px 3px 0px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    cursor: pointer;
+    margin: 50px;
+}
+
+.btnStyle:hover {
+    background-color: rgb(0,30,60);
+    color: white;
+}
+
+.prev {
+    float: left;
+}
+
+.next {
+    float: right;
+}
+
+input[name="addr"] {
+    margin-bottom: 0;
+}
