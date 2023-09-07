@@ -1,4 +1,4 @@
-package edu.kh.mung.myPage;
+package edu.kh.mung.myPage.controller;
 
 import javax.mail.Session;
 import javax.servlet.http.Cookie;
@@ -16,15 +16,15 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.mung.member.model.dto.Member;
-import edu.kh.mung.myPage.model.service.myPageService;
+import edu.kh.mung.myPage.model.service.myPageService_o;
 
 @Controller
 @RequestMapping("/myPage")
 @SessionAttributes({"loginMember"})
-public class myPageController {
+public class myPageController_o {
 	
 	@Autowired
-	private myPageService service;
+	private myPageService_o service;
 
 	/** 마이페이지이동
 	 * @return
@@ -88,13 +88,17 @@ public class myPageController {
 	
 	@PostMapping("/pwCheck")
 	public String pwCheck(String memberPw
-						,RedirectAttributes ra) {
-			System.out.println("비밀번호 입니다" + memberPw);
-		int result = service.pwCheck(memberPw);
+						,RedirectAttributes ra
+						, @SessionAttribute("loginMember") Member loginMember
+						, HttpServletResponse resp) {
 		
-		String path = "redirect:";
+		int memberNo = loginMember.getMemberNo();
+		
+		int result = service.pwCheck(memberPw, memberNo);
+		
 		String message = null;
 		
+		String path = "";
 		
 		if(result > 0) {
 			path += "/myPage/memberInfoUpdate";

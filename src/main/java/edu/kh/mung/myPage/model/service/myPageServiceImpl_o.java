@@ -5,13 +5,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import edu.kh.mung.myPage.model.dao.myPageDAO;
+import edu.kh.mung.myPage.model.dao.myPageDAO_o;
 
 @Service
-public class myPageServiceImpl implements myPageService {
+public class myPageServiceImpl_o implements myPageService_o {
 
 	@Autowired
-	private myPageDAO dao;
+	private myPageDAO_o dao;
 	
 	@Autowired 
 	private BCryptPasswordEncoder bcrypt;
@@ -35,8 +35,18 @@ public class myPageServiceImpl implements myPageService {
 	 *회원 정보 수정 전 비밀번호 확인
 	 */
 	@Override
-	public int pwCheck(String memberPw) {
-		return dao.pwCheck(memberPw);
+	public int pwCheck(String memberPw, int memberNo) {
+		
+		int result = 0;
+		
+		String encPw = dao.selectEncPw(memberNo);
+		
+		if(bcrypt.matches(memberPw, encPw)) {
+			result += 1;
+		}
+		System.out.println("service : " + result);
+		
+		return result;
 	}
 	
 	

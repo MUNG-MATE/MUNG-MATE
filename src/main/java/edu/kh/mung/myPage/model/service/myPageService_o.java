@@ -1,6 +1,6 @@
 package edu.kh.mung.myPage.model.service;
 
-public interface myPageService {
+public interface myPageService_o {
 
 	/** 회원 탈퇴
 	 * @param memberNo
@@ -13,6 +13,6 @@ public interface myPageService {
 	 * @param memberPw
 	 * @return
 	 */
-	int pwCheck(String memberPw);
+	int pwCheck(String memberPw, int memberNo);
 
 }
