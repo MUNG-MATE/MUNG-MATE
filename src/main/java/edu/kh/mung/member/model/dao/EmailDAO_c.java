@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class EmailDAO {
+public class EmailDAO_c {
     
    @Autowired
     private SqlSessionTemplate sqlSession;

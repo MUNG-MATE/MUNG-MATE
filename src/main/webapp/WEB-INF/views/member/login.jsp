@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
     <!DOCTYPE html>
     <html lang="en">
@@ -19,7 +20,7 @@
 
         <div class="totalContainer">
 
-            <jsp:include page="/WEB-INF/views/common/header.jsp" />
+            <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
 
             <form action="/member/login" method="POST" id="loginForm">
                 <div class="bodyContainer" id="bodyAllContainer">
@@ -44,7 +45,7 @@
                                 </div>
                             </div>
                             <div class="checkboxArea">
-                                <div><input type="checkbox" id="saveId" ${chk}><label for="saveId" autocomplete="off" >아이디 저장</label></div>
+                                <div><input type="checkbox" id="saveId" name="saveId" ${chk}><label for="saveId" autocomplete="off" >아이디 저장</label></div>
                                 <div></div>
                                 <div>
                                     <button type="button" id="findInfoBtn1">이메일 찾기</button> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -93,23 +94,24 @@
 
 
         <div class="findprofileArea modal" id="findprofilePassword">
-            <form action="/member/findPw" method="POST">
+            <form action="/member/findPw" method="POST" id="findPwForm">
                 <div class="profilePasswordCheck">
                     <div>비밀번호 찾기</div>
                     <div>인증된 이메일만 정보 찾기가 가능합니다</div>
                     <div>
-
                     </div>
                     <div>이메일</div>
                     <div>
-                        <input type="text" id="searchInputEmail" autocomplete="off">
-                        <button id="checkNumberBtn">인증번호 전송</button>
+                        <input type="text" id="searchInputEmail" name="memberEmail" autocomplete="off">
+                        <button type="button" id="emailCheck">인증번호 전송</button>
                     </div>
-                    <div>05:00</div>
+                    
                     <div>인증번호</div>
                     <div>
-                        <input type="text" id="inputCheckNumber" autocomplete="off">
+                        <input type="text" id="inputCheckNumber" maxlength="6" autocomplete="off">
+                        <button type="button" id="checkclear">인증</button>
                     </div>
+                    <div id="authKeyTime">05:00</div>
                     <div><button class="loginPageBtn" id="searchYesBtn1"><span>확인</span></button></div>
                     <div><button type="button" class="loginPageBtn" id="searchNoBtn2"><span>돌아가기</span></button></div>
 

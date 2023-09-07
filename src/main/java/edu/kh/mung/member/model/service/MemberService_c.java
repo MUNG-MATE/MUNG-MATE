@@ -4,7 +4,7 @@ import java.util.Map;
 
 import edu.kh.mung.member.model.dto.Member;
 
-public interface MemberService {
+public interface MemberService_c {
 	
 	/** 회원가입 중 이메일 검사
 	 * @param email

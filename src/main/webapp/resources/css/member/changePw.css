@@ -6,6 +6,13 @@
     display: none;
 }
 
+.confirm{
+    color: green;
+}
+.error{
+    color:red;
+}
+
 .totalContainer{ /* 페이지 전체 div */
     width: 100%;
     min-width: 1500px;
@@ -19,16 +26,9 @@
     display: flex;
 }
 
-.navContainer{ /* nav부분 전체 div */
-    width: 100%;
-    height: 5%;
-    display: flex;
-    min-width: 800px;
-}
-
 .bodyContainer{/* 바디부분 전체 div */
     width: 100%;
-    height: 60%;
+    height: 70%;
 
 }
 
@@ -49,12 +49,27 @@
 .contentContainer > div:nth-child(2){/* 로그인 부분 전체 div */
     width: 60%;
     height: 80%;
-    background-color: rgb(255, 175, 175);
-    ;
+    background-color: white;
+    border: 3px solid rgb(0,30,60);
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.20);
 }
 
 .contentContainer div{
     padding: 5px;
+}
+
+/* 초기 상태 (focus 전) */
+input {
+    border: none;
+    border-bottom: 2px solid #ddd;
+    outline: none; /* 기본 outline 제거 */
+    transition: outline-color 0.3s ease, outline-offset 0.3s ease;
+}
+
+/* focus 상태 (outline 색상 및 offset 변경) */
+input:focus {
+    outline: none !important; border-color: rgb(0,30,60); box-shadow: 0 0 10px rgb(0,30,60);
 }
 .loginNonepart{ /* 비밀번호 변경 공백 파트 */
     height: 80px;
@@ -66,7 +81,7 @@
 }
 
 .newPasswordPart{
-    width: 133px;
+    width: 117px;
 }
 
 #inputnewPassword{ /* 새 비밀번호 입력창 */
@@ -84,19 +99,25 @@
     height: 30px;
 }
 
-.inputCheckArea{/* 정규식 부분ㄴ */
+.inputCheckArea{/* 정규식 부분 */
     display: flex;
     justify-content: center;
-    height: 30px;    
+    height: 30px;   
+    font-size: 13px; 
+    margin: auto;
+    margin-bottom: 10px;
 }   
 
 .changePwBtnArea{/* 비밀번호 변경 버튼 영역 */
     display: flex;
     justify-content: center;
     text-align: center;
-    margin-right: 180px;
+    margin-top: 20px;
 }
 
+#changePwBtn:hover{
+    color: white;
+}
 
 
 #changePwBtn{ /* 비밀번호 변경 버튼 */
@@ -108,23 +129,22 @@
     outline: none;
     overflow: hidden;
     position: relative;
-    color: rgb(255, 175, 175);
+    color: rgb(0,30,60);
     font-weight: 700;
     font-size: 15px;
     background-color: white;
     padding: 17px 60px;
-    margin-left: 180px;
+    margin: 0 auto;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.20);
-    width: 340px;
+    width: 400px;
 }
+
 
 #changePwBtn span {
     /* 로그인 글씨 영역 */
     position: relative;
-    z-index: 1;
+    z-index: 50;
 }
-
-
 
 
 #changePwBtn:after {
@@ -133,14 +153,15 @@
     position: absolute;
     left: 0;
     top: 0;
-    height: 600%;
+    height: 800%;
     width: 140%;
-    background: rgb(255, 175, 175);
+    background: rgb(0,30,60);
     -webkit-transition: all .5s ease-in-out;
     transition: all .5s ease-in-out;
     -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
     transform: translateX(-98%) translateY(-25%) rotate(45deg);
 }
+
 
 
 #changePwBtn:hover:after {
@@ -149,9 +170,6 @@
     transform: translateX(-9%) translateY(-25%) rotate(45deg);
 }
 
-#chengePWBtn:hover{
-    color: white;
-}
 
 .contentContainer > div:nth-child(3){/* 로그인 왼쪽 공백 */
     height: 100%;

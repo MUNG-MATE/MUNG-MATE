@@ -44,7 +44,7 @@
 
                         <div class="signUpEmailcheck">
                             <div>인증번호 입력</div>
-                            <div><input type="text" id="signUpInputEmailCheck" maxlength="6" autocomplete="off" autocomplete="off"><button
+                            <div><input type="text" id="signUpInputEmailCheck" maxlength="6" autocomplete="off"><button
                                     id="checkclear" type="button">인증</button></div>
                             <div id="authKeyTime">05:00</div>
                         </div>

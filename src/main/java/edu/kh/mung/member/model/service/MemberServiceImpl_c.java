@@ -13,14 +13,14 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import edu.kh.mung.member.model.dao.MemberDAO;
+import edu.kh.mung.member.model.dao.MemberDAO_c;
 import edu.kh.mung.member.model.dto.Member;
 
 @Service
-public class MemberServiceImpl implements MemberService {
+public class MemberServiceImpl_c implements MemberService_c {
 
 	@Autowired
-	private MemberDAO dao;
+	private MemberDAO_c dao;
 
 	@Autowired
 	private BCryptPasswordEncoder bcrypt;

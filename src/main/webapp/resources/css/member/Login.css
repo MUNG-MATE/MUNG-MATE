@@ -6,6 +6,14 @@ body{
     position: relative;
 }
 
+.confirm{
+    color:green;
+}
+
+.error{
+    color:red;
+}
+
 .totalContainer {
     /* 페이지 전체 div */
     width: 100%;
@@ -486,7 +494,7 @@ label{ /* 아이디 저장 글씨 */
     height: 100%;
 }
 
-#checkNumberBtn {
+#emailCheck {
     /* 인증번호 전송버튼 */
     width: 35%;
     height: 100%;
@@ -499,7 +507,7 @@ label{ /* 아이디 저장 글씨 */
     cursor: pointer;
 }
 
-#checkNumberBtn:hover{
+#emailCheck:hover{
     background-color:  rgb(0,30,60);;
     color: white;
 }
@@ -528,6 +536,25 @@ label{ /* 아이디 저장 글씨 */
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.20);
 
 
+}
+
+
+#checkclear {
+    /* 인증버튼 */
+    width: 35%;
+    height: 100%;
+    border-radius: 10px;
+    border: 3px solid rgb(0,30,60);
+    color:rgb(0,30,60);;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: white;
+    cursor: pointer;
+}
+
+#checkclear:hover{
+    background-color:  rgb(0,30,60);;
+    color: white;
 }
 
 
@@ -612,7 +639,7 @@ label{ /* 아이디 저장 글씨 */
 
 #inputCheckNumber {
     /* 인증번호 입력 input */
-    width: 100%;
+    width: 60%;
     height: 70%;
 
     border-radius: 5px;
