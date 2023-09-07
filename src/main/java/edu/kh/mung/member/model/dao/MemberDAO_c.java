@@ -1,5 +1,6 @@
 package edu.kh.mung.member.model.dao;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -58,6 +59,21 @@ public class MemberDAO_c {
 	public String findEmail(Map<String, Object> paramMap) {
 		
 		return sqlSession.selectOne("memberMapper.findEmail", paramMap);
+	}
+
+
+	/** 비밀번호 변경
+	 * @param encPw
+	 * @return result
+	 */
+	public int changePw(String encPw, String email) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("encPw", encPw);
+		map.put("email", email);
+		
+		return sqlSession.update("memberMapper.changePw", map);
 	}
 
 

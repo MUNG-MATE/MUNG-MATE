@@ -282,3 +282,27 @@ findPwForm.addEventListener("submit", e=>{
         }
     }
 })
+/*
+const kakaoPay = document.getElementById("kakaoPay");
+
+if(kakaoPay != null){
+
+    kakaoPay.addEventListener("click", function(){
+     
+         fetch('/pay/kakaoPay',{
+             method:'POST',
+             headers:{"Content-Type" : "application/json"}
+         })
+         .then(resp => resp.json())
+         .then(data => {
+            console.log(data.next_redirect_pc_url);
+            window.open(data.next_redirect_pc_url);
+
+         })
+         .catch(error => {
+             console.log(error);
+         })
+    });
+
+}
+*/
