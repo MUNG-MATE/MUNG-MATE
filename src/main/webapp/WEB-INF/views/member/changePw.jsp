@@ -12,7 +12,7 @@
 <body>
     <div class="totalContainer">
        <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
-        <form action="/member/changePw" id="changePwForm">
+        <form action="/member/changePw" method="POST" id="changePwForm">
             <div class="bodyContainer">
                 <div class="contentContainer">
                     <div></div>
@@ -47,6 +47,7 @@
                     <div></div>
                 </div>
             </div>
+            <input type="hidden" name="email" value="${memberEmail}">
         </form>
         <jsp:include page="/WEB-INF/views/common/footer.jsp" />
     </div>

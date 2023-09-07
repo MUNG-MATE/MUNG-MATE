@@ -39,4 +39,11 @@ public interface MemberService_c {
 	 * @return result
 	 */
 	String findEmail(Map<String, Object> paramMap);
+
+
+	/** 비밀번호 변경
+	 * @param map
+	 * @return result
+	 */
+	int changePw(String newPw, String email);
 }

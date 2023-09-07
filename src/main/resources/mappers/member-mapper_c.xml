@@ -69,5 +69,13 @@
 		AND SECESSION_FL = 'N'
 	</select>
 	
+	<!-- 비밀번호 변경 -->
+	<update id="changePw">
+		UPDATE "MEMBER"
+		SET MEMBER_PW = #{encPw}
+		WHERE MEMBER_EMAIL = #{email}
+		AND SECESSION_FL = 'N'
+	
+	</update>
 	
 </mapper>
