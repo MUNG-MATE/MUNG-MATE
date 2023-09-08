@@ -12,7 +12,7 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/views/common/sidebar.jsp" />
-    <jsp:include page="/WEB-INF/views/common/header.jsp" />
+    <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
 
     <main>
         <section class="main_container">
