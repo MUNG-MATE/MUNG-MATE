@@ -108,8 +108,10 @@ public class MemberController_c {
 						,@RequestParam(value="saveId", required=false) String saveId
 						,HttpServletResponse resp
 						,RedirectAttributes ra) {
+		
 
 		Member loginMember = service.login(inputMember);
+		
 		
 		String path = "redirect:";
 		
@@ -119,6 +121,8 @@ public class MemberController_c {
 			model.addAttribute("loginMember",loginMember);
 
 			Cookie cookie = new Cookie("saveId", loginMember.getMemberEmail());
+			
+			ra.addFlashAttribute("message", loginMember.getMemberNickname() + "님 환영합니다.");
 			
 			if(saveId != null) {
 		
@@ -134,12 +138,12 @@ public class MemberController_c {
 			resp.addCookie(cookie);
 			
 		}else {
+			
 			path += referer;
-		
 			ra.addFlashAttribute("message","아이디 또는 비밀번호가 일치하지 않습니다.");
+		
 		}
 		
-			ra.addFlashAttribute("message", loginMember.getMemberNickname() + "님 환영합니다.");
 		return path;
 		
 	}
