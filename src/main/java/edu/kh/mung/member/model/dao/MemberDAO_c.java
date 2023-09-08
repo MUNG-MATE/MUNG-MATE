@@ -76,5 +76,6 @@ public class MemberDAO_c {
 		return sqlSession.update("memberMapper.changePw", map);
 	}
 
+	
 
 }
