@@ -1,14 +1,16 @@
-body {
+#container {
     width: 1200px;
     margin: 0 auto;
 }
 
 #resTitle {
-    margin: 50px 0 10px;
+	width: 1200px;
+    margin: 50px auto 10px;
 }
 
 #resSubTitle {
-    margin: 0 0 50px;
+	width: 1200px;
+    margin: 0 auto 50px;
     font-weight: normal;
 }
 
@@ -27,6 +29,7 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 input[type="file"] {
@@ -41,6 +44,11 @@ label > span {
     background-color: rgb(224, 224, 224);
     border: 0;
     font-size: 13px;
+}
+
+#petImage {
+    width: 200px;
+    height: 200px;
 }
 
 b {
@@ -164,4 +172,9 @@ p {
 
 .next {
     float: right;
+}
+
+#btnArea {
+	width: 100%;
+	height: 130px;
 }

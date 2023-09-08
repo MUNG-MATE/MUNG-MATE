@@ -15,5 +15,27 @@ public class ReservationController_k {
 		return "/reservation/reservation_1";
 	}
 	
+	@GetMapping("/2")
+	public String reservation2() {
+		return "/reservation/reservation_2";
+	}
+	
+	@GetMapping("/3")
+	public String reservation3() {
+		return "/reservation/reservation_3";
+	}
+	
+	@GetMapping("/4")
+	public String reservation4() {
+		return "/reservation/reservation_4";
+	}
+	
+	@GetMapping("/5")
+	public String reservation5() {
+		return "/reservation/reservation_5";
+	}
+	
+	
+	
 	
 }

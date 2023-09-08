@@ -1,14 +1,11 @@
-body {
-    width: 1200px;
-    margin: 0 auto;
-}
-
 #resTitle {
-    margin: 50px 0 10px;
+	width: 1200px;
+    margin: 50px auto 10px;
 }
 
 #resSubTitle {
-    margin: 0 0 50px;
+	width: 1200px;
+    margin: 0 auto 50px;
     font-weight: normal;
 }
 
@@ -18,7 +15,7 @@ h2 {
 }
 
 #container {
-    width: 1150px;
+    width: 1200px;
     margin: 20px auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -105,10 +102,14 @@ h2 {
 
 .prev {
     float: left;
-    margin-left: 65px;
 }
 
 .next {
     float: right;
-    margin-right: 65px;
+}
+
+#btnArea {
+	width: 1200px;
+	height: 130px;
+	margin: 0 auto;
 }
