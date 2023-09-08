@@ -40,15 +40,29 @@
 
         <!-- 이메일, 이름, 닉네임, 전화번호, 주소 -->
         <div class="info">
-            <div>이메일 : ${loginMember.memberEmail}</div><br>
+                    이메일<div>${loginMember.memberEmail}</div><br>
 
-            <div>이름 : ${loginMember.memberName}</div><br>
+                    이름<div>${loginMember.memberName}</div><br>
 
-            <div>닉네임 : ${loginMember.memberNickname}</div><br>
+                    닉네임 <div>${loginMember.memberNickname}</div><br>
 
-            <div>전화번호 : ${loginMember.memberTel}</div><br>
+                    전화번호<div> ${loginMember.memberTel}</div><br>
+                    
+                    주소
 
-            <div>주소 : ${loginMember.memberAddress}</div>
+                    <c:set var = "addr" value =  "${fn:split(loginMember.memberAddress, '^^^')}"/>
+                    <div class="address">
+                       ${addr[0]}
+                    </div>
+
+                    <div class="address">
+                        ${addr[1]}
+                    </div>
+
+                    <div class="address">
+                        ${addr[2]}
+                    </div>
+            </div>
         </div>
     </div>
 

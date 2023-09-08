@@ -27,6 +27,7 @@
         </div>
 
         <form action="/myPage/memberInfoUpdate" method = "POST" id = "memberInfoUpdate" name = "memberInfoUpdate" enctype ="multipart/form-data">
+        
             <!-- 회원 정보 다 들어가있는 칸 -->
             <div class="memberInfo">
                 <!-- 프로필 이미지 -->
@@ -46,15 +47,14 @@
                     <div class="profile-btn-area">
                         <label for="imageInput" id="imagesChoice">이미지 선택</label>
                         <input type="file" name="profileImage" id="imageInput" accept="image/*">
-                        <button>변경하기</button>
                     </div>
                 </div>
 
                 <!-- 이메일, 이름, 닉네임, 전화번호, 주소 -->
                 <div class="info">
-                    이름<div> <input type="text" id="name" value="${loginMember.memberName}"></div><br>
+                    이름<div> <input type="text" id="name"  name="name" value="${loginMember.memberName}"></div><br>
 
-                    닉네임 <div><input type="text" id="nickName" value="${loginMember.memberNickname}"></div><br>
+                    닉네임 <div><input type="text" id="nickName" name="nickName"  value="${loginMember.memberNickname}"></div><br>
 
                     전화번호<div> <input type="text" id="phone" name="phone" maxlength="11" value="${loginMember.memberTel}"></div><br>
                     
@@ -81,7 +81,8 @@
             </div>
             <!-- 수정완료 버튼 -->
             <div class="updateBtn">
-                <button id="updateBtn">수정하기</button>
+                <button id="backBtn" class="infoUpdateBtn">돌아가기</button>
+                <button id="updateBtn" class="infoUpdateBtn">수정하기</button>
             </div>
         </form>
 
