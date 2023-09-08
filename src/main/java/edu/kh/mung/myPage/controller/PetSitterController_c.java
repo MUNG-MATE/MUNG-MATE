@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @Controller
 @SessionAttributes({"loginMember"})
 @RequestMapping("/petsitter")
-public class petSitterController_c {
+public class PetSitterController_c {
 	
 	@GetMapping("/toGeneralApply")
 	public String ToGeneralApply() {

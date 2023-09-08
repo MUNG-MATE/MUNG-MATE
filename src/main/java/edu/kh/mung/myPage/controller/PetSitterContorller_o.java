@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @RequestMapping("/petsitter")
 public class PetSitterContorller_o {
 
-	@GetMapping("/toGeneralApply")
-	public String toGeneralApply() {
-		return "petsitter/toGeneralApply"; 
+	@GetMapping("/toPetsitterApply")
+	public String ToPetsitterApply() {
+		return "petsitter/toPetsitterApply"; 
 	}
 	
 }
