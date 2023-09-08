@@ -34,15 +34,29 @@
     
         <section id="serviceSubSection2">
             <div class="serviceDiv2 circle2">
-                <div>30분<br>19,500원</div>
+                <div>30분<br>20,000원</div>
             </div>
     
             <div class="serviceDiv2 circle2">
-                <div>60분<br>28,500원</div>
+                <div>60분<br>30,000원</div>
             </div>
     
             <div class="serviceDiv2 circle2">
-                <div>120분<br>42,000원</div>
+                <div>120분<br>45,000원</div>
+            </div>
+        </section>
+
+        <section id="serviceSubSection3">
+            <div class="serviceDiv2 circle2">
+                <div>30분<br>15,000원</div>
+            </div>
+    
+            <div class="serviceDiv2 circle2">
+                <div>60분<br>25,000원</div>
+            </div>
+    
+            <div class="serviceDiv2 circle2">
+                <div>120분<br>40,000원</div>
             </div>
         </section>
     
