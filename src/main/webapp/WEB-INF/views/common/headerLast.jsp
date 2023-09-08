@@ -69,19 +69,23 @@
         const header = document.querySelector(".head"); // 헤더 엘리먼트를 선택
         const headerSticky = document.querySelector(".headArea"); // 스티키 헤더 엘리먼트를 선택
         const scrollY = window.scrollY; // 스크롤 위치 가져오기
-
+		
+        
         if (scrollY > 167.000) {
             header.style.display = 'none'; 
             header.style.opacity = '0'; 
             headerSticky.style.display = 'flex';
             headerSticky.style.opacity = '1';
             headerSticky.style.pointerEvents = 'auto';
+     
         } else {
             header.style.display = 'flex'; 
             header.style.opacity = '1';
             headerSticky.style.display = 'none';
             headerSticky.style.opacity = '0';
             headerSticky.style.pointerEvents = 'none';
+            $(".nav").hide();
+            $(".toggle > div").removeClass('active');
         }
     });
 
