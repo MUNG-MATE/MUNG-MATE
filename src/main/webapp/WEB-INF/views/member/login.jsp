@@ -10,10 +10,11 @@
         <title>로그인</title>
 
         <link rel="stylesheet" href="../../../resources/css/member/Login.css">
+        <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     </head>
 
     <body>
-        <!-- <button id="kakaoPay">결제하기</button> -->
+
 
         <c:if test="${ !empty cookie.saveId.value}">
             <c:set var="chk" value="checked"/>
@@ -63,6 +64,7 @@
                                     <a href="signUp">회원가입</a>
                                 </div>
                             </div>
+                           
                         </div>
                         <div></div>
                     </div>

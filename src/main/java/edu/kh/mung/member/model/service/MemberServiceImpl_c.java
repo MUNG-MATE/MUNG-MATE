@@ -95,7 +95,7 @@ public class MemberServiceImpl_c implements MemberService_c {
 		return dao.changePw(encPw, email);
 	}
 
-
 	
+
 
 }

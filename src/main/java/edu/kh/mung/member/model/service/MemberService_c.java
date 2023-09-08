@@ -46,4 +46,7 @@ public interface MemberService_c {
 	 * @return result
 	 */
 	int changePw(String newPw, String email);
+	
+	
+
 }
