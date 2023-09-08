@@ -44,7 +44,7 @@
                     </c:if>
 
                     </div>
-                    <div class="profile-btn-area">
+                    <div class="profile-btn-area"> 
                         <label for="imageInput" id="imagesChoice">이미지 선택</label>
                         <input type="file" name="profileImage" id="imageInput" accept="image/*">
                     </div>

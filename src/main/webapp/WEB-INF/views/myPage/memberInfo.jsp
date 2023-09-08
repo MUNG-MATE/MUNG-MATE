@@ -32,9 +32,17 @@
         <div class="profileImage">
              <div class="profile-image-area">
 
-                        <img src="/resources/images/user.png" id="profileImage">
+                       <%-- 프로필 이미지 있으면 해당 이미지 --%>
+                <c:if test="${empty loginMember.profileImage}" >
+                    <img src="/resources/images/user.png" id="profileImage">
+                </c:if>
 
-                    </div>
+                <%-- 프로필 이미지가 없으면 기본 이미지 --%>
+                <c:if test="${!empty loginMember.profileImage}" >
+                    <img src="${loginMember.profileImage}" id="profileImage">
+                </c:if>
+
+            </div>
 
         </div>
 
