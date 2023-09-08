@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @Controller
 @SessionAttributes({"loginMember"})
 @RequestMapping("/petsitter")
-public class PetSitterContorller_o {
-
-	@GetMapping("/toGeneralApply")
-	public String toGeneralApply() {
-		return "petsitter/toGeneralApply"; 
-	}
+public class PetSitterController_c {
 	
+	@GetMapping("/toGeneralApply")
+	public String ToGeneralApply() {
+		
+		return "petsitter/toGeneralApply";
+	}
 }
