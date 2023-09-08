@@ -18,8 +18,8 @@ public class myPageServiceImpl_o implements myPageService_o {
 
 	@Autowired
 	private myPageDAO_o dao;
-	
-	@Autowired 
+
+	@Autowired
 	private BCryptPasswordEncoder bcrypt;
 
 	/**
@@ -28,30 +28,29 @@ public class myPageServiceImpl_o implements myPageService_o {
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public int memberSecession(int memberNo, String memberPw) {
-		
+
 		String encPw = dao.selectEncPw(memberNo);
-		
-		if(bcrypt.matches(memberPw, encPw)) {
+
+		if (bcrypt.matches(memberPw, encPw)) {
 			return dao.memberSecession(memberNo);
 		}
 		return 0;
 	}
 
 	/**
-	 *회원 정보 수정 전 비밀번호 확인
+	 * 회원 정보 수정 전 비밀번호 확인
 	 */
 	@Override
 	public int pwCheck(String memberPw, int memberNo) {
-		
+
 		int result = 0;
-		
+
 		String encPw = dao.selectEncPw(memberNo);
-		
-		if(bcrypt.matches(memberPw, encPw)) {
+
+		if (bcrypt.matches(memberPw, encPw)) {
 			result += 1;
 		}
-		System.out.println("service : " + result);
-		
+
 		return result;
 	}
 
@@ -64,44 +63,41 @@ public class myPageServiceImpl_o implements myPageService_o {
 	}
 
 	/**
-	 *회원 프로필 사진 수정
-	 * @throws IOException 
-	 * @throws IllegalStateException 
+	 * 회원 프로필 사진 수정
+	 * 
+	 * @throws IOException
+	 * @throws IllegalStateException
 	 */
 	@Override
-	public int profileUpdate(MultipartFile profileImage, String webPath, String filePath, Member loginMember) throws IllegalStateException, IOException {
-		
+	public int profileUpdate(MultipartFile profileImage, String webPath, String filePath, Member loginMember)
+			throws IllegalStateException, IOException {
+
 		String temp = loginMember.getProfileImage(); 
-		
+
 		String rename = null; 
-		
+
 		if (profileImage.getSize() > 0) {
 
-			// 1) 파일 이름 변경
 			rename = Util.fileRename(profileImage.getOriginalFilename());
 
-			// 2) 바뀐 이름 loginMember에 세팅
 			loginMember.setProfileImage(webPath + rename);
 
 		} else {
 			loginMember.setProfileImage(null);
 		}
-		
+
 		int result = dao.profileUpdate(loginMember);
-		
-		
+
 		if (result > 0) { 
-			if(rename != null) {
+			if (rename != null) {
 				profileImage.transferTo(new File(filePath + rename));
 			}
-			
-		} else {
+
+		} else { 
 			loginMember.setProfileImage(temp);
+			
 		}
-		
 		return result;
+
 	}
-	
-	
-	
 }

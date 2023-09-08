@@ -139,7 +139,7 @@ public class myPageController_o {
 								, HttpSession session
 								, Member member
 								, RedirectAttributes ra) throws IllegalStateException, IOException {
-		
+		System.out.println("하하");
 		String addr = String.join("^^^", memberAddress);
 		member.setMemberAddress(addr);
 		member.setMemberName(memberName);
@@ -169,6 +169,7 @@ public class myPageController_o {
 			loginMember.setMemberNickname(member.getMemberNickname());
 			loginMember.setMemberAddress(member.getMemberAddress());
 			loginMember.setMemberName(member.getMemberName());
+			loginMember.setProfileImage(member.getProfileImage());
 			
 			message = loginMember.getMemberNickname() + "님의 정보가 수정 되었습니다.";
 			path = "/myPage/memberInfo";

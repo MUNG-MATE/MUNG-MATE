@@ -23,10 +23,11 @@
 		WHERE MEMBER_NO = #{memberNo}
 	</update>
 
+	<!-- 프로필 이미지 수정  -->
 	<update id="profileUpdate">
-		UPDATE MEMBER SET
-		PROFILE_IMG = #{profileImage}
-		WHERE MEMBER_NO = #{memberNo}
+	UPDATE MEMBER SET
+	PROFILE_IMG = #{profileImage}
+	WHERE MEMBER_NO = #{memberNo}
 	</update>
 
 

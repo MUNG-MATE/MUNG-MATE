@@ -4,7 +4,7 @@ const phone = document.getElementById("phone");
 const memberInfoUpdate = document.getElementById("memberInfoUpdate");
 
 // 닉네임 유효성 검사
-if(memberInfoUpdate != null){
+if (memberInfoUpdate != null) {
     initNickname = nickName.value;
     initTel = phone.value;
     initName = memberName.value;
@@ -48,37 +48,37 @@ if(memberInfoUpdate != null){
 
     })
 
-        // 전화번호 유효성 검사
-        memberName.addEventListener("input", () => {
+    // 전화번호 유효성 검사
+    memberName.addEventListener("input", () => {
 
-            // 변경 전 전화번호와 입력 값이 같을 경우
-            if (initTel == phone.value) {
-                phone.removeAttribute("style");
-                return;
-            }
-    
-            // 정규 표현식으로 유효성 검사
-            const regEx = /^(070|02|0[1-9]{1}[0-9]{1})[0-9]{3,4}[0-9]{4}$/;
-    
-            if (regEx.test(phone.value)) {
-                phone.style.color = "green";
-            } else {
-                phone.style.color = "red";
-            }
-        })
+        // 변경 전 전화번호와 입력 값이 같을 경우
+        if (initTel == phone.value) {
+            phone.removeAttribute("style");
+            return;
+        }
 
-        // 만약 제출을 할 때 유효하지 않은 값이 있다면 제출 막기
+        // 정규 표현식으로 유효성 검사
+        const regEx = /^(070|02|0[1-9]{1}[0-9]{1})[0-9]{3,4}[0-9]{4}$/;
+
+        if (regEx.test(phone.value)) {
+            phone.style.color = "green";
+        } else {
+            phone.style.color = "red";
+        }
+    })
+
+    // 만약 제출을 할 때 유효하지 않은 값이 있다면 제출 막기
     document.getElementById("memberInfoUpdate").addEventListener("submit", e => {
 
         // 닉네임이 유효하지 않은 경우
-        if(nickName.style.color == "red"){
+        if (nickName.style.color == "red") {
             alert("닉네임이 유효하지 않습니다.");
             nickName.focus();
             e.preventDefault();
             return;
         }
         // 이름이 유효하지 않은 경우
-        if(memberName.style.color == "red"){
+        if (memberName.style.color == "red") {
             alert("이름이 유효하지 않습니다.");
             memberName.focus();
             e.preventDefault();
@@ -86,7 +86,7 @@ if(memberInfoUpdate != null){
         }
 
         // 전화번호가 유효하지 않은 경우
-        if(memberTel.style.color == "red"){
+        if (memberTel.style.color == "red") {
             alert("전화번호가 유효하지 않습니다.")
             memberTel.focus();
             e.preventDefault();
@@ -105,25 +105,37 @@ let deleteCheck = -1; // 프로필 상태
 let originalImage; // 초기 프로필 이미지 파일 경로
 
 // 화면에 
-if(imageInput != null){
+if (imageInput != null) {
 
     originalImage = profileImage.getAttribute("src");
 
-    if(originalImage == "/resources/images/user.png"){
+    if (originalImage == "/resources/images/user.png") {
         initCheck = false; // false == 기본이미지
-    }else {
+    } else {
         initCheck = true; // true == 기본이미지가 아닌 경우
     }
 
     imageInput.addEventListener("change", e => {
 
+        const maxSize = 1 * 1024 * 1024 * 2;
+
         const file = e.target.files[0];
 
-        if(file == undefined){
+        if (file == undefined) {
             deleteCheck = -1;
 
             profileImage.setAttribute("src", originalImage);
 
+            return;
+        }
+
+        if (file.size > maxSize) { 
+            alert("2MB 이하의 이미지를 선택해주세요.");
+            imageInput.value = "";
+
+            deleteCheck = -1; 
+
+            profileImage.setAttribute("src", originalImage);
             return;
         }
 
