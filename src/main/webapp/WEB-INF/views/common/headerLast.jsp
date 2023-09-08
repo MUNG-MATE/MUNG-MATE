@@ -58,7 +58,7 @@
             <a href="#">Matching</a>
             <a href="#">Community</a>
             <a href="#">Guide</a>
-            <img src="/resources/images/menuIcon.png" alt="메뉴 아이콘">
+        <jsp:include page="/WEB-INF/views/common/sidebar.jsp" />
         </div>
     </div>
 </header>
