@@ -124,6 +124,8 @@ public class MemberController_c {
 			
 			ra.addFlashAttribute("message", loginMember.getMemberNickname() + "님 환영합니다.");
 			
+			System.out.println(loginMember);
+			
 			if(saveId != null) {
 		
 				cookie.setMaxAge(60 * 60 * 24 * 30);
