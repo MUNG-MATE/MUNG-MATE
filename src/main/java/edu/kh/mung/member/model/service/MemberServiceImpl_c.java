@@ -61,7 +61,8 @@ public class MemberServiceImpl_c implements MemberService_c {
 		Member loginMember = dao.login(inputMember);
 
 		if(loginMember != null) {
-		
+
+			
 			if(bcrypt.matches(inputMember.getMemberPw(), 
 							  loginMember.getMemberPw())) {
 				
@@ -70,20 +71,31 @@ public class MemberServiceImpl_c implements MemberService_c {
 			}else {
 				loginMember = null; 
 			}
-			
 		}
 
 		return loginMember;
 	}
 	
 	// 아이디 찾기
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public String findEmail(Map<String, Object> paramMap) {
 		
 		return dao.findEmail(paramMap);
 	}
-
+	
+	
+	@Transactional(rollbackFor = Exception.class)
+	// 비밀번호 변경
+	@Override
+	public int changePw(String newPw, String email) {
+		
+		String encPw = bcrypt.encode(newPw);
+	
+		return dao.changePw(encPw, email);
+	}
 
 	
+
 
 }

@@ -1,0 +1,115 @@
+#resTitle {
+	width: 1200px;
+    margin: 50px auto 10px;
+}
+
+#resSubTitle {
+	width: 1200px;
+    margin: 0 auto 50px;
+    font-weight: normal;
+}
+
+h2 {
+    width: 1070px;
+    margin: 20px auto;
+}
+
+#container {
+    width: 1200px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+}
+
+.profileArea {
+    width: 300px;
+    height: 355px;
+    border: 1px solid rgb(118, 118, 118);
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.clicked, .clicked a {
+    background-color: rgb(0,30,60);
+    color: white;
+}
+
+.hovered, .hovered a {
+    background-color: rgb(0,30,60);
+    color: white;
+}
+
+.imageArea {
+    display: flex;
+    justify-content: center;
+}
+
+.profileImage {
+    width: 85px;
+    height: 90px;
+    border-radius: 50%;
+    margin: 10px 0;
+    background-color: white;
+}
+
+.info {
+    text-align: center;
+    font-weight: bold;
+}
+
+.info > div {
+    margin: 5px 0;
+}
+
+.petsitterName {
+    font-size: 20px;
+}
+
+.review {
+    color: rgb(0,30,60);
+}
+
+.history {
+    width: 270px;
+    margin: 20px auto;
+    word-break: break-all;
+    white-space: pre-wrap;
+}
+
+.introduce {
+    text-align: center;
+    font-weight: bold;
+}
+
+.btnStyle {
+    width: 100px;
+    height: 50px;
+    border-radius: 30px;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    border: 0;
+    box-shadow: 3px 2px 3px 0px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    cursor: pointer;
+    margin: 50px;
+}
+
+.btnStyle:hover {
+    background-color: rgb(0,30,60);
+    color: white;
+}
+
+.prev {
+    float: left;
+}
+
+.next {
+    float: right;
+}
+
+#btnArea {
+	width: 1200px;
+	height: 130px;
+	margin: 0 auto;
+}

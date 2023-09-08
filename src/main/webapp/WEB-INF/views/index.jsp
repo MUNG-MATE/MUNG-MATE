@@ -8,10 +8,10 @@
     <title>MUNG MATE</title>
     <link rel="stylesheet" href="/resources/css/index.css">
 </head>
+  <jsp:include page="/WEB-INF/views/common/sidebar.jsp" />
     <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
     
 <body>
-
 
     <div class="mainImage">
         <img src="/resources/images/mainImage2.jpg">

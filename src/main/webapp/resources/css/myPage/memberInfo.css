@@ -41,10 +41,15 @@
 
 /* 정보 칸 */
 .info{
-    height: 400px;
-    width: 600px;
-    font-size: 20px;
-    padding-top: 66px;
+   
+        height: 400px;
+        width: 279px;
+        font-size: 20px;
+        padding-top: 66px;
+        display: flex;
+        flex-direction: column;
+    
+    
 }
 
 /* 프로필 이미지 */
@@ -166,7 +171,7 @@
 }
 
 
-#inputPw{
+#memberPw{
     width: 40%;
     height: 40px;
     font-size: 18px;
@@ -180,7 +185,7 @@
 }
 
 /* focus 상태 (outline 색상 및 offset 변경) */
-#inputPw:focus {
+#memberPw:focus {
     outline: none !important; border-color: rgb(0, 30, 60); box-shadow: 0 0 10px rgb(0, 30, 60);
 }
 

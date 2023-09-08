@@ -1,5 +1,6 @@
 package edu.kh.mung.member.controller;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.Cookie;
@@ -107,8 +108,10 @@ public class MemberController_c {
 						,@RequestParam(value="saveId", required=false) String saveId
 						,HttpServletResponse resp
 						,RedirectAttributes ra) {
+		
 
 		Member loginMember = service.login(inputMember);
+		
 		
 		String path = "redirect:";
 		
@@ -118,6 +121,10 @@ public class MemberController_c {
 			model.addAttribute("loginMember",loginMember);
 
 			Cookie cookie = new Cookie("saveId", loginMember.getMemberEmail());
+			
+			ra.addFlashAttribute("message", loginMember.getMemberNickname() + "님 환영합니다.");
+			
+			System.out.println(loginMember);
 			
 			if(saveId != null) {
 		
@@ -133,9 +140,10 @@ public class MemberController_c {
 			resp.addCookie(cookie);
 			
 		}else {
+			
 			path += referer;
-		
 			ra.addFlashAttribute("message","아이디 또는 비밀번호가 일치하지 않습니다.");
+		
 		}
 		
 		return path;
@@ -155,7 +163,11 @@ public class MemberController_c {
 	
 	// 비밀번호 변경 화면 출력
 	@PostMapping("/findPw")
-	public String findPw() {
+	public String findPw(String memberEmail
+			   			,Model model) {
+		
+		model.addAttribute("memberEmail", memberEmail);
+		
 		return "member/changePw";
 	}
 	
@@ -170,40 +182,33 @@ public class MemberController_c {
 	@PostMapping("/changePw")
 	public String changePw(String newPw
 						  ,String newPwCheck
+						  ,String email
+						  ,Model model
 						  ,RedirectAttributes ra) {
 		
-		System.out.println(newPw);
-		System.out.println(newPwCheck);
+
+		int result = service.changePw(newPw,email);
+		
+		String path = "redirect:";
+		String message = null;
+		
+		if(result > 0) {
+			path += "/member/login";
+			message = "비밀번호 변경 성공 !! 로그인 화면으로 이동합니다.";
+		}else {
+			path += "/member/changePw";
+			message = "비밀번호 변경 실패 ㅜㅜ";
+			model.addAttribute("memberEmail", email);
+			ra.addFlashAttribute("memberEmail", model);
+		}
+		
+		ra.addFlashAttribute("message", message);
 		
 		
-		return "redirect:/member/login";
+		return path;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 }

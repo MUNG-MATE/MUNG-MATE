@@ -1,0 +1,172 @@
+.body {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+#resTitle {
+    margin: 50px 0 10px;
+}
+
+#resSubTitle {
+    margin: 0;
+    font-weight: normal;
+}
+
+#serviceSection {
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+}
+
+.serviceDiv {
+    width: 200px;
+    height: 200px;
+    border-radius: 10%;
+    box-shadow: 3px 5px 3px 5px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    margin: 0 100px;
+    cursor: pointer;
+}
+
+.serviceDiv:hover {
+    background-color: rgb(0,30,60);
+    color: white;
+}
+
+.serviceIcon {
+    width: 125px;
+    height: 125px;
+    border-radius: 10%;
+    padding: 10px 10px 20px;
+}
+
+.iconDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.iconText {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#serviceSubSection {
+    margin: 120px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.circle > div {
+    line-height: 35px;
+}
+
+#nextBtn {
+    width: 100px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: rgb(0,30,60);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    border: 0;
+    box-shadow: 3px 5px 3px 5px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    cursor: pointer;
+    float: right;
+    margin-right: 50px;
+}
+
+#btnArea {
+	width: 100%;
+	height: 130px;
+}
+
+.clicked, .clicked a {
+    background-color: rgb(0,30,60);
+    color: white;
+}
+
+.hovered, .hovered a {
+    background-color: rgb(0,30,60);
+    color: white;
+}
+
+
+/* 밑에 영역 */
+#serviceSubSection2 {
+
+    margin: 120px 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.circle2 > div {
+    line-height: 35px;
+}
+
+.serviceDiv2 {
+    width: 200px;
+    height: 200px;
+    border-radius: 10%;
+    box-shadow: 3px 5px 3px 5px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    margin: 0 100px;
+    cursor: pointer;
+}
+
+.serviceDiv2:hover {
+    background-color: rgb(0,30,60);
+    color: white;
+}
+
+/* 산책 클릭 부분 */
+.serviceDiv-one {
+    width: 200px;
+    height: 200px;
+    border-radius: 10%;
+    box-shadow: 3px 5px 3px 5px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    margin: 0 100px;
+    cursor: pointer;
+}
+
+.serviceDiv-one:hover {
+    background-color: rgb(0,30,60);
+    color: white;
+}
+
+/* 돌봄 클립 부분 */
+.serviceDiv-two {
+    width: 200px;
+    height: 200px;
+    border-radius: 10%;
+    box-shadow: 3px 5px 3px 5px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    margin: 0 100px;
+    cursor: pointer;
+}
+
+.serviceDiv-two:hover {
+    background-color: rgb(0,30,60);
+    color: white;
+}

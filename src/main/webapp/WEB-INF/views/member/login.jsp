@@ -10,9 +10,11 @@
         <title>로그인</title>
 
         <link rel="stylesheet" href="../../../resources/css/member/Login.css">
+        <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     </head>
 
     <body>
+
 
         <c:if test="${ !empty cookie.saveId.value}">
             <c:set var="chk" value="checked"/>
@@ -62,6 +64,7 @@
                                     <a href="signUp">회원가입</a>
                                 </div>
                             </div>
+                           
                         </div>
                         <div></div>
                     </div>
@@ -102,7 +105,7 @@
                     </div>
                     <div>이메일</div>
                     <div>
-                        <input type="text" id="searchInputEmail" name="memberEmail" autocomplete="off">
+                        <input type="text" id="searchInputEmail" name="memberEmail" autocomplete="off" key=${memberEmail}>
                         <button type="button" id="emailCheck">인증번호 전송</button>
                     </div>
                     
@@ -114,7 +117,7 @@
                     <div id="authKeyTime">05:00</div>
                     <div><button class="loginPageBtn" id="searchYesBtn1"><span>확인</span></button></div>
                     <div><button type="button" class="loginPageBtn" id="searchNoBtn2"><span>돌아가기</span></button></div>
-
+                    
                 </div>
             </form>
         </div>
