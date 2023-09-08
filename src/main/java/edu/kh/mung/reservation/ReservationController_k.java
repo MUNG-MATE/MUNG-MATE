@@ -35,7 +35,9 @@ public class ReservationController_k {
 		return "/reservation/reservation_5";
 	}
 	
-	
-	
+	@GetMapping("/6")
+	public String reservation6() {
+		return "/reservation/reservation_6";
+	}
 	
 }
