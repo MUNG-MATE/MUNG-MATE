@@ -1,72 +1,77 @@
 const serviceDivOne = document.getElementsByClassName("serviceDiv-one");
 const serviceDivTwo = document.getElementsByClassName("serviceDiv-two");
 const serviceDiv2 = document.getElementsByClassName("serviceDiv2");
-const walkArea = document.getElementsByClassName("serviceDiv one");
 const serviceSubSection2 = document.getElementById("serviceSubSection2");
+const serviceSubSection3 = document.getElementById("serviceSubSection3");
 
 /* serviceDivOne 산책 클릭 시  */
-for(let i = 0; i < serviceDivOne.length; i++) {
 
-    serviceDivOne[i].addEventListener("mouseover", () => {
-        if(!serviceDivOne[i].classList.contains("clicked")) {
-            serviceDivOne[i].classList.add("hovered");
-        }
-    })
-    
-    serviceDivOne[i].addEventListener("mouseout", () => {
-        if(!serviceDivOne[i].classList.contains("clicked")) {
-            serviceDivOne[i].classList.remove("hovered");
-        }
-    })
 
-    serviceDivOne[i].addEventListener("click", () => {
-        if(!serviceDivOne[i].classList.contains("clicked")) {
-            for(let j = 0; j < serviceDivOne.length; j++) {
-                serviceDivOne[j].classList.remove("clicked");
-                serviceDivOne[j].classList.remove("hovered");
-            }
-            serviceDivOne[i].classList.add("clicked");
-            return;
-        }
+serviceDivOne[0].addEventListener("mouseover", () => {
+    if(!serviceDivOne[0].classList.contains("clicked")) {
+        serviceDivOne[0].classList.add("hovered");
+    }
+})
 
-        if(serviceDivOne[i].classList.contains("clicked")) {
-            serviceDivOne[i].classList.remove("clicked");
-        }
+serviceDivOne[0].addEventListener("mouseout", () => {
+    if(!serviceDivOne[0].classList.contains("clicked")) {
+        serviceDivOne[0].classList.remove("hovered");
+    }
+})
+
+serviceDivOne[0].addEventListener("click", () => {
+    if(!serviceDivOne[0].classList.contains("clicked")) {
         
-    })
-}
+        serviceDivOne[0].classList.add("clicked");
+        serviceDivOne[0].classList.remove("hovered");
+        serviceDivTwo[0].classList.remove("clicked");
+        serviceSubSection2.style.display = 'flex';
+        serviceSubSection3.style.display = 'none';
+        return;
+    }
+
+    if(serviceDivOne[0].classList.contains("clicked")) {
+        serviceDivOne[0].classList.remove("clicked");
+        serviceSubSection2.style.display = 'none';
+    }
+    
+})
+
+    
+
+
+
 
 /* serviceDivTwo 돌봄 클릭 시 */
-for(let i = 0; i < serviceDivTwo.length; i++) {
+serviceDivTwo[0].addEventListener("mouseover", () => {
+    if(!serviceDivTwo[0].classList.contains("clicked")) {
+        serviceDivTwo[0].classList.add("hovered");
+    }
+})
 
-    serviceDivTwo[i].addEventListener("mouseover", () => {
-        if(!serviceDivTwo[i].classList.contains("clicked")) {
-            serviceDivTwo[i].classList.add("hovered");
-        }
-    })
-    
-    serviceDivTwo[i].addEventListener("mouseout", () => {
-        if(!serviceDivTwo[i].classList.contains("clicked")) {
-            serviceDivTwo[i].classList.remove("hovered");
-        }
-    })
+serviceDivTwo[0].addEventListener("mouseout", () => {
+    if(!serviceDivTwo[0].classList.contains("clicked")) {
+        serviceDivTwo[0].classList.remove("hovered");
+    }
+})
 
-    serviceDivTwo[i].addEventListener("click", () => {
-        if(!serviceDivTwo[i].classList.contains("clicked")) {
-            for(let j = 0; j < serviceDivTwo.length; j++) {
-                serviceDivTwo[j].classList.remove("clicked");
-                serviceDivTwo[j].classList.remove("hovered");
-            }
-            serviceDivTwo[i].classList.add("clicked");
-            return;
-        }
-
-        if(serviceDivTwo[i].classList.contains("clicked")) {
-            serviceDivTwo[i].classList.remove("clicked");
-        }
+serviceDivTwo[0].addEventListener("click", () => {
+    if(!serviceDivTwo[0].classList.contains("clicked")) {
         
-    })
-}
+        serviceDivTwo[0].classList.add("clicked");
+        serviceDivTwo[0].classList.remove("hovered");
+        serviceDivOne[0].classList.remove("clicked");
+        serviceSubSection3.style.display = 'flex';
+        serviceSubSection2.style.display = 'none';
+        return;
+    }
+
+    if(serviceDivTwo[0].classList.contains("clicked")) {
+        serviceDivTwo[0].classList.remove("clicked");
+        serviceSubSection3.style.display = 'none';
+    }
+    
+})
 
 
 
@@ -102,12 +107,7 @@ for(let i = 0; i < serviceDiv2.length; i++) {
     })
 }
 
-walkArea.addEventListener("click", () => {
 
-    serviceSubSection2.style.display = 'flex';
-
-
-})
 
 
 
