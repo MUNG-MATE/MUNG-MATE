@@ -61,7 +61,8 @@ public class MemberServiceImpl_c implements MemberService_c {
 		Member loginMember = dao.login(inputMember);
 
 		if(loginMember != null) {
-		
+
+			
 			if(bcrypt.matches(inputMember.getMemberPw(), 
 							  loginMember.getMemberPw())) {
 				
@@ -70,7 +71,6 @@ public class MemberServiceImpl_c implements MemberService_c {
 			}else {
 				loginMember = null; 
 			}
-			
 		}
 
 		return loginMember;
