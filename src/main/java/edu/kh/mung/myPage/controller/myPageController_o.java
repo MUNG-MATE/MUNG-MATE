@@ -137,15 +137,18 @@ public class myPageController_o {
 								, @SessionAttribute("loginMember") Member loginMember
 								, @RequestParam("profileImage")MultipartFile profileImage
 								, HttpSession session
-								, Member member
+								
 								, RedirectAttributes ra) throws IllegalStateException, IOException {
-		System.out.println("하하");
 		String addr = String.join("^^^", memberAddress);
+		
+		Member member = new Member();
+		
 		member.setMemberAddress(addr);
 		member.setMemberName(memberName);
 		member.setMemberNickname(memberNickname);
 		member.setMemberTel(memberTel);
 		member.setMemberNo(loginMember.getMemberNo());
+		
 		
 		String webPath = "/resources/images/member/";
 		
@@ -159,8 +162,8 @@ public class myPageController_o {
 		// 회원 프로필 수정
 		int result2 = service.profileUpdate(profileImage, webPath, filePath, loginMember);
 		
-		String message = null;
-		String path = "";
+		String message = "";
+		String path = "redirect:";
 
 		System.out.println("result2" + result2);
 		
@@ -169,18 +172,20 @@ public class myPageController_o {
 			loginMember.setMemberNickname(member.getMemberNickname());
 			loginMember.setMemberAddress(member.getMemberAddress());
 			loginMember.setMemberName(member.getMemberName());
-			loginMember.setProfileImage(member.getProfileImage());
+			loginMember.setProfileImage(loginMember.getProfileImage());
 			
 			message = loginMember.getMemberNickname() + "님의 정보가 수정 되었습니다.";
-			path = "/myPage/memberInfo";
+			path += "/myPage/memberInfo";
+			
 			
 		}else {
 			message = "정보 수정 실패";
-			path = "/myPage/memberInfoUpdate";
+			path += "/myPage/memberInfoUpdate";
 			
 		}
-		ra.addFlashAttribute("message", message);
 		
+		System.out.println(loginMember);
+		ra.addFlashAttribute("message", message);
 		return path;
 	}
 	

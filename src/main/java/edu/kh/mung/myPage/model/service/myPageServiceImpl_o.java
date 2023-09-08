@@ -69,6 +69,7 @@ public class myPageServiceImpl_o implements myPageService_o {
 	 * @throws IllegalStateException
 	 */
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public int profileUpdate(MultipartFile profileImage, String webPath, String filePath, Member loginMember)
 			throws IllegalStateException, IOException {
 
@@ -87,16 +88,19 @@ public class myPageServiceImpl_o implements myPageService_o {
 		}
 
 		int result = dao.profileUpdate(loginMember);
+		
 
 		if (result > 0) { 
 			if (rename != null) {
 				profileImage.transferTo(new File(filePath + rename));
+				
 			}
 
 		} else { 
 			loginMember.setProfileImage(temp);
 			
 		}
+		
 		return result;
 
 	}
