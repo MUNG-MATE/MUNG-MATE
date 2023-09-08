@@ -7,7 +7,7 @@
                 <ul class="gnb">
                 <c:if test="${!empty loginMember}" >
                     <li>
-                        <a href="#">My Page</a>
+                        <a >My Page</a>
                         <ul class="sub_gnb">
                             <li><a href = "/myPage/memberInfo">내 정보</a></li>
                             <li><a href = "/myPage/memberInfoUpdate">내 정보 수정</a></li>
