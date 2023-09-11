@@ -4,14 +4,31 @@
 <link rel="stylesheet" href="/resources/css/Administrator/sidebar.css">
 
 	<nav class="nav">
-                <div class="sidebar-img">
-                    <div class="s-img">
-                        이미지
-                    </div>
-
-                </div>
                 <ul class="gnb">
+                <c:if test="${empty loginMember}" >
+                    <li>
+                    <a href='javascript:void(0);' class="sideimgbox">
+                        <img src="/resources/images/member/user.png">
+                    </a>
+
+                    </li>
+                    <li>
+                    <a href="/member/login">Login</a><a href="/member/signUp">Join</a>
+                    </li>
+
+                    <li>
+                </c:if>
+
                 <c:if test="${!empty loginMember}" >
+                    <li>
+                    <a href='javascript:void(0);' class="sideimgbox">
+                        <img src="${loginMember.profileImage}">
+                    </a>
+                    </li>
+
+                    <li>
+                        <a href="/member/login">Login</a><a href="/member/logout">Logout</a>
+                    </li>
                     <li>
                         <a href='javascript:void(0);'>My Page</a>
                         <ul class="sub_gnb">
@@ -57,16 +74,17 @@
                             <li>4</li>
                         </ul>
                     </li>
-
-                    <li>
-                        <a href='javascript:void(0);'>관리자</a>
-                        <ul class="sub_gnb">
-                            <li>회원정보 관리</li>
-                            <li>펫시터 관리</li>
-                            <li>예약 관리</li>
-                            <li><a  href = "/admin/petsitterApp">펫시터 신청 관리</a></li>
-                        </ul>
-                    </li>
+                    <c:if test="${loginMember.adminFlag == 'Y'}" >
+                        <li>
+                            <a href='javascript:void(0);'>관리자</a>
+                            <ul class="sub_gnb">
+                                <li>회원정보 관리</li>
+                                <li>펫시터 관리</li>
+                                <li>예약 관리</li>
+                                <li><a  href = "/admin/petsitterApp">펫시터 신청 관리</a></li>
+                            </ul>
+                        </li>
+                    </c:if>
                 </ul>
             </nav>
             <div class="toggle">
