@@ -7,4 +7,5 @@
 		VALUES (SEQ_APPLICATION_NO.NEXTVAL, #{appContent}, SYSDATE, #{appLocation}, #{appEx}, #{memberNo}, 1)
 	</insert>
 	
+	
 </mapper>
