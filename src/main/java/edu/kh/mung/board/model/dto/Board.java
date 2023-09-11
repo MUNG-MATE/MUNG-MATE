@@ -16,5 +16,5 @@ public class Board {
 	private String boardState;
 	private int reviewStar;
 	private int boardCode;
-	
+	private int memberNo;
 }
