@@ -18,3 +18,13 @@ toggleButtons.forEach((button, index) => {
         });
     });
 });
+
+window.onload = function(){
+    fetch("/Administrator/faq")
+    .then(resp => resp.text())
+    .then(result => {
+        console.log("불러오기 성공")
+    })
+    .catch(e => console.log(e));
+
+}
