@@ -18,15 +18,13 @@ public class ReservationController_k {
 	
 	
 	@PostMapping("/1")
-	public String money(String money, String service) {
+	public String money() {
 		
-		System.out.println(service);
-		System.out.println(money);
 		return "/reservation/reservation_2";
 	}
 	
 	@GetMapping("/2")
-	public String reservation2(String money, String service) {
+	public String reservation2() {
 		return "/reservation/reservation_2";
 	}
 	

@@ -35,7 +35,7 @@
         <!-- 메뉴 리스트 영역 -->
         <div class="menu-3">
             <a href ="/info">Info</a>
-            <a href="/reservation/reservation_1">Matching</a>
+            <a href="/reservation/1">Matching</a>
             <a href="/reviewBoard/reviewBoardList">Community</a>
             <a href="/Administrator/faq">FAQ</a>
 
@@ -46,7 +46,7 @@
 <header class="headArea">
     <!-- 로고 영역 -->
     <div class="logoArea">
-        <a href="#">
+        <a href="/">
             <img src="/resources/images/miniLogo.png" alt="" class="headerLogo">
         </a>
     </div>
@@ -56,7 +56,7 @@
         <!-- 메뉴 리스트 영역 -->
         <div class="menu-2">
             <a href="#">Info</a>
-            <a href="/reservation/reservation_1">Matching</a>
+            <a href="/reservation/1">Matching</a>
             <a href="/reviewBoard/reviewBoardList">Community</a>
             <a href="#">Guide</a>
         <jsp:include page="/WEB-INF/views/common/sidebar.jsp" />
