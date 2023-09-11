@@ -2,6 +2,7 @@ package edu.kh.mung.reservation;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -13,6 +14,15 @@ public class ReservationController_k {
 	@GetMapping("/1")
 	public String reservation1() {
 		return "/reservation/reservation_1";
+	}
+	
+	
+	@PostMapping("/1")
+	public String money(String money, String service) {
+		
+		System.out.println(service);
+		System.out.println(money);
+		return "/reservation/reservation_2";
 	}
 	
 	@GetMapping("/2")
