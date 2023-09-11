@@ -20,7 +20,7 @@
 
     <main>
         <section class="main_container">
-            <form action="#" method="" name="apply_form" onsubmit="return applyValidate()">
+            <form action="/petsitter/goToGeneral" method="POST" name="apply_form" onsubmit="return applyValidate()">
                 <div class="main_first">일반회원으로 회원변경 신청하기</div>
                 <div class="main_second">
                 </div>
