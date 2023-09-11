@@ -8,35 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>리뷰 게시판 목록</title>
 
-    <link rel="stylesheet" href="/css/reviewBoardList.css">
+    <link rel="stylesheet" href="../../../resources/css/reviewBoard/reviewBoardWrite.css">
 
 </head>
 <body>
+    <jsp:include page="/WEB-INF/views/common/sidebar.jsp" />
+    <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
 
     <main>
-        <header class="head">
-
-            <!-- 로고 영역 -->
-            <div>
-                <a href="#">
-                    <img src="../image/miniLogo.png" alt="" class="headerLogo">
-                </a>
-            </div>
-            
-            <div class="menu">
-
-                <!-- 메뉴 리스트 영역 -->
-                <div class="menu-2">
-                    <a href="#">Info</a>
-                    <a href="#">Matching</a>
-                    <a href="#">Community</a>
-                    <a href="#">Guide</a>
-                    <img src="../image/menuIcon.png" alt="메뉴 아이콘">
-                </div>
-            </div>
-
-        </header>
-
+       
         <section>
 
             <h1>리뷰 게시판</h1>
@@ -69,22 +49,11 @@
 
 
 
-
-
-
-
         </section>
         
 
-
-        <!-- footer 영역 -->
-        <footer></footer>
-
-
-
-
-
     </main>
-    
+    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
 </body>
 </html>
