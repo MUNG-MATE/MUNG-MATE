@@ -11,4 +11,11 @@ public interface ReviewBoardService_p {
 	 */
 	Map<String, Object> selectReviewList(int boardCode, int cp);
 
+	/**
+	 * @param paramMap
+	 * @param cp
+	 * @return
+	 */
+	Map<String, Object> selectReviewList(Map<String, Object> paramMap, int cp);
+
 }

@@ -40,4 +40,10 @@ public class ReviewBoardServiceImpl_p implements ReviewBoardService_p{
 		return map;
 	}
 
+	@Override
+	public Map<String, Object> selectReviewList(Map<String, Object> paramMap, int cp) {
+		
+		return null;
+	}
+
 }

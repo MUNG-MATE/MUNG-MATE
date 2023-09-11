@@ -53,6 +53,7 @@ public class ReviewBoardController_p {
 
 
 
-			return "reviewBoard/reviewBoardList";
 		}
+		return "reviewBoard/reviewBoardList";
 	}
+}
