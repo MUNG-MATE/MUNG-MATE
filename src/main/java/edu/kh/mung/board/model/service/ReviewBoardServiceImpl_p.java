@@ -1,5 +1,6 @@
 package edu.kh.mung.board.model.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 

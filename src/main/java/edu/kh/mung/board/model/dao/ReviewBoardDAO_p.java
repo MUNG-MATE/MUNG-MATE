@@ -10,4 +10,8 @@ public class ReviewBoardDAO_p {
 
 	@Autowired
 	private SqlSessionTemplate sqlSession;
+
+	public int getListCount(int boardCode) {
+		return 0;
+	}
 }
