@@ -16,9 +16,9 @@ public class PetSitterController_o {
 	@Autowired
 	private ApplicationService_o service;
 
-	@GetMapping("/toPetsitterApply")
+	@GetMapping("/toGeneralApply")
 	public String ToPetsitterApply() {
-		return "petsitter/toPetsitterApply"; 
+		return "petsitter/toGeneralApply"; 
 	}
 	
 }
