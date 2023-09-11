@@ -74,16 +74,17 @@
                             <li>4</li>
                         </ul>
                     </li>
-
-                    <li>
-                        <a href='javascript:void(0);'>관리자</a>
-                        <ul class="sub_gnb">
-                            <li>회원정보 관리</li>
-                            <li>펫시터 관리</li>
-                            <li>예약 관리</li>
-                            <li><a href = "/petsitter/admin/petsitterlist1">펫시터 신청 관리</a></li>
-                        </ul>
-                    </li>
+                    <c:if test="${loginMember.adminFlag == 'Y'}" >
+                        <li>
+                            <a href='javascript:void(0);'>관리자</a>
+                            <ul class="sub_gnb">
+                                <li>회원정보 관리</li>
+                                <li>펫시터 관리</li>
+                                <li>예약 관리</li>
+                                <li><a  href = "/admin/petsitterApp">펫시터 신청 관리</a></li>
+                            </ul>
+                        </li>
+                    </c:if>
                 </ul>
             </nav>
             <div class="toggle">
