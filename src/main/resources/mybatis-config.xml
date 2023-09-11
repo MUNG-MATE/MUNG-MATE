@@ -24,7 +24,10 @@
 		<mapper resource="/mappers/email-mapper_c.xml" />
 		<mapper resource="/mappers/myPage-mapper_o.xml" />
 		<mapper resource="/mappers/application-mapper_o.xml" />
-
+		<mapper resource="/mappers/application-mapper_c.xml" />
+		<mapper resource="/mappers/review-mapper_p.xml" />
+		<mapper resource="/mappers/petsitter-mapper_p.xml" />
+		
 		<mapper resource="/mappers/Administrator-mapper.xml" />
 
 	</mappers>

@@ -27,6 +27,7 @@
         <span>|</span>
              <a href="/member/logout">Logout</a>
         </c:if>
+        	
         </div>
 
 
@@ -36,7 +37,6 @@
             <a href="#">Matching</a>
             <a href="#">Community</a>
             <a href="/Administrator/faq">FAQ</a>
-
         </div>
     </nav>
 </header>
