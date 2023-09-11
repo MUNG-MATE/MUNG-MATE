@@ -35,29 +35,29 @@
             </section>
         
             <section id="serviceSubSection2">
-                <div class="serviceDiv2 circle2" onclick="money('20,000원')">
+                <div class="serviceDiv2 circle2" onclick="money('20000')">
                     <div>30분<br>20,000원</div>
                 </div>
             
-                <div class="serviceDiv2 circle2" onclick="money('30,000원')">
+                <div class="serviceDiv2 circle2" onclick="money('30000')">
                     <div>60분<br>30,000원</div>
                 </div>
             
-                <div class="serviceDiv2 circle2" onclick="money('45,000원')">
+                <div class="serviceDiv2 circle2" onclick="money('45000')">
                     <div>120분<br>45,000원</div>
                 </div>
             </section>
             
             <section id="serviceSubSection3">
-                <div class="serviceDiv2 circle2" onclick="money('15,000원')">
+                <div class="serviceDiv2 circle2" onclick="money('15000')">
                     <div>30분<br>15,000원</div>
                 </div>
             
-                <div class="serviceDiv2 circle2" onclick="money('25,000원')">
+                <div class="serviceDiv2 circle2" onclick="money('25000')">
                     <div>60분<br>25,000원</div>
                 </div>
             
-                <div class="serviceDiv2 circle2" onclick="money('40,000원')">
+                <div class="serviceDiv2 circle2" onclick="money('40000')">
                     <div>120분<br>40,000원</div>
                 </div>
             </section>
