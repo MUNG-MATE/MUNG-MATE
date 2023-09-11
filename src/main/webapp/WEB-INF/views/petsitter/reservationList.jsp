@@ -50,10 +50,12 @@
                 </div>  
             </div>
 
-
-
         </section>
+
+
     </main>
+    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
 
     <script>
         /* 스크롤 함수 */
