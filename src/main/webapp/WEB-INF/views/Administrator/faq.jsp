@@ -41,6 +41,7 @@
                         <li>예약관련</li>
                         <li>서비스이용</li>
                         <li>기타</li>
+                        <button id = "writer" onclick = "location.href = '#'">작성하기</button>
                     </ul>
                 </div>
                 <table>
