@@ -21,7 +21,7 @@
             <a href="#">Info</a>
             <a href="#">Matching</a>
             <a href="#">Community</a>
-            <a href="#">Guide</a>
+            <a href="/Administrator/faq">FAQ</a>
             <img src="/resources/images/menuIcon.png" alt="메뉴 아이콘">
         </div>
     </div>
