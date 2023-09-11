@@ -23,7 +23,7 @@
     
     <main>
         <section class="main_container">
-            <form action="#" method="" name="apply_form" onsubmit="return applyValidate()">
+            <form action="/petsitter/goToPetsitter" method="POST" name="apply_form" onsubmit="return applyValidate()">
                 <div class="main_first">펫시터 신청하기</div>
                 <div class="main_second">
                     <div class="selection"><i class="fa-solid fa-play" style="color:rgb(0,30,60);"></i>&nbsp;지역</div>
@@ -33,10 +33,10 @@
                 <div class="main_third">
                     <div><i class="fa-solid fa-play" style="color:rgb(0,30,60);"></i>&nbsp;반려 경험</div>
                     <div>
-                        <input type="radio" name="exper" id="yes" value="있음">
+                        <input type="radio" name="exper" id="yes" value="O">
                         <label for="yes">있음</label>
                         &nbsp;
-                        <input type="radio" name="exper" id="no" value="없음">
+                        <input type="radio" name="exper" id="no" value="X">
                         <label for="no">없음</label>
                     </div>
                 </div>
