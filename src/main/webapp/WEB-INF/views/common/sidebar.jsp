@@ -4,10 +4,16 @@
 <link rel="stylesheet" href="/resources/css/Administrator/sidebar.css">
 
 	<nav class="nav">
+                <div class="sidebar-img">
+                    <div class="s-img">
+                        이미지
+                    </div>
+
+                </div>
                 <ul class="gnb">
                 <c:if test="${!empty loginMember}" >
                     <li>
-                        <a >My Page</a>
+                        <a href='javascript:void(0);'>My Page</a>
                         <ul class="sub_gnb">
                             <li><a href = "/myPage/memberInfo">내 정보</a></li>
                             <li><a href = "/myPage/memberInfoUpdate">내 정보 수정</a></li>
@@ -23,7 +29,7 @@
                 </c:if>
 
                     <li>
-                        <a href="#">멍메이트</a>
+                        <a href='javascript:void(0);'>멍메이트</a>
                         <ul class="sub_gnb">
                             <li></li>
                             <li>2</li>
@@ -33,7 +39,7 @@
                     </li>
 
                     <li>
-                        <a href="#">멍메이트</a>
+                        <a href='javascript:void(0);'>멍메이트</a>
                         <ul class="sub_gnb">
                             <li>1</li>
                             <li>2</li>
@@ -43,7 +49,7 @@
                     </li>
 
                     <li>
-                       <a href="#">멍메이트</a>
+                       <a href='javascript:void(0);'>멍메이트</a>
                         <ul class="sub_gnb">
                             <li>1</li>
                             <li>2</li>
@@ -53,12 +59,11 @@
                     </li>
 
                     <li>
-                        <a href="#">멍메이트</a>
+                        <a href='javascript:void(0);'>관리자</a>
                         <ul class="sub_gnb">
-                            <li>1</li>
-                            <li>2</li>
-                            <li>3</li>
-                            <li>4</li>
+                            <li>회원정보 관리</li>
+                            <li>펫시터 관리</li>
+                            <li>예약 관리</li>
                         </ul>
                     </li>
                 </ul>

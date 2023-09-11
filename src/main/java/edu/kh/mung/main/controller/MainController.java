@@ -17,30 +17,4 @@ public class MainController {
 		return "info";
 	}
 	
-	@RequestMapping("/Administrator/faq")
-	public String faq() {
-		return "Administrator/faq";
-		
-	}
-	@RequestMapping("/Administrator/declaration")
-	public String declaration() {
-		return "Administrator/declaration";
-		
-	}
-	@RequestMapping("/Administrator/management")
-	public String management() {
-		return "Administrator/management";
-		
-	}
-	@RequestMapping("/Administrator/reserve")
-	public String reserve() {
-		return "Administrator/reserve";
-		
-	}
-	@RequestMapping("/Administrator/petManagement")
-	public String petManagement() {
-		return "Administrator/petManagement";
-		
-	}
-	
 }
