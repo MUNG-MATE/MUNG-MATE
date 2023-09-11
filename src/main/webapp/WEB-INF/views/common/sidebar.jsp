@@ -4,14 +4,31 @@
 <link rel="stylesheet" href="/resources/css/Administrator/sidebar.css">
 
 	<nav class="nav">
-                <div class="sidebar-img">
-                    <div class="s-img">
-                        이미지
-                    </div>
-
-                </div>
                 <ul class="gnb">
+                <c:if test="${empty loginMember}" >
+                    <li>
+                    <a href='javascript:void(0);' class="sideimgbox">
+                        <img src="/resources/images/member/user.png">
+                    </a>
+
+                    </li>
+                    <li>
+                    <a href="/member/login">Login</a><a href="/member/signUp">Join</a>
+                    </li>
+
+                    <li>
+                </c:if>
+
                 <c:if test="${!empty loginMember}" >
+                    <li>
+                    <a href='javascript:void(0);' class="sideimgbox">
+                        <img src="${loginMember.profileImage}">
+                    </a>
+                    </li>
+
+                    <li>
+                        <a href="/member/login">Login</a><a href="/member/logout">Logout</a>
+                    </li>
                     <li>
                         <a href='javascript:void(0);'>My Page</a>
                         <ul class="sub_gnb">
