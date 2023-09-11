@@ -26,8 +26,8 @@
                     <div class="C-adminreservation-title1">펫시터 신청 관리</div>
                     <div class="C-adminapp-div">
                         <select name="C-adminreservation-menu" id="C-adminreservation-menu" onchange="location.href=this.value">
-                            <option value="/Administrator/petsitterApp_goPetSitter" selected>펫시터 -> 일반회원 신청 내역</option>
-                            <option value="/Administrator/petsitterApp_goMember">일반회원 -> 펫시터 신청 내역</option>
+                            <option value="/petsitter/admin/petsitterlist1" selected>펫시터 -> 일반회원 신청 내역</option>
+                            <option value="/petsitter/admin/petsitterlist2">일반회원 -> 펫시터 신청 내역</option>
                         </select>
                     </div>
                     <div class="C-adminapplist" id="appListtable">
@@ -92,7 +92,7 @@
     </div>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
-    <script src="/resources/js/AdminReservation.js"></script>
+    <script src="/resources/js/Administrator/adminApp.js"></script>
 </body>
 
 </html>

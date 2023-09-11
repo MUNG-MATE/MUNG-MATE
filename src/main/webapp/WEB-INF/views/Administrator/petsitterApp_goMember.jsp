@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>관리자 펫시터 관리</title>
-    <link rel="stylesheet" href="../css/Administrator/adminApp.css">
+    <link rel="stylesheet" href="/resources/css/Administrator/adminApp.css">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 </head>
@@ -27,8 +27,8 @@
                     <div class="C-adminreservation-title1">펫시터 신청 관리</div>
                     <div class="C-adminapp-div">
                             <select name="C-adminreservation-menu" id="C-adminreservation-menu" onchange="location.href=this.value">
-                                <option value="/admin/bookList" >펫시터 -> 일반회원 신청 내역</option>
-                                <option value="/admin/bookListbefore" selected>일반회원 -> 펫시터 신청 내역</option>
+                                <option value="/petsitter/admin/petsitterlist1" >펫시터 -> 일반회원 신청 내역</option>
+                                <option value="/petsitter/admin/petsitterlist2" selected>일반회원 -> 펫시터 신청 내역</option>
                             </select>
                     </div>
                     <div class="C-adminapplist" id="appListtable">
@@ -93,7 +93,7 @@
     </div>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
     
-    <script src="/resources/js/AdminReservation.js"></script>
+    <script src="/resources/js/Administrator/adminApp.js"></script>
 </body>
 
 </html>
