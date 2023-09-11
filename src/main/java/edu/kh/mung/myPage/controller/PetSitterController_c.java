@@ -63,4 +63,15 @@ public class PetSitterController_c {
 		
 		return path;
 	}
+	
+	@GetMapping("/admin/petsitterlist")
+	public String petsitterList() {
+		return "Administrator/petsitterApp_goPetSitter";
+	}
+	
+	
+	
+	
+	
+	
 }
