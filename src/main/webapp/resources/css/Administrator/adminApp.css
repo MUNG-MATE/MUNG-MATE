@@ -1,0 +1,123 @@
+*{
+    box-sizing: border-box;
+ 
+}
+
+
+.C-adminApp-container{ /* 바디 큰 틀 */
+    width: 100%;
+    height: auto;
+    min-width: 1900px;
+}
+
+.C-adminapp-body{ /* 사이드바 + 메인 */
+    width: 1200px;
+    height: 820px;
+    margin: auto;
+    display: flex;
+    padding: 20px 0;
+}
+
+.C-adminapp-main{ /* 메인 큰틀 */
+    width: 100%;
+    
+}
+
+#adminappList{
+    width: 100%;
+}
+
+#Ctitle{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.C-applist-container{ /* 리스트 내역 전체 틀 */
+    display: flex;
+    height: 50px;
+    padding: 10px;
+    border-bottom: 1px solid rgba(178, 158, 135, 0.9);
+}
+
+.C-applist-container > div:nth-child(1){ /* 신청 번호 */
+    width: 15%;
+    text-align: center;
+}
+
+.C-applist-container > div:nth-child(2){ /* 신청지역 */
+    width: 10%;
+    text-align: center;
+}
+.C-applist-container > div:nth-child(3){ /* 반려동물 경험 */
+    width: 15%;
+    text-align: center;
+}
+
+.C-applist-container > div:nth-child(4){ /* 신청내용 */
+    width: 15%;
+    text-align: center;
+}
+.C-applist-container > div:nth-child(5){ /* 신청일 */
+    width: 15%;
+    text-align: center;
+}
+.C-applist-container > div:nth-child(6){ /* 신청회원이메일  */
+    width: 20%;
+    text-align: center;
+}
+
+.C-adminreservation{ /* 예약확인 화면 */
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(178, 158, 135, 0.9);;
+}
+
+
+.C-adminreservation-title1{ /* 예약관리 글씨 부분 */
+    width: 820px;
+    font-size: 28px;
+    font-weight: bold;
+    margin: auto;
+    padding: 50px;
+}
+
+.C-adminapp-div{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 200px;
+    margin-bottom: 70px;
+}
+
+.C-adminreservation-search{ /* 예약객실확인 input */
+    height: 30px;
+}
+
+.C-adminreservation-btn{ /* 예약객실확인 버튼 */
+    width: 50px;
+    height: 30px;
+}
+
+#C-adminreservation-menu{ /*select */
+    width: 22%;
+}
+.C-adminapplist{/* 예약내역 list */
+    display: flex;
+    width: 820px;
+    height: 550px;
+    margin: auto;
+    border: 1px sold rgba(178, 158, 135, 0.9);
+    overflow: auto;
+}
+.hide{
+    display: none;
+}
+
+
+.C-pagenation{ /* 페이지네이션 전체 div */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ .pagination{
+    display: flex;
+ }

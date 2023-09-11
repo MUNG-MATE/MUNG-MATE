@@ -60,6 +60,7 @@ public class PetSitterController_o {
 		
 		ra.addFlashAttribute("message", message);
 		
+		System.out.println(loginMember);
 		return path;
 	}
 	
