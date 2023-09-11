@@ -24,5 +24,6 @@
 		<mapper resource="/mappers/email-mapper_c.xml" />
 		<mapper resource="/mappers/myPage-mapper_o.xml" />
 		<mapper resource="/mappers/application-mapper_o.xml" />
+		<mapper resource="/mappers/application-mapper_c.xml" />
 	</mappers>
 </configuration>
