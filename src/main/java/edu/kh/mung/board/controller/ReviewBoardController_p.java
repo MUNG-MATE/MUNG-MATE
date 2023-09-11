@@ -17,12 +17,12 @@ import edu.kh.mung.board.model.service.ReviewBoardService_p;
 @SessionAttributes("{loginMember}")
 @RequestMapping("/reviewBoard")
 public class ReviewBoardController_p {
-	
+
 	@Autowired
 	private ReviewBoardService_p service;
-	
+
 	// 커뮤니티(리뷰게시판) 화면 띄우기
-	@RequestMapping("/reviewBoard/reviewBoardList")
+	@GetMapping("/reviewBoardList")
 	public String reviewBoard() {
 		return "reviewBoard/reviewBoardList";
 	}
@@ -30,11 +30,29 @@ public class ReviewBoardController_p {
 	// 리뷰 게시글 목록 조회
 	@GetMapping("/{boardCode:[0-9]+}")
 	public String selectReviewList(@PathVariable("boardCode") int boardCode
-	         , @RequestParam(value="cp",required=false,    defaultValue = "1") int cp
-	         , Model model
-	         , @RequestParam Map<String, Object> paramMap 
-	         ){
-		
-		return "reviewBoard/reviewBoardList";
+			, @RequestParam(value="cp",required=false,    defaultValue = "1") int cp
+			, Model model
+			, @RequestParam Map<String, Object> paramMap 
+			){
+		if(paramMap.get("key") == null) { //검색어가 없을 때( 검색 x )
+
+			// 게시글 목록 조회 서비스 호출
+			Map<String, Object> map = service.selectReviewList(boardCode,cp);
+
+			// 조회 결과를 request scope에 세팅 후 forward
+			model.addAttribute("map", map);
+
+		}else { // 검색어가 있을 때( 검색 o )
+
+			paramMap.put("boardCode", boardCode);
+
+			Map<String, Object> map = service.selectReviewList(paramMap, cp);
+
+			model.addAttribute("map",map);
+
+
+
+
+			return "reviewBoard/reviewBoardList";
+		}
 	}
-}
