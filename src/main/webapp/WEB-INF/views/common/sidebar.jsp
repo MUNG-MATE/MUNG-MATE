@@ -81,7 +81,7 @@
                                 <li>회원정보 관리</li>
                                 <li>펫시터 관리</li>
                                 <li>예약 관리</li>
-                                <li><a  href = "/admin/petsitterApp">펫시터 신청 관리</a></li>
+                                <li><a  href = "/petsitter/admin/petsitterlist1">펫시터 신청 관리</a></li>
                             </ul>
                         </li>
                     </c:if>
