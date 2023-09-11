@@ -9,6 +9,12 @@ import lombok.ToString;
 @ToString
 public class AdministratorDTO {
 	
-	
+	private int boardNo;
+	private String title;
+	private String Content;
+	private String boardDate;
+	private String boardSt;
+	private String boardCode;
+	private String memberNo;
 
 }
