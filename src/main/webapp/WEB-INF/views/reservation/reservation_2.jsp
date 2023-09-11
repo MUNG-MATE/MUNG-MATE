@@ -19,22 +19,22 @@
     	<select id="selectDay"></select>
 
 	    <h2>방문 시간</h2>
-	    <select>
-	        <option>오전 09:00</option>
-	        <option>오전 10:00</option>
-	        <option>오전 11:00</option>
-	        <option>오후 12:00</option>
-	        <option>오후 01:00</option>
-	        <option>오후 02:00</option>
-	        <option>오후 03:00</option>
-	        <option>오후 04:00</option>
-	        <option>오후 05:00</option>
-	        <option>오후 06:00</option>
-	        <option>오후 07:00</option>
-	        <option>오후 08:00</option>
-	        <option>오후 09:00</option>
+	    <select id="selectTime">
+	        <option>09:00</option>
+	        <option>10:00</option>
+	        <option>11:00</option>
+	        <option>12:00</option>
+	        <option>13:00</option>
+	        <option>14:00</option>
+	        <option>15:00</option>
+	        <option>16:00</option>
+	        <option>17:00</option>
+	        <option>18:00</option>
+	        <option>19:00</option>
+	        <option>20:00</option>
+	        <option>21:00</option>
 	    </select>
-	
+
 	    <h2>방문 장소</h2>
 	    <input type="text" name="addr">
 	    <input type="text" name="addrDetail">
