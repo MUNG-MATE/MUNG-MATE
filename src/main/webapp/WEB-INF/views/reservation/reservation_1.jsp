@@ -35,7 +35,7 @@
             </section>
         
             <section id="serviceSubSection2">
-                <div class="serviceDiv2 circle2" onclick="money('20000')">
+                <div class="serviceDiv2 circle2" onclick="money('20000'),time('30분') ">
                     <div>30분<br>20,000원</div>
                 </div>
             
@@ -67,6 +67,7 @@
             </div>
             
             <input type="hidden" name="money" id="selectMoney" readonly>
+            <input type="hidden" name="time" id="selectTime" readonly>
             <input type="hidden" name="service" id="selectedService" readonly>
         </form>
         
