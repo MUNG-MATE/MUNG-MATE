@@ -36,7 +36,7 @@
         <div class="menu-3">
             <a href ="/info">Info</a>
             <a href="#">Matching</a>
-            <a href="#">Community</a>
+            <a href="/reviewBoard/reviewBoardList">Community</a>
             <a href="#">Guide</a>
 
         </div>
@@ -57,7 +57,7 @@
         <div class="menu-2">
             <a href="#">Info</a>
             <a href="#">Matching</a>
-            <a href="#">Community</a>
+            <a href="/reviewBoard/reviewBoardList">Community</a>
             <a href="#">Guide</a>
         <jsp:include page="/WEB-INF/views/common/sidebar.jsp" />
         </div>
