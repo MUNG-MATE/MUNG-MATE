@@ -8,6 +8,7 @@
     width: 100%;
     height: auto;
     min-width: 1900px;
+    position: relative;
 }
 
 .C-adminapp-body{ /* 사이드바 + 메인 */
@@ -40,12 +41,12 @@
 }
 
 .C-applist-container > div:nth-child(1){ /* 신청 번호 */
-    width: 15%;
+    width: 10%;
     text-align: center;
 }
 
 .C-applist-container > div:nth-child(2){ /* 신청지역 */
-    width: 10%;
+    width: 15%;
     text-align: center;
 }
 .C-applist-container > div:nth-child(3){ /* 반려동물 경험 */
@@ -53,27 +54,33 @@
     text-align: center;
 }
 
-.C-applist-container > div:nth-child(4){ /* 신청내용 */
+.C-applist-container > div:nth-child(4){ /* 신청일 */
     width: 15%;
     text-align: center;
+
 }
-.C-applist-container > div:nth-child(5){ /* 신청일 */
-    width: 15%;
-    text-align: center;
-}
-.C-applist-container > div:nth-child(6){ /* 신청회원이메일  */
-    width: 20%;
+.C-applist-container > div:nth-child(5){ /* 신청회원 이메일 */
+    width: 30%;
     text-align: center;
 }
 
-.C-adminreservation{ /* 신청화면 화면 */
+.C-applist-container > div:nth-child(6){ /* 신청내용  */
+    width: 10%;
+    text-align: center;
+    margin-right: 10px;
+    
+}
+
+
+
+.C-adminApp{ /* 신청화면 화면 */
     width: 100%;
     height: 100%;
     border: 1px solid rgb(0,30,60);
 }
 
 
-.C-adminreservation-title1{ /* 신청화면 글씨 부분 */
+.C-adminApp-title1{ /* 신청화면 글씨 부분 */
     width: 820px;
     font-size: 28px;
     font-weight: bold;
@@ -88,16 +95,16 @@
     margin-bottom: 70px;
 }
 
-.C-adminreservation-search{ /* 신청확인 input */
+.C-adminApp-search{ /* 신청확인 input */
     height: 30px;
 }
 
-.C-adminreservation-btn{ /* 신청 버튼 */
+.C-adminApp-btn{ /* 신청 버튼 */
     width: 50px;
     height: 30px;
 }
 
-#C-adminreservation-menu{ /*select */
+#C-adminApp-menu{ /*select */
     width: 22%;
 }
 .C-adminapplist{/* 신청내역 list */
@@ -107,9 +114,99 @@
     margin: auto;
     border: 1px sold rgba(178, 158, 135, 0.9);
     overflow: auto;
+
 }
 .hide{
     display: none;
+}
+
+.contentCheckBtn{
+    width: 80px;
+    height: 30px;
+    border-radius: 10px;
+    color: rgb(0,30,60);
+    background-color: white;
+    border: 1px solid rgb(0,30,60);
+    cursor: pointer;
+}
+
+.contentCheckBtn:hover{
+    background-color: rgb(0,30,60);
+    color:  white;
+}
+
+#successBtn{
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    color: rgb(0,30,60);
+    background-color: white;
+    border: 1px solid rgb(0,30,60);
+    cursor: pointer;
+}
+
+#successBtn:hover{
+    background-color: rgb(0,30,60);
+    color:  white;
+}
+
+.modal{ /* 지원동기 모달창 */
+    position: fixed;
+    top : 26%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    align-items: center;
+
+    z-index: 50;
+    display: none;
+    border-radius: 30px;
+    box-shadow: 0 0 20px 4px rgba(0, 220, 244, 0.1);
+ 
+}
+
+.modal_body1{ /* 모달창 내용 */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+
+    width: 600px;
+    height: 400px;
+    border-radius: 20px;
+    
+    background-color: white;
+    border: 3px solid rgb(0,30,60); 
+    
+}
+
+.modal_body1 > p{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.modal_body1 > textarea{
+    resize: none;
+    width: 400px;
+    height: 200px;
+    margin: 40px 0;
+    font-size: 15px;
+}
+
+.modal_body1 > button{
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    color: rgb(0,30,60);
+    background-color: white;
+    border: 1px solid rgb(0,30,60);
+    cursor: pointer;
+}
+
+.modal_body1 > button:hover{
+    background-color: rgb(0,30,60);
+    color:  white;
 }
 
 

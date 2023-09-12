@@ -108,21 +108,21 @@ for(let i = 0; i < serviceDiv2.length; i++) {
 }
 
 
-function money(content) {
+function servicePrice(content) {
     console.log(content);
     
     // 선택한 내용을 input 요소에 설정
     document.getElementById('selectMoney').value = content;
 }
 
-function time(content) {
+function serviceTime(content) {
     console.log(content);
     
     // 선택한 내용을 input 요소에 설정
     document.getElementById('selectTime').value = content;
 }
 
-function service(content) {
+function serviceType(content) {
     console.log(content);
     
     // 선택한 내용을 input 요소에 설정
