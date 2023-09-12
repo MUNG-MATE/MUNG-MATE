@@ -12,11 +12,7 @@ public class AdministratorController_m {
 	@Autowired // MypageService 자식 MyPageServiceImpl 의존성 주입(DI)
 	private AdministratorService service;
 	
-	@RequestMapping("/Administrator/faq")
-	public String faq() {
-		return "Administrator/faq";
-		
-	}
+	
 	@RequestMapping("/Administrator/declaration")
 	public String declaration() {
 		return "Administrator/declaration";

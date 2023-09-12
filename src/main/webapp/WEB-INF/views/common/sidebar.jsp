@@ -7,7 +7,7 @@
                 <ul class="gnb">
                 <c:if test="${empty loginMember}" >
                     <li>
-                    <a href='javascript:void(0);' class="sideimgbox">
+                    <a href='/myPage/memberInfo' class="sideimgbox">
                         <img src="/resources/images/member/user.png">
                     </a>
 
@@ -21,13 +21,13 @@
 
                 <c:if test="${!empty loginMember}" >
                     <li>
-                    <a href='javascript:void(0);' class="sideimgbox">
+                    <a href='/myPage/memberInfo' class="sideimgbox">
                         <img src="${loginMember.profileImage}">
                     </a>
                     </li>
 
                     <li>
-                        <a href="/member/login">Login</a><a href="/member/logout">Logout</a>
+                        <a href='javascript:void(0);'>My-Info</a><a href="/member/logout">Logout</a>
                     </li>
                     <li>
                         <a href='javascript:void(0);'>My Page</a>
@@ -66,9 +66,9 @@
                     </li>
 
                     <li>
-                       <a href='javascript:void(0);'>멍메이트</a>
+                       <a href='javascript:void(0);'>신고하기</a>
                         <ul class="sub_gnb">
-                            <li>1</li>
+                            <li><a href="/Administrator/declaration">신고</a></li>
                             <li>2</li>
                             <li>3</li>
                             <li>4</li>
@@ -78,10 +78,10 @@
                         <li>
                             <a href='javascript:void(0);'>관리자</a>
                             <ul class="sub_gnb">
-                                <li>회원정보 관리</li>
-                                <li>펫시터 관리</li>
-                                <li>예약 관리</li>
-                                <li><a  href = "/admin/petsitterApp">펫시터 신청 관리</a></li>
+                                <li><a href="/Administrator/management">회원정보 관리</a></li>
+                                <li><a href="/Administrator/petManagement">펫시터 관리</a></li>
+                                <li><a href="/Administrator/reserve">예약 관리</a></li>
+                                <li><a  href = "/petsitter/admin/petsitterlist1">펫시터 신청 관리</a></li>
                             </ul>
                         </li>
                     </c:if>

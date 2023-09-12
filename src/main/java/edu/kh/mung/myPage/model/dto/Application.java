@@ -20,5 +20,6 @@ public class Application {
 	private String appEx;
 	private int memberNo;
 	private String appCd;
+	private String memberEmail;
 	
 }
