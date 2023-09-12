@@ -30,6 +30,15 @@
 		</collection>
 
 	</resultMap>
+	
+	<resultMap type="BoardImage" id="boardImage_rm">
+      <id property="imageNo" column="BOARD_IMG_NO" />
+
+      <result property="imagePath" column="BOARD_IMG_PATH" />
+      <result property="imageReName" column="BOARD_IMG_RENAME" />
+      <result property="imageOrder" column="BOARD_IMG_ORDER" />
+      <result property="boardNo" column="BOARD_NO" />
+   	</resultMap>
 
 	<!-- 특정 게시판의 삭제되지 않은 게시글 수 조회 -->
 	<select id="getListCount" resultType="_int">
