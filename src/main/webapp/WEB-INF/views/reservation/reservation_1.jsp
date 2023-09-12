@@ -16,17 +16,17 @@
         <h1 id="resTitle">예약 서비스[1/4]</h1>
         <h4 id="resSubTitle">이용할 서비스를 선택해주세요.</h4>
         
-        <form action="" method="post">
+        <form action="1" method="POST">
 
             <section id="serviceSection">
-                <div class="serviceDiv-one" onclick="service('산책')">
+                <div class="serviceDiv-one" onclick="serviceType('산책')">
                     <div class="iconDiv">
                         <img src="/resources/images/reservation/stroll.png" class="serviceIcon">
                     </div>
                     <div class="iconText">산책</div>
                 </div>
         
-                <div class="serviceDiv-two" onclick="service('돌봄')">
+                <div class="serviceDiv-two" onclick="serviceType('돌봄')">
                     <div class="iconDiv">
                         <img src="/resources/images/reservation/care.png" class="serviceIcon">
                     </div>
@@ -35,29 +35,29 @@
             </section>
         
             <section id="serviceSubSection2">
-                <div class="serviceDiv2 circle2" onclick="money('20000'),time('30분') ">
+                <div class="serviceDiv2 circle2" onclick="servicePrice('20000'),serviceTime('30분') ">
                     <div>30분<br>20,000원</div>
                 </div>
             
-                <div class="serviceDiv2 circle2" onclick="money('30000')">
+                <div class="serviceDiv2 circle2" onclick="servicePrice('30000'),serviceTime('60분')">
                     <div>60분<br>30,000원</div>
                 </div>
             
-                <div class="serviceDiv2 circle2" onclick="money('45000')">
+                <div class="serviceDiv2 circle2" onclick="servicePrice('45000'),serviceTime('120분')">
                     <div>120분<br>45,000원</div>
                 </div>
             </section>
             
             <section id="serviceSubSection3">
-                <div class="serviceDiv2 circle2" onclick="money('15000')">
+                <div class="serviceDiv2 circle2" onclick="servicePrice('15000'),serviceTime('30분')">
                     <div>30분<br>15,000원</div>
                 </div>
             
-                <div class="serviceDiv2 circle2" onclick="money('25000')">
+                <div class="serviceDiv2 circle2" onclick="servicePrice('25000'),serviceTime('60분')">
                     <div>60분<br>25,000원</div>
                 </div>
             
-                <div class="serviceDiv2 circle2" onclick="money('40000')">
+                <div class="serviceDiv2 circle2" onclick="servicePrice('40000'),serviceTime('120분')">
                     <div>120분<br>40,000원</div>
                 </div>
             </section>
@@ -66,9 +66,9 @@
                 <button id="nextBtn">다음 &gt</button>
             </div>
             
-            <input type="hidden" name="money" id="selectMoney" readonly>
-            <input type="hidden" name="time" id="selectTime" readonly>
-            <input type="hidden" name="service" id="selectedService" readonly>
+            <input type="hidden" name="servicePrice" id="selectMoney" readonly>
+            <input type="hidden" name="serviceTime" id="selectTime" readonly>
+            <input type="hidden" name="serviceType" id="selectedService" readonly>
         </form>
         
     </div>
