@@ -25,7 +25,7 @@ public class ReservationController_h {
 	public String reservationType(Model model,
 								Reservation_h rs) {
 		
-		model.addAttribute("reservation", rs);
+		 model.addAttribute("rs", rs);
 		System.out.println(rs);
 		
 		return "/reservation/reservation_2";
@@ -37,9 +37,9 @@ public class ReservationController_h {
 	}
 	
 	@PostMapping("/2")
-	public String reservationDate(Model model) {
-		Reservation_h rs = (Reservation_h) model.getAttribute("reservation");
-		System.out.println(rs);
+	public String reservationDate(Model model,Reservation_h rs) {
+		
+		System.out.println("rs : " + rs);
 		return "/reservation/reservation_4";
 	}
 	
