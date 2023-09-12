@@ -18,9 +18,33 @@ public class AdministratorController_m {
 
 	@Autowired 
 	private AdministratorService service;
-	
-	@RequestMapping("/Administrator/declaration")
 
+	@GetMapping("/management")
+	public String management(Member member,@RequestParam(value="cp", required = false, defaultValue = "1") int cp , Model model,
+			@RequestParam Map<String,Object> paramMap ) {
+
+		if(paramMap.get("mangement-type") == null) {
+
+			// 게시글 목록 조회 서비스 호출
+			Map<String, Object> map = service.selectManagementList(cp);
+
+			// 조회 결과를 request scope에 세팅 후 forward
+			model.addAttribute("map",map);
+
+		}else { // 검색어가 있을때 (검색O)
+
+			Map<String,Object> map = service.selectManagementList(paramMap,cp);
+
+			model.addAttribute("map",map);
+
+		}
+
+
+		return "Administrator/management";
+
+	}
+
+	@GetMapping("/declaration")
 	public String declaration() {
 
 
