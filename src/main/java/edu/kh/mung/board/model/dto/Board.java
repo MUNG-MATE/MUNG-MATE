@@ -18,13 +18,13 @@ public class Board {
 	private String boardState;
 	private int reviewStar;
 	private int boardCode;
+	private int memberNo;
 
 
 	// 서브쿼리
 
 	// 회원 join
 	private String memberNickname;
-	private int memberNo;
 	private String profileImage;
 
 	// 이미지 목록
