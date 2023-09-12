@@ -1,6 +1,7 @@
 package edu.kh.mung.myPage.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -80,16 +81,27 @@ public class PetSitterController_c {
 	}
 	
 	
-	@PostMapping("/admin/petsitterInsert")
+	@PostMapping(value="/admin/petsitterInsert", produces = "application/json; charset=UTF-8")
 	@ResponseBody
-	public int insertPetsitter(String appNo
-							  ,@RequestBody String appLocation
+	public int insertPetsitter(@RequestBody Map<String, Object> map
+							  ,@SessionAttribute("loginMember") Member loginMember
 							  ) {
+		map.put("memberNo", loginMember.getMemberNo());
 		
-		System.out.println(appNo);
-		System.out.println(appLocation);
+		// 1. 일단 펫시터테이블에 insert
+		int result = service.insertPetsitter(map);
 		
-		return 0;
+		if(result > 0) {
+			// 2. insert 성공 후 member에 펫시터 여부를 Y로 바꾸기
+			result = service.updateMember(map);
+			
+			if(result > 0) {
+				// 3. member에서 펫시터 여부 Y로 바꾼 후엔 신청 테이블에서 delete 하기 
+				result = service.deleteApp(map);
+			}
+		}
+		
+		return result;
 	}
 	
 	
