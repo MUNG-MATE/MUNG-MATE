@@ -1,30 +1,19 @@
+const contentCheckBtn = document.getElementsByClassName("contentCheckBtn")
+const modal = document.getElementsByClassName("modal");
+const back =document.getElementsByClassName("back");
 
-
-function selectApp(){
-
-    $.ajax({
-        url :"/admin/selectbookList",
-        type : "get",
-        dataType : "JSON",
-        success : function(appList){
-
-            
-
-        },
-        error : function(){
-            console.log("에러발생!!!");    
-        }
+for(let i = 0; i < contentCheckBtn.length; i++){
+    // 확인하기 버튼을 클릭했을 때 모달창 뜨도록
+    contentCheckBtn[i].addEventListener("click", function(){
+         modal[i].style.display="block";
+    
     })
 
-
-
+    // 모달창 취소를 눌렀을 때 
+    back[i].addEventListener("click", function(){
+        modal[i].style.display="none";
+    })
 }
-
-
-
-
-
-
 
 function insertApp(appNo, appLocation, appEx, appDate, memberEmail){
 
@@ -44,7 +33,10 @@ function insertApp(appNo, appLocation, appEx, appDate, memberEmail){
             })
             .then(resp => resp.text())
             .then(result => {
-                console.log(result);
+                
+                if(result > 0){
+                    alert("펫시터 신청이 정상적으로 수락되었습니다.");
+                }
             })
             .catch(err => {
                 console.log(err);

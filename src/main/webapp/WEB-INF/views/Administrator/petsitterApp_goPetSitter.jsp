@@ -35,10 +35,10 @@
                             <div class="C-applist-container" id="Ctitle">
                                 <div>신청번호</div>
                                 <div>신청지역</div>
-                                <div>반려동물 경험</div>
+                                <div>반려경험</div>
                                 <div>신청일</div>
                                 <div>신청회원이메일</div>
-                                <div>신청내용</div>
+                                <div>지원동기</div>
                             </div>
                             
                            <c:forEach var="app" items="${appList}">
@@ -48,8 +48,21 @@
                                     <div>${app.appEx}</div>
                                     <div>${app.appDate}</div>
                                     <div>${app.memberEmail}</div>
-                                    <div>${app.appContent}</div>
-                                    <div><button onclick="insertApp('${app.appNo}','${app.appLocation}','${app.appEx}','${app.appDate}','${app.memberEmail}')">수락</button></div>
+                                    <div>
+                                        <button class="contentCheckBtn">확인하기</button>
+                                        <div class="modal" id="modal">
+                                            <div class="modal_body1">
+                                               <p>${app.memberEmail}님의 지원동기</p>
+                                               <textarea disabled>
+${app.appContent}
+                                               </textarea>
+                                               <button type="button" class="back">닫기</button>
+                                            </div>                
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <button id="successBtn" onclick="insertApp('${app.appNo}','${app.appLocation}','${app.appEx}','${app.appDate}','${app.memberEmail}')">수락</button>
+                                    </div>
                                 </div>
                             </c:forEach>
                         </div>
