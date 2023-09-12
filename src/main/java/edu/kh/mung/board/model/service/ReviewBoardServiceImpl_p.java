@@ -16,7 +16,7 @@ public class ReviewBoardServiceImpl_p implements ReviewBoardService_p{
 
 	@Autowired
 	private ReviewBoardDAO_p dao;
-/*
+
 	// 게시글 목록 조회
 	@Override
 	public Map<String, Object> selectReviewList(int boardCode, int cp) {
@@ -60,5 +60,5 @@ public class ReviewBoardServiceImpl_p implements ReviewBoardService_p{
 	public List<String> selectImageList() {
 		return dao.selectImageList();
 	}
-*/
+
 }
