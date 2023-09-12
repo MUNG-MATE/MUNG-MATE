@@ -36,94 +36,27 @@
             <article class="faq-content">
                 <div>
                     <ul>
-                        <li>전체</li>
-                        <li>멍메이트</li>
-                        <li>예약관련</li>
-                        <li>서비스이용</li>
-                        <li>기타</li>
-                        <button id = "writer" onclick = "location.href = '#'">작성하기</button>
+                        <li><a href = "/Administrator/faq/3">예약관련</a></li>
+                        <li><a href = "/Administrator/faq/4">서비스이용</a></li>
+                        <li><a href = "/Administrator/faq/5">기타</a></li>
+                      
+                        <button id = "writer" onclick = "location.href = '/Administrator/faqWrite'">작성하기</button>
                     </ul>
                 </div>
                 <table>
+                    <c:forEach items="${map.boardList}" var="faqList">
+                   
                     <tr class="t-tr">
                         <td><img src="/resources/images/Administrator/report.png" class="td-img"></td>
                         <td>카테고리</td>
-                        <td>글내용</td>
+                        <td>${faqList.title}</td>
                         <td class="td">▼</td>
                     </tr>
                     <tr class="faq-answer">
-                        <td rowspan="4">Lorem ipsum dolor sit amet consectetur, aliquid dolores deserunt, magnam sint nam distinctio modi tenetur odio?1111</td>
+                        <td rowspan="4">${faqList.content}</td>
                     </tr>
+                     </c:forEach>
 
-                    <tr class="t-tr">
-                        <td><img src="/resources/images/Administrator/report.png" class="td-img"></td>
-                        <td>카테고리</td>
-                        <td>글내용</td>
-                        <td class="td">▼</td>
-                    </tr>
-                    <tr class="faq-answer">
-                        <td rowspan="4">Lorem ipsum dolor sit amet consectetur, aliquid dolores deserunt, magnam sint nam distinctio modi tenetur odio?222</td>
-                    </tr>
-
-                    <tr class="t-tr">
-                        <td><img src="/resources/images/Administrator/report.png" class="td-img"></td>
-                        <td>카테고리</td>
-                        <td>글내용</td>
-                        <td class="td">▼</td>
-                    </tr>
-                    <tr class="faq-answer">
-                        <td rowspan="4">Lorem ipsum dolor sit amet consectetur, aliquid dolores deserunt, magnam sint nam distinctio modi tenetur odio?</td>
-                    </tr>
-
-                    <tr class="t-tr">
-                        <td><img src="/resources/images/Administrator/report.png" class="td-img"></td>
-                        <td>카테고리</td>
-                        <td>글내용</td>
-                        <td class="td">▼</td>
-                    </tr>
-                    <tr class="faq-answer">
-                        <td rowspan="4">Lorem ipsum dolor sit amet consectetur, aliquid dolores deserunt, magnam sint nam distinctio modi tenetur odio?</td>
-                    </tr>
-
-                    <tr class="t-tr">
-                        <td><img src="/resources/images/Administrator/report.png" class="td-img"></td>
-                        <td>카테고리</td>
-                        <td>글내용</td>
-                        <td class="td">▼</td>
-                    </tr>
-                    <tr class="faq-answer">
-                        <td rowspan="4">Lorem ipsum dolor sit amet consectetur, aliquid dolores deserunt, magnam sint nam distinctio modi tenetur odio?</td>
-                    </tr>
-
-                    <tr class="t-tr">
-                        <td><img src="/resources/images/Administrator/report.png" class="td-img"></td>
-                        <td>카테고리</td>
-                        <td>글내용</td>
-                        <td class="td">▼</td>
-                    </tr>
-                    <tr class="faq-answer">
-                        <td rowspan="4">Lorem ipsum dolor sit amet consectetur, aliquid dolores deserunt, magnam sint nam distinctio modi tenetur odio?</td>
-                    </tr>
-
-                    <tr class="t-tr">
-                        <td><img src="/resources/images/Administrator/report.png" class="td-img"></td>
-                        <td>카테고리</td>
-                        <td>글내용</td>
-                        <td class="td">▼</td>
-                    </tr>
-                    <tr class="faq-answer">
-                        <td rowspan="4">Lorem ipsum dolor sit amet consectetur, aliquid dolores deserunt, magnam sint nam distinctio modi tenetur odio?</td>
-                    </tr>
-
-                    <tr class="t-tr">
-                        <td><img src="/resources/images/Administrator/report.png" class="td-img"></td>
-                        <td>카테고리</td>
-                        <td>글내용</td>
-                        <td class="td">▼</td>
-                    </tr>
-                    <tr class="faq-answer">
-                        <td rowspan="4">Lorem ipsum dolor sit amet consectetur, aliquid dolores deserunt, magnam sint nam distinctio modi tenetur odio?</td>
-                    </tr>
                 </table>
             </article>
             <div class="pagination">페이지네이션</div>

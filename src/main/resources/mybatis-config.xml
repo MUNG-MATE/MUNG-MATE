@@ -16,6 +16,7 @@
 	<typeAliases>
 	<typeAlias type="edu.kh.mung.member.model.dto.Member" alias="Member" />
 	<typeAlias type="edu.kh.mung.myPage.model.dto.Application" alias="Application" />
+	<typeAlias type="edu.kh.mung.Administrator.model.dto.Administrator" alias= "Administrator" />
 	</typeAliases>
 	<!-- ★★ mapper 파일(SQL 작성되는파일) 위치 등록 부분 ★★ -->
 	<mappers>
@@ -29,6 +30,7 @@
 		<mapper resource="/mappers/petsitter-mapper_p.xml" />
 		
 		<mapper resource="/mappers/Administrator-mapper.xml" />
+		<mapper resource="/mappers/Administrator-mapper_o.xml" />
 
 	</mappers>
 </configuration>

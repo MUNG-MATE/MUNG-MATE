@@ -37,7 +37,7 @@
             <a href ="/info">Info</a>
             <a href="/reservation/1">Matching</a>
             <a href="/reviewBoard/reviewBoardList">Community</a>
-            <a href="/Administrator/faq">FAQ</a>
+            <a href="/Administrator/faq/2">FAQ</a>
 
         </div>
     </nav>
