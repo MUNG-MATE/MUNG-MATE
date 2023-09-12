@@ -1,5 +1,7 @@
 package edu.kh.mung.reservation.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import edu.kh.mung.member.model.dto.Member;
 import edu.kh.mung.reservation.model.dto.Reservation_h;
 
 @Controller
@@ -22,11 +25,10 @@ public class ReservationController_h {
 	
 	
 	@PostMapping("/1")
-	public String reservationType(Model model,
-								Reservation_h rs) {
+	public String reservationType(Model model,Reservation_h rs) {
 		
 		 model.addAttribute("rs", rs);
-		System.out.println(rs);
+		System.out.println("rs1 : "+ rs);
 		
 		return "/reservation/reservation_2";
 	}
@@ -37,9 +39,12 @@ public class ReservationController_h {
 	}
 	
 	@PostMapping("/2")
-	public String reservationDate(Model model,Reservation_h rs) {
+	public String reservationDate(Model model,Reservation_h rs, HttpSession session) {
+		model.addAttribute("rs", rs);
 		
-		System.out.println("rs : " + rs);
+		Member loginMember = (Member) session.getAttribute("loginMember");
+		
+		System.out.println("rs2 : " + rs);
 		return "/reservation/reservation_4";
 	}
 	
@@ -52,6 +57,14 @@ public class ReservationController_h {
 	public String reservation4() {
 		return "/reservation/reservation_4";
 	}
+	
+	@PostMapping("/4")
+	public String reservationPetSitter(Model model,Reservation_h rs) {
+		
+		System.out.println("rs4 : " + rs);
+		return "/reservation/reservation_5";
+	}
+	
 	
 	@GetMapping("/5")
 	public String reservation5() {

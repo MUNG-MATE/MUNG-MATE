@@ -8,8 +8,8 @@
 // const month = date.getMonth() + 1;
 // const day = date.getDate();
 
-// const selectDay = document.getElementById("selectDay");
-// const selectTime = document.getElementById("selectTime");
+const selectDay = document.getElementById("input_date");
+const selectTime = document.getElementById("selectTime");
 
 // let lastDay;
 
@@ -35,18 +35,13 @@
 //     index++;
 // }
 
-// let rsDate;
-// selectDay.addEventListener("change",() =>{
 
-//     rsDate = selectDay.value
-//     console.log(rsDate);
-// })
 
-// selectTime.addEventListener("change",() =>{
+selectTime.addEventListener("change",() =>{
 
-//     rsStartDate = selectTime.value
-//     console.log(rsStartDate);
-// })
+    rsStartDate = selectTime.value
+    console.log(rsStartDate);
+})
 
 
 
@@ -210,3 +205,11 @@ function checkLeapYear(year) {
   $("#input_date").click(function(){
     $("#div_calendar").toggle();
   });
+
+
+  let rsDate;
+selectDay.addEventListener("change",() =>{
+
+    rsDate = selectDay.value
+    console.log(rsDate);
+})

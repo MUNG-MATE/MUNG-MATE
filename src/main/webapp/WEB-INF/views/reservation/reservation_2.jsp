@@ -17,13 +17,13 @@
 <body>
 	<h1 id="resTitle">예약 서비스[2/4]</h1>
    	<h4 id="resSubTitle">언제/어디로 방문할까요?</h4>
-   	
+   	${rs}
 	<section id="container">
 		<form action="2" method="post">
 
 			<h2>방문 날짜</h2>
 			<div>
-				<input type="text" id="input_date" class="rs_input" placeholder="방문 날짜를 선택해주세요." readonly/>
+				<input type="text" id="input_date" name="rsDate" class="rs_input" placeholder="방문 날짜를 선택해주세요." readonly/>
 				<div id="div_calendar">
 					<div id="date_controller">
 						<button type="button" class="month-btn" onclick="changeMonth(-1);">
@@ -66,7 +66,7 @@
 			</div>
 
 			<h2>방문 시간</h2>
-			<select id="selectTime">
+			<select id="selectTime" name="rsStartDate">
 				<option>09:00</option>
 				<option>10:00</option>
 				<option>11:00</option>
@@ -81,20 +81,19 @@
 				<option>20:00</option>
 				<option>21:00</option>
 			</select>
-	
+			<c:set var = "addr" value =  "${fn:split(loginMember.memberAddress, '^^^')}"/>
 			<h2>방문 장소</h2>
-			<input type="text" name="addr" class="rs_input" placeholder="주소">
-			<input type="text" name="addrDetail" class="rs_input" placeholder="상세 주소">
+			<input type="text" name="addr" class="rs_input" placeholder="주소" value="${addr[1]}">
+			<input type="text" name="addrDetail" class="rs_input" placeholder="상세 주소" value="${addr[2]}">
 		
 			<h2>연락처</h2>
-			<input type="text" class="rs_input" placeholder="'-' 제외 후 입력해주세요.">
+			<input type="text" class="rs_input" placeholder="'-' 제외 후 입력해주세요." value="${loginMember.memberTel}">
 	
 			<h2 id="h2Note">참고 사항</h2>
 			<div class="note">
 				<textarea id="noteArea" placeholder="위 사항 외에도 펫시터가 주의해야할 점이나 특이사항이 있다면 이곳에 적어주세요."></textarea>
 			</div>
 			
-			<input type="hidden" name="selectDay" class="rs_input">
 			
 			<br>
 		
@@ -102,6 +101,11 @@
 				<button class="btnStyle prev">&lt 이전</button>
 				<button class="btnStyle next">다음 &gt</button>
 			</div>
+
+			<input type="hidden" name="servicePrice" id="selectMoney" value="${rs.servicePrice}" >
+			<input type="hidden" name="serviceTime" id="selectTime" value="${rs.serviceTime}">
+			<input type="hidden" name="serviceType" id="selectedService" value="${rs.serviceType}">
+
 		</form>
     </section>
 	
