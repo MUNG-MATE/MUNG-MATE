@@ -13,18 +13,17 @@
 		<result property="reviewStar" column="REVIEW_STAR" />
 		<result property="boardCode" column="BOARD_CD" />
 		<result property="memberNo" column="MEMBER_NO" />
-
+		<result property="imagePath" column="BOARD_IMG_PATH" />
 		
-
 	</resultMap>
 	
 	<resultMap type="BoardImage" id="boardImage_rm">
-      <id property="imageNo" column="BOARD_IMG_NO" />
-
-      <result property="imagePath" column="BOARD_IMG_PATH" />
-      <result property="imageReName" column="BOARD_IMG_RENAME" />
-      <result property="imageOrder" column="BOARD_IMG_ORDER" />
-      <result property="boardNo" column="BOARD_NO" />
+	    <id property="imageNo" column="BOARD_IMG_NO" />
+	
+	    <result property="imagePath" column="BOARD_IMG_PATH" />
+	    <result property="imageReName" column="BOARD_IMG_RENAME" />
+	    <result property="imageOrder" column="BOARD_IMG_ORDER" />
+	    <result property="boardNo" column="BOARD_NO" />
    	</resultMap>
 
 	<!-- 특정 게시판의 삭제되지 않은 게시글 수 조회 -->
@@ -34,11 +33,17 @@
 		AND BOARD_ST ='N'
 	</select>
 
-	<!-- CDATA 태그 : 해당 태그 내부에 작성된 것은 모두 문자로 취급 -->
 	<!-- 게시글 목록 조회 -->
 	<select id="selectReviewList" resultMap="board_rm">
-		SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT, BOARD_DT, BOARD_ST, REVIEW_STAR, BOARD_CD, MEMBER_NO  FROM BOARD
+		SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT, BOARD_DT, BOARD_ST, REVIEW_STAR, BOARD_CD, MEMBER_NO, BOARD_IMG_PATH  
+		FROM BOARD
+		JOIN BOARD_IMAGE USING(BOARD_NO)
 		WHERE BOARD_CD = 6
+	</select>
+	
+	<!-- 이미지 목록 조회 -->
+	<select id="selectImageListAll" resultType="string">
+		SELECT  BOARD_IMG_PATH FROM BOARD_IMAGE
 	</select>
 
 </mapper>

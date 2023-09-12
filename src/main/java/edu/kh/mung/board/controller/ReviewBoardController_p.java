@@ -39,6 +39,7 @@ public class ReviewBoardController_p {
 
 			// 조회 결과를 request scope에 세팅 후 forward
 			model.addAttribute("map", map);
+			
 			System.out.println(map);
 
 		}else { // 검색어가 있을 때( 검색 o )
@@ -49,13 +50,16 @@ public class ReviewBoardController_p {
 
 			model.addAttribute("map",map);
 
-
-
-
 		}
 		
 		
 		return "reviewBoard/reviewBoardList";
+	}
+	
+	@GetMapping("/reviewBoardWrite")
+	public String reviewWrite() {
+		
+		return "reviewBoard/reviewBoardWrite";
 	}
 	
 }
