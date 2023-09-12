@@ -19,7 +19,7 @@ public class Board {
 	private int reviewStar;
 	private int boardCode;
 	private int memberNo;
-
+	private String imagePath;
 
 	// 서브쿼리
 

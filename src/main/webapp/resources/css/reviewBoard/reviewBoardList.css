@@ -28,7 +28,7 @@ h1{
 }
 
 .h-listImg{
-    width: 250px;
+    width: 150px;
     height: auto;
 }
 
@@ -112,7 +112,7 @@ h1{
 }
 
 
-.btn-area > button{
+#insertBtn{
     margin-right: 50px;
     
     width: 80px;

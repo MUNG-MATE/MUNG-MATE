@@ -63,7 +63,11 @@
                                     <div>${board.memberNickname} | ${board.boardDate}</div>
                                 </div>
 
-                               
+                                <c:if test="${!empty board.imagePath}">    
+                                <div>
+                                    <img src="${board.imagePath}" class="h-listImg">
+                                </div>
+                                </c:if>
 
                             </div>
                     </c:forEach>
@@ -80,7 +84,7 @@
             <!-- 로그인 상태일 경우 글쓰기 버튼 노출 -->
 
                 <c:if test="${!empty loginMember}" >
-                    <button id="insertBtn">글쓰기</button>                     
+                    <a href="/reviewBoard/reviewBoardWrite"><button id="insertBtn">글쓰기</button></a>                
                 </c:if>
 
         </div>
