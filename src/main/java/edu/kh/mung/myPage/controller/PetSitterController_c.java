@@ -57,7 +57,7 @@ public class PetSitterController_c {
 		String message = "";
 		
 		if(result > 0) {
-			message = "펫시터 신청 완료 !! \n ( 관리자의 승인은 1~3일 이내에 완료처리 됩니다. )";
+			message = "펫시터 신청 완료 !! ( 관리자의 승인은 1~3일 이내에 완료처리 됩니다. )";
 			path += "/";
 			
 		}else {
