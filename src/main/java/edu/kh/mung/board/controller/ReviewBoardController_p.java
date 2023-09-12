@@ -21,17 +21,7 @@ public class ReviewBoardController_p {
 	@Autowired
 	private ReviewBoardService_p service;
 
-	// 커뮤니티(리뷰게시판) 화면 띄우기
-	@GetMapping("/reviewBoardList")
-	public String reviewBoard() {
-		
-		System.out.println("test");
-		
-		return "reviewBoard/reviewBoardList";
-
-		
-	}
-
+	
 
 	// 리뷰 게시글 목록 조회
 	@GetMapping("/reviewBoardList")

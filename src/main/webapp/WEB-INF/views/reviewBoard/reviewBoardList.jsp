@@ -59,15 +59,11 @@
                                 <div>
                                     <div>${board.boardNo}</div>
                                     <a href="/reviewBoard/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sp}">${board.boardTitle}</a>
-                                    [${board.replyCount}]                        
+                                                           
                                     <div>${board.memberNickname} | ${board.boardDate}</div>
                                 </div>
 
-                                <c:if test="${!empty board.thumbnail}">    
-                                <div>
-                                    <img src="${board.thumbnail}" class="h-listImg">
-                                </div>
-                                </c:if>
+                               
 
                             </div>
                     </c:forEach>
