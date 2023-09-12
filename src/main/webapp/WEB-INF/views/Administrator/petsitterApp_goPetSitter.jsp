@@ -36,9 +36,9 @@
                                 <div>신청번호</div>
                                 <div>신청지역</div>
                                 <div>반려동물 경험</div>
-                                <div>신청내용</div>
                                 <div>신청일</div>
                                 <div>신청회원이메일</div>
+                                <div>신청내용</div>
                             </div>
                             
                            <c:forEach var="app" items="${appList}">
@@ -46,10 +46,10 @@
                                     <div>${app.appNo}</div>
                                     <div>${app.appLocation}</div>
                                     <div>${app.appEx}</div>
-                                    <div>${app.appContent}</div>
                                     <div>${app.appDate}</div>
                                     <div>${app.memberEmail}</div>
-                                    <div><button onclick="insertApp(${app.appNo, app.appLocation})">수락</button></div>
+                                    <div>${app.appContent}</div>
+                                    <div><button onclick="insertApp('${app.appNo}','${app.appLocation}','${app.appEx}','${app.appDate}','${app.memberEmail}')">수락</button></div>
                                 </div>
                             </c:forEach>
                         </div>
@@ -60,8 +60,6 @@
         </div>
     </div>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
-    <script>
-    </script>
     <script src="/resources/js/Administrator/adminApp.js"></script>
 </body>
 

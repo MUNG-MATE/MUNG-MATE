@@ -23,6 +23,12 @@ public class Util {
 		return content;
 
 	}
+	
+	public static String newLineHandling(String content) {
+		
+		return content.replaceAll("\r\n|\n|\r|\n\r", "<br>");
+	}
+	
 
 	// 파일명 변경 메소드
 	public static String fileRename(String originFileName) {

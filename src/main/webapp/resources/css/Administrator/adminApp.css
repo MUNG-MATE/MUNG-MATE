@@ -56,6 +56,7 @@
 .C-applist-container > div:nth-child(4){ /* 신청내용 */
     width: 15%;
     text-align: center;
+    white-space: pre-wrap;
 }
 .C-applist-container > div:nth-child(5){ /* 신청일 */
     width: 15%;

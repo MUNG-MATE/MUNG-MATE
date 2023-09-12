@@ -49,7 +49,6 @@ public class PetSitterController_c {
 		app.setAppEx(exper);
 		app.setAppContent(motive);
 		
-		System.out.println(app);
 		
 		int result = service.insertApp(app);
 		
@@ -74,7 +73,6 @@ public class PetSitterController_c {
 		
 		List<Application> appList = service.selectAppList();
 		
-		System.out.println(appList);
 		
 		model.addAttribute("appList", appList);
 		
@@ -84,8 +82,9 @@ public class PetSitterController_c {
 	
 	@PostMapping("/admin/petsitterInsert")
 	@ResponseBody
-	public int insertPetsitter(@RequestBody String appNo
-							  ,@RequestBody String appLocation) {
+	public int insertPetsitter(String appNo
+							  ,@RequestBody String appLocation
+							  ) {
 		
 		System.out.println(appNo);
 		System.out.println(appLocation);

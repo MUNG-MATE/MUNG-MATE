@@ -26,16 +26,21 @@ function selectApp(){
 
 
 
-function insertApp(appNo){
+function insertApp(appNo, appLocation, appEx, appDate, memberEmail){
+
+    
+    const data = {'appNo' : appNo
+                 ,'appLocation' : appLocation
+                 ,'appEx' : appEx
+                 ,'appDate' : appDate
+                 ,'memberEmail' : memberEmail}
 
         if (confirm("정말 수락하시겠습니까?")) {
-
-            
 
             fetch("/petsitter/admin/petsitterInsert", {
                 method : "POST",
                 headers : {"Content-Type" : "application/json"},
-                body : JSON.stringify(appNo)
+                body : JSON.stringify(data)
             })
             .then(resp => resp.text())
             .then(result => {
