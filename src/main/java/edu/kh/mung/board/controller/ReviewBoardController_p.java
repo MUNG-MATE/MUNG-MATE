@@ -24,11 +24,17 @@ public class ReviewBoardController_p {
 	// 커뮤니티(리뷰게시판) 화면 띄우기
 	@GetMapping("/reviewBoardList")
 	public String reviewBoard() {
+		
+		System.out.println("test");
+		
 		return "reviewBoard/reviewBoardList";
+
+		
 	}
 
+
 	// 리뷰 게시글 목록 조회
-	@GetMapping("/{boardCode:[0-9]+}")
+	/* @GetMapping("/reviewBoardList")
 	public String selectReviewList(@PathVariable("boardCode") int boardCode
 			, @RequestParam(value="cp",required=false,    defaultValue = "1") int cp
 			, Model model
@@ -56,4 +62,5 @@ public class ReviewBoardController_p {
 		}
 		return "reviewBoard/reviewBoardList";
 	}
+	 */
 }

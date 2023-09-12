@@ -1,5 +1,7 @@
 package edu.kh.mung.board.model.dto;
 
+import java.util.List;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -16,5 +18,18 @@ public class Board {
 	private String boardState;
 	private int reviewStar;
 	private int boardCode;
+
+
+	// 서브쿼리
+
+	// 회원 join
+	private String memberNickname;
 	private int memberNo;
+	private String profileImage;
+
+	// 이미지 목록
+	private List<BoardImage> imageList;
+
+	// 댓글 목록
+	private List<Reply> replyList;
 }
