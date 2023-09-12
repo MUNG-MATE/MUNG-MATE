@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="AdministratorMapper_o">
+
+<resultMap type="Administrator" id="ad_rm">
+		<id property="boardNo" column="BOARD_NO" />
+		<result property="title" column="BOARD_TITLE" />
+		<result property="Content" column="BOARD_CONTENT" />
+		<result property="boardDate" column="BOARD_DT" />
+		<result property="boardSt" column="BOARD_ST" />
+		<result property="boardCode" column="BOARD_CD" />
+		<result property="memberNo" column="MEMBER_NO" />
+		
+		</resultMap>
+
+
+	<!--게시판 종류 조회 -->
+	<select id="selectBoardTypeList" resultType="map">
+		SELECT * FROM
+		BOARD_TYPE ORDER BY 1
+	</select>
+
+	<!-- 특정 게시판의 삭제되지 않은 게시글 수 조회 -->
+	<select id="getListCount" resultType="_int">
+		 SELECT COUNT(*) FROM BOARD
+		WHERE BOARD_CD = ${boardCode}
+		AND BOARD_ST = 'N'
+	</select>
+	
+	<select id="selectFaqList" resultMap="ad_rm">
+		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NO, BOARD_CONTENT, BOARD_CD
+		FROM BOARD
+		WHERE BOARD_CD = #{boardCode}
+	</select>
+	
+	<insert id="faqInsert">
+	INSERT INTO BOARD VALUES(SEQ_BOARD_NO.NEXTVAL, #{title}, #{content}, DEFAULT, DEFAULT, DEFAULT, #{boardCode}, #{memberNo})
+	</insert>
+
+</mapper>
