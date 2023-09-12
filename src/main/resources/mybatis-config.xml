@@ -27,6 +27,7 @@
 		<mapper resource="/mappers/application-mapper_c.xml" />
 		<mapper resource="/mappers/review-mapper_p.xml" />
 		<mapper resource="/mappers/petsitter-mapper_p.xml" />
+		<mapper resource="/mappers/reservation-mapper_h.xml" />
 		
 		<mapper resource="/mappers/Administrator-mapper.xml" />
 

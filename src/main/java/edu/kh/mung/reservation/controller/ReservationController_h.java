@@ -1,15 +1,19 @@
-package edu.kh.mung.reservation;
+package edu.kh.mung.reservation.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import edu.kh.mung.reservation.model.dto.Reservation_h;
+
 @Controller
 @RequestMapping("/reservation")
 @SessionAttributes("{loginMember}")
-public class ReservationController_k {
+public class ReservationController_h {
 
 	@GetMapping("/1")
 	public String reservation1() {
@@ -18,7 +22,11 @@ public class ReservationController_k {
 	
 	
 	@PostMapping("/1")
-	public String money() {
+	public String reservationType(Model model,
+								Reservation_h rs) {
+		
+		model.addAttribute("reservation", rs);
+		System.out.println(rs);
 		
 		return "/reservation/reservation_2";
 	}
@@ -26,6 +34,13 @@ public class ReservationController_k {
 	@GetMapping("/2")
 	public String reservation2() {
 		return "/reservation/reservation_2";
+	}
+	
+	@PostMapping("/2")
+	public String reservationDate(Model model) {
+		Reservation_h rs = (Reservation_h) model.getAttribute("reservation");
+		System.out.println(rs);
+		return "/reservation/reservation_4";
 	}
 	
 	@GetMapping("/3")

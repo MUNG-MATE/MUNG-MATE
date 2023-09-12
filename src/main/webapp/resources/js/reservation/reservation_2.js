@@ -9,6 +9,7 @@ const month = date.getMonth() + 1;
 const day = date.getDate();
 
 const selectDay = document.getElementById("selectDay");
+const selectTime = document.getElementById("selectTime");
 
 let lastDay;
 
@@ -33,6 +34,19 @@ for(let i = day; i <= lastDay; i++) {
     count++;
     index++;
 }
+
+let rsDate;
+selectDay.addEventListener("change",() =>{
+
+    rsDate = selectDay.value
+    console.log(rsDate);
+})
+
+selectTime.addEventListener("change",() =>{
+
+    rsStartDate = selectTime.value
+    console.log(rsStartDate);
+})
 
 
 
