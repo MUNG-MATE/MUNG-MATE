@@ -16,7 +16,7 @@ public class ReviewBoardServiceImpl_p implements ReviewBoardService_p{
 
 	@Autowired
 	private ReviewBoardDAO_p dao;
-
+/*
 	// 게시글 목록 조회
 	@Override
 	public Map<String, Object> selectReviewList(int boardCode, int cp) {
@@ -39,11 +39,26 @@ public class ReviewBoardServiceImpl_p implements ReviewBoardService_p{
 
 		return map;
 	}
-
+	// 게시글 목록 조회(검색하기)
 	@Override
 	public Map<String, Object> selectReviewList(Map<String, Object> paramMap, int cp) {
 		
-		return null;
-	}
+		int listCount = dao.getListCount(paramMap);
 
+		Pagination pagination = new Pagination(cp, listCount); 
+
+		List<Board> boardList = dao.selectReviewList(pagination, paramMap); 
+
+		Map<String, Object> map = new HashMap<>();
+		map.put("pagination", pagination);
+		map.put("boardList", boardList);
+
+		return map;
+	}
+	// Db 이미지(파일) 목록 조회
+	@Override
+	public List<String> selectImageList() {
+		return dao.selectImageList();
+	}
+*/
 }
