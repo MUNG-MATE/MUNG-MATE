@@ -130,7 +130,7 @@
 				CASE
 					WHEN SYSDATE - BOARD_DT < 1/24/60
 					THEN FLOOR( (SYSDATE - BOARD_DT) * 24 * 60 * 60 ) || '초 전'
-					WHEN SYSDATE - BOARD_DTE < 1/24
+					WHEN SYSDATE - BOARD_DT < 1/24
 					THEN FLOOR( (SYSDATE - BOARD_DT) * 24 * 60) || '분 전'
 					WHEN SYSDATE - BOARD_DT < 1
 					THEN FLOOR( (SYSDATE - BOARD_DT) * 24) || '시간 전'

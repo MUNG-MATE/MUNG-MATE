@@ -34,19 +34,22 @@ public class ReviewBoardController_p {
 
 
 	// 리뷰 게시글 목록 조회
-	/* @GetMapping("/reviewBoardList")
-	public String selectReviewList(@PathVariable("boardCode") int boardCode
-			, @RequestParam(value="cp",required=false,    defaultValue = "1") int cp
+	@GetMapping("/reviewBoardList")
+	public String selectReviewList(
+			@RequestParam(value="cp",required=false, defaultValue = "1") int cp
 			, Model model
 			, @RequestParam Map<String, Object> paramMap 
 			){
+		int boardCode = 6;
+		
 		if(paramMap.get("key") == null) { //검색어가 없을 때( 검색 x )
 
 			// 게시글 목록 조회 서비스 호출
-			Map<String, Object> map = service.selectReviewList(boardCode,cp);
+			Map<String, Object> map = service.selectReviewList(boardCode ,cp);
 
 			// 조회 결과를 request scope에 세팅 후 forward
 			model.addAttribute("map", map);
+			System.out.println(map);
 
 		}else { // 검색어가 있을 때( 검색 o )
 
@@ -60,7 +63,9 @@ public class ReviewBoardController_p {
 
 
 		}
+		
+		
 		return "reviewBoard/reviewBoardList";
 	}
-	 */
+	
 }
