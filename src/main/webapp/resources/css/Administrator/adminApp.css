@@ -66,14 +66,14 @@
     text-align: center;
 }
 
-.C-adminreservation{ /* 신청화면 화면 */
+.C-adminApp{ /* 신청화면 화면 */
     width: 100%;
     height: 100%;
     border: 1px solid rgb(0,30,60);
 }
 
 
-.C-adminreservation-title1{ /* 신청화면 글씨 부분 */
+.C-adminApp-title1{ /* 신청화면 글씨 부분 */
     width: 820px;
     font-size: 28px;
     font-weight: bold;
@@ -88,16 +88,16 @@
     margin-bottom: 70px;
 }
 
-.C-adminreservation-search{ /* 신청확인 input */
+.C-adminApp-search{ /* 신청확인 input */
     height: 30px;
 }
 
-.C-adminreservation-btn{ /* 신청 버튼 */
+.C-adminApp-btn{ /* 신청 버튼 */
     width: 50px;
     height: 30px;
 }
 
-#C-adminreservation-menu{ /*select */
+#C-adminApp-menu{ /*select */
     width: 22%;
 }
 .C-adminapplist{/* 신청내역 list */
