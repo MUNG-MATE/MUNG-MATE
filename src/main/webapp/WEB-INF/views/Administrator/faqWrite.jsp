@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ 작성</title>
 
-    <link rel="stylesheet" href="../../../resources/css/reviewBoard/reviewBoardWrite.css">
+    <link rel="stylesheet" href="/resources/css/reviewBoard/reviewBoardWrite.css">
 
 </head>
 <body>
