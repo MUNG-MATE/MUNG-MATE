@@ -2,5 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace='reservationMapper'>
 
+	<resultMap type="PetSitter" id="petSitter_rm">
+  	
+  		<id property="petSitterNo" column="PETSITTER_NO" />
+
+  		<result property="location" column="LOCATION" />
+  		<result property="career" column="CAREER" />
+  		<result property="memberNo" column="MEMBER_NO" />
+
+
+  	</resultMap>
+
+<select id="selectPetSitter" 
 
 </mapper>

@@ -1,5 +1,7 @@
 package edu.kh.mung.reservation.model.dto;
 
+import java.util.List;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -15,7 +17,7 @@ public class Reservation {
 	private String petSitterNo;	// 펫시터 번호
 	private int memberNo;	// 회원 번호
 	private int serviceNo;	// 서비스 번호
-	private int dogNo;	// 반려견 번호
+	private int petNo;	// 반려견 번호
 	private String petName;	// 반려견 이름
 	private String petType;	// 품종
 	private String petBirth;	// 생년월
@@ -25,6 +27,9 @@ public class Reservation {
 	private String serviceType; // 타입
 	private String serviceTime; // 시간
 	private int servicePrice;  // 금액
+	
+	// 펫시터
+	private List<PetSitter> petSitter;
 	
 
 }

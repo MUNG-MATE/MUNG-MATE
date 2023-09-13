@@ -1,4 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>Z
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,118 +26,15 @@
                 </div>
                 <div class="info">
                     <div class="petsitterName">OOO 펫시터</div>
-                    <div class="point">★ 5.0</div>
-                    <a href="#" class="review">30개의 리뷰</a>
                 </div>
                 <div>
-                    <p class="history">- 서울대학교 애완동물학과 졸업
-    - 반려동물관리사 1급
-    - 반려동물행동교정사 1급</p>
+                    <p class="history">선호 지역 : ${loginMember.memberName}</p>
+                    <p class="history">전화번호 :</p>
+                    <p class="history">이메일 : </p>
                 </div>
-                <div class="introduce">"우리 아이들의 마음을 이해하는 소통의 창이 되어드릴께요."</div>
             </div>
     
-            <div class="profileArea">
-                <div class="imageArea">
-                    <img src="/resources/images/reservation/petsitter.png" class="profileImage">
-                </div>
-                <div class="info">
-                    <div class="petsitterName">OOO 펫시터</div>
-                    <div class="point">★ 5.0</div>
-                    <a href="#" class="review">30개의 리뷰</a>
-                </div>
-                <div>
-                    <p class="history">- 서울대학교 애완동물학과 졸업
-    - 반려동물관리사 1급
-    - 반려동물행동교정사 1급</p>
-                </div>
-                <div class="introduce">"우리 아이들의 마음을 이해하는 소통의 창이 되어드릴께요."</div>
-            </div>
-    
-            <div class="profileArea">
-                <div class="imageArea">
-                    <img src="/resources/images/reservation/petsitter.png" class="profileImage">
-                </div>
-                <div class="info">
-                    <div class="petsitterName">OOO 펫시터</div>
-                    <div class="point">★ 5.0</div>
-                    <a href="#" class="review">30개의 리뷰</a>
-                </div>
-                <div>
-                    <p class="history">- 서울대학교 애완동물학과 졸업
-    - 반려동물관리사 1급
-    - 반려동물행동교정사 1급</p>
-                </div>
-                <div class="introduce">"우리 아이들의 마음을 이해하는 소통의 창이 되어드릴께요."</div>
-            </div>
-    
-            <div class="profileArea">
-                <div class="imageArea">
-                    <img src="/resources/images/reservation/petsitter.png" class="profileImage">
-                </div>
-                <div class="info">
-                    <div class="petsitterName">OOO 펫시터</div>
-                    <div class="point">★ 5.0</div>
-                    <a href="#" class="review">30개의 리뷰</a>
-                </div>
-                <div>
-                    <p class="history">- 서울대학교 애완동물학과 졸업
-    - 반려동물관리사 1급
-    - 반려동물행동교정사 1급</p>
-                </div>
-                <div class="introduce">"우리 아이들의 마음을 이해하는 소통의 창이 되어드릴께요."</div>
-            </div>
-    
-            <div class="profileArea">
-                <div class="imageArea">
-                    <img src="/resources/images/reservation/petsitter.png" class="profileImage">
-                </div>
-                <div class="info">
-                    <div class="petsitterName">OOO 펫시터</div>
-                    <div class="point">★ 5.0</div>
-                    <a href="#" class="review">30개의 리뷰</a>
-                </div>
-                <div>
-                    <p class="history">- 서울대학교 애완동물학과 졸업
-    - 반려동물관리사 1급
-    - 반려동물행동교정사 1급</p>
-                </div>
-                <div class="introduce">"우리 아이들의 마음을 이해하는 소통의 창이 되어드릴께요."</div>
-            </div>
-    
-            <div class="profileArea">
-                <div class="imageArea">
-                    <img src="/resources/images/reservation/petsitter.png" class="profileImage">
-                </div>
-                <div class="info">
-                    <div class="petsitterName">OOO 펫시터</div>
-                    <div class="point">★ 5.0</div>
-                    <a href="#" class="review">30개의 리뷰</a>
-                </div>
-                <div>
-                    <p class="history">- 서울대학교 애완동물학과 졸업
-    - 반려동물관리사 1급
-    - 반려동물행동교정사 1급</p>
-                </div>
-                <div class="introduce">"우리 아이들의 마음을 이해하는 소통의 창이 되어드릴께요."</div>
-            </div>
-
-            <div class="profileArea">
-                <div class="imageArea">
-                    <img src="/resources/images/reservation/petsitter.png" class="profileImage">
-                </div>
-                <div class="info">
-                    <div class="petsitterName">OOO 펫시터</div>
-                    <div class="point">★ 5.0</div>
-                    <a href="#" class="review">30개의 리뷰</a>
-                </div>
-                <div>
-                    <p class="history">- 서울대학교 애완동물학과 졸업
-    - 반려동물관리사 1급
-    - 반려동물행동교정사 1급</p>
-                </div>
-                <div class="introduce">"우리 아이들의 마음을 이해하는 소통의 창이 되어드릴께요."</div>
-            </div>
+            
             
         </section>
 
