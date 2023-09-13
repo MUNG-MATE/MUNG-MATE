@@ -74,6 +74,14 @@ public class ReviewBoardDAO_p {
 		return sqlSession.selectList("reviewMapper.selectImageListAll");
 	}
 
+	/** 게시글 상세 조회
+	 * @param map
+	 * @return
+	 */
+	public Board selectBoard(Map<String, Object> map) {
+		return sqlSession.selectOne("reviewMapper.selectBoard", map);
+	}
+
 }
 
 
