@@ -31,7 +31,7 @@ public class MyPageController_k {
 	@ResponseBody
 	public List<Reservation> selectRsList(int memberNo) {
 		
-		System.out.println(memberNo);
+		System.out.println("controller test");
 		
 		List<Reservation> rsList = service.selectRsList(memberNo);
 		
