@@ -1,6 +1,7 @@
 package edu.kh.mung.member.model.dao;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -82,8 +83,8 @@ public class MemberDAO_c {
 	 * @param loginMember
 	 * @return loginMemberPet
 	 */
-	public Pet selectPet(Member loginMember) {
-		return sqlSession.selectOne("memberMapper.selectPet", loginMember);
+	public List<Pet> selectPet(Member loginMember) {
+		return sqlSession.selectList("memberMapper.selectPet", loginMember);
 	}
 
 	

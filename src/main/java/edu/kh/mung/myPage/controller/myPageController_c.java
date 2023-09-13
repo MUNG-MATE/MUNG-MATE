@@ -1,5 +1,7 @@
 package edu.kh.mung.myPage.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,8 +20,8 @@ public class myPageController_c {
 	private myPageService_c service;
 	
 	@RequestMapping("/myPage/petInfo")
-	public String petInfo(@SessionAttribute("loginMemberPet")Pet loginMemberPet) {
-		System.out.println(loginMemberPet);
+	public String petInfo(@SessionAttribute("loginMemberPet")List<Pet> loginMemberPetList) {
+		System.out.println(loginMemberPetList);
 		return "myPage/petInfo";
 	}
 

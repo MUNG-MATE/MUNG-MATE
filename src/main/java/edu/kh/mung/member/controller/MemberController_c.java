@@ -1,6 +1,7 @@
 package edu.kh.mung.member.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.Cookie;
@@ -125,7 +126,9 @@ public class MemberController_c {
 			
 			ra.addFlashAttribute("message", loginMember.getMemberNickname() + "님 환영합니다.");
 			
-			Pet loginMemberPet = service.selectPet(loginMember);
+			List<Pet> loginMemberPet = service.selectPet(loginMember);
+			
+			System.out.println(loginMemberPet);
 			
 			model.addAttribute("loginMemberPet", loginMemberPet);
 				

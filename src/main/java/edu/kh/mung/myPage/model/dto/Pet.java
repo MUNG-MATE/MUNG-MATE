@@ -1,5 +1,7 @@
 package edu.kh.mung.myPage.model.dto;
 
+import java.util.List;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -17,4 +19,5 @@ public class Pet {
 	private String petProfile; // 반려견 프로필 사진
 	private String petOption;	// 반려견 특이사항
 	private int MemberNo;
+	
 }
