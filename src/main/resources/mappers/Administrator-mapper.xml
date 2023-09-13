@@ -25,15 +25,25 @@
 	<select id="getListCount" resultType="_int">
 		SELECT COUNT(*) FROM MEMBER
 	</select>
+	<select id="mungCount" resultType="_int">
+		SELECT COUNT(*) FROM MEMBER
+	</select>
 	<select id="petCount" resultType="_int">
 		SELECT COUNT(*) FROM MEMBER
 		WHERE MEMBER_PETSITTER = 'Y'
+		AND SECESSION_FL = 'N'
 	</select>
 	<select id="commonCount" resultType="_int">
 		SELECT COUNT(*) FROM MEMBER
 		WHERE SECESSION_FL = 'N'
 		AND MEMBER_PETSITTER != 'Y'
 	</select>
+	<select id="flagCount" resultType="_int">
+		SELECT COUNT(*) FROM MEMBER
+		WHERE SECESSION_FL ='Y'
+	</select>
+	
+	
 	<select id="selectManagementList" resultMap="member_rm">
 		SELECT
 		MEMBER_NO,MEMBER_EMAIL,MEMBER_NM,MEMBER_TEL,ENROLL_DATE,
@@ -47,18 +57,24 @@
 		
 		<if test='managementType == "전체"'>
 			WHERE SECESSION_FL = 'N'
-			AND MEMBER_PETSITTER ='N'
 		</if>
 		<choose>
 			<when test='managementType == "일반회원"' >
 				WHERE SECESSION_FL = 'N'
 				AND MEMBER_PETSITTER ='N'
+				AND 
+        (MEMBER_EMAIL LIKE '%${managementSearch}%' OR MEMBER_NM LIKE '%${managementSearch}%' OR MEMBER_TEL LIKE '%${managementSearch}%')
 			</when>
 			<when test='managementType == "펫시터"'>
 				WHERE MEMBER_PETSITTER ='Y'
+				AND SECESSION_FL = 'N'
+				AND 
+        (MEMBER_EMAIL LIKE '%${managementSearch}%' OR MEMBER_NM LIKE '%${managementSearch}%' OR MEMBER_TEL LIKE '%${managementSearch}%')
 			</when>
 			<when test='managementType == "탈퇴대기"'>
 				WHERE SECESSION_FL = 'Y'
+				AND 
+        (MEMBER_EMAIL LIKE '%${managementSearch}%' OR MEMBER_NM LIKE '%${managementSearch}%' OR MEMBER_TEL LIKE '%${managementSearch}%')
 			</when>
 		</choose>
 	</select>
@@ -80,6 +96,7 @@
 			</when>
 			<when test='managementType == "펫시터"'>
 				WHERE MEMBER_PETSITTER ='Y'
+				AND SECESSION_FL = 'N'
 				AND 
         (MEMBER_EMAIL LIKE '%${managementSearch}%' OR MEMBER_NM LIKE '%${managementSearch}%' OR MEMBER_TEL LIKE '%${managementSearch}%')
 			</when>
@@ -91,6 +108,6 @@
 		</choose>
 		ORDER BY ENROLL_DATE DESC
 	</select>
-
+	
 
 </mapper>

@@ -5,9 +5,12 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import edu.kh.mung.Administrator.model.service.AdministratorService;
 import edu.kh.mung.member.model.dto.Member;
@@ -24,7 +27,6 @@ public class AdministratorController_m {
 			@RequestParam Map<String,Object> paramMap ) {
 		
 		if(paramMap.get("managementSearch") == null) {
-
 			// 게시글 목록 조회 서비스 호출
 			Map<String, Object> map = service.selectManagementList(cp);
 
@@ -42,6 +44,16 @@ public class AdministratorController_m {
 		return "Administrator/management";
 
 	}
+	
+	/*
+	 * @DeleteMapping("/management")
+	 * 
+	 * @ResponseBody public int delete(@RequestBody String[] check) {
+	 * 
+	 * System.out.println("check == "+ check); return service.delete(check); }
+	 */
+	
+	
 
 	@GetMapping("/declaration")
 	public String declaration() {

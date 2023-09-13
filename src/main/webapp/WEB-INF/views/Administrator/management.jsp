@@ -5,7 +5,8 @@
 <c:set var="managementList" value="${map.managementList}"/>
 <c:set var="petCount" value="${map.petCount}"/>
 <c:set var="commonCount" value="${map.commonCount}"/>
-<c:set var="listCount" value="${map.listCount}"/>
+<c:set var="mungCount" value="${map.mungCount}"/>
+<c:set var="flagCount" value="${map.flagCount}"/>
 
 <!DOCTYPE html>
 <html>
@@ -22,12 +23,14 @@
         <c:if test="${!empty param.managementType}" >
             <c:set var="sp" value="&managementType=${param.managementType}&managementSearch=${param.managementSearch}"/>
         </c:if>
+        
         <section>
             <article class="people">
-                <h4>전체사용자 : ${listCount} 명</h4>
+                <h4>전체사용자 : ${mungCount} 명</h4>
                 <div>
                 <h4>일반사용자 : ${commonCount} 명</h4>
                 <h4>펫시터 : ${petCount} 명</h4>
+                <h4>탈퇴대기 : <span>${flagCount}</span> 명</h4>
                 </div>
             </article>
 
@@ -58,10 +61,13 @@
                     <th>회원탈퇴(Y/N)</th>
                 </thead>
                 <tbody>
+                    <c:if test="${empty managementList}" >
+                    <tr><td colspan="8">조회결과가 없습니다.</td></tr>
+                    </c:if>
                     <c:forEach items="${managementList}" var="managementList">
                         <tr>
                             <td>${managementList.memberNo}</td>
-                            <td><input type="checkbox" class="check" name="checkbox" value="${managementList.memberNo}"></td>
+                            <td><input type="checkbox" name="checkbox" value="${managementList.memberNo}"></td>
                             <td>${managementList.memberEmail}</td>
                             <td>${managementList.memberName}</td>
                             <td>${managementList.memberTel}</td>

@@ -24,9 +24,15 @@ public class AdministratorDAO {
 	public int petCount() {
 		return sqlSession.selectOne("AdministratorMapper.petCount");
 	}
-
+	
 	public int commonCount() {
 		return sqlSession.selectOne("AdministratorMapper.commonCount");
+	}
+	public int flagCount() {
+		return sqlSession.selectOne("AdministratorMapper.flagCount");
+	}
+	public int mungCount() {
+		return sqlSession.selectOne("AdministratorMapper.mungCount");
 	}
 
 	public List<Member> selectManagementList(Pagination pagination) {
@@ -38,6 +44,7 @@ public class AdministratorDAO {
 
 		return sqlSession.selectList("AdministratorMapper.selectManagementList", null,rowBounds);
 	}
+	
 	// 검색
 	public int getListCount(Map<String, Object> paramMap) {
 		
@@ -53,9 +60,10 @@ public class AdministratorDAO {
 
 		// 3) selectList("namespace.id",파라미터, RowBounds)
 		return sqlSession.selectList("AdministratorMapper.selectManagementList_search", paramMap, rowBounds);
-		
-		
+			
 	}
+	
+	
 
 	
 
