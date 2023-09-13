@@ -22,8 +22,8 @@ public class AdministratorController_m {
 	@GetMapping("/management")
 	public String management(Member member,@RequestParam(value="cp", required = false, defaultValue = "1") int cp , Model model,
 			@RequestParam Map<String,Object> paramMap ) {
-
-		if(paramMap.get("mangement-type") == null) {
+		
+		if(paramMap.get("managementSearch") == null) {
 
 			// 게시글 목록 조회 서비스 호출
 			Map<String, Object> map = service.selectManagementList(cp);
@@ -38,7 +38,6 @@ public class AdministratorController_m {
 			model.addAttribute("map",map);
 
 		}
-
 
 		return "Administrator/management";
 

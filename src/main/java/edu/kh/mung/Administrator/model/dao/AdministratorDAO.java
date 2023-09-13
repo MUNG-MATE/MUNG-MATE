@@ -44,8 +44,17 @@ public class AdministratorDAO {
 		return sqlSession.selectOne("AdministratorMapper.getListCount_search", paramMap);
 	}
 	public List<Member> selectBoardList(Pagination pagination, Map<String, Object> paramMap) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		int offset
+		=(pagination.getCurrentPage() -1) * pagination.getLimit();
+
+		// 2) RowBounds 객체 생성
+		RowBounds rowBounds = new RowBounds(offset,pagination.getLimit());
+
+		// 3) selectList("namespace.id",파라미터, RowBounds)
+		return sqlSession.selectList("AdministratorMapper.selectManagementList_search", paramMap, rowBounds);
+		
+		
 	}
 
 	
