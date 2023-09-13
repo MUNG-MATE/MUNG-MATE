@@ -29,7 +29,6 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
 }
 
 input[type="file"] {
@@ -47,8 +46,10 @@ label > span {
 }
 
 #petImage {
-    width: 200px;
+    width: 250px;
     height: 200px;
+    border-radius: 10px;
+
 }
 
 b {
@@ -77,14 +78,16 @@ tr {
     display: block;
     border-radius: 10px;
     padding: 10px;
+
 }
 
-#petName, #petType {
+#petName, #petType, #petBirth {
     width: 310px;
     height: 30px;
     margin: 12.5px 0;
     border: 1px solid rgb(118, 118, 118);
     border-radius: 3px;
+    text-align: center;
 }
 
 #birthTd {
