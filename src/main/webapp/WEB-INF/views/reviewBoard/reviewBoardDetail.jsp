@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -21,7 +22,7 @@
 
             <!-- 제목 영역 -->
             <div>
-                <h1>강아지를 돌봐주셔서 너무 감사합니다.</h1>
+                <h1>${board.boardTitle}</h1>
             </div>
 
             <!-- 게시글 상단 작성자 정보 영역 -->
@@ -29,16 +30,15 @@
 
                 <!-- 작성자 프로필 영역 -->
                 <div>
-                    <img src="../image/logo.png" class="h-profileImg">
+                    <img src="${board.profileImage}" class="h-profileImg">
                 </div>
 
                 <!-- 작성자 상세 정보 영역 -->
                 <div>
 
-                    <p>작성자</p>
+                    <p>${board.memberNickname}</p>
                     <p>
-                        <span>2023-08-29</span>
-                        <span>조회수</span>
+                        <span>${board.boardDate}</span>
                         <span class="h-btnArea">
                             <button id="h-updateBtn">수정</button>
                             <button id="h-deleteBtn">삭제</button>
@@ -51,12 +51,12 @@
 
             <!-- 이미지 영역 -->
             <div class="h-imgArea">
-                <img src="../image/MUNGImg.jpeg">
+                <img src="${board.imagePath}">
             </div>
 
             <!-- 내용 영역 -->
             <div class="h-contentArea">
-                <p>여기는 내용 영역 입니다.</p>
+                <pre>${board.boardContent}</pre>
             </div>
 
             <!-- 목록으로 버튼 영역 -->
@@ -69,7 +69,7 @@
                 <div class="h-replyArea">
 
                     <div>
-                        <img src="../image/logo.png" id="h-replyProfile">
+                        <img src="#" id="h-replyProfile">
                     </div>
                     
                     <div>
@@ -102,12 +102,53 @@
 
         </section>
 
+
        
 
     </main>
 
     <!-- footer 영역 -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
+    <script>
+        // 목록으로 버튼 클릭 시
+        const goToListBtn = document.getElementById("h-backListBtn");
+
+        goToListBtn.addEventListener("click", () => {
+
+        
+
+            // 이동할 주소 저장
+            let url = "/reviewBoard/reviewBoardList";
+
+            // URL 내장 객체 : 주소 관련 정보를 나타내는 객체
+            // URL.searchParams : 쿼리스트링만 별도 객체로 변환
+
+            const params = new URL(location.href).searchParams
+
+            let cp;
+            if(params.get("cp") != ""){ // 쿼리스트링에 cp가 있을 경우
+
+                cp =  "?cp=" + params.get("cp");
+            }else{
+                cp = "?cp=1"
+            }
+
+            // 조립
+            url += cp;
+
+            // 검색 key, query가 존재하는 경우 url에 추가
+            if(params.get("key") != null){
+                const key = "&key=" + params.get("key");
+                const query = "&query=" + params.get("query");
+                
+                url += key + query; // url 뒤에 붙이기
+            }
+            // location.href = "주소"; -> 해당 주소로 이동
+            location.href = url;
+
+        })
+    </script>
 
 
     

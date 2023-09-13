@@ -3,6 +3,8 @@ package edu.kh.mung.board.model.service;
 import java.util.List;
 import java.util.Map;
 
+import edu.kh.mung.board.model.dto.Board;
+
 public interface ReviewBoardService_p {
 
 	/** 게시글 목록 조회
@@ -24,4 +26,10 @@ public interface ReviewBoardService_p {
 	 * @return
 	 */
 	List<String> selectImageList();
+
+	/** 게시글 상세 조
+	 * @param map
+	 * @return
+	 */
+	Board selectBoard(Map<String, Object> map);
 }
