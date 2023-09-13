@@ -24,8 +24,6 @@
             <article class="search-box">
                 <form action="faq" method="get" id="faqSearch">
                     <select name="faqCat" id="faqCat">
-                        <option value="">전체</option>
-                        <option value="멍메이트">멍메이트</option>
                         <option value="예약관련">예약관련</option>
                         <option value="서비스이용">서비스이용</option>
                         <option value="기타">기타</option>
@@ -40,7 +38,7 @@
                         <li><a href = "/Administrator/faq/4">서비스이용</a></li>
                         <li><a href = "/Administrator/faq/5">기타</a></li>
                       
-                        <button id = "writer" onclick = "location.href = '/Administrator/faqWrite'">작성하기</button>
+                       
                     </ul>
                 </div>
                 <table>
@@ -53,13 +51,23 @@
                         <td class="td">▼</td>
                     </tr>
                     <tr class="faq-answer">
-                        <td rowspan="4">${faqList.content}</td>
+                    <form action = "/Administrator/faqWrite">
+                        <td rowspan="4" name = "content" value = ${faqList.content}>${faqList.content}
+                        <button id = "writer" >수정하기</button>
+                         <button id = "writer" type = "button">삭제하기</button>
+                        </td>
+                         
+                        </form>
                     </tr>
                      </c:forEach>
 
                 </table>
+
+                <c:if test="${!empty loginMember}" >
+                 <button id = "writer" onclick = "location.href = '/Administrator/faqWrite'">작성하기</button>
+                 </c:if>
             </article>
-            <div class="pagination">페이지네이션</div>
+           
         </section>
     </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
