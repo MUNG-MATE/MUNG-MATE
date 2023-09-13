@@ -7,7 +7,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Reservation_h {
+public class Reservation {
 	
 	private int rsNo;	// 에약번호
 	private String rsDate;	// 방문 날짜

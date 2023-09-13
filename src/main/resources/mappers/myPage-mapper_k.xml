@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="myPageMapper_k">
+
+	<resultMap type="Reservation" id="Reservation_rm">
+		<id property="rsNo" column="RS_NO" />
+		<result property="rsDate" column="RS_DATE" />
+		<result property="rsStartDate" column="RS_START_TIME" />
+		<result property="petSitterNo" column="PETSITTER_NO" />
+		<result property="memberNo" column="MEMBER_NO" />
+		<result property="serviceNo" column="SERVICE_NO" />
+	</resultMap>
+
+	<select id="selectRsList" resultMap="Reservation_rm">
+		SELECT * FROM RESERVATION
+		WHERE MEMBER_NO = ${memberNo}
+	</select>
+</mapper>
