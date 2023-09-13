@@ -54,15 +54,15 @@ public class ReservationController_h {
 								, @SessionAttribute(value="loginMember", required = false) Member loginMember) {
 		
 //		Member loginMember = (Member) session.getAttribute("loginMember");
-		model.addAttribute("rs", rs);
+//		model.addAttribute("rs", rs);
 		
 		rs.setMemberNo(loginMember.getMemberNo());
 		
 		//펫시터 정보 얻어오기
 		Map<String, Object> map = new HashMap<>();
 		
-		List<PetSitter> petSitter = service.selectPetSitter(rs);
-		
+		List<PetSitter> petSitterList = service.selectPetSitter(rs);
+		System.out.println("petSitter : " + petSitterList);
 		
 		
 		

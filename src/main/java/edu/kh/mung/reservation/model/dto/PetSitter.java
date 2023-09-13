@@ -13,5 +13,8 @@ public class PetSitter {
 	private String location;
 	private String career;
 	private int memberNo;
+	private String memberEmail;
+	private String memberTel;
+	private String profileImg;
 
 }

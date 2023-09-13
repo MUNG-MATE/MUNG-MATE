@@ -9,10 +9,18 @@
   		<result property="location" column="LOCATION" />
   		<result property="career" column="CAREER" />
   		<result property="memberNo" column="MEMBER_NO" />
+  		<result property="memberTel" column="MEMBER_TEL" />
+  		<result property="memberEmail" column="MEMBER_EMAIL" />
+  		<result property="profileImg" column="PROFIlE_IMG" />
+  		
 
 
   	</resultMap>
 
-<select id="selectPetSitter" 
+<select id="selectPetSitter" resultMap="petSitter_rm">
+	SELECT LOCATION, MEMBER_TEL, MEMBER_EMAIL, MEMBER_NO, PETSITTER_NO, PROFIlE_IMG
+	FROM PETSITTER
+	JOIN MEMBER USING(MEMBER_NO)
+</select>
 
 </mapper>
