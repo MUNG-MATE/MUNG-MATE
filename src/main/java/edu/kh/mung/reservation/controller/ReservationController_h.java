@@ -54,18 +54,16 @@ public class ReservationController_h {
 								, @SessionAttribute(value="loginMember", required = false) Member loginMember) {
 		
 //		Member loginMember = (Member) session.getAttribute("loginMember");
-//		model.addAttribute("rs", rs);
 		
 		rs.setMemberNo(loginMember.getMemberNo());
 		
 		//펫시터 정보 얻어오기
-		Map<String, Object> map = new HashMap<>();
-		
 		List<PetSitter> petSitterList = service.selectPetSitter(rs);
 		System.out.println("petSitter : " + petSitterList);
+		rs.setPetSitterList(petSitterList);
 		
 		
-		
+		model.addAttribute("rs", rs);
 		
 		
 		
@@ -74,10 +72,18 @@ public class ReservationController_h {
 		return "/reservation/reservation_4";
 	}
 	
+	
+	
 	@GetMapping("/3")
 	public String reservation3() {
 		return "/reservation/reservation_3";
 	}
+	
+	
+	
+	
+	
+	
 	
 	@GetMapping("/4")
 	public String reservation4() {
@@ -85,18 +91,37 @@ public class ReservationController_h {
 	}
 	
 	@PostMapping("/4")
-	public String reservationPetSitter(Model model,Reservation rs, HttpSession session) {
-		Member loginMember = (Member) session.getAttribute("loginMember");
+	public String reservationPetSitter(Model model,Reservation rs, HttpSession session,
+									@SessionAttribute(value="loginMember", required = false) Member loginMember) {
+		
+		// 로그인 한 회원의 회원 번호 세팅
+		rs.setMemberNo(loginMember.getMemberNo());
+		
 		model.addAttribute(loginMember);
 		System.out.println("rs4 : " + rs);
 		return "/reservation/reservation_5";
 	}
 	
 	
+	
+	
+	
+	
+	
+	
 	@GetMapping("/5")
 	public String reservation5() {
 		return "/reservation/reservation_5";
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@GetMapping("/6")
 	public String reservation6() {

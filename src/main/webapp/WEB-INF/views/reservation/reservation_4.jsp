@@ -20,19 +20,23 @@
     <form action="4" method="post">
 
         <section id="container">
-            <div class="profileArea">
-                <div class="imageArea">
-                    <img src="/resources/images/reservation/petsitter.png" class="profileImage">
+
+            <c:forEach var="i" items="${rs.petSitterList}">
+
+                <div class="profileArea">
+                    <div class="imageArea">
+                        <img src=${i.profileImg} class="profileImage">
+                    </div>
+                    <div class="info">
+                        <div class="petsitterName">${i.memberNm} 펫시터</div>
+                    </div>
+                    <div>
+                        <p class="history">선호 지역 : ${i.location}</p>
+                        <p class="history">전화번호 : ${i.memberTel}</p>
+                        <p class="history">이메일 : ${i.memberEmail}</p>
+                    </div>
                 </div>
-                <div class="info">
-                    <div class="petsitterName">OOO 펫시터</div>
-                </div>
-                <div>
-                    <p class="history">선호 지역 : ${loginMember.memberName}</p>
-                    <p class="history">전화번호 :</p>
-                    <p class="history">이메일 : </p>
-                </div>
-            </div>
+            </c:forEach>
     
             
             
