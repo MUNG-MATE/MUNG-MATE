@@ -16,6 +16,9 @@ public class MyPageServiceImpl_k implements MyPageService_k {
 	
 	@Override
 	public List<Reservation> selectRsList(int memberNo) {
+		
+		System.out.println("service test");
+		
 		return dao.selectRsList(memberNo);
 	}
 

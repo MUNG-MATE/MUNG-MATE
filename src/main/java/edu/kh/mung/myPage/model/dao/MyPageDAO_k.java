@@ -15,6 +15,9 @@ public class MyPageDAO_k {
 	private SqlSessionTemplate sqlSession;
 	
 	public List<Reservation> selectRsList(int memberNo) {
+		
+		System.out.println("dao test");
+		
 		return sqlSession.selectList("myPageMapper_k.selectRsList", memberNo);
 	}
 

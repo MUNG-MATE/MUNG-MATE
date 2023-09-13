@@ -8,11 +8,16 @@
 		<result property="rsStartDate" column="RS_START_TIME" />
 		<result property="petSitterNo" column="PETSITTER_NO" />
 		<result property="memberNo" column="MEMBER_NO" />
-		<result property="serviceNo" column="SERVICE_NO" />
+		
+		<result property="serviceType" column="SERVICE_TYPE" />
+		<result property="serviceTime" column="SERVICE_TIME" />
+		<result property="servicePrice" column="SERVICE_PRICE" />
 	</resultMap>
 
 	<select id="selectRsList" resultMap="Reservation_rm">
-		SELECT * FROM RESERVATION
+		SELECT RS_NO, RS_DATE, RS_START_DATE, PETSITTER_NO, MEMBER_NO, SERVICE_TYPE, SERVICE_TIME, SERVICE_PRICE
+		FROM RESERVATION
+		JOIN "SERVICE TYPE" USING(SERVICE_NO)
 		WHERE MEMBER_NO = ${memberNo}
 	</select>
 </mapper>

@@ -69,6 +69,8 @@ function changeYearMonth(year, month) {
 
     let h = [];
     let rsDateList = [];
+    let rsTimeList = [];
+    let rsServiceList = [];
 
     /* ajax */
     fetch("selectRsList?memberNo=" + memberNo)
@@ -77,18 +79,31 @@ function changeYearMonth(year, month) {
 
       for(let rs of rsList) {
         
+        console.log(rs);
+
         let rsYear = new Date(rs.rsDate).getFullYear();
         let rsMonth = new Date(rs.rsDate).getMonth() + 1;
         let rsDay = new Date(rs.rsDate).getDate();
+        let rsHour = new Date(rs.rsDate).getHours();
+        let rsMinutes = new Date(rs.rsDate).getMinutes();
 
         if(rsMonth < 10) rsMonth = "0" + rsMonth;
         if(rsDay < 10) rsDay = "0" + rsDay;
+        if(rsHour < 10) rsHour = "0" + rsHour;
+        if(rsMinutes < 10) rsMinutes = "0" + rsMinutes;
 
-        rsDate = rsYear + "-" + rsMonth + "-" + rsDay;
+        let rsDate = rsYear + "-" + rsMonth + "-" + rsDay;
+        let rsTime = rsHour + ":" + rsMinutes;
+        let rsService = {"servicePrice" : rs.servicePrice, "serviceTime" : rs.serviceTime, "serviceType" : rs.serviceType};
 
-        rsDateList[rsDateList.length] = rsDate;
+        rsDateList[rsDateList.length] = rsDate; // 2023-09-01
+        rsTimeList[rsTimeList.length] = rsTime; // 14:30
+        rsServiceList[rsServiceList.length] = rsService; 
+        
         
       }
+
+      console.log(rsServiceList);
 
       for(let i = 0; i < data.length; i++) {
         
@@ -115,11 +130,11 @@ function changeYearMonth(year, month) {
           }
   
           h.push('</div>');
-  
+
           // if(일정이 있을 때 추가)
           for(let i = 0 ; i < rsDateList.length; i++) {
             if(rsDateList[i] == i_day) {
-              h.push('<div class="schedule">[09:00] 산책(30분)</div>');
+              h.push('<div class="schedule">[' + rsTimeList[i] + '] ' + rsServiceList[i].serviceType + '(' + rsServiceList[i].serviceTime + ')</div>');
             }
           }
   
@@ -140,7 +155,7 @@ function changeYearMonth(year, month) {
           // if(일정이 있을 때 추가)
           for(let i = 0 ; i < rsDateList.length; i++) {
             if(rsDateList[i] == i_day) {
-              h.push('<div class="schedule">[09:00] 산책(30분)</div>');
+              h.push('<div class="schedule">[' + rsTimeList[i] + '] ' + rsServiceList[i].serviceType + '(' + rsServiceList[i].serviceTime + ')</div>');
             }
           }
   
