@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import edu.kh.mung.member.model.dto.Member;
-import edu.kh.mung.reservation.model.dto.Reservation_h;
+import edu.kh.mung.reservation.model.dto.Reservation;
 
 @Controller
 @RequestMapping("/reservation")
@@ -25,7 +25,7 @@ public class ReservationController_h {
 	
 	
 	@PostMapping("/1")
-	public String reservationType(Model model,Reservation_h rs) {
+	public String reservationType(Model model,Reservation rs) {
 		
 		 model.addAttribute("rs", rs);
 		System.out.println("rs1 : "+ rs);
@@ -39,7 +39,7 @@ public class ReservationController_h {
 	}
 	
 	@PostMapping("/2")
-	public String reservationDate(Model model,Reservation_h rs, HttpSession session) {
+	public String reservationDate(Model model,Reservation rs, HttpSession session) {
 		model.addAttribute("rs", rs);
 		
 		Member loginMember = (Member) session.getAttribute("loginMember");
@@ -59,7 +59,7 @@ public class ReservationController_h {
 	}
 	
 	@PostMapping("/4")
-	public String reservationPetSitter(Model model,Reservation_h rs) {
+	public String reservationPetSitter(Model model,Reservation rs) {
 		
 		System.out.println("rs4 : " + rs);
 		return "/reservation/reservation_5";
