@@ -58,61 +58,103 @@ function changeYearMonth(year, month) {
     index.splice(0, getFirstDayofWeek(year, month));
 
     let today = current_day + getFirstDayofWeek(year, month) - 1; // 오늘 일
+    
     let thisMonth = (new Date()).getMonth() + 1; // 이번 달
+    if(thisMonth < 10) thisMonth = "0" + thisMonth;
+
+    let calendarMonth = $("#month").val();
+    if(calendarMonth < 10) calendarMonth = "0" + calendarMonth;
+    
     let calendarYear = $("#year").val(); // 캘린더 년도
 
     let h = [];
+    let rsDateList = [];
 
     /* ajax */
-    fetch("/selectRsList?memberNo=" + memberNo)
+    fetch("selectRsList?memberNo=" + memberNo)
     .then(resp => resp.json())
     .then(rsList => {
+
+      for(let rs of rsList) {
+        
+        let rsYear = new Date(rs.rsDate).getFullYear();
+        let rsMonth = new Date(rs.rsDate).getMonth() + 1;
+        let rsDay = new Date(rs.rsDate).getDate();
+
+        if(rsMonth < 10) rsMonth = "0" + rsMonth;
+        if(rsDay < 10) rsDay = "0" + rsDay;
+
+        rsDate = rsYear + "-" + rsMonth + "-" + rsDay;
+
+        rsDateList[rsDateList.length] = rsDate;
+        
+      }
+
+      for(let i = 0; i < data.length; i++) {
+        
+        let i_day = calendarYear + "-" + calendarMonth + "-" + data[i];
+
+        if(i == 0) {
+          h.push('<tr>');
+  
+        } else if(i % 7 == 0) {
+          h.push('</tr>');
+          h.push('<tr>');
+        }
+        
+        h.push('<td onclick="setDate(' + data[i] +')" ');
+  
+        // 조회한 날짜가 이번 달이면서 오늘인 경우
+        if(i == today && calendarMonth == thisMonth && current_year == calendarYear) {
+          h.push('id="today" class="day' + data[i] + '"><div class="day_div">' + data[i]);
+
+          for(let i = 0 ; i < rsDateList.length; i++) {
+            if(rsDateList[i] == i_day) {
+              h.push('<div class="rs-point"></div>');
+            }
+          }
+  
+          h.push('</div>');
+  
+          // if(일정이 있을 때 추가)
+          for(let i = 0 ; i < rsDateList.length; i++) {
+            if(rsDateList[i] == i_day) {
+              h.push('<div class="schedule">[09:00] 산책(30분)</div>');
+            }
+          }
+  
+          h.push('</td>');
+  
+        } else {
+          h.push('class="day' + data[i] + '"><div class="day_div">' + data[i]);
+  
+          // if(일정이 있을 때 추가)
+          for(let i = 0 ; i < rsDateList.length; i++) {
+            if(rsDateList[i] == i_day) {
+              h.push('<div class="rs-point"></div>');
+            }
+          }
+  
+          h.push('</div>');
+  
+          // if(일정이 있을 때 추가)
+          for(let i = 0 ; i < rsDateList.length; i++) {
+            if(rsDateList[i] == i_day) {
+              h.push('<div class="schedule">[09:00] 산책(30분)</div>');
+            }
+          }
+  
+          h.push('</td>');
+        }
+      }
+      h.push('</tr>');
+  
+      $("#tb_tbody").html(h.join(""));
       
     })
     .catch(e => console.log(e))
 
-    for(let i = 0; i < data.length; i++) {
-      if(i == 0) {
-        h.push('<tr>');
-
-      } else if(i % 7 == 0) {
-        h.push('</tr>');
-        h.push('<tr>');
-      }
-      
-      h.push('<td onclick="setDate(' + data[i] +')" ');
-
-      // 조회한 날짜가 이번 달이면서 오늘인 경우
-      if(i == today && current_month == thisMonth && current_year == calendarYear) {
-        h.push('id="today" class="day' + data[i] + '"><div class="day_div">' + data[i]);
-        
-        // if(일정이 있을 때 추가)
-        h.push('<div class="rs-point"></div>');
-
-        h.push('</div>');
-
-        // if(일정이 있을 때 추가)
-        h.push('<div class="schedule">[09:00] 산책(30분)</div>');
-
-        h.push('</td>');
-
-      } else {
-        h.push('class="day' + data[i] + '"><div class="day_div">' + data[i]);
-
-        // if(일정이 있을 때 추가)
-        h.push('<div class="rs-point"></div>');
-
-        h.push('</div>');
-
-        // if(일정이 있을 때 추가)
-        h.push('<div class="schedule">[09:00] 산책(30분)</div>');
-
-        h.push('</td>');
-      }
-    }
-    h.push('</tr>');
-
-    $("#tb_tbody").html(h.join(""));
+    
   }
 }
 

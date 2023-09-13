@@ -14,16 +14,18 @@
    <!-- 별칭 작성 부분 -->
    <!-- VO클래스의 패키지명 + 클래스명 작성하는 것이 불편하기 때문에 짧은 별칭 부여 -->
    <typeAliases>
-   <typeAlias type="edu.kh.mung.member.model.dto.Member" alias="Member" />
-   <typeAlias type="edu.kh.mung.myPage.model.dto.Application" alias="Application" />
-   <typeAlias type="edu.kh.mung.Administrator.model.dto.Administrator" alias= "Administrator" />
-   <typeAlias type="edu.kh.mung.board.model.dto.Board" alias= "Board" />
-   <typeAlias type="edu.kh.mung.board.model.dto.BoardImage" alias= "BoardImage" />
-   <typeAlias type="edu.kh.mung.board.model.dto.Pagination" alias= "Pagination" />
-   <typeAlias type="edu.kh.mung.board.model.dto.Reply" alias= "Reply" />
-   <typeAlias type="edu.kh.mung.myPage.model.dto.Pet" alias="Pet"/>
-   <typeAlias type="edu.kh.mung.reservation.model.dto.PetSitter" alias="PetSitter"/>
+     <typeAlias type="edu.kh.mung.member.model.dto.Member" alias="Member" />
+     <typeAlias type="edu.kh.mung.myPage.model.dto.Application" alias="Application" />
+     <typeAlias type="edu.kh.mung.Administrator.model.dto.Administrator" alias= "Administrator" />
+     <typeAlias type="edu.kh.mung.board.model.dto.Board" alias= "Board" />
+     <typeAlias type="edu.kh.mung.board.model.dto.BoardImage" alias= "BoardImage" />
+     <typeAlias type="edu.kh.mung.board.model.dto.Pagination" alias= "Pagination" />
+     <typeAlias type="edu.kh.mung.board.model.dto.Reply" alias= "Reply" />
+     <typeAlias type="edu.kh.mung.myPage.model.dto.Pet" alias="Pet"/>
+     <typeAlias type="edu.kh.mung.reservation.model.dto.PetSitter" alias="PetSitter"/>
+     <typeAlias type="edu.kh.mung.reservation.model.dto.Reservation" alias="Reservation"/>
    </typeAliases>
+   
    <!-- ★★ mapper 파일(SQL 작성되는파일) 위치 등록 부분 ★★ -->
    <mappers>
       <mapper resource="/mappers/sample-mapper.xml" />
@@ -36,9 +38,8 @@
       <mapper resource="/mappers/review-mapper_p.xml" />
       <mapper resource="/mappers/petsitter-mapper_p.xml" />
       <mapper resource="/mappers/reservation-mapper_h.xml" />
-      
       <mapper resource="/mappers/Administrator-mapper.xml" />
       <mapper resource="/mappers/Administrator-mapper_o.xml" />
-
+      <mapper resource="/mappers/myPage-mapper_k.xml" />
    </mappers>
 </configuration>
