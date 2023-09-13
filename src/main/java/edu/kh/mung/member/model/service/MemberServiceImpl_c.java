@@ -1,6 +1,7 @@
 package edu.kh.mung.member.model.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.mail.Message;
@@ -98,7 +99,7 @@ public class MemberServiceImpl_c implements MemberService_c {
 
 	// 로그인한 회원의 반려견 정보 얻어오기
 	@Override
-	public Pet selectPet(Member loginMember) {
+	public List<Pet> selectPet(Member loginMember) {
 			
 		return dao.selectPet(loginMember);
 	}

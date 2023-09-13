@@ -1,5 +1,6 @@
 package edu.kh.mung.member.model.service;
 
+import java.util.List;
 import java.util.Map;
 
 import edu.kh.mung.member.model.dto.Member;
@@ -53,7 +54,7 @@ public interface MemberService_c {
 	 * @param loginMember
 	 * @return loginMemberPet
 	 */
-	Pet selectPet(Member loginMember);
+	List<Pet> selectPet(Member loginMember);
 	
 	
 
