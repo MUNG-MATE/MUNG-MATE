@@ -2,5 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace='reservationMapper'>
 
+	<resultMap type="PetSitter" id="petSitter_rm">
+  	
+  		<id property="petSitterNo" column="PETSITTER_NO" />
+
+  		<result property="location" column="LOCATION" />
+  		<result property="career" column="CAREER" />
+  		<result property="memberNo" column="MEMBER_NO" />
+  		<result property="memberTel" column="MEMBER_TEL" />
+  		<result property="memberEmail" column="MEMBER_EMAIL" />
+  		<result property="profileImg" column="PROFIlE_IMG" />
+  		
+
+
+  	</resultMap>
+
+<select id="selectPetSitter" resultMap="petSitter_rm">
+	SELECT LOCATION, MEMBER_TEL, MEMBER_EMAIL, MEMBER_NO, PETSITTER_NO, PROFIlE_IMG
+	FROM PETSITTER
+	JOIN MEMBER USING(MEMBER_NO)
+</select>
 
 </mapper>

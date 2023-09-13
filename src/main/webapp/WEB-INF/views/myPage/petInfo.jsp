@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,32 +21,33 @@
 	<section id="container">
 	    <h2>펫 프로필</h2>
 	    <label>
-	        <input type="file" name="inputImage" id="inputImage">
-	        <img id="petImage" src="/resources/images/reservation/inputpetimage.png">
+	        <!-- <input type="file" name="inputImage" id="inputImage"> -->
+	        <img id="petImage" src="${loginMemberPet.petProfile}">
 	    </label>
 	
-	    <h2>기본 사항<b>*</b></h2>
+	    <h2>기본 사항</h2>
 	    <table>
 	        <tr>
 	            <th>이름</th>
-	            <td><input type="text" id="petName" name="petName"></td>
+	            <td><input type="text" id="petName" name="petName" value="${loginMemberPet.petName}" readonly></td>
 	        </tr>
 	        <tr>
 	            <th>품종</th>
-	            <td><input type="text" id="petType" name="petType"></td>
+	            <td><input type="text" id="petType" name="petType" value="${loginMemberPet.petType}" readonly></td>
 	        </tr>
 	        <tr>
 	            <th>생년월</th>
-	            <td id="birthTd"><select id="birth" name="petYear"></select><select id="month" name="petMonth"></select></td>
+	            <td id="birthTd"><input type="text" id="petBirth" name="petBirth" value="${loginMemberPet.petBirth}" readonly></td>
 	        </tr>
 	        <tr>
 	            <th>성별</th>
-	            <td id="genderTd"><input type="radio" name="gender" value="f">여자아이 <input type="radio" name="gender" value="m">남자아이</td>
+	            <td id="genderTd"><input type="radio" name="gender" value="f" readonly>여자아이 <input type="radio" name="gender" value="m" readonly>남자아이</td>
 	        </tr>
 	    </table>
 	
 	    <h2>참고 사항</h2>
-	    <textarea id="note" placeholder="위 사항 외에도 펫시터가 주의해야할 점이나 참고해야할 특이사항이 있다면 이곳에 자세히 적어주세요."></textarea>
+		
+	    <textarea id="note" placeholder="위 사항 외에도 펫시터가 주의해야할 점이나 참고해야할 특이사항이 있다면 이곳에 자세히 적어주세요." readonly>${loginMemberPet.petOption}</textarea>
 	
 	    <div id="btnArea">
 	        <button class="btnStyle prev">&lt 이전</button>

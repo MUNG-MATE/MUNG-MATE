@@ -6,13 +6,8 @@
 <c:set var="pagination" value="${map.pagination}"/>
 <c:set var="boardList" value="${map.boardList}"/>
 
-<%-- <c:set var="boardName" value="${boardTypeList[boardCode-1].BOARD_NAME}"/> --%>
 
-<c:forEach items="${boardTypeList}" var="boardType">
-    <c:if test="${boardType.BOARD_CODE == boardCode}" > <%-- boardCode  어디서 꺼내온거지?????????????????????????????????????? --%>
-        <c:set var="boardName" value="${boardType.BOARD_NAME}"/>
-    </c:if>
-</c:forEach>
+
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -35,7 +30,7 @@
        
         <!-- 게시판 제목 영역 -->
         <div>
-            <h1>${boardName}</h1>
+            <h1>리뷰</h1>
         </div>
 
         <c:if test="${!empty param.key}" >
@@ -58,7 +53,7 @@
 
                                 <div>
                                     <div>${board.boardNo}</div>
-                                    <a href="/reviewBoard/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sp}">${board.boardTitle}</a>
+                                    <a href="/reviewBoard/reviewBoardList/${board.boardNo}?cp=${pagination.currentPage}${sp}">${board.boardTitle}</a>
                                                            
                                     <div>${board.memberNickname} | ${board.boardDate}</div>
                                 </div>
@@ -96,10 +91,10 @@
             <ul class="pagination">
             
                 <!-- 첫 페이지로 이동 -->
-                <li><a href="/reviewBoard/${boardCode}?cp=1${sp}">&lt;&lt;</a></li>
+                <li><a href="/reviewBoard/reviewBoardList/${boardCode}?cp=1${sp}">&lt;&lt;</a></li>
 
                 <!-- 이전 목록 마지막 번호로 이동 -->
-                <li><a href="/reviewBoard/${boardCode}?cp=${pagination.prevPage}${sp}">&lt;</a></li>
+                <li><a href="/reviewBoard/reviewBoardList/${boardCode}?cp=${pagination.prevPage}${sp}">&lt;</a></li>
 
            
                 <!-- 특정 페이지로 이동 -->
@@ -114,7 +109,7 @@
                     
                        <c:otherwise>
                             <!-- 현재 페이지를 제외한 나머지 -->
-                            <li><a href="/reviewBoard/${boardCode}?cp=${i}${sp}">${i}</a></li>
+                            <li><a href="/reviewBoard/reviewBoardList/${boardCode}?cp=${i}${sp}">${i}</a></li>
 
                        </c:otherwise>
                     </c:choose>
@@ -122,10 +117,10 @@
                 </c:forEach>
                 
                 <!-- 다음 목록 시작 번호로 이동 -->
-                <li><a href="/reviewBoard/${boardCode}?cp=${pagination.nextPage}${sp}">&gt;</a></li>
+                <li><a href="/reviewBoard/reviewBoardList/${boardCode}?cp=${pagination.nextPage}${sp}">&gt;</a></li>
 
                 <!-- 끝 페이지로 이동 -->
-                <li><a href="/reviewBoard/${boardCode}?cp=${pagination.maxPage}${sp}">&gt;&gt;</a></li>
+                <li><a href="/reviewBoard/reviewBoardList/${boardCode}?cp=${pagination.maxPage}${sp}">&gt;&gt;</a></li>
 
             </ul>
         </div>
