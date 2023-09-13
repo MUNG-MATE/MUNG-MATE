@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.kh.mung.member.model.dto.Member;
+import edu.kh.mung.myPage.model.dto.Pet;
 
 @Repository
 public class MemberDAO_c {
@@ -74,6 +75,15 @@ public class MemberDAO_c {
 		map.put("email", email);
 		
 		return sqlSession.update("memberMapper.changePw", map);
+	}
+
+
+	/** 로그인한 회원의 반려견 정보 얻어오기
+	 * @param loginMember
+	 * @return loginMemberPet
+	 */
+	public Pet selectPet(Member loginMember) {
+		return sqlSession.selectOne("memberMapper.selectPet", loginMember);
 	}
 
 	

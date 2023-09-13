@@ -21,6 +21,7 @@
    <typeAlias type="edu.kh.mung.board.model.dto.BoardImage" alias= "BoardImage" />
    <typeAlias type="edu.kh.mung.board.model.dto.Pagination" alias= "Pagination" />
    <typeAlias type="edu.kh.mung.board.model.dto.Reply" alias= "Reply" />
+   <typeAlias type="edu.kh.mung.myPage.model.dto.Pet" alias="Pet"/>
    </typeAliases>
    <!-- ★★ mapper 파일(SQL 작성되는파일) 위치 등록 부분 ★★ -->
    <mappers>
@@ -28,6 +29,7 @@
       <mapper resource="/mappers/member-mapper_c.xml" />
       <mapper resource="/mappers/email-mapper_c.xml" />
       <mapper resource="/mappers/myPage-mapper_o.xml" />
+      <mapper resource="/mappers/myPage-mapper_c.xml" />
       <mapper resource="/mappers/application-mapper_o.xml" />
       <mapper resource="/mappers/application-mapper_c.xml" />
       <mapper resource="/mappers/review-mapper_p.xml" />

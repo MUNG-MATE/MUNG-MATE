@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import edu.kh.mung.member.model.dao.MemberDAO_c;
 import edu.kh.mung.member.model.dto.Member;
+import edu.kh.mung.myPage.model.dto.Pet;
 
 @Service
 public class MemberServiceImpl_c implements MemberService_c {
@@ -93,6 +94,13 @@ public class MemberServiceImpl_c implements MemberService_c {
 		String encPw = bcrypt.encode(newPw);
 	
 		return dao.changePw(encPw, email);
+	}
+
+	// 로그인한 회원의 반려견 정보 얻어오기
+	@Override
+	public Pet selectPet(Member loginMember) {
+			
+		return dao.selectPet(loginMember);
 	}
 
 	

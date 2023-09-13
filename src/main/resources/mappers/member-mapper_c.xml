@@ -4,10 +4,8 @@
 
 	<resultMap type="Member" id="member_rm">
   	
-  		<!-- DB에 기본 키(PRIMARY KEY, 복합키면 여러개 작성) -->
   		<id property="memberNo" column="MEMBER_NO" />
   	
-  		<!-- DB에 일반 컬럼들 -->
   		<result property="memberName" column="MEMBER_NM" />
   		<result property="memberEmail" column="MEMBER_EMAIL" />
   		<result property="memberNickname" column="MEMBER_NICKNAME" />
@@ -20,6 +18,22 @@
   		<result property="profileImage" column="PROFILE_IMG" />
   		<result property="enrollDate" column="ENROLL_DATE" />
   	
+  	</resultMap>
+  	
+  	
+  	<resultMap type="Pet" id="pet_rm">
+  	
+  		<id property="petNo" column="PET_NO" />
+
+  		<result property="petName" column="PET_NM" />
+  		<result property="petType" column="PET_TYPE" />
+  		<result property="petBirth" column="PET_BIRTH" />
+  		<result property="petGender" column="PET_GENDER" />
+  		<result property="petProfile" column="PET_PROFILE" />
+  		<result property="petOption" column="PET_OPTION" />
+  		<result property="MemberNo" column="MEMBER_NO" />
+
+
   	</resultMap>
 
 	<!-- 이메일 중복 검사 -->
@@ -75,7 +89,13 @@
 		SET MEMBER_PW = #{encPw}
 		WHERE MEMBER_EMAIL = #{email}
 		AND SECESSION_FL = 'N'
-	
 	</update>
+	
+	<!-- 로그인한 회원의 반려견 정보 얻어오기 -->
+	<select id="selectPet" resultMap="pet_rm">
+		SELECT PET_NO, PET_NM, PET_TYPE, PET_BIRTH, PET_GENDER, PET_PROFILE, PET_OPTION
+		FROM PET
+		WHERE MEMBER_NO =  #{memberNo}
+	</select>
 	
 </mapper>
