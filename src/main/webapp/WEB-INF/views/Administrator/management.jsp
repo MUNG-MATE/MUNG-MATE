@@ -5,6 +5,7 @@
 <c:set var="managementList" value="${map.managementList}"/>
 <c:set var="petCount" value="${map.petCount}"/>
 <c:set var="commonCount" value="${map.commonCount}"/>
+<c:set var="listCount" value="${map.listCount}"/>
 
 <!DOCTYPE html>
 <html>
@@ -18,13 +19,12 @@
      <jsp:include page="/WEB-INF/views/common/header.jsp" />
 	<main>
 
-        <c:if test="${!empty param.key}" >
+        <c:if test="${!empty param.managementType}" >
             <c:set var="sp" value="&managementType=${param.managementType}&managementSearch=${param.managementSearch}"/>
         </c:if>
-
         <section>
             <article class="people">
-                <h4>전체사용자 : ${pagination.listCount} 명</h4>
+                <h4>전체사용자 : ${listCount} 명</h4>
                 <div>
                 <h4>일반사용자 : ${commonCount} 명</h4>
                 <h4>펫시터 : ${petCount} 명</h4>
@@ -34,7 +34,7 @@
             <article class="search-box">
                 <form action="management" method="get" id="management">
                     <select name="managementType" id="managementType">
-                        <option value="">전체</option>
+                        <option value="전체">전체</option>
                         <option value="일반회원">일반회원</option>
                         <option value="펫시터">펫시터</option>
                         <option value="탈퇴대기">탈퇴대기</option>
@@ -114,6 +114,7 @@
 
     </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+    <script src="/resources/js/Administrator/management.js"></script>
     
 </body>
 </html>

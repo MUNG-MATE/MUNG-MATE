@@ -41,34 +41,55 @@
 		ORDER BY ENROLL_DATE DESC
 	</select>
 	
+	<!-- 검색  -->
 	<select id="getListCount_search" resultType="_int">
-		
-		<!-- <if test='managementType == "전체"'>
-		  SELECT COUNT(*) FROM MEMBER
-		</if>
-		
-		<choose>
 		SELECT COUNT(*) FROM MEMBER
-		WHERE BOARD_DEL_FL = 'N'
+		
+		<if test='managementType == "전체"'>
+			WHERE SECESSION_FL = 'N'
+			AND MEMBER_PETSITTER ='N'
+		</if>
+		<choose>
 			<when test='managementType == "일반회원"' >
-				제목
-				AND BOARD_TITLE LIKE '%${query}%'
+				WHERE SECESSION_FL = 'N'
+				AND MEMBER_PETSITTER ='N'
 			</when>
 			<when test='managementType == "펫시터"'>
-				내용
-				AND BOARD_CONTENT LIKE '%${query}%'
+				WHERE MEMBER_PETSITTER ='Y'
 			</when>
 			<when test='managementType == "탈퇴대기"'>
-				제목 + 내용
-				AND (BOARD_TITLE LIKE '%${query}%'
-				OR BOARD_CONTENT LIKE '%{query}%')
+				WHERE SECESSION_FL = 'Y'
 			</when>
-			<when test='key == "w"'>
-				작성자(닉네임)
-				AND MEMBER_NICKNAME LIKE '%${query}%'
+		</choose>
+	</select>
+	
+    <select id="selectManagementList_search" resultMap="member_rm">
+		SELECT
+		MEMBER_NO,MEMBER_EMAIL,MEMBER_NM,MEMBER_TEL,ENROLL_DATE,
+		MEMBER_PETSITTER,SECESSION_FL FROM MEMBER
+		<if test='managementType == "전체"'>
+			WHERE
+        (MEMBER_EMAIL LIKE '%${managementSearch}%' OR MEMBER_NM LIKE '%${managementSearch}%' OR MEMBER_TEL LIKE '%${managementSearch}%')
+		</if>
+		<choose>
+			<when test='managementType == "일반회원"' >
+				WHERE SECESSION_FL = 'N'
+				AND MEMBER_PETSITTER ='N'
+				AND 
+        (MEMBER_EMAIL LIKE '%${managementSearch}%' OR MEMBER_NM LIKE '%${managementSearch}%' OR MEMBER_TEL LIKE '%${managementSearch}%')
 			</when>
-		</choose> -->
-		
+			<when test='managementType == "펫시터"'>
+				WHERE MEMBER_PETSITTER ='Y'
+				AND 
+        (MEMBER_EMAIL LIKE '%${managementSearch}%' OR MEMBER_NM LIKE '%${managementSearch}%' OR MEMBER_TEL LIKE '%${managementSearch}%')
+			</when>
+			<when test='managementType == "탈퇴대기"'>
+				WHERE SECESSION_FL = 'Y'
+				AND 
+        (MEMBER_EMAIL LIKE '%${managementSearch}%' OR MEMBER_NM LIKE '%${managementSearch}%' OR MEMBER_TEL LIKE '%${managementSearch}%')
+			</when>
+		</choose>
+		ORDER BY ENROLL_DATE DESC
 	</select>
 
 
