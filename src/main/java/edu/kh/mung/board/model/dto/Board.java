@@ -20,6 +20,7 @@ public class Board {
 	private int boardCode;
 	private int memberNo;
 	private String imagePath;
+	private String boardName;
 
 	// 서브쿼리
 
