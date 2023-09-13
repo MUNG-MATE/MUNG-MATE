@@ -43,7 +43,7 @@
 	
 	<select id="getListCount_search" resultType="_int">
 		
-		<if test='managementType == "전체"'>
+		<!-- <if test='managementType == "전체"'>
 		  SELECT COUNT(*) FROM MEMBER
 		</if>
 		
@@ -51,23 +51,23 @@
 		SELECT COUNT(*) FROM MEMBER
 		WHERE BOARD_DEL_FL = 'N'
 			<when test='managementType == "일반회원"' >
-				<!-- 제목 -->
+				제목
 				AND BOARD_TITLE LIKE '%${query}%'
 			</when>
 			<when test='managementType == "펫시터"'>
-				<!-- 내용-->
+				내용
 				AND BOARD_CONTENT LIKE '%${query}%'
 			</when>
 			<when test='managementType == "탈퇴대기"'>
-				<!-- 제목 + 내용 -->
+				제목 + 내용
 				AND (BOARD_TITLE LIKE '%${query}%'
 				OR BOARD_CONTENT LIKE '%{query}%')
 			</when>
 			<when test='key == "w"'>
-				<!-- 작성자(닉네임) -->
+				작성자(닉네임)
 				AND MEMBER_NICKNAME LIKE '%${query}%'
 			</when>
-		</choose>
+		</choose> -->
 		
 	</select>
 
