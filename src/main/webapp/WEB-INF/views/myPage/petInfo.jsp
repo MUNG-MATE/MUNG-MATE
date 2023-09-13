@@ -51,10 +51,10 @@
 					<tr>
 						<th>성별</th>
 						<c:if test="${petList.petGender != '남'}" >
-							<td id="genderTd"><input type="radio" name="gender" id="Petgender1" value="f"checked readonly>여자아이 <input type="radio" name="gender" id="Petgender2" value="m" readonly >남자아이</td>
+							<td id="genderTd"><input type="radio" name="gender1" id="Petgender1" value="f"checked readonly>여자아이 <input type="radio" name="gender2" id="Petgender2" value="m" readonly >남자아이</td>
 						</c:if>
 						<c:if test="${petList.petGender != '여'}" >
-							<td id="genderTd"><input type="radio" name="gender" value="f"  readonly>여자아이 <input type="radio" name="gender" value="m" readonly checked>남자아이</td>
+							<td id="genderTd"><input type="radio" name="gender3" value="f"  readonly>여자아이 <input type="radio" name="gender4" value="m" readonly checked>남자아이</td>
 						</c:if>
 					</tr>
 				</table>
