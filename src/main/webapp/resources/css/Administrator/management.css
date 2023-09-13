@@ -19,10 +19,16 @@ main{
 .people div{
     display: flex;
     margin-bottom: 20px;
+    text-align: center;
 }
-.people div>h4:last-child{
-    margin-left: 15px;
+.people div>h4:nth-of-type(2){
+    margin: 0 20px;
 }
+.people div>h4 span{
+    color: red;
+    margin: 0 5px;
+    font-weight: bold;
+} 
 .people, .search-box{
     margin-left: 15px;
 }
@@ -55,9 +61,6 @@ main{
 }
 .search-box button:nth-of-type(1){
     margin-right: 2.5px;
-}
-.people span{
-    margin: 0 10px;
 }
 section:nth-of-type(1)::after{
     content: "";

@@ -23,6 +23,8 @@ public class AdministratorServiceImpl implements AdministratorService{
 		int listCount = dao.getListCount();
 		int petCount = dao.petCount();
 		int commonCount = dao.commonCount();
+		int flagCount = dao.flagCount();
+		int mungCount = dao.mungCount();
 
 		Pagination pagination = new Pagination(cp,listCount);
 
@@ -30,7 +32,8 @@ public class AdministratorServiceImpl implements AdministratorService{
 
 		Map<String, Object> map = new HashMap<>();
 		
-		map.put("listCount",listCount);
+		map.put("mungCount", mungCount);
+		map.put("flagCount", flagCount);
 		map.put("petCount", petCount);
 		map.put("commonCount", commonCount);
 		map.put("pagination", pagination);
@@ -38,30 +41,33 @@ public class AdministratorServiceImpl implements AdministratorService{
 		
 		return map;
 	}
-
+	
+	// 검색1
 	@Override
 	public Map<String, Object> selectManagementList(Map<String, Object> paramMap, int cp) {
 		
 		int listCount = dao.getListCount(paramMap);
 		int petCount = dao.petCount();
 		int commonCount = dao.commonCount();
+		int flagCount = dao.flagCount();
+		int mungCount = dao.mungCount();
 
 		Pagination pagination = new Pagination(cp,listCount); 
 
 		List<Member> managementList = dao.selectBoardList(pagination,paramMap);
 
-		// 4. Pagination, boardList를 Map에 담아서 반환
 		Map<String, Object> map = new HashMap<>();
 		
-		map.put("listCount",listCount);
+		map.put("mungCount", mungCount);
+		map.put("flagCount", flagCount);
 		map.put("petCount", petCount);
 		map.put("commonCount", commonCount);
 		map.put("pagination", pagination);
 		map.put("managementList", managementList);
 		
-		System.out.println("search == "+map);
 		return map;
 	}
 
+	
 }
 

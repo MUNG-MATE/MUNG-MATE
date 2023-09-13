@@ -27,17 +27,32 @@ const options = document.querySelectorAll("#managementType > option");
 
 })();
 
-management.addEventListener("submit", e=>{
+const deleteButton = document.getElementById("delete");
+const checkbox = document.getElementsByName("checkbox")
+let checkarr = [];
 
-    if(managementSearch.value.trim().length == 0){ 
-        e.preventDefault(); 
+deleteButton.addEventListener("click",function(){
+    
+    for(let i=0; i<checkbox.length; i++){
 
-        location.href = location.pathname
-        // location.pathname : 쿼리스트링을 제외한 실제 주소
-        
-
+        if(checkbox[i].checked == true){
+            checkarr.push(checkbox[i].value);
+        }
     }
 
-
-
+    fetch("/Administrator/management",{
+        method : "delete",
+        headers : {"Content-Type" : "application/json"},
+        body : checkarr
+    })
+    .then( resp => resp.text())
+    .then(result =>{
+        if(result >0){
+            alert("탈퇴")
+        }else{
+            alert("실패")
+        }
+    })
+    .catch(e => console.log(err));
+    
 })
