@@ -17,7 +17,7 @@
 <body>
     
     <jsp:include page="/WEB-INF/views/common/sidebar.jsp" />
-    <jsp:include page="/WEB-INF/views/common/header.jsp" />
+    <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
 
      <div class="content">
 

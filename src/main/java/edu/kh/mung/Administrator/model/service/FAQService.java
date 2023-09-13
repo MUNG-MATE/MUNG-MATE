@@ -18,4 +18,10 @@ public interface FAQService {
 	 */
 	int faqInsert(Administrator administrator);
 
+	/** faq 글 수정
+	 * @param administrator
+	 * @return
+	 */
+	int faqUpdate(Administrator administrator);
+
 }

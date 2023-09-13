@@ -31,8 +31,20 @@ public class FAQDAO_o {
 		return sqlSession.selectList("AdministratorMapper_o.selectFaqList", boardCode);
 	}
 
+	/** faq 글 등록
+	 * @param administrator
+	 * @return
+	 */
 	public int faqInsert(Administrator administrator) {
 		return sqlSession.insert("AdministratorMapper_o.faqInsert", administrator);
+	}
+
+	/** faq 글 수정
+	 * @param administrator
+	 * @return
+	 */
+	public int faqUpdate(Administrator administrator) {
+		return sqlSession.update("AdministratorMapper_o.faqUpdate", administrator);
 	}
 	
 

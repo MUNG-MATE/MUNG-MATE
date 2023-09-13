@@ -10,7 +10,7 @@
 </head>
 <body>	
 	 <jsp:include page="/WEB-INF/views/common/sidebar.jsp" />	
-     <jsp:include page="/WEB-INF/views/common/header.jsp" />
+     <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
 	<main>
         <section>
             <article class="title-box">
@@ -51,12 +51,13 @@
                         <td class="td">▼</td>
                     </tr>
                     <tr class="faq-answer">
-                    <form action = "/Administrator/faqWrite">
-                        <td rowspan="4" name = "content" value = ${faqList.content}>${faqList.content}
-                        <button id = "writer" >수정하기</button>
-                         <button id = "writer" type = "button">삭제하기</button>
+                    <form action = "/Administrator/faq" method="POST" name = "updateFrm">
+                        <td rowspan="4">${faqList.content}
+                         <input type="hidden" name ="content" value="${faqList.content}">
+                         <input type="hidden" name ="title" value="${faqList.title}">
+                         <input type="hidden" name ="boardNo" value="${faqList.boardNo}">
+                         <button id = "writer" >수정하기</button>
                         </td>
-                         
                         </form>
                     </tr>
                      </c:forEach>
