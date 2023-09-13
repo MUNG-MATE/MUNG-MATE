@@ -2,7 +2,6 @@ package edu.kh.mung.myPage.model.service;
 
 import java.util.List;
 
-import edu.kh.mung.member.model.dto.Member;
 import edu.kh.mung.reservation.model.dto.Reservation;
 
 public interface MyPageService_k {
@@ -11,6 +10,6 @@ public interface MyPageService_k {
 	 * @param loginMember
 	 * @return rsList
 	 */
-	List<Reservation> selectRsList(Member loginMember);
+	List<Reservation> selectRsList(int memberNo);
 
 }
