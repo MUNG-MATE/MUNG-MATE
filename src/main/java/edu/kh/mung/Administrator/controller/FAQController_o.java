@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.servlet.DispatcherServlet;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.mung.Administrator.model.dto.Administrator;
 import edu.kh.mung.Administrator.model.service.FAQService;
+import edu.kh.mung.board.model.dto.Board;
 import edu.kh.mung.member.model.dto.Member;
 import oracle.jdbc.proxy.annotation.Post;
 
@@ -67,15 +70,63 @@ public class FAQController_o {
 	@PostMapping("/Administrator/faqWrite")
 	public String faqWrite(@RequestParam("boardCode") int boardCode
 					, Administrator administrator
-					, @SessionAttribute("loginMember") Member loginMember) {
+					, @SessionAttribute("loginMember") Member loginMember
+					, RedirectAttributes ra) {
 		
 		administrator.setMemberNo(loginMember.getMemberNo());
 		administrator.setBoardCode(boardCode);
 		int result = service.faqInsert(administrator);
 		
+		String path = "redirect:/";
+		String message;
+		
+		if(result > 0) {
+			message = "FAQ가 등록되었습니다.";
+			path += "Administrator/faq/" + boardCode;
+		}else {
+			message = "FAQ 등록 실패";
+			path += "Administrator/faqWrite";
+		}
+		
+		ra.addFlashAttribute(message);
+		
+		return path;
+	}
+
+	@PostMapping("/Administrator/faq")
+	public String faqUpdate(Administrator administrator
+							, Model model) {
+		model.addAttribute("administrator", administrator);
+		
+		return "/Administrator/faqUpdate";
+	}
+	
+	
+	
+	@PostMapping("/Administrator/faqUpdate")
+	public String faqUpdate2(Administrator administrator
+							, RedirectAttributes ra) {
+		int result = service.faqUpdate(administrator);
+		
+		int boardCode = administrator.getBoardCode();
+		
+		String path = "redirect:/";
+		String message;
+		
+		System.out.println(administrator);
 		System.out.println(result);
 		
-		return "/Administrator/faqWrite";
+		if(result > 0) {
+			message = "FAQ가 수정되었습니다.";
+			path += "Administrator/faq/" + boardCode;
+		}else {
+			message = "FAQ 수정 실패";
+			path += "Administrator/faqUpdate";
+		}
+		
+		ra.addFlashAttribute(message);
+		
+		return path;
 	}
 	
 	

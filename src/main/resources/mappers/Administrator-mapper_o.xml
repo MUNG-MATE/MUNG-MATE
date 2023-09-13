@@ -36,5 +36,11 @@
 	<insert id="faqInsert">
 	INSERT INTO BOARD VALUES(SEQ_BOARD_NO.NEXTVAL, #{title}, #{content}, DEFAULT, DEFAULT, DEFAULT, #{boardCode}, #{memberNo})
 	</insert>
+	
+	<update id="faqUpdate">
+	UPDATE BOARD SET BOARD_TITLE = #{title},
+	BOARD_CONTENT = #{content}
+	WHERE BOARD_NO = #{boardNo}
+	</update>
 
 </mapper>

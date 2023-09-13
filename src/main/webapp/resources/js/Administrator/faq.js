@@ -28,3 +28,11 @@ window.onload = function(){
     .catch(e => console.log(e));
 
 }
+
+function faqDelete(){
+
+    console.log("지우는거 왔다")
+
+    return;
+}
+

@@ -39,4 +39,12 @@ public class FAQServiceImpl implements FAQService {
 	public int faqInsert(Administrator administrator) {
 		return dao.faqInsert(administrator);
 	}
+
+	/**
+	 * faq 수정
+	 */
+	@Override
+	public int faqUpdate(Administrator administrator) {
+		return dao.faqUpdate(administrator);
+	}
 }
