@@ -29,7 +29,7 @@ import edu.kh.mung.myPage.model.dto.Pet;
 
 @Controller
 @RequestMapping("/member")
-@SessionAttributes("loginMember")
+@SessionAttributes({"loginMember","loginMemberPet"})
 public class MemberController_c {
 
 	@Autowired

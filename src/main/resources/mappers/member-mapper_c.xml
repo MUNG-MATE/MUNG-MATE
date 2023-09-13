@@ -93,7 +93,7 @@
 	
 	<!-- 로그인한 회원의 반려견 정보 얻어오기 -->
 	<select id="selectPet" resultMap="pet_rm">
-		SELECT PET_NO, PET_NM, PET_TYPE, PET_BIRTH, PET_GENDER, PET_PROFILE, PET_OPTION
+		SELECT PET_NO, MEMBER_NO, PET_NM, PET_TYPE, PET_BIRTH, PET_GENDER, PET_PROFILE, PET_OPTION
 		FROM PET
 		WHERE MEMBER_NO =  #{memberNo}
 	</select>
