@@ -35,6 +35,7 @@
                             <li><a href = "/myPage/memberInfo">내 정보</a></li>
                             <li><a href = "/myPage/memberInfoUpdate">내 정보 수정</a></li>
                             <li><a href = "/myPage/memberSecession">계정 탈퇴</a></li>
+                            <li><a href = "/myPage/petInfo">내 반려견</a></li>
                             <c:if test="${loginMember.petsitterFlag == 'N'}" >
                             <li><a href = "/petsitter/toPetsitterApply">펫시터 되기</a></li>
                             </c:if>
@@ -44,17 +45,6 @@
                         </ul>
                     </li>
                 </c:if>
-
-                    <li>
-                        <a href='javascript:void(0);'>멍메이트</a>
-                        <ul class="sub_gnb">
-                            <li></li>
-                            <li>2</li>
-                            <li>3</li>
-                            <li>4</li>
-                        </ul>
-                    </li>
-
                     <li>
                         <a href='javascript:void(0);'>멍메이트</a>
                         <ul class="sub_gnb">

@@ -24,6 +24,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.mung.member.model.dto.Member;
 import edu.kh.mung.member.model.service.MemberService_c;
+import edu.kh.mung.myPage.model.dto.Pet;
 
 
 @Controller
@@ -124,8 +125,10 @@ public class MemberController_c {
 			
 			ra.addFlashAttribute("message", loginMember.getMemberNickname() + "님 환영합니다.");
 			
-			System.out.println(loginMember);
+			Pet loginMemberPet = service.selectPet(loginMember);
 			
+			model.addAttribute("loginMemberPet", loginMemberPet);
+				
 			if(saveId != null) {
 		
 				cookie.setMaxAge(60 * 60 * 24 * 30);

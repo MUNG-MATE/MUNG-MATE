@@ -3,6 +3,7 @@ package edu.kh.mung.member.model.service;
 import java.util.Map;
 
 import edu.kh.mung.member.model.dto.Member;
+import edu.kh.mung.myPage.model.dto.Pet;
 
 public interface MemberService_c {
 	
@@ -46,6 +47,13 @@ public interface MemberService_c {
 	 * @return result
 	 */
 	int changePw(String newPw, String email);
+
+
+	/** 호그인 회원의 반려견 정보 얻어오기
+	 * @param loginMember
+	 * @return loginMemberPet
+	 */
+	Pet selectPet(Member loginMember);
 	
 	
 
