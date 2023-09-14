@@ -21,4 +21,11 @@ public interface ReviewBoardService2_p {
 	 */
 	int reviewUpdate(Board board, List<MultipartFile> images, String webPath, String filePath, String deleteList) throws IllegalStateException, IOException;
 
+	
+	/** 게시글 삭제 서비스
+	 * @param board
+	 * @return
+	 */
+	int boardDelete(Board board);
+
 }
