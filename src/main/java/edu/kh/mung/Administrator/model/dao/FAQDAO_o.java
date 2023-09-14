@@ -1,7 +1,9 @@
 package edu.kh.mung.Administrator.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +47,18 @@ public class FAQDAO_o {
 	 */
 	public int faqUpdate(Administrator administrator) {
 		return sqlSession.update("AdministratorMapper_o.faqUpdate", administrator);
+	}
+
+	public int faqDelete(String boardNo) {
+		return sqlSession.delete("AdministratorMapper_o.faqDelete", boardNo);
+	}
+
+	public int getListCount(Map<String, Object> paramMap) {
+		return sqlSession.selectOne("AdministratorMapper_o.getListCount_search", paramMap);
+	}
+
+	public List<Administrator> selectBoardList(Map<String, Object> paramMap) {
+		return sqlSession.selectList("AdministratorMapper_o.selectBoardList_search", paramMap);
 	}
 	
 

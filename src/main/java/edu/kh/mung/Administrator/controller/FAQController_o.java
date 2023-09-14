@@ -8,7 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -34,21 +37,24 @@ public class FAQController_o {
 						, Model model
 						, @RequestParam Map<String, Object> paramMap){
 		
-		if (paramMap.get("key") == null) { // 검색어가 없을 때
+		if (paramMap.get("faqCat") == null) { // 검색어가 없을 때
 
 			// 게시글 목록 조회 서비스 호출
 			Map<String, Object> map = service.selectFaqList(boardCode);
 
 			model.addAttribute("map", map);
-			System.out.println(map);
 
 		} else { // 검색어가 있을 때
 
 			paramMap.put("boardCode", boardCode);
 
-			// Map<String, Object> map = service.selectFaqList(paramMap);
+			 Map<String, Object> map = service.selectFaqList(paramMap);
 			
-			//model.addAttribute("map", map);
+			model.addAttribute("map", map);
+			
+			System.out.println(map);
+			
+			//String message = "검색 결과가 없습니다.";
 		}
 		
 		
@@ -88,12 +94,17 @@ public class FAQController_o {
 			path += "Administrator/faqWrite";
 		}
 		
-		ra.addFlashAttribute(message);
+		ra.addFlashAttribute("message", message);
 		
 		return path;
 	}
 
-	@PostMapping("/Administrator/faq")
+	/**faq 수정화면으로 이동
+	 * @param administrator
+	 * @param model
+	 * @return
+	 */
+	@PostMapping( value = "/Administrator/faq/update")
 	public String faqUpdate(Administrator administrator
 							, Model model) {
 		model.addAttribute("administrator", administrator);
@@ -103,18 +114,20 @@ public class FAQController_o {
 	
 	
 	
-	@PostMapping("/Administrator/faqUpdate")
+	/** faq 수정
+	 * @param administrator
+	 * @param ra
+	 * @return
+	 */
+	@PostMapping("/Administrator/faq")
 	public String faqUpdate2(Administrator administrator
 							, RedirectAttributes ra) {
-		int result = service.faqUpdate(administrator);
 		
+		int result = service.faqUpdate(administrator);
 		int boardCode = administrator.getBoardCode();
 		
 		String path = "redirect:/";
 		String message;
-		
-		System.out.println(administrator);
-		System.out.println(result);
 		
 		if(result > 0) {
 			message = "FAQ가 수정되었습니다.";
@@ -124,9 +137,21 @@ public class FAQController_o {
 			path += "Administrator/faqUpdate";
 		}
 		
-		ra.addFlashAttribute(message);
+		ra.addFlashAttribute("message", message);
 		
 		return path;
+	}
+	
+	/** faq 삭제
+	 * @param boardNo
+	 * @return
+	 */
+	@PostMapping("/Administrator/faqDelete")
+	@ResponseBody
+	public int faqDelete(@RequestBody String boardNo) {
+		
+		System.out.println(boardNo);
+		return service.faqDelete(boardNo);
 	}
 	
 	

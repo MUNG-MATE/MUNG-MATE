@@ -24,4 +24,12 @@ public interface FAQService {
 	 */
 	int faqUpdate(Administrator administrator);
 
+	/**faq 삭제
+	 * @param boardNo
+	 * @return
+	 */
+	int faqDelete(String boardNo);
+
+	Map<String, Object> selectFaqList(Map<String, Object> paramMap);
+
 }
