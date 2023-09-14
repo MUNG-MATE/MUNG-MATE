@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.kh.mung.member.model.dto.Member;
+import edu.kh.mung.myPage.model.dto.Pet;
 import edu.kh.mung.reservation.model.dao.ReservationDao_h;
 import edu.kh.mung.reservation.model.dto.PetSitter;
 import edu.kh.mung.reservation.model.dto.Reservation;
@@ -21,4 +23,11 @@ public class ReservationServiceImpl_h implements ReservationService_h{
 	public List<PetSitter> selectPetSitter(Reservation rs) {
 		return dao.selectPetSitter(rs);
 	}
+
+	// 선택된 펫시터 정보 조회
+	@Override
+	public PetSitter choicePetSitter(int petSitterNo) {
+		return dao.choicePetSitter(petSitterNo);
+	}
+
 }

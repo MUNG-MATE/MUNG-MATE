@@ -88,11 +88,6 @@
 		
 			<h2>연락처</h2>
 			<input type="text" class="rs_input" placeholder="'-' 제외 후 입력해주세요." value="${loginMember.memberTel}">
-	
-			<h2 id="h2Note">참고 사항</h2>
-			<div class="note">
-				<textarea id="noteArea" placeholder="위 사항 외에도 펫시터가 주의해야할 점이나 특이사항이 있다면 이곳에 적어주세요."></textarea>
-			</div>
 			
 			
 			<br>

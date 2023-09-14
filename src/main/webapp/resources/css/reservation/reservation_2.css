@@ -36,23 +36,7 @@ input:focus, select:focus {
     outline: 1px solid rgb(0,30,60);
 }
 
-/* 참고사항 */
-#h2Note{
-    margin-right: 548px;
-}
 
-.note{
-    text-align: center;
-    margin: 20px auto;
-    display: block;
-}
-
-textarea {
-    width: 500px;
-    height: 200px;
-    resize: none;
-    font-size: 16px;
-}
 
 .btnStyle {
     width: 100px;
