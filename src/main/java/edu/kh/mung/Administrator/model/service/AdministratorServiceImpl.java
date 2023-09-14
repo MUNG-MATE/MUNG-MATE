@@ -97,6 +97,13 @@ public class AdministratorServiceImpl implements AdministratorService{
 		
 		return map;
 	}
+	
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int petsitterDelete(int petNo) {
+		
+		return dao.petsitterDelete(petNo);
+	}
 
 	
 }
