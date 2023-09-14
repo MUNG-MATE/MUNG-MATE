@@ -2,4 +2,36 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="myPageMapper_c">
 
+	<resultMap type="Pet" id="pet_rm">
+
+		<id property="petNo" column="PET_NO" />
+
+		<result property="petName" column="PET_NM" />
+		<result property="petType" column="PET_TYPE" />
+		<result property="petBirth" column="PET_BIRTH" />
+		<result property="petGender" column="PET_GENDER" />
+		<result property="petProfile" column="PET_PROFILE" />
+		<result property="petOption" column="PET_OPTION" />
+		<result property="MemberNo" column="MEMBER_NO" />
+
+
+	</resultMap>
+
+	<insert id="insertPet">
+		INSERT INTO PET
+		VALUES (SEQ_PET_NO.NEXTVAL,
+		#{memberNo}, #{petName}, #{petType}, #{petBirth}, #{petGender},
+		#{petProfile},#{petOption})
+	</insert>
+
+	<delete id="deletePet">
+		DELETE FROM PET
+		WHERE PET_NO = #{petNo}
+	</delete>
+
+	<select id="selectPetNo" resultType="_int">
+		SELECT PET_NO
+		FROM PET
+		WHERE PET_NM = #{petName}
+	</select>
 </mapper>
