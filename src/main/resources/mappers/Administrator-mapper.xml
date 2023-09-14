@@ -3,7 +3,6 @@
 <mapper namespace="AdministratorMapper">
 
 	<resultMap type="Member" id="member_rm">
-
 		<!-- DB에 기본 키(PRIMARY KEY, 복합키면 여러개 작성) -->
 		<id property="memberNo" column="MEMBER_NO" />
 
@@ -19,7 +18,31 @@
 		<result property="petsitterFlag" column="MEMBER_PETSITTER" />
 		<result property="profileImage" column="PROFILE_IMG" />
 		<result property="enrollDate" column="ENROLL_DATE" />
+	</resultMap>
+	
+	<resultMap type="PetSitter" id="petSitter_rm">
+  	
+  		<id property="petSitterNo" column="PETSITTER_NO" />
 
+  		<result property="location" column="LOCATION" />
+  		<result property="career" column="CAREER" />
+  		<result property="memberNo" column="MEMBER_NO" />
+  		<result property="memberTel" column="MEMBER_TEL" />
+  		<result property="memberEmail" column="MEMBER_EMAIL" />
+  		<result property="profileImg" column="PROFIlE_IMG" />
+  		<result property="memberNm" column="MEMBER_NM" />
+  	</resultMap>
+  	
+  	<resultMap type="Reservation" id="Reservation_rm">
+		<id property="rsNo" column="RS_NO" />
+		
+		<result property="rsDate" column="RS_DATE" />
+		<result property="rsStartDate" column="RS_START_TIME" />
+		<result property="petSitterNo" column="PETSITTER_NO" />
+		<result property="memberNo" column="MEMBER_NO" />
+		<result property="serviceType" column="SERVICE_TYPE" />
+		<result property="serviceTime" column="SERVICE_TIME" />
+		<result property="servicePrice" column="SERVICE_PRICE" />
 	</resultMap>
 
 	<select id="getListCount" resultType="_int">
@@ -125,9 +148,18 @@
 		ORDER BY SECESSION_FL
 	</select>
 	
-	<select id="petsitterList">
-	
-	
+	<select id="petsitterList" resultMap="petSitter_rm">
+		SELECT PETSITTER_NO,LOCATION,PET_CAREER,MEMBER_NO ,PROFILE_IMG,MEMBER_NM,SYSDATE
+		FROM PETSITTER
+		JOIN "MEMBER" USING(MEMBER_NO)
+		WHERE MEMBER_PETSITTER = 'Y'
 	</select>
+	
+	<update id="petsitterDelete">
+		UPDATE MEMBER M
+		SET MEMBER_PETSITTER = 'Y'
+		WHERE MEMBER_NO = #{petNo} AND MEMBER_NO IN (SELECT MEMBER_NO FROM PETSITTER);
+	</update>
+	
 
 </mapper>

@@ -1,5 +1,7 @@
 package edu.kh.mung.reservation.model.dto;
 
+import java.sql.Date;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -17,5 +19,6 @@ public class PetSitter {
 	private String memberTel;
 	private String profileImg;
 	private String memberNm;
+	private Date sysdate;
 
 }

@@ -12,10 +12,14 @@ public interface AdministratorService {
 	Map<String, Object> selectManagementList(Map<String, Object> paramMap, int cp);
 	
 	// ajax
+	
 	int delete(String[] check);
 	
 	List<Member> select();
 
 	Map<String, Object> petManagement();
+
+	int petsitterDelete(int petNo);
+	
 
 }
