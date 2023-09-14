@@ -19,33 +19,38 @@
        
         <section>
 
-            <h1>리뷰 게시판</h1>
+            <h1>리뷰</h1>
 
-            <div>
+            <form action="/board2/${boardCode}/insert" method="POST"
+            class="board-write" id="boardWriteFrm" enctype="multipart/form-data">
 
-                <!-- 게시물 제목 -->
-                <div class="titleArea">
-                    <input type="text" id="boardTitle" name="boardTitle" placeholder="제목을 입력해주세요.">
-                </div>
+                <div>
 
-                <!-- 이미지 -->
-                <div class="imgContent">
-                    <div class="imageArea">
-                        <label for="img" id="labelImg">이미지 추가</label>
-                        <input type="file" name="images" class="uploadImg" id="img">
+                    <!-- 게시물 제목 -->
+                    <div class="titleArea">
+                        <input type="text" id="boardTitle" name="boardTitle" placeholder="제목을 입력해주세요.">
                     </div>
-                </div>
 
-                <!-- 내용 -->
-                <div class="boardContent">
-                    <textarea name="boardContent" placeholder="내용을 입력해주세요."></textarea>
-                </div>
+                    <!-- 이미지 -->
+                    <div class="imgContent">
+                        <div class="imageArea">
+                            <label for="img" id="labelImg">이미지 추가</label>
+                            <input type="file" name="images" class="uploadImg" id="img">
+                        </div>
+                    </div>
 
-                <div class="frame">
-                    <button class="custom-btn btn-5"><span>등록</span></button>
-                </div>
+                    <!-- 내용 -->
+                    <div class="boardContent">
+                        <textarea name="boardContent" placeholder="내용을 입력해주세요."></textarea>
+                    </div>
 
-            </div>
+                    <div class="frame">
+                        <button class="custom-btn btn-5"><span>등록</span></button>
+                    </div>
+
+                </div>
+                
+            </form>
 
 
 
