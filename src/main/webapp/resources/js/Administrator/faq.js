@@ -31,7 +31,36 @@ window.onload = function(){
 
 function faqDelete(){
 
-    console.log("지우는거 왔다")
+    const resultTitle = document.getElementById("resultTitle");
+    const resultContent = document.getElementById("resultContent");
+    const result1 = document.getElementById("result1");
+    const result2 = document.getElementById("result2");
+    const table = document.getElementById("table");
+
+    console.log("boardNo : " + boardNo);
+
+
+    fetch("/Administrator/faqDelete", {
+        method : "POST",
+        headers : {"Content-Type" : "application/text"},
+        body : boardNo
+    })
+    .then(resp => resp.text())
+    .then(result => {
+
+        if(result > 0){
+            console.log(boardList)
+            table.innerHTML = "";
+            location.reload(true);
+          
+
+
+        }else{
+            console.log("실패~");
+        }
+    })
+    .catch(e => console.log(e))
+   
 
     return;
 }

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="AdministratorMapper_o">
 
-<resultMap type="Administrator" id="ad_rm">
+	<resultMap type="Administrator" id="ad_rm">
 		<id property="boardNo" column="BOARD_NO" />
 		<result property="title" column="BOARD_TITLE" />
 		<result property="Content" column="BOARD_CONTENT" />
@@ -10,8 +10,8 @@
 		<result property="boardSt" column="BOARD_ST" />
 		<result property="boardCode" column="BOARD_CD" />
 		<result property="memberNo" column="MEMBER_NO" />
-		
-		</resultMap>
+
+	</resultMap>
 
 
 	<!--게시판 종류 조회 -->
@@ -22,25 +22,93 @@
 
 	<!-- 특정 게시판의 삭제되지 않은 게시글 수 조회 -->
 	<select id="getListCount" resultType="_int">
-		 SELECT COUNT(*) FROM BOARD
+		SELECT COUNT(*) FROM BOARD
 		WHERE BOARD_CD = ${boardCode}
 		AND BOARD_ST = 'N'
 	</select>
-	
+
 	<select id="selectFaqList" resultMap="ad_rm">
-		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NO, BOARD_CONTENT, BOARD_CD
+		SELECT BOARD_NO,
+		BOARD_TITLE, MEMBER_NO, BOARD_CONTENT, BOARD_CD
 		FROM BOARD
-		WHERE BOARD_CD = #{boardCode}
+		WHERE
+		BOARD_CD = #{boardCode}
+		AND BOARD_ST = 'N'
 	</select>
-	
+
 	<insert id="faqInsert">
-	INSERT INTO BOARD VALUES(SEQ_BOARD_NO.NEXTVAL, #{title}, #{content}, DEFAULT, DEFAULT, DEFAULT, #{boardCode}, #{memberNo})
+		INSERT INTO BOARD VALUES(SEQ_BOARD_NO.NEXTVAL,
+		#{title}, #{content},
+		DEFAULT, DEFAULT, DEFAULT, #{boardCode},
+		#{memberNo})
 	</insert>
-	
+
 	<update id="faqUpdate">
-	UPDATE BOARD SET BOARD_TITLE = #{title},
-	BOARD_CONTENT = #{content}
-	WHERE BOARD_NO = #{boardNo}
+		UPDATE BOARD SET BOARD_TITLE = #{title},
+		BOARD_CONTENT = #{content},
+		BOARD_CD = #{boardCode}
+		WHERE BOARD_NO =
+		${boardNo}
 	</update>
+
+	<update id="faqDelete">
+		UPDATE BOARD SET BOARD_ST = 'Y'
+		WHERE BOARD_NO =
+		#{boardNo}
+	</update>
+
+
+
+	<select id="getListCount_search" resultType="_int">
+		SELECT COUNT(*)
+		FROM BOARD
+
+		JOIN BOARD_TYPE USING (BOARD_CD)
+
+		WHERE
+		 BOARD_ST = 'N'
+		<choose>
+			<when test='faqCat == "서비스이용"'>
+				AND BOARD_NM LIKE '%${"서비스이용"}%'
+				AND BOARD_CD = 4
+			</when>
+
+			<when test='faqCat == "기타"'>
+				AND BOARD_NM LIKE '%${"기타"}%'
+				AND BOARD_CD = 5
+			</when>
+
+			<when test='faqCat == "예약관련"'>
+				AND BOARD_CD = 3
+				AND BOARD_NM LIKE '%${"예약관련"}%'
+			</when>
+		</choose>
+
+	</select>
+
+	<select id="selectBoardList_search" resultMap="ad_rm">
+		SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT
+		FROM BOARD
+		WHERE BOARD_ST = 'N'
+
+		<choose>
+			<when test='faqCat == "서비스이용"'>
+				AND BOARD_CONTENT LIKE '%${faq}%'
+				AND BOARD_TITLE LIKE '%${faq}%'
+				
+			</when>
+
+			<when test='faqCat == "기타"'>
+				AND BOARD_CONTENT LIKE '%${faq}%'
+				AND BOARD_TITLE LIKE '%${faq}%'
+			</when>
+
+			<when test='faqCat == "예약관련"'>
+				AND BOARD_CONTENT LIKE '%${faq}%'
+				AND BOARD_TITLE LIKE '%${faq}%'
+			</when>
+		</choose>
+
+	</select>
 
 </mapper>
