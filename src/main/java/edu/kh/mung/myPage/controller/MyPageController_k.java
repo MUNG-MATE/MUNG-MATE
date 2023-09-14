@@ -7,8 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import edu.kh.mung.member.model.dto.Member;
+import edu.kh.mung.myPage.model.dto.Pet;
 import edu.kh.mung.myPage.model.service.MyPageService_k;
 import edu.kh.mung.reservation.model.dto.Reservation;
 
@@ -31,11 +34,7 @@ public class MyPageController_k {
 	@ResponseBody
 	public List<Reservation> selectRsList(int memberNo) {
 		
-		System.out.println("controller test");
-		
 		List<Reservation> rsList = service.selectRsList(memberNo);
-		
-		System.out.println(rsList);
 		
 		return rsList;
 	}

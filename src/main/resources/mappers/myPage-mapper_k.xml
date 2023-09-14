@@ -12,12 +12,37 @@
 		<result property="serviceType" column="SERVICE_TYPE" />
 		<result property="serviceTime" column="SERVICE_TIME" />
 		<result property="servicePrice" column="SERVICE_PRICE" />
+		
+	</resultMap>
+	
+	<resultMap type="Pet" id="Pet_rm">
+		<id property="petNo" column="PET_NO" />
+		<result property="memberNo" column="MEMBER_NO" />
+		<result property="petName" column="PET_NM" />
+		<result property="petType" column="PET_TYPE" />
+		<result property="petBirth" column="PET_BIRTH" />
+		<result property="petGender" column="PET_GENDER" />
+		<result property="petProfile" column="PET_PROFILE" />
+		<result property="petOption" column="PET_OPTION" />
 	</resultMap>
 
 	<select id="selectRsList" resultMap="Reservation_rm">
-		SELECT RS_NO, RS_DATE, RS_START_DATE, PETSITTER_NO, MEMBER_NO, SERVICE_TYPE, SERVICE_TIME, SERVICE_PRICE
+		SELECT RS_NO, RS_DATE, RS_START_DATE, PETSITTER_NO, MEMBER_NO, SERVICE_TYPE, SERVICE_TIME, SERVICE_PRICE,
+		       MEMBER_ADDRESS
 		FROM RESERVATION
 		JOIN "SERVICE TYPE" USING(SERVICE_NO)
+		JOIN MEMBER USING(MEMBER_NO)
 		WHERE MEMBER_NO = ${memberNo}
+	</select>
+	
+	<select id="selectPetNo" resultType="_int">
+		SELECT PET_NO FROM RESERVATION_PET
+		WHERE RS_NO = ${rsNo}
+	</select>
+	
+	<select id="selectPetList" resultMap="Pet_rm">
+		SELECT PET_NO, PET_NM, PET_TYPE, PET_BIRTH, PET_GENDER, PET_PROFILE, PET_OPTION
+		FROM PET
+		WHERE PET_NO = ${petNo}
 	</select>
 </mapper>

@@ -188,16 +188,6 @@ option {
   font-weight: bold;
 }
 
-#input_date {
-  font-size: 16px;
-  text-align: center;
-  border-radius: 5px;
-  border: 1px solid rgb(118, 118, 118);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .content-area {
   width: 450px;
   height: 40px;
@@ -229,7 +219,7 @@ option {
   justify-content: center;
 }
 
-.profileImage {
+#profileImage {
   width: 85px;
   height: 90px;
   border-radius: 50%;
@@ -258,7 +248,7 @@ option {
   margin: 20px;
 }
 
-.pet-area {
+#pet-area {
   border-radius: 3px;
   color: rgb(0, 30, 60);
   border: 1px solid rgba(0,0,0,0.175);
@@ -271,7 +261,8 @@ option {
 }
 
 .pet-image {
-  width: 200px;
+  max-width: 200px;
+  max-height: 200px;
   margin: 10px 20px;
 }
 
