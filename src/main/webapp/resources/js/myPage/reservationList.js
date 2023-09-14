@@ -66,7 +66,6 @@ function changeYearMonth(year, month) {
   renderCalendar(arr_calendar);
 
   function renderCalendar(data) {
-
     let index = [...data];
     index.splice(0, getFirstDayofWeek(year, month));
 
@@ -107,10 +106,15 @@ function changeYearMonth(year, month) {
         rsTimeList[rsTimeList.length] = rsTime;
         rList[rList.length] = rs;
       }
-
+      
       for(let i = 0; i < data.length; i++) {
         
-        let i_day = calendarYear + "-" + calendarMonth + "-" + data[i];
+        let dataDay = 0;
+
+        if(data[i] < 10) dataDay = "0" + data[i];
+        else dataDay = data[i];
+
+        let i_day = calendarYear + "-" + calendarMonth + "-" + dataDay;
 
         if(i == 0) {
           h.push('<tr>');
@@ -210,7 +214,6 @@ function setDate(day) {
         p.push(`<img src="${rList[i].petList[j].petProfile}" class="pet-image">`);
         p.push(`<div class="pet-name">${rList[i].petList[j].petName}</div>`);
         p.push('</div>');
-        console.log(p);
       }
       $("#pet-area").html(p.join(""));
       flag = true;
@@ -256,5 +259,3 @@ function loadCalendar() {
   $("#month").val(current_month);
   changeYearMonth($("#year").val(), current_month);
 }
-
-console.log(rList);

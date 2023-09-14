@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +13,8 @@
     <link rel="stylesheet" href="/resources/css/myPage/reservationList.css">
 </head>
 <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
+
+<c:set var="addr" value="${fn:split(loginMember.memberAddress, '^^^')}"/>
 
 <body>
    	<div class="page-title">내 예약 목록</div>
@@ -67,7 +72,7 @@
                                 <span>방문 일정</span><div id="serviceDate" class="content-area"></div>
                             </div>
                             <div class="content-box">
-                                <span>방문 장소</span><div id="address" class="content-area">서울 강남구 테헤란로10길 9, 5층 M강의장</div>
+                                <span>방문 장소</span><div id="address" class="content-area">${addr[1]} ${addr[2]}</div>
                             </div>
                             <div class="content-box">
                                 <span>결제 금액</span><div id="servicePrice" class="content-area"></div>

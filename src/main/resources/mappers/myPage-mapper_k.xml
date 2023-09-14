@@ -15,7 +15,7 @@
 		
 	</resultMap>
 	
-	<resultMap type="Pet" id="Pet_rm">
+	<resultMap type="Pet2" id="Pet_rm">
 		<id property="petNo" column="PET_NO" />
 		<result property="memberNo" column="MEMBER_NO" />
 		<result property="petName" column="PET_NM" />
