@@ -2,6 +2,8 @@ package edu.kh.mung.reservation.model.service;
 
 import java.util.List;
 
+import edu.kh.mung.member.model.dto.Member;
+import edu.kh.mung.myPage.model.dto.Pet;
 import edu.kh.mung.reservation.model.dto.PetSitter;
 import edu.kh.mung.reservation.model.dto.Reservation;
 
@@ -12,5 +14,8 @@ public interface ReservationService_h {
 	 * @return
 	 */
 	List<PetSitter> selectPetSitter(Reservation rs);
+
+	PetSitter choicePetSitter(int petSitterNo);
+
 
 }

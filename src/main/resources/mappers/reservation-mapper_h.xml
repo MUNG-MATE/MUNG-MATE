@@ -16,11 +16,34 @@
 
 
   	</resultMap>
+  	
+  	<resultMap type="Pet" id="pet_rm">
+  	
+  		<id property="petNo" column="PET_NO" />
 
-<select id="selectPetSitter" resultMap="petSitter_rm">
-	SELECT LOCATION, MEMBER_TEL, MEMBER_EMAIL, MEMBER_NO, PETSITTER_NO, PROFIlE_IMG,MEMBER_NM
-	FROM PETSITTER
-	JOIN MEMBER USING(MEMBER_NO)
-</select>
+  		<result property="petName" column="PET_NM" />
+  		<result property="petType" column="PET_TYPE" />
+  		<result property="petBirth" column="PET_BIRTH" />
+  		<result property="petGender" column="PET_GENDER" />
+  		<result property="petProfile" column="PET_PROFILE" />
+  		<result property="petOption" column="PET_OPTION" />
+  		<result property="MemberNo" column="MEMBER_NO" />
 
+
+  	</resultMap>
+
+	<select id="selectPetSitter" resultMap="petSitter_rm">
+		SELECT LOCATION, MEMBER_TEL, MEMBER_EMAIL, MEMBER_NO, PETSITTER_NO, PROFIlE_IMG,MEMBER_NM
+		FROM PETSITTER
+		JOIN MEMBER USING(MEMBER_NO)
+	</select>
+	
+	<select id="choicePetSitter" resultMap="petSitter_rm">
+		SELECT LOCATION, MEMBER_TEL, MEMBER_EMAIL, MEMBER_NO, PETSITTER_NO, PROFIlE_IMG,MEMBER_NM
+		FROM PETSITTER
+		JOIN MEMBER USING(MEMBER_NO)
+		WHERE PETSITTER_NO = ${petSitterNo}
+	</select>
+	
+	
 </mapper>

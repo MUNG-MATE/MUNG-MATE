@@ -22,6 +22,11 @@ for(let i = 0; i < profileArea.length; i++) {
                 profileArea[j].classList.remove("hovered");
             }
             profileArea[i].classList.add("clicked");
+            console.log(profileArea[i].classList)
+            if(profileArea[i].classList.value != 'profileArea clicked'){
+               const value =  document.getElementsByClassName("petSitterValue");
+               value.removeAttribute("name");
+            }
             return;
         }
 
@@ -31,4 +36,15 @@ for(let i = 0; i < profileArea.length; i++) {
         
     })
 }
+
+const petSitterFrm = document.getElementsById("petSitterFrm");
+const profile = document.getElementsById("profileArea");
+
+function selectPetSitterNo(content) {
+    console.log(content);
+    
+    // 선택한 내용을 input 요소에 설정
+    document.getElementById('selectPetSitterNo').value = content;
+}
+
 

@@ -15,15 +15,15 @@
 <body>
 	<h1 id="resTitle">예약 서비스[4/4]</h1>
     <h4 id="resSubTitle">펫시터를 선택해주세요.</h4>
-    ${rs}
+    212155151551  ${rs}
+    
     <h2>펫시터 프로필</h2>
-    <form action="4" method="post">
+    <form action="4" method="post" id="petSitterFrm">
 
         <section id="container">
 
             <c:forEach var="i" items="${rs.petSitterList}">
-
-                <div class="profileArea">
+                <div class="profileArea" id="profileArea" onclick="selectPetSitterNo('${i.petSitterNo}')">
                     <div class="imageArea">
                         <img src=${i.profileImg} class="profileImage">
                     </div>
@@ -31,29 +31,29 @@
                         <div class="petsitterName">${i.memberNm} 펫시터</div>
                     </div>
                     <div>
-                        <p class="history">선호 지역 : ${i.location}</p>
-                        <p class="history">전화번호 : ${i.memberTel}</p>
-                        <p class="history">이메일 : ${i.memberEmail}</p>
+                        <p class="history" name="location">선호 지역 : ${i.location}</p>
+                        <p class="history" name="memberTel">전화번호 : ${i.memberTel}</p>
+                        <p class="history" name="memberEmail">이메일 : ${i.memberEmail}</p>
+
                     </div>
                 </div>
             </c:forEach>
-    
-            
             
         </section>
-
+        
         <div id="btnArea">
             <button class="btnStyle prev">&lt 이전</button>
             <button class="btnStyle next">결제 &gt</button>
         </div>
-
+        
         <input type="hidden" name="servicePrice" id="selectMoney" value="${rs.servicePrice}" >
         <input type="hidden" name="serviceTime" id="selectTime" value="${rs.serviceTime}">
         <input type="hidden" name="serviceType" id="selectedService" value="${rs.serviceType}">
         <input type="hidden" name="rsDate" value="${rs.rsDate}">
         <input type="hidden" name="rsStartDate" value="${rs.rsStartDate}">
-
-
+        <input type="hidden" name="petSitterNo" id="selectPetSitterNo">
+        
+        
     </form>
     
 
