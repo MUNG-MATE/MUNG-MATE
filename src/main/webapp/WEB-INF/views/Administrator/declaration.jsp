@@ -8,9 +8,8 @@
 <title>신고</title>
 <link rel="stylesheet" href="/resources/css/Administrator/declaration.css">
 </head>
-<body>	
-	 <jsp:include page="/WEB-INF/views/common/sidebar.jsp" />	
-     <jsp:include page="/WEB-INF/views/common/header.jsp" />
+<body>		
+     <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
 	<main>
         <h2>신고</h2>
         <div class="pet-sitter">

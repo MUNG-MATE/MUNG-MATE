@@ -39,7 +39,7 @@ public class AdministratorDAO {
 
 		int offset
 		=(pagination.getCurrentPage() -1) * pagination.getLimit();
-
+		
 		RowBounds rowBounds = new RowBounds(offset,pagination.getLimit());
 
 		return sqlSession.selectList("AdministratorMapper.selectManagementList", null,rowBounds);
@@ -62,9 +62,31 @@ public class AdministratorDAO {
 		return sqlSession.selectList("AdministratorMapper.selectManagementList_search", paramMap, rowBounds);
 			
 	}
+	// ajax 탈퇴
+	public int delete(String[] check) {
+		
+		int deleteCount = 0;
+		
+		for (String item : check) {
+			
+			sqlSession.selectOne("AdministratorMapper.delete", item);
+			deleteCount ++;
+			
+	    }
+	
+		return deleteCount;
+	}
+	// ajax 목록 조회
+	public List<Member> select() {
+		
+		return sqlSession.selectList("AdministratorMapper.selectList");
+	}
+	public List<Member> petManagement() {
+		
+		return sqlSession.selectList("AdministratorMapper.petsitterList");
+	}
 	
 	
-
 	
 
 }

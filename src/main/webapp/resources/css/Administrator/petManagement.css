@@ -63,7 +63,8 @@ table{
     margin-left: 20px;
 }
 table span{
-    color: yellow;
+    color: red;
+    margin-right: 3px;
 }
 .petsitterInfo th{
     width: 150px;
