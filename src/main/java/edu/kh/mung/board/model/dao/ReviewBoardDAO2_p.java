@@ -49,4 +49,12 @@ public class ReviewBoardDAO2_p {
 		return sqlSession.insert("reviewMapper.imageInsert", img);
 	}
 
+	/** 게시글 삭제
+	 * @param board
+	 * @return
+	 */
+	public int boardDelete(Board board) {
+		return sqlSession.update("reviewMapper.boardDelete",board);
+	}
+
 }

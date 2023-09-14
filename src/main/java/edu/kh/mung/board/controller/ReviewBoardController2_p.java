@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -101,5 +102,49 @@ public class ReviewBoardController2_p {
 		return path;
 	}
 	// 게시글 삭제
+	@GetMapping("/reviewBoardList/{boardNo}/delete")
+	public String boardDelete( Board board
+				,@PathVariable("boardNo") int boardNo
+				,RedirectAttributes ra
+				,@RequestHeader("referer") String referer) {
+		
+		board.setBoardNo(boardNo);
+		
+		int result = service.boardDelete(board);
+		
+		
+		String message = null;
+		String path = "redirect:";
+		
+		if(result > 0) {
+			message = "삭제 되었습니다";
+			path += "/reviewBoard/reviewBoardList";
+		}else {
+			message = "삭제 실패";
+			path += "/reviewBoard/reviewBoardList" + boardNo;
+		}
+		
+		
+		ra.addFlashAttribute("message",message);
+		
+		return path;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

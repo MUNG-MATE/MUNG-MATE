@@ -110,14 +110,14 @@ public class ReviewBoardServiceImpl2_p implements ReviewBoardService2_p{
 		return rowCount;
 	
 	}
+
+	// 게시글 삭제
+	@Override
+	public int boardDelete(Board board) {
+		
+		int result = dao.boardDelete(board);
+		return result;
+	}
 	
 	
-//	//게시글 삭제
-//	@Override
-//	public int boardDelete(Board board) {
-//	
-//		int result = dao.boardDelete(board);
-//	
-//		return result;
-//	}
 }
