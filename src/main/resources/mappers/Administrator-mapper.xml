@@ -48,7 +48,7 @@
 		SELECT
 		MEMBER_NO,MEMBER_EMAIL,MEMBER_NM,MEMBER_TEL,ENROLL_DATE,
 		MEMBER_PETSITTER,SECESSION_FL FROM MEMBER
-		ORDER BY ENROLL_DATE DESC
+		ORDER BY SECESSION_FL
 	</select>
 	
 	<!-- 검색  -->
@@ -56,7 +56,7 @@
 		SELECT COUNT(*) FROM MEMBER
 		
 		<if test='managementType == "전체"'>
-			WHERE SECESSION_FL = 'N'
+			ORDER BY SECESSION_FL
 		</if>
 		<choose>
 			<when test='managementType == "일반회원"' >
@@ -86,6 +86,7 @@
 		<if test='managementType == "전체"'>
 			WHERE
         (MEMBER_EMAIL LIKE '%${managementSearch}%' OR MEMBER_NM LIKE '%${managementSearch}%' OR MEMBER_TEL LIKE '%${managementSearch}%')
+        	ORDER BY SECESSION_FL 
 		</if>
 		<choose>
 			<when test='managementType == "일반회원"' >
@@ -93,21 +94,40 @@
 				AND MEMBER_PETSITTER ='N'
 				AND 
         (MEMBER_EMAIL LIKE '%${managementSearch}%' OR MEMBER_NM LIKE '%${managementSearch}%' OR MEMBER_TEL LIKE '%${managementSearch}%')
+        		ORDER BY ENROLL_DATE DESC
 			</when>
 			<when test='managementType == "펫시터"'>
 				WHERE MEMBER_PETSITTER ='Y'
 				AND SECESSION_FL = 'N'
 				AND 
         (MEMBER_EMAIL LIKE '%${managementSearch}%' OR MEMBER_NM LIKE '%${managementSearch}%' OR MEMBER_TEL LIKE '%${managementSearch}%')
+        		ORDER BY ENROLL_DATE DESC
 			</when>
 			<when test='managementType == "탈퇴대기"'>
 				WHERE SECESSION_FL = 'Y'
 				AND 
         (MEMBER_EMAIL LIKE '%${managementSearch}%' OR MEMBER_NM LIKE '%${managementSearch}%' OR MEMBER_TEL LIKE '%${managementSearch}%')
+        		ORDER BY ENROLL_DATE DESC
 			</when>
 		</choose>
-		ORDER BY ENROLL_DATE DESC
+		
+	</select>
+	<update id="delete">
+		UPDATE MEMBER SET
+		SECESSION_FL = 'Y'
+		WHERE MEMBER_NO = #{item}
+	</update>
+	
+	<select id="selectList" resultMap="member_rm">
+		SELECT
+		MEMBER_NO,MEMBER_EMAIL,MEMBER_NM,MEMBER_TEL,ENROLL_DATE,
+		MEMBER_PETSITTER,SECESSION_FL FROM MEMBER
+		ORDER BY SECESSION_FL
 	</select>
 	
+	<select id="petsitterList">
+	
+	
+	</select>
 
 </mapper>

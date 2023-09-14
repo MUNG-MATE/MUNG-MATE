@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import edu.kh.mung.Administrator.model.dao.AdministratorDAO;
 import edu.kh.mung.Administrator.model.dto.Pagination;
@@ -64,6 +65,35 @@ public class AdministratorServiceImpl implements AdministratorService{
 		map.put("commonCount", commonCount);
 		map.put("pagination", pagination);
 		map.put("managementList", managementList);
+		
+		return map;
+	}
+	
+	// ajax 탈퇴
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int delete(String[] check) {
+		
+		int result = dao.delete(check);
+		
+		return result;
+	}
+	
+	// ajax 조회
+	@Override
+	public List<Member> select() {
+		
+		return dao.select();
+	}
+	// 펫시터조회
+	@Override
+	public Map<String, Object> petManagement() {
+		
+		List<Member> petManagement = dao.petManagement();
+		
+		Map<String, Object> map = new HashMap<>();
+		
+		map.put("petManagement",petManagement);
 		
 		return map;
 	}

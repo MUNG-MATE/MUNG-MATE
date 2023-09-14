@@ -1,3 +1,51 @@
+function managementList(){
+    fetch("/Administrator/management/delete")
+    .then( resp => resp.json())
+    .then(manageList =>{
+
+        const tbody = document.getElementById("tbody");
+        tbody.innerHTML ="";
+
+        for(let mList of manageList){
+            
+            const tr = document.createElement("tr");
+            const td1 = document.createElement("td");
+            const td2 = document.createElement("td");
+            const td3 = document.createElement("td");
+            const td4 = document.createElement("td");
+            const td5 = document.createElement("td");
+            const td6 = document.createElement("td");
+            const td7 = document.createElement("td");
+            const td8 = document.createElement("td");
+
+            const input = document.createElement("input");
+            input.setAttribute("type","checkbox");
+            input.setAttribute("name","checkbox");
+            input.setAttribute("value",mList.memberNo);
+
+
+            if(mList.petsitterFlag == 'Y') td7.classList.add("green");
+            if(mList.sessionFlag == 'Y') td8.classList.add("red");
+            
+            
+            td1.innerText = mList.memberNo;
+            td2.appendChild(input);
+            td3.innerText = mList.memberEmail;
+            td4.innerText = mList.memberName;
+            td5.innerText = mList.memberTel;
+            td6.innerText = mList.enrollDate;
+            td7.innerText = mList.petsitterFlag;
+            td8.innerText = mList.sessionFlag;
+
+            tr.append(td1,td2,td3,td4,td5,td6,td7,td8);
+            tbody.append(tr);
+        }
+
+    })
+    .catch(e => console.log(e));
+}
+
+
 const management = document.querySelector("#management");
 const managementType = document.querySelector("#managementType");
 const managementSearch = document.querySelector("#managementSearch");
@@ -32,7 +80,7 @@ const checkbox = document.getElementsByName("checkbox")
 let checkarr = [];
 
 deleteButton.addEventListener("click",function(){
-    
+
     for(let i=0; i<checkbox.length; i++){
 
         if(checkbox[i].checked == true){
@@ -41,18 +89,21 @@ deleteButton.addEventListener("click",function(){
     }
 
     fetch("/Administrator/management",{
-        method : "delete",
+        method : "put",
         headers : {"Content-Type" : "application/json"},
-        body : checkarr
+        body : JSON.stringify(checkarr)
     })
     .then( resp => resp.text())
     .then(result =>{
         if(result >0){
             alert("탈퇴")
+            location.href =location;
+            //managementList()
         }else{
             alert("실패")
         }
     })
-    .catch(e => console.log(err));
+    .catch(e => console.log(e));
     
 })
+

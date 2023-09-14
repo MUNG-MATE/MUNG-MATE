@@ -14,10 +14,10 @@
 <meta charset="UTF-8">
 <title>회원정보관리</title>
 <link rel="stylesheet" href="/resources/css/Administrator/management.css">
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
 <body>	
-	 <jsp:include page="/WEB-INF/views/common/sidebar.jsp" />	
-     <jsp:include page="/WEB-INF/views/common/header.jsp" />
+     <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
 	<main>
 
         <c:if test="${!empty param.managementType}" >
@@ -60,7 +60,7 @@
                     <th>펫시터(Y/N)</th>
                     <th>회원탈퇴(Y/N)</th>
                 </thead>
-                <tbody>
+                <tbody id="tbody"> 
                     <c:if test="${empty managementList}" >
                     <tr><td colspan="8">조회결과가 없습니다.</td></tr>
                     </c:if>
@@ -72,8 +72,22 @@
                             <td>${managementList.memberName}</td>
                             <td>${managementList.memberTel}</td>
                             <td>${managementList.enrollDate}</td>
-                            <td>${managementList.petsitterFlag}</td>
-                            <td>${managementList.sessionFlag}</td>
+                            <c:choose>
+                               <c:when test="${managementList.petsitterFlag == 'Y'}">
+                                    <td class="green">${managementList.petsitterFlag}</td>
+                               </c:when>
+                               <c:otherwise>
+                                    <td>${managementList.petsitterFlag}</td>
+                               </c:otherwise>
+                            </c:choose>
+                            <c:choose>
+                               <c:when test="${managementList.sessionFlag == 'Y'}">
+                                    <td class="red">${managementList.sessionFlag}</td>
+                               </c:when>
+                               <c:otherwise>
+                                    <td>${managementList.sessionFlag}</td>
+                               </c:otherwise>
+                            </c:choose>
                         </tr>
                     </c:forEach>
                 </tbody>

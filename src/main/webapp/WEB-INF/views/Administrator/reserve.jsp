@@ -9,8 +9,7 @@
 <link rel="stylesheet" href="/resources/css/Administrator/reserve.css">
 </head>
 <body>	
-	 <jsp:include page="/WEB-INF/views/common/sidebar.jsp" />	
-     <jsp:include page="/WEB-INF/views/common/header.jsp" />
+     <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
 	<main>
         <section>
             <h3>2023년 00 월 00 일 기준 예약현황</h3>
