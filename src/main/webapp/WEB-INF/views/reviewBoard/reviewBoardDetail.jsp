@@ -40,9 +40,11 @@
                     <p>
                         <span>${board.boardDate}</span>
                         <span class="h-btnArea">
+                        <c:if test="${board.memberNo == loginMember.memberNo}" >
                             <button id="h-updateBtn">수정</button>
                             <button id="h-deleteBtn">삭제</button>
-
+                        </c:if>
+                   
                         </span>
                     </p>
 
@@ -85,6 +87,8 @@
                     <button id="h-replyUpdateBtn">수정</button>
                     <button id="h-replyDeleteBtn">삭제</button>
                 </div>
+
+                
             </div>
 
             <!-- 댓글 작성 영역 -->
@@ -145,9 +149,47 @@
                 url += key + query; // url 뒤에 붙이기
             }
             // location.href = "주소"; -> 해당 주소로 이동
+           
+
             location.href = url;
 
+
         })
+
+
+        // 게시글 수정 버튼 클릭 시
+        const updateBtn = document.getElementById("h-updateBtn");
+        if (updateBtn != null) {
+
+            updateBtn.addEventListener("click", () => {
+
+                location.href = "/reviewBoard/reviewBoardList" + "/${board.boardNo}" + "/update";
+                    
+
+            })
+
+        }
+
+
+        // 게시글 삭제 버튼이 클릭 되었을 때
+        const deleteBtn = document.getElementById("h-deleteBtn");
+        if (deleteBtn != null) {
+            deleteBtn.addEventListener("click", () => {
+
+                if (confirm("정말 삭제 하시겠습니까?")) {
+
+                    location.href = "/reviewBoard/reviewBoardList" + "/${board.boardNo}" + "/delete";
+
+                    // 삭제 서비스 호출 성공 시 redirect:/board/{boardCode}
+                    // + RedirectAttributes 이용해서 "삭제 되었습니다" alert 출력
+
+                    // 삭제 서비스 호출 실패 시 redirect:/board/{boardCoed}/{boardNo}
+                    // + RedirectAttributes 이용해서 "삭제 실패" alert 출력
+                }
+            })
+        }
+
+        
     </script>
 
 

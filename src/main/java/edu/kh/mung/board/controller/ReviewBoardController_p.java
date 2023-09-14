@@ -87,10 +87,6 @@ public class ReviewBoardController_p {
 		
 	}
 	
-	@GetMapping("/reviewBoardWrite")
-	public String reviewWrite() {
-		
-		return "reviewBoard/reviewBoardWrite";
-	}
+	
 	
 }

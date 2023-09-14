@@ -31,28 +31,30 @@ h1{
 
     display: flex;
     justify-content: space-around;
-    padding: 30px 0;
-    
-
+    padding: 30px;
 }
 
 .imageArea{
     cursor: pointer;
-    
+    width: 500px;
+    height: 500px;
     text-align: center;
     line-height: 500px;
-
 }
 
 .uploadImg{
     
     display: none;
 }
+.preview{
+    width: 100%;
+    height: 100%;
+}
 
 #labelImg{
     display: block;
-    width: 500px;
-    height: 500px;
+    width: 100%;
+    height: 100%;
     border: 1px solid #ccc;
     cursor: pointer;
     color: #ccc;
@@ -77,15 +79,6 @@ h1{
 
 }
 
-[name = "content"]{
-  width: 100%;
-  height: 300px;
-  resize: none;
-  outline: none;
-  border: 0;
-
-  font-size: 18px;
-}
 
 /* 등록 버튼 */
 
@@ -154,12 +147,14 @@ h1{
   }
 
 
-
-
-
-
-/* footer 영역 */
-footer{
-    background-color: antiquewhite;
-    height: 200px;
+/* 삭제 버튼 */
+.delete-image{
+  position: absolute;
+  top: 170px;
+  right: 700px;
+  font-size: 40px;
+  cursor: pointer;
 }
+
+
+

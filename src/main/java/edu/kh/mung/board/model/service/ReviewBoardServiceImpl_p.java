@@ -60,7 +60,7 @@ public class ReviewBoardServiceImpl_p implements ReviewBoardService_p{
 	public List<String> selectImageList() {
 		return dao.selectImageList();
 	}
-	// 게시글 상세 조
+	// 게시글 상세 조회
 	@Override
 	public Board selectBoard(Map<String, Object> map) {
 		return dao.selectBoard(map);

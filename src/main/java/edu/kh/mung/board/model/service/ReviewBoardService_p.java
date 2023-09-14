@@ -14,7 +14,7 @@ public interface ReviewBoardService_p {
 	 */
 	Map<String, Object> selectReviewList(int boardCode, int cp);
 
-	/**
+	/** 게시글 목록 조회 (검색)
 	 * @param paramMap
 	 * @param cp
 	 * @return
@@ -27,7 +27,7 @@ public interface ReviewBoardService_p {
 	 */
 	List<String> selectImageList();
 
-	/** 게시글 상세 조
+	/** 게시글 상세 조회
 	 * @param map
 	 * @return
 	 */
