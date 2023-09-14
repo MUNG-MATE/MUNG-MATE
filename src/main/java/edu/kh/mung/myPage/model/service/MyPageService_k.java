@@ -2,6 +2,7 @@ package edu.kh.mung.myPage.model.service;
 
 import java.util.List;
 
+import edu.kh.mung.myPage.model.dto.Pet;
 import edu.kh.mung.reservation.model.dto.Reservation;
 
 public interface MyPageService_k {
@@ -11,5 +12,4 @@ public interface MyPageService_k {
 	 * @return rsList
 	 */
 	List<Reservation> selectRsList(int memberNo);
-
 }

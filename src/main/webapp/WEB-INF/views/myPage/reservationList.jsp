@@ -15,7 +15,7 @@
    	<div class="page-title">내 예약 목록</div>
     <section id="container">
         <div class="flip">
-            <div class="card">
+            <div class="card" <%-- style="transform: rotateY(180deg);" --%>>
                 <div id="div_calendar" class="front-side">
                     <div id="date_controller">
                         <button type="button" class="month-btn" onclick="changeMonth(-1);"><i class="fa fa-chevron-left"></i></button>
@@ -61,23 +61,23 @@
                     <div class="back-content">
                         <section class="content-left">
                             <div class="content-box">
-                                <span>요청 서비스</span><div class="content-area">산책 [30분]</div>
+                                <span>요청 서비스</span><div id="serviceType" class="content-area"></div>
                             </div>
                             <div class="content-box">
-                                <span>방문 일정</span><div id="input_date" class="content-area"></div>
+                                <span>방문 일정</span><div id="serviceDate" class="content-area"></div>
                             </div>
                             <div class="content-box">
-                                <span>방문 장소</span><div class="content-area">서울 강남구 테헤란로10길 9, 5층 M강의장</div>
+                                <span>방문 장소</span><div id="address" class="content-area">서울 강남구 테헤란로10길 9, 5층 M강의장</div>
                             </div>
                             <div class="content-box">
-                                <span>결제 금액</span><div class="content-area">19,500원</div>
+                                <span>결제 금액</span><div id="servicePrice" class="content-area"></div>
                             </div>
                         </section>
 
                         <section class="content-right">
                             <div id="petsitterArea">
                                 <div class="imageArea">
-                                    <img src="/resources/images/myPage/petsitter.png" class="profileImage">
+                                    <img src="/resources/images/myPage/petsitter.png" id="profileImage">
                                 </div>
                                 <div class="info">
                                     <div class="petsitterName">OOO 펫시터</div>
@@ -90,19 +90,7 @@
                     <div class="content-footer">
                         <div class="content-box">
                             <span>펫 프로필</span>
-                            <div class="pet-area">
-                                <div>
-                                    <img src="/resources/images/myPage/happy.jpg" class="pet-image">
-                                    <div class="pet-name">해피</div>
-                                </div>
-                                <div>
-                                    <img src="/resources/images/myPage/happy.jpg" class="pet-image">
-                                    <div class="pet-name">해피</div>
-                                </div>
-                                <div>
-                                    <img src="/resources/images/myPage/happy.jpg" class="pet-image">
-                                    <div class="pet-name">해피</div>
-                                </div>
+                            <div id="pet-area">
                             </div>
                         </div>
                     </div>

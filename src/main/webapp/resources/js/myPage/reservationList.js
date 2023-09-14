@@ -1,3 +1,16 @@
+let current_year = (new Date()).getFullYear(); // 현재 년
+let current_month = (new Date()).getMonth() + 1; // 현재 월
+let current_day = (new Date()).getDate(); // 현재 일
+
+$("#year").val(current_year);
+$("#month").val(current_month);
+
+let rsDateList = []; // 2023-09-01
+let rsTimeList = []; // 14:30
+let rList = [];
+
+changeYearMonth(current_year, current_month);
+
 /* 윤년 계산 */
 function checkLeapYear(year) {
   if(year % 400 == 0) {
@@ -68,9 +81,6 @@ function changeYearMonth(year, month) {
     let calendarYear = $("#year").val(); // 캘린더 년도
 
     let h = [];
-    let rsDateList = [];
-    let rsTimeList = [];
-    let rsServiceList = [];
 
     /* ajax */
     fetch("selectRsList?memberNo=" + memberNo)
@@ -79,8 +89,6 @@ function changeYearMonth(year, month) {
 
       for(let rs of rsList) {
         
-        console.log(rs);
-
         let rsYear = new Date(rs.rsDate).getFullYear();
         let rsMonth = new Date(rs.rsDate).getMonth() + 1;
         let rsDay = new Date(rs.rsDate).getDate();
@@ -94,16 +102,11 @@ function changeYearMonth(year, month) {
 
         let rsDate = rsYear + "-" + rsMonth + "-" + rsDay;
         let rsTime = rsHour + ":" + rsMinutes;
-        let rsService = {"servicePrice" : rs.servicePrice, "serviceTime" : rs.serviceTime, "serviceType" : rs.serviceType};
 
-        rsDateList[rsDateList.length] = rsDate; // 2023-09-01
-        rsTimeList[rsTimeList.length] = rsTime; // 14:30
-        rsServiceList[rsServiceList.length] = rsService; 
-        
-        
+        rsDateList[rsDateList.length] = rsDate;
+        rsTimeList[rsTimeList.length] = rsTime;
+        rList[rList.length] = rs;
       }
-
-      console.log(rsServiceList);
 
       for(let i = 0; i < data.length; i++) {
         
@@ -126,15 +129,16 @@ function changeYearMonth(year, month) {
           for(let i = 0 ; i < rsDateList.length; i++) {
             if(rsDateList[i] == i_day) {
               h.push('<div class="rs-point"></div>');
+              break;
             }
           }
-  
+          
           h.push('</div>');
 
           // if(일정이 있을 때 추가)
           for(let i = 0 ; i < rsDateList.length; i++) {
             if(rsDateList[i] == i_day) {
-              h.push('<div class="schedule">[' + rsTimeList[i] + '] ' + rsServiceList[i].serviceType + '(' + rsServiceList[i].serviceTime + ')</div>');
+              h.push('<div class="schedule">[' + rsTimeList[i] + '] ' + rList[i].serviceType + '(' + rList[i].serviceTime + ')</div>');
             }
           }
   
@@ -147,6 +151,7 @@ function changeYearMonth(year, month) {
           for(let i = 0 ; i < rsDateList.length; i++) {
             if(rsDateList[i] == i_day) {
               h.push('<div class="rs-point"></div>');
+              break;
             }
           }
   
@@ -155,7 +160,7 @@ function changeYearMonth(year, month) {
           // if(일정이 있을 때 추가)
           for(let i = 0 ; i < rsDateList.length; i++) {
             if(rsDateList[i] == i_day) {
-              h.push('<div class="schedule">[' + rsTimeList[i] + '] ' + rsServiceList[i].serviceType + '(' + rsServiceList[i].serviceTime + ')</div>');
+              h.push('<div class="schedule">[' + rsTimeList[i] + '] ' + rList[i].serviceType + '(' + rList[i].serviceTime + ')</div>');
             }
           }
   
@@ -168,7 +173,6 @@ function changeYearMonth(year, month) {
       
     })
     .catch(e => console.log(e))
-
     
   }
 }
@@ -179,24 +183,41 @@ function setDate(day) {
   
   const dayOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
   
-  if(day == undefined) {
-    return;
-  }
+  // 선택된 날짜가 없으면 실행 X
+  if(day == undefined) return;
 
+  // 날짜 세팅
   if(day < 10) day = "0" + day;
-
   let input_year = $("#year").val();
   let input_month = $("#month").val();
+  if(input_month < 10) input_month = "0" + input_month;
+  
+  let selectDay = input_year + "-" + input_month + "-" + day; // 2023-09-14
 
-  if(input_month < 10) {
-    input_month = "0" + input_month;
+  let flag = false;
+
+  for(let i = 0; i < rList.length; i++) {
+    if(rsDateList[i] == selectDay) {
+      $("#serviceType").html(rList[i].serviceType + " [" + rList[i].serviceTime + "]");
+      selectDay += `(${dayOfWeek[new Date(selectDay).getDay()]})`; // 요일 추가
+      $("#serviceDate").html(selectDay + " " + rList[i].serviceTime);
+      $("#servicePrice").html((rList[i].servicePrice).toLocaleString('ko-KR') + "원");
+      $("#address").html(rList[i].memberAddress);
+
+      let p = [];
+      for(let j = 0; j < rList[i].petList.length; j++) {
+        p.push('<div>');
+        p.push(`<img src="${rList[i].petList[j].petProfile}" class="pet-image">`);
+        p.push(`<div class="pet-name">${rList[i].petList[j].petName}</div>`);
+        p.push('</div>');
+        console.log(p);
+      }
+      $("#pet-area").html(p.join(""));
+      flag = true;
+    }
   }
   
-  let selectDay = input_year + "-" + input_month + "-" + day;
-
-  selectDay += `(${dayOfWeek[new Date(selectDay).getDay()]})`;
-
-  $("#input_date").html(selectDay);
+  if(!flag) return;
 
   // 앞면 -> 뒷면
   $(".card").css("transform", "rotateY(180deg)");
@@ -236,15 +257,4 @@ function loadCalendar() {
   changeYearMonth($("#year").val(), current_month);
 }
 
-let current_year = (new Date()).getFullYear(); // 현재 년
-let current_month = (new Date()).getMonth() + 1; // 현재 월
-let current_day = (new Date()).getDate(); // 현재 일
-
-$("#year").val(current_year);
-$("#month").val(current_month);
-
-changeYearMonth(current_year, current_month);
-
-$("#input_date").click(function(){
-  /* $("#div_calendar").toggle(); */
-});
+console.log(rList);
