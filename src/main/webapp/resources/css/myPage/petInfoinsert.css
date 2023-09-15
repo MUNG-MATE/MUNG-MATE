@@ -1,6 +1,7 @@
 #container {
     width: 1200px;
     margin: 0 auto;
+    position: relative;
 }
 
 #resTitle {
@@ -35,6 +36,12 @@ label {
 input[type="file"] {
     border: 1px solid;
     display: none;
+}
+
+#deleteImage{
+    position: absolute;
+    margin-left: 810px;
+    cursor: pointer;
 }
 
 label > span {

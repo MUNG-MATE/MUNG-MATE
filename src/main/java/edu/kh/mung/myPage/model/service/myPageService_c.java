@@ -31,4 +31,13 @@ public interface myPageService_c {
 	 */
 	int selectPetNo(Pet newPet);
 
+	/** 반려견 정보 수정하기
+	 * @param profileImage
+	 * @param webPath
+	 * @param filePath
+	 * @param pet
+	 * @return result
+	 */
+	int updatePet(MultipartFile profileImage, String webPath, String filePath, Pet pet);
+
 }

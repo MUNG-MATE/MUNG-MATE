@@ -30,7 +30,7 @@ public class myPageController_c {
 	
 	@RequestMapping("/myPage/petInfo")
 	public String petInfo(@SessionAttribute("loginMemberPet")List<Pet> loginMemberPetList) {
-		System.out.println(loginMemberPetList);
+
 		return "myPage/petInfo";
 	}
 	
@@ -81,7 +81,6 @@ public class myPageController_c {
 			
 			int petNo = service.selectPetNo(newPet);
 			
-			System.out.println(petNo);
 			newPet.setPetNo(petNo);
 			
 			loginMemberPet.add(newPet);
@@ -122,13 +121,49 @@ public class myPageController_c {
 	public String updatePet(Pet pet
 						   ,Model model) {
 		
-		System.out.println(pet);
-		
 		model.addAttribute("pet", pet);
 		
 		return "myPage/petInfoUpdate"; 
 	}
 	
-	
+	@RequestMapping("/myPage/petInfo/updatePet")
+	public String updatePet(@RequestParam("petName") String petName
+						  , @RequestParam("petType") String petType
+						  , @RequestParam("petBirth") String petBirth
+						  , @RequestParam("gender") String petGender
+						  , @RequestParam("petOption") String petOption
+						  , @RequestParam("petImage") String petImage
+						  , @SessionAttribute("loginMember") Member loginMember
+						  , @RequestParam("inputImage")MultipartFile profileImage
+						  , HttpSession session
+						  , RedirectAttributes ra
+						  , @SessionAttribute("loginMemberPet")List<Pet> loginMemberPet) {
+		
+		Pet pet = new Pet();
+		
+		pet.setMemberNo(loginMember.getMemberNo());
+		pet.setPetBirth(petBirth);
+		if(petGender.equals("m")) {
+			petGender = "남";
+			pet.setPetGender(petGender);
+			
+		}else {
+			petGender = "남";
+			pet.setPetGender(petGender);
+		}
+		pet.setPetName(petName);
+		pet.setPetOption(petOption);
+		pet.setPetType(petType);
+		pet.setPetProfile(petImage);
+		
+		String webPath = "/resources/images/pet/";
+		
+		String filePath = session.getServletContext().getRealPath(webPath);
+		
+		int result = service.updatePet(profileImage, webPath, filePath, pet);
+		
+		
+		return "myPage/petInfo";
+	}
 	
 }

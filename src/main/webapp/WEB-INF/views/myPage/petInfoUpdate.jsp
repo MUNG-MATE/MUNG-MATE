@@ -16,13 +16,15 @@
 <body>
 	<h1 id="resTitle">${loginMember.memberNickname}님의 반려견 정보 수정</h1>
     <h4 id="resSubTitle">반려견의 정보를 수정해주세요.</h4>
-    <form action="/myPage/petInfo/add" method = "POST" id="petInfoUpdate" name="petInfoUpdate" enctype ="multipart/form-data">
+    <form action="/myPage/petInfo/updatePet" method = "POST" id="petInfoUpdate" name="petInfoUpdate" enctype ="multipart/form-data">
 
 		<section id="container">
 			<h2>펫 프로필</h2>
+			<span id="deleteImage">x</span>
 			<label>
 				<input type="file" name="inputImage" id="inputImage">
 				<img id="petImage" src="${pet.petProfile}">
+				<input type="hidden" name="petImage" value="${pet.petProfile}">
 			</label>
 			<h2>기본 사항<b>*</b></h2>
 			<table>
@@ -41,10 +43,10 @@
 				<tr>
 					<th>성별</th>
 					<c:if test="${pet.petGender != '남'}" >
-						<td id="genderTd"><input type="radio" name="gender1" id="Petgender1" value="f"checked readonly>여자아이 <input type="radio" name="gender2" id="Petgender2" value="m" readonly >남자아이</td>
+						<td id="genderTd"><input type="radio" name="gender" id="Petgender1" value="f"checked readonly>여자아이 <input type="radio" name="gender" id="Petgender2" value="m" readonly >남자아이</td>
 					</c:if>
 					<c:if test="${pet.petGender != '여'}" >
-						<td id="genderTd"><input type="radio" name="gender3" id="Petgender1" value="f"  readonly>여자아이 <input type="radio" name="gender4" id="Petgender2" value="m" readonly checked>남자아이</td>
+						<td id="genderTd"><input type="radio" name="gender" id="Petgender1" value="f"  readonly>여자아이 <input type="radio" name="gender" id="Petgender2" value="m" readonly checked>남자아이</td>
 					</c:if>
 				</tr>
 			</table>
@@ -55,12 +57,12 @@
 
 			<div id="btnArea">
 				<button type="button" class="btnStyle prev" onclick="location.href='/myPage/petInfo'">&lt 이전</button>
-				<button class="btnStyle next">등록 &gt</button>
+				<button class="btnStyle next">수정 &gt</button>
 			</div>
 		</section>
 	</form>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 	
-    <script src="/resources/js/myPage/petInfoinsert.js"></script>
+    <script src="/resources/js/myPage/petInfoupdate.js"></script>
 </body>
 </html>
