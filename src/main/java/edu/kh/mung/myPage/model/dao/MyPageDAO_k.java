@@ -7,7 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import edu.kh.mung.reservation.model.dto.Pet;
+import edu.kh.mung.myPage.model.dto.Pet;
 import edu.kh.mung.reservation.model.dto.PetSitter;
 import edu.kh.mung.reservation.model.dto.Reservation;
 

@@ -2,6 +2,7 @@ package edu.kh.mung.reservation.model.dto;
 
 import java.util.List;
 
+import edu.kh.mung.myPage.model.dto.Pet;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

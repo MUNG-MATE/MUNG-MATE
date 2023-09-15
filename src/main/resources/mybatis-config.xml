@@ -22,6 +22,7 @@
      <typeAlias type="edu.kh.mung.board.model.dto.Pagination" alias= "Pagination" />
      <typeAlias type="edu.kh.mung.board.model.dto.Reply" alias= "Reply" />
      <typeAlias type="edu.kh.mung.myPage.model.dto.Pet" alias="Pet"/>
+     <typeAlias type="edu.kh.mung.reservation.model.dto.Pet2" alias="Pet2"/>
      <typeAlias type="edu.kh.mung.reservation.model.dto.PetSitter" alias="PetSitter"/>
      <typeAlias type="edu.kh.mung.reservation.model.dto.Reservation" alias="Reservation"/>
    </typeAliases>
