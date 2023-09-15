@@ -21,6 +21,8 @@ public class Board {
 	private int memberNo;
 	private String imagePath;
 	private String boardName;
+	private String imageReName;
+	
 
 	// 서브쿼리
 

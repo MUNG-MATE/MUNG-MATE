@@ -1,6 +1,7 @@
 package edu.kh.mung.board.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import edu.kh.mung.board.model.dto.Board;
+import edu.kh.mung.board.model.dto.BoardImage;
 import edu.kh.mung.board.model.service.ReviewBoardService_p;
 import edu.kh.mung.member.model.dto.Member;
 
@@ -44,16 +46,22 @@ public class ReviewBoardController_p {
 			// 게시글 목록 조회 서비스 호출
 			Map<String, Object> map = service.selectReviewList(boardCode ,cp);
 
+			List<BoardImage> selectImageList = service.selectImageList();
+			
+			System.out.println(selectImageList);
+			
+			model.addAttribute("imageList", selectImageList);
 			// 조회 결과를 request scope에 세팅 후 forward
 			model.addAttribute("map", map);
 			
-			System.out.println(map);
+			/* System.out.println(map); */
 
 		}else { // 검색어가 있을 때( 검색 o )
 
 			paramMap.put("boardCode", boardCode);
 
 			Map<String, Object> map = service.selectReviewList(paramMap, cp);
+			
 
 			model.addAttribute("map",map);
 
@@ -77,7 +85,9 @@ public class ReviewBoardController_p {
 		//게시글 상세 조회 서비스 호출
 		Board board = service.selectBoard(map);
 		
-		System.out.println(board);
+		board.setImagePath(board.getImagePath()+board.getImageReName());
+		
+		/* System.out.println(board.getImagePath()); */
 		
 		model.addAttribute("board",board);
 		

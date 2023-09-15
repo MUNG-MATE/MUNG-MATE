@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import edu.kh.mung.board.model.dto.Board;
+import edu.kh.mung.board.model.dto.BoardImage;
 
 public interface ReviewBoardService_p {
 
@@ -25,7 +26,7 @@ public interface ReviewBoardService_p {
 	/** DB 이미지(파일) 목록 조회
 	 * @return
 	 */
-	List<String> selectImageList();
+	List<BoardImage> selectImageList();
 
 	/** 게시글 상세 조회
 	 * @param map

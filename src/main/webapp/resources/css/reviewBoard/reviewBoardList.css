@@ -12,7 +12,7 @@ h1{
 
 /* 리뷰 게시글 영역 */
 .h-list{
-    height: 200px;
+    height: 250px;
 
     display: flex;
     justify-content: space-between;
@@ -124,5 +124,15 @@ h1{
 
     cursor: pointer;
 
+}
+
+#reviewTItle{
+
+
+}
+
+.thumbNail{
+    width: 200px;
+    height: 200px;
 }
 

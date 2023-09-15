@@ -5,6 +5,7 @@
 <%-- map에 저장된 값들을 각각 변수에 저장 --%>
 <c:set var="pagination" value="${map.pagination}"/>
 <c:set var="boardList" value="${map.boardList}"/>
+<c:set var="imageList" value="${imageList}"/>
 
 
 
@@ -52,19 +53,20 @@
                             <div class="h-list">
 
                                 <div>
-                                    <div>${board.boardNo}</div>
-                                    <a href="/reviewBoard/reviewBoardList/${board.boardNo}?cp=${pagination.currentPage}${sp}">${board.boardTitle}</a>
-                                                           
-                                    <div>${board.memberNickname} | ${board.boardDate}</div>
+                                    <div>NO.${board.boardNo}</div>
+                                    <h2><a id="reviewTitle" href="/reviewBoard/reviewBoardList/${board.boardNo}?cp=${pagination.currentPage}${sp}">${board.boardTitle}</a></h2>
+                                    <br>                       
+                                    <div>${board.memberNickname} 님 | ${board.boardDate}</div>
                                 </div>
 
                                 <c:if test="${!empty board.imagePath}">    
-                                <div>
-                                    <img src="${board.imagePath}" class="h-listImg">
+                                <div class="thumbNail">
+                                    <img class="thumbNail" src="${board.imagePath}${board.imageReName}" onerror="this.style.display='none'" alt='' class="h-listImg">
                                 </div>
                                 </c:if>
 
                             </div>
+                             <hr>
                     </c:forEach>
                </c:otherwise>
             </c:choose>
