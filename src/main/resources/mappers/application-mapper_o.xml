@@ -2,11 +2,48 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="appMapper_o">
 
+	<resultMap type="Application" id="Application_rm">
+		<id property="appNo" column="APPLICATION_NO" />
+
+		<result property="appContent" column="APPLICATION_CONTENT" />
+		<result property="appDate" column="APPLICATION_DT" />
+		<result property="appLocation" column="APPLICATION_LOCATION" />
+		<result property="appEx" column="APPLICATION_EX" />
+		<result property="memberNo" column="MEMBER_NO" />
+		<result property="appCd" column="APPLICATION_CD" />
+		<result property="memberEmail" column="MEMBER_EMAIL" />
+	</resultMap>
+	
+
+
 	<insert id="goToGeneral">
 	INSERT INTO "APPLICATION" VALUES(SEQ_APPLICATION_NO.NEXTVAL,#{appContent}, SYSDATE, '', '', #{memberNo}, 2)
 	</insert>
 	
-
+	<!-- 신청 리스트 조회  -->
+	<select id="selectAppList" resultMap="Application_rm">
+	SELECT APPLICATION_NO, APPLICATION_DT, MEMBER_NO, APPLICATION_CD, MEMBER_EMAIL
+	FROM APPLICATION
+	JOIN MEMBER USING (MEMBER_NO)
+	WHERE APPLICATION_CD = 2
+	</select>
+	
+	<!-- 펫시터 테이블에서 삭제 -->
+	<delete id="petsitterDelete">
+	DELETE FROM PETSITTER 
+	WHERE MEMBER_NO = #{memberNo}
+	</delete>
+	
+	<!-- 펫시터 N으로 바꾸기 -->
+	<update id="petSitterDeleteN">
+	UPDATE MEMBER SET MEMBER_PETSITTER = 'N'
+	WHERE MEMBER_NO = #{memberNo}
+	</update>
+	
+	<delete id="appDelete">
+	DELETE FROM APPLICATION 
+	WHERE MEMBER_NO = #{memberNo}
+	</delete>
 
 
 

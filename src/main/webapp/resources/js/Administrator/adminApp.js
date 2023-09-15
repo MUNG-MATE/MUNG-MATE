@@ -36,6 +36,8 @@ function insertApp(appNo, appLocation, appEx, appDate, memberEmail){
                 
                 if(result > 0){
                     alert("펫시터 신청이 정상적으로 수락되었습니다.");
+                    location.reload(true);
+
                 }
             })
             .catch(err => {
@@ -43,5 +45,32 @@ function insertApp(appNo, appLocation, appEx, appDate, memberEmail){
             })
             
         }
+
+}
+
+
+function deleteApp(memberNo){
+
+    console.log("왔어")
+
+    if (confirm("정말 수락하시겠습니까?")) {
+    fetch("/petsitter/admin/petsitterDelete", {
+        method : "POST",
+        headers : {"Content-Type" : "application/json"},
+        body : JSON.stringify(memberNo)
+    })
+    .then(resp => resp.text())
+    .then(result => {
+        if(result > 0){
+            alert("일반회원 신청이 정상적으로 수락되었습니다.");
+            location.reload(true);
+
+        }else {
+            console.log("실패 ㅜㅜ")
+        }
+    })
+    .catch(e => console.log(e))
+}
+
 
 }

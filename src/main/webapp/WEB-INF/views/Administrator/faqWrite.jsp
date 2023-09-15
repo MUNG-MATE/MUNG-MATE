@@ -18,7 +18,7 @@
     <main>
        
         <section>
-        <form action = "/Administrator/faqWrite" method = "POST">
+        <form action = "/Administrator/faqWrite" method = "POST" name = "faqFrm">
 
             <h1>FAQ 작성</h1>
 
@@ -54,6 +54,7 @@
 
     </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+    <script src="/resources/js/Administrator/faq.js"></script>
 
 </body>
 </html>
