@@ -105,6 +105,7 @@ function changeYearMonth(year, month) {
         rsDateList[rsDateList.length] = rsDate;
         rsTimeList[rsTimeList.length] = rsTime;
         rList[rList.length] = rs;
+        console.log(rs);
       }
       
       for(let i = 0; i < data.length; i++) {
@@ -204,9 +205,12 @@ function setDate(day) {
     if(rsDateList[i] == selectDay) {
       $("#serviceType").html(rList[i].serviceType + " [" + rList[i].serviceTime + "]");
       selectDay += `(${dayOfWeek[new Date(selectDay).getDay()]})`; // 요일 추가
-      $("#serviceDate").html(selectDay + " " + rList[i].serviceTime);
-      $("#servicePrice").html((rList[i].servicePrice).toLocaleString('ko-KR') + "원");
+      $("#serviceDate").html(selectDay + " " + rsTimeList[i]);
+      $("#servicePrice").html((rList[i].servicePrice*rList[i].petList.length).toLocaleString('ko-KR') + "원");
       $("#address").html(rList[i].memberAddress);
+      $("#profileImage").attr("src", rList[i].petSitterList[0].profileImg);
+      $("#petsitterName").html(rList[i].petSitterList[0].memberNm);
+      $("#point").html("♥ " + rList[i].petSitterList[0].wishListCount);
 
       let p = [];
       for(let j = 0; j < rList[i].petList.length; j++) {
@@ -258,4 +262,9 @@ function changeYear() {
 function loadCalendar() {
   $("#month").val(current_month);
   changeYearMonth($("#year").val(), current_month);
+}
+
+
+function abc() {
+
 }
