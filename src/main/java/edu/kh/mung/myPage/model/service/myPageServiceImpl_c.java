@@ -58,5 +58,23 @@ public class myPageServiceImpl_c implements myPageService_c {
 		return dao.selectPetNo(newPet);
 		
 	}
+
+	@Override
+	public int updatePet(MultipartFile profileImage, String webPath, String filePath, Pet pet) {
+		String beforeImage = pet.getPetProfile();
+		
+		String rename = null; 
+		
+		if(profileImage.getSize() > 0) {
+			rename = Util.fileRename(profileImage.getOriginalFilename());
+			
+			pet.setPetProfile(rename);
+		}else {
+			pet.setPetProfile(null);
+		}
+		
+		
+		return 0;
+	}
 	
 }
