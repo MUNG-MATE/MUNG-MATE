@@ -20,6 +20,5 @@ public interface AdministratorService {
 	Map<String, Object> petManagement();
 
 	int petsitterDelete(int petNo);
-	
 
 }

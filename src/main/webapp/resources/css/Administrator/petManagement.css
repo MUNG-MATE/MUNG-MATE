@@ -15,6 +15,9 @@ main{
     justify-content: space-between;
     border-top-left-radius: 215px;
     border-bottom-left-radius: 215px;
+    opacity: 0; /* 초기에는 상자를 숨김 */
+    transition: opacity 0.5s ease; /* 트랜지션 효과 설정 */
+     
 }
 .petsitterImg{
     width: 35%;

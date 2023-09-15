@@ -25,9 +25,10 @@ public class AjaxController {
 		return service.select();
 	}
 	
-	@PutMapping(value="/Administrator/petManagement", produces="application/text")
+	@PutMapping("/Administrator/petManagement")
 	public int petsitterDelete(@RequestBody int petNo) {
 		
+		System.out.println("petNo 1=" + petNo);
 		return service.petsitterDelete(petNo);
 	}
 }

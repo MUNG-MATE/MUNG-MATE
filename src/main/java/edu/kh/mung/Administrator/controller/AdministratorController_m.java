@@ -57,11 +57,12 @@ public class AdministratorController_m {
 	public String petManagement(Model model) {
 		
 		Map<String, Object> map = service.petManagement();
+		
 		model.addAttribute("map",map);
+		
 		return "Administrator/petManagement";
 	}
-	
-	
+
 	
 	@GetMapping("/declaration")
 	public String declaration() {

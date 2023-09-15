@@ -87,8 +87,8 @@ public class AdministratorDAO {
 	}
 	// 펫시터 삭제
 	public int petsitterDelete(int petNo) {
-		
-		return sqlSession.selectOne("AdministratorMapper.petsitterDelete",petNo);
+
+		return sqlSession.update("AdministratorMapper.petsitterDelete",petNo);
 	}
 	
 	
