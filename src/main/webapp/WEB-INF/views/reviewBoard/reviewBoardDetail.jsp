@@ -11,6 +11,8 @@
 
     <link rel="stylesheet" href="../../../resources/css/reviewBoard/reviewBoardDetail.css">
     <script src="https://kit.fontawesome.com/de9012b52d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../../resources/css/reviewBoard/reply-style.css">
+
 
 </head>
 <body>
@@ -40,7 +42,7 @@
                 <!-- 작성자 상세 정보 영역 -->
                 <div>
 
-                    <p>NO.${board.boardNo} | ${board.memberNickname} 님의 리뷰</p>
+                    <p>No.${board.boardNo} &nbsp;<i style="color:rgb(0,30,60)" class="fa-solid fa-grip-lines-vertical"></i>&nbsp;  "${board.memberNickname}" 님의 리뷰</p>
                     <br>
                     <p>
                         <span>${board.boardDate}</span>
@@ -77,48 +79,13 @@
 
 
 
-            <!-- 댓글 영역 -->
-            <div>
-                <div class="h-replyArea">
-
-                    <div>
-                        <img src="#" id="h-replyProfile">
-                    </div>
-                    
-                    <div>
-                        <div><small>작성자 아이디</small><small>2023-08-29</small></div>
-                        <div><p>댓글 내용 입니다.</p></div>
-
-                    </div>
-
-                </div>
-
-                <!-- 댓글 수정 삭제 버튼 영역 -->
-                <div class="h-replyBtnArea">
-                    <button id="h-replyUpdateBtn">수정</button>
-                    <button id="h-replyDeleteBtn">삭제</button>
-                </div>
-
-                
-            </div>
-
-            <!-- 댓글 작성 영역 -->
-            <div class="h-replyWriter">
-
-                <div>
-                    <textarea name="" id="h-replyTextarea" cols="120" rows="5" placeholder="내용을 입력해주세요."></textarea>
-                </div>
-                <div>
-                    <button id="h-replyBtn">댓글 등록</button>
-                </div>
-
-            </div>
-
-
+          
         </section>
 
 
-       
+        <!-- 댓글 영역 -->
+        <jsp:include page="reply.jsp"/>
+
 
     </main>
 
@@ -203,6 +170,24 @@
 
         
     </script>
+
+    <script>
+       
+
+        // 게시글 번호 전역 변수로 선언
+        const boardNo = "${board.boardNo}";
+        
+
+
+        // 로그인한 회원 번호를 전역 변수로 선언
+        
+        const loginMemberNo = "${loginMember.memberNo}";
+
+       
+
+    </script>
+    
+    <script src="../../../resources/js/reviewBoard/reply.js"></script>  
 
 
     

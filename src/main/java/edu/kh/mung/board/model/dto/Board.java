@@ -16,13 +16,14 @@ public class Board {
 	private String boardContent;
 	private String boardDate;
 	private String boardState;
-	private int reviewStar;
 	private int boardCode;
 	private int memberNo;
 	private String imagePath;
 	private String boardName;
 	private String imageReName;
-	
+
+	// 서브쿼리
+	private int replyCount; // 댓글 수
 
 	// 서브쿼리
 

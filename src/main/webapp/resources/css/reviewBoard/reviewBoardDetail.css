@@ -29,6 +29,7 @@ h1{
 .h-topArea p:first-child{
 
     font-size: 20px;
+    color: gray;
 }
 
 /* 프로필 이미지  */
