@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.kh.mung.reservation.model.dto.Pet;
+import edu.kh.mung.reservation.model.dto.PetSitter;
 import edu.kh.mung.reservation.model.dto.Reservation;
 
 @Repository
@@ -31,15 +32,12 @@ public class MyPageDAO_k {
 
 			for(int petNo : petNoList) { 
 				Pet pet = sqlSession.selectOne("myPageMapper_k.selectPetList", petNo); // pet : Pet(petNo=1, ...)
-				System.out.println("pet : " + pet);
 				petList.add(pet);
 			}
 			
 			rs.setPetList(petList);
-			System.out.println("petList : " + petList);
 			newRs = rs;
 		}
-		
 		rsList.add(newRs);
 		System.out.println("rsList : " + rsList);
 

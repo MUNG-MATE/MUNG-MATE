@@ -86,8 +86,7 @@
                                 </div>
                                 <div class="info">
                                     <div class="petsitterName">OOO 펫시터</div>
-                                    <div class="point">★ 5.0</div>
-                                    <a href="#" class="review">30개의 리뷰</a>
+                                    <div class="point">♥ 153</div>
                                 </div>
                             </div>
                         </section>
