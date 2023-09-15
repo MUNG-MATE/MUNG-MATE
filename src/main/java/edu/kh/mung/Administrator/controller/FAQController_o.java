@@ -30,12 +30,14 @@ public class FAQController_o {
 	
 	/** faq 페이지 조회
 	 * @param boardCode
-	 * @return
+	 * @returnf
 	 */
 	@GetMapping( value = "/Administrator/faq/{boardCode:[0-9]+}")
 	public String FAQ(@PathVariable(required = false) int boardCode
 						, Model model
-						, @RequestParam Map<String, Object> paramMap){
+						, @RequestParam Map<String, Object> paramMap
+						){
+		String message = "";
 		
 		if (paramMap.get("faqCat") == null) { // 검색어가 없을 때
 
@@ -51,12 +53,7 @@ public class FAQController_o {
 			 Map<String, Object> map = service.selectFaqList(paramMap);
 			
 			model.addAttribute("map", map);
-			
-			System.out.println(map);
-			
-			//String message = "검색 결과가 없습니다.";
 		}
-		
 		
 		return "/Administrator/faq";
 	}
@@ -142,6 +139,7 @@ public class FAQController_o {
 		return path;
 	}
 	
+	
 	/** faq 삭제
 	 * @param boardNo
 	 * @return
@@ -149,8 +147,6 @@ public class FAQController_o {
 	@PostMapping("/Administrator/faqDelete")
 	@ResponseBody
 	public int faqDelete(@RequestBody String boardNo) {
-		
-		System.out.println(boardNo);
 		return service.faqDelete(boardNo);
 	}
 	

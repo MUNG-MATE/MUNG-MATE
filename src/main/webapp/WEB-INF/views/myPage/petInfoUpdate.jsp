@@ -25,6 +25,7 @@
 				<input type="file" name="inputImage" id="inputImage">
 				<img id="petImage" src="${pet.petProfile}">
 				<input type="hidden" name="petImage" value="${pet.petProfile}">
+				<input type="hidden" name="petNo" value="${pet.petNo}">
 			</label>
 			<h2>기본 사항<b>*</b></h2>
 			<table>

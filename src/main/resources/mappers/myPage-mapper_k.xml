@@ -38,7 +38,6 @@
 		<result property="memberTel" column="MEMBER_TEL" />
 		<result property="profileImg" column="PROFILE_IMG" />
 		<result property="memberNm" column="MEMBER_NM" />
-		<result property="sysdate" column="SYSDATE" />
 	</resultMap>
 
 	<select id="selectRsList" resultMap="Reservation_rm">
@@ -67,5 +66,10 @@
 		JOIN PETSITTER USING(MEMBER_NO)
 		WHERE PETSITTER_NO = ${petSitterNo}
 		AND MEMBER_PETSITTER = 'Y'
+	</select>
+	
+	<select id="selectWishListCount" resultType="_int">
+		SELECT COUNT(*) FROM WISH_LIST
+		WHERE PETSITTER_NO = ${petSitterNo}
 	</select>
 </mapper>

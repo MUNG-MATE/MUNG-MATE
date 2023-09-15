@@ -25,5 +25,9 @@ public class myPageDAO_c {
 	public int selectPetNo(Pet newPet) {
 		return sqlSession.selectOne("myPageMapper_c.selectPetNo", newPet);
 	}
+
+	public int updatePetImage(Pet pet) {
+		return sqlSession.update("myPageMapper_c.updatePet", pet);
+	}
 	
 }

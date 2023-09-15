@@ -127,7 +127,8 @@ public class myPageController_c {
 	}
 	
 	@RequestMapping("/myPage/petInfo/updatePet")
-	public String updatePet(@RequestParam("petName") String petName
+	public String updatePet(@RequestParam("petNo") int petNo
+						  ,	@RequestParam("petName") String petName
 						  , @RequestParam("petType") String petType
 						  , @RequestParam("petBirth") String petBirth
 						  , @RequestParam("gender") String petGender
@@ -135,12 +136,14 @@ public class myPageController_c {
 						  , @RequestParam("petImage") String petImage
 						  , @SessionAttribute("loginMember") Member loginMember
 						  , @RequestParam("inputImage")MultipartFile profileImage
+						  , @SessionAttribute("loginMemberPet") List<Pet> loginMemberPetList 
 						  , HttpSession session
 						  , RedirectAttributes ra
-						  , @SessionAttribute("loginMemberPet")List<Pet> loginMemberPet) {
+						  , @SessionAttribute("loginMemberPet")List<Pet> loginMemberPet) throws IllegalStateException, IOException {
 		
 		Pet pet = new Pet();
 		
+		pet.setPetNo(petNo);
 		pet.setMemberNo(loginMember.getMemberNo());
 		pet.setPetBirth(petBirth);
 		if(petGender.equals("m")) {
@@ -156,14 +159,46 @@ public class myPageController_c {
 		pet.setPetType(petType);
 		pet.setPetProfile(petImage);
 		
+		System.out.println("변경하려는 펫 정보  : " + pet);
+
+
 		String webPath = "/resources/images/pet/";
-		
+
 		String filePath = session.getServletContext().getRealPath(webPath);
-		
+
 		int result = service.updatePet(profileImage, webPath, filePath, pet);
+		 
+		String message = "redirect:";
+		String path;
+		
+		if(result > 0) {
+			
+			for (Pet petInfo : loginMemberPetList) {
+			    if (petInfo.getPetName().equals(petName)) {
+			    	
+			    	petInfo.setPetName(pet.getPetName());
+			    	petInfo.setPetBirth(pet.getPetBirth());
+			    	petInfo.setPetGender(pet.getPetGender());
+			    	petInfo.setPetNo(pet.getPetNo());
+			    	petInfo.setPetOption(pet.getPetOption());
+			    	petInfo.setPetProfile(pet.getPetProfile());
+			    	petInfo.setPetType(pet.getPetType());
+
+			    }
+			}
+				
+			message = "반려견의 정보가 수정되었습니다.";
+			path = "myPage/petInfo";
+		}else {
+			message = "반려견 정보 수정 실패 !!";
+			path = "myPage/petInfoUpdate";
+		}
+		
+		ra.addFlashAttribute("message", message);
 		
 		
-		return "myPage/petInfo";
+		return path;
+		
 	}
 	
 }

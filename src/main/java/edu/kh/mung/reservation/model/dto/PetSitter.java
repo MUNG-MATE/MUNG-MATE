@@ -19,6 +19,6 @@ public class PetSitter {
 	private String memberTel;
 	private String profileImg;
 	private String memberNm;
-	private Date sysdate;
+	private int wishListCount;
 
 }

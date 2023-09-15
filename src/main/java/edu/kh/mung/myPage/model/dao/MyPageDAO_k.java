@@ -21,20 +21,31 @@ public class MyPageDAO_k {
 	public List<Reservation> selectRsList(int memberNo) {
 
 		Reservation newRs = new Reservation();
-		
+
 		List<Reservation> rsList = sqlSession.selectList("myPageMapper_k.selectRsList", memberNo);
 
 		for (Reservation rs : rsList) {
+
+			// 펫시터 번호로 찜 목록 수를 조회
+			int petSitterNo = rs.getPetSitterNo();
+			int wishListCount = sqlSession.selectOne("myPageMapper_k.selectWishListCount", petSitterNo);
+			System.out.println("wishListCount : " + wishListCount);
+			System.out.println("petsitterList : "+rs.getPetSitterList().get(0));
+			System.out.println("wishListCount : "+rs.getPetSitterList().get(0).getWishListCount());
+			rs.getPetSitterList().get(0).setWishListCount(wishListCount); // 찜 목록 수를 펫시터 리스트에 삽입
 			
-			List<Pet> petList = new ArrayList<Pet>();
+			List<Pet> petList = new ArrayList<Pet>(); // 펫 목록을 담을 리스트 생성
+
+			// 예약 번호로 펫 번호를 조회
 			int rsNo = rs.getRsNo();
 			List<Integer> petNoList = sqlSession.selectList("myPageMapper_k.selectPetNo", rsNo); // petNoList : [1, 3]
 
-			for(int petNo : petNoList) { 
+			// 예약 번호로 얻어온 펫 번호로 펫 목록 조회
+			for (int petNo : petNoList) {
 				Pet pet = sqlSession.selectOne("myPageMapper_k.selectPetList", petNo); // pet : Pet(petNo=1, ...)
 				petList.add(pet);
 			}
-			
+
 			rs.setPetList(petList);
 			newRs = rs;
 		}

@@ -85,8 +85,8 @@
                                     <img src="/resources/images/myPage/petsitter.png" id="profileImage">
                                 </div>
                                 <div class="info">
-                                    <div class="petsitterName">OOO 펫시터</div>
-                                    <div class="point">♥ 153</div>
+                                    <div id="petsitterName"></div>
+                                    <div id="point">♥ 153</div>
                                 </div>
                             </div>
                         </section>

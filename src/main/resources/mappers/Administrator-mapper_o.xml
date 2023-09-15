@@ -66,7 +66,7 @@
 		JOIN BOARD_TYPE USING (BOARD_CD)
 
 		WHERE
-		 BOARD_ST = 'N'
+		BOARD_ST = 'N'
 		<choose>
 			<when test='faqCat == "서비스이용"'>
 				AND BOARD_NM LIKE '%${"서비스이용"}%'
@@ -89,23 +89,32 @@
 	<select id="selectBoardList_search" resultMap="ad_rm">
 		SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT
 		FROM BOARD
-		WHERE BOARD_ST = 'N'
+		WHERE BOARD_ST =
+		'N'
 
 		<choose>
 			<when test='faqCat == "서비스이용"'>
+				AND BOARD_CD = 4
 				AND BOARD_CONTENT LIKE '%${faq}%'
-				AND BOARD_TITLE LIKE '%${faq}%'
-				
+				AND BOARD_TITLE LIKE
+				'%${faq}%'
+
 			</when>
 
 			<when test='faqCat == "기타"'>
+				AND BOARD_CD = 5
 				AND BOARD_CONTENT LIKE '%${faq}%'
-				AND BOARD_TITLE LIKE '%${faq}%'
+				AND
+				BOARD_TITLE LIKE
+				'%${faq}%'
 			</when>
 
 			<when test='faqCat == "예약관련"'>
+				AND BOARD_CD = 3
 				AND BOARD_CONTENT LIKE '%${faq}%'
-				AND BOARD_TITLE LIKE '%${faq}%'
+				AND
+				BOARD_TITLE LIKE
+				'%${faq}%'
 			</when>
 		</choose>
 
