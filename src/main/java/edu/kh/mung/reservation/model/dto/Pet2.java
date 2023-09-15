@@ -7,7 +7,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Pet {
+public class Pet2 {
 	
 	private int petNo;	// 반려견 번호
 	private String petName;	// 반려견 이름
