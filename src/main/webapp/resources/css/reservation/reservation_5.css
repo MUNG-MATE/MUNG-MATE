@@ -42,7 +42,6 @@ hr {
 }
 
 .left {
-    border-right: 1px solid rgb(118, 118, 118);
 }
 
 tr {
@@ -71,6 +70,8 @@ td > div {
     box-shadow: 3px 2px 3px 0px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
+
+
 #petProfile {
     width: 200px;
     height: 200px;
@@ -88,6 +89,7 @@ td > div {
     margin: 10px auto;
     box-shadow: 3px 2px 3px 0px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
+
 
 .imageArea {
     display: flex;
@@ -193,4 +195,75 @@ td > div {
 	width: 1200px;
 	height: 130px;
 	margin: 0 auto;
+}
+
+.petListArea{
+    width: 1700px;
+    height : auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+    
+}
+
+.backgroundArea{
+    border: 2px solid #ddd;
+    border-radius: 15%;
+    padding-right: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-shadow: 3px 3px 3px 3px lightgray;
+    margin: 0 10px;
+    
+    
+}
+
+.backgroundArea:hover{
+    border: 2px solid #ddd;
+    border-radius: 15%;
+    padding-right: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-shadow: 3px 3px 3px 3px lightgray;
+    margin: 0 10px;
+    cursor: pointer;
+    background-color: rgb(0,30,60);
+    color: white;
+    
+}
+
+
+
+.clicked td>div {
+    border-radius: 3px;
+    background-color: white;
+    color: rgb(0,30,60);
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.clicked2, .clicked2 th{
+
+    color :white;
+    
+}
+
+.hovered{
+    border-radius: 3px;
+    background-color: white;
+    color: rgb(0,30,60);
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+
+.hovered2, .hovered2 th{
+    color :white;
 }

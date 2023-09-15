@@ -13,6 +13,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
@@ -39,7 +40,7 @@ public class ReservationController_h {
 	
 	
 	@PostMapping("/1")
-	public String reservationType(Model model,Reservation rs) {
+	public String reservationType(Model model,Reservation rs, @RequestHeader("referer") String referer) {
 		
 		 model.addAttribute("rs", rs);
 		System.out.println("rs1 : "+ rs);
@@ -55,7 +56,8 @@ public class ReservationController_h {
 	@PostMapping("/2")
 	public String reservationDate(Model model,Reservation rs, HttpSession session
 								, @SessionAttribute(value="loginMember", required = false) Member loginMember
-								, @SessionAttribute(value="loginMemberPet", required=false) Pet pet  ) {
+								, @SessionAttribute(value="loginMemberPet", required=false) Pet pet
+								, @RequestHeader("referer") String referer) {
 		
 //		Member loginMember = (Member) session.getAttribute("loginMember");
 		
@@ -98,7 +100,9 @@ public class ReservationController_h {
 	
 	@PostMapping("/4")
 	public String reservationPetSitter(Model model,Reservation rs, HttpSession session,
-									@SessionAttribute(value="loginMember", required = false) Member loginMember) {
+									@SessionAttribute("loginMember") Member loginMember,
+									@SessionAttribute("loginMemberPet") List<Pet> pet,
+									@RequestHeader("referer") String referer) {
 		
 		List<PetSitter> petSitterList = service.selectPetSitter(rs);
 		rs.setPetSitterList(petSitterList);
@@ -106,13 +110,16 @@ public class ReservationController_h {
 		// 로그인 한 회원의 회원 번호 세팅
 		rs.setMemberNo(loginMember.getMemberNo());
 		int petSitterNo = rs.getPetSitterNo();
+		
+		// 로그인한 회원의 반려견 조회
+		System.out.println(pet);
+		
 
-		System.out.println("petSitterNo : " + petSitterNo);
 		
 		// 받아온 petSitterNo로 선택한 펫시터 조회
 		PetSitter petSitter = service.choicePetSitter(petSitterNo);
 		
-		
+		model.addAttribute("pet", pet);
 		model.addAttribute(loginMember);
 		model.addAttribute("rs" , rs);
 		model.addAttribute("petSitter" , petSitter);
@@ -138,11 +145,9 @@ public class ReservationController_h {
 //	}
 	
 	@PostMapping("/5")
-	public String reservationPayment(Model model, Reservation rs, HttpSession session,
-									@RequestParam("rs.petSitterNo") int petSitterNo) {
+	public String reservationPayment(Model model, Reservation rs, HttpSession session) {
 //		rs.setPetSitterNo(petSitterNo);
 
-		System.out.println("petSitterNo :" +petSitterNo);
 		
 		return "/reservation/reservation_6";
 	}

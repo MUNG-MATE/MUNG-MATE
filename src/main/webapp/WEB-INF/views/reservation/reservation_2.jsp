@@ -93,7 +93,7 @@
 			<br>
 		
 			<div id="btnArea">
-				<button class="btnStyle prev">&lt 이전</button>
+				<button type="button" class="btnStyle prev" onclick="history.back()">&lt 이전</button>
 				<button class="btnStyle next">다음 &gt</button>
 			</div>
 
