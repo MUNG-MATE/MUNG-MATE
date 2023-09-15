@@ -84,6 +84,7 @@
 
 								<textarea id="note" name="petOption" readonly>${petList.petOption}</textarea>
 								<input type="hidden" name="petGender" value="${petList.petGender}"/>
+								<input type="hidden" name="petNo" value="${petList.petNo}"/>
 
 								<div id="btnArea">
 									<button type="summit" class="btnStyle" id="petUpdateBtn">수정</button>

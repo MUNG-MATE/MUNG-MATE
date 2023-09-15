@@ -60,21 +60,35 @@ public class myPageServiceImpl_c implements myPageService_c {
 	}
 
 	@Override
-	public int updatePet(MultipartFile profileImage, String webPath, String filePath, Pet pet) {
+	public int updatePet(MultipartFile profileImage, String webPath, String filePath, Pet pet) throws IllegalStateException, IOException {
 		String beforeImage = pet.getPetProfile();
 		
 		String rename = null; 
 		
 		if(profileImage.getSize() > 0) {
+			
 			rename = Util.fileRename(profileImage.getOriginalFilename());
 			
-			pet.setPetProfile(rename);
+			pet.setPetProfile(webPath+rename);
 		}else {
+			
 			pet.setPetProfile(null);
+			
 		}
 		
+		int result = dao.updatePetImage(pet);
 		
-		return 0;
+		if(result > 0) {
+			
+			if(rename != null) {
+				profileImage.transferTo(new File(filePath + rename));
+			}
+			
+		}else {
+			pet.setPetProfile(beforeImage);
+		}
+		
+		return result;
 	}
 	
 }

@@ -34,4 +34,17 @@
 		FROM PET
 		WHERE PET_NM = #{petName}
 	</select>
+	
+	<update id="updatePet">
+		UPDATE PET
+		SET PET_NM = #{petName},
+		PET_TYPE = #{petType},
+		PET_BIRTH = #{petBirth},
+		PET_GENDER = #{petGender},
+		PET_PROFILE = #{petProfile},
+		PET_OPTION = #{petOption}
+		WHERE MEMBER_NO = #{memberNo}
+		AND PET_NO = #{petNo}
+	</update>
+	
 </mapper>
