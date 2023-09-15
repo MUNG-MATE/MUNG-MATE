@@ -46,12 +46,6 @@ public class AdministratorController_m {
 
 	}
 
-	@PutMapping("/management")
-	@ResponseBody 
-	public int delete(@RequestBody String[] check) {
-
-		return service.delete(check);
-	}
 
 	@GetMapping("/petManagement")
 	public String petManagement(Model model) {

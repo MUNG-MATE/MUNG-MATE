@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>FAQ</title>
+<title>예약관리</title>
 <link rel="stylesheet" href="/resources/css/Administrator/reserve.css">
 </head>
 <body>	
@@ -67,7 +67,7 @@
                     <th>예약일</th>
                     <th>예약금액</th>
                     <th>결제상태</th>
-                    <th>예약관리</th>
+                    <th>예약상태</th>
                 </thead>
                 <tbody>
                     <tr>
@@ -78,8 +78,8 @@
                         <td>010-9773-1309</td>
                         <td>2023-00-00</td>
                         <td>120,000원</td>
-                        <td>결제대기중</td>
-                        <td><button>취소</button></td>
+                        <td>N</td>
+                        <td>N</td>
                     </tr>
                     <tr>
                         <td>2</td>
@@ -89,8 +89,8 @@
                         <td>010-9773-1309</td>
                         <td>2023-00-00</td>
                         <td>120,000원</td>
-                        <td>결제대기중</td>
-                        <td><button>취소</button></td>
+                        <td>N</td>
+                        <td>N</td>
                     </tr>
                     <tr>
                         <td>2</td>
@@ -100,8 +100,8 @@
                         <td>010-9773-1309</td>
                         <td>2023-00-00</td>
                         <td>120,000원</td>
-                        <td>결제대기중</td>
-                        <td><button>취소</button></td>
+                        <td>N</td>
+                        <td>N</td>
                     </tr>
                     <tr>
                         <td>3</td>
@@ -111,8 +111,8 @@
                         <td>010-9773-1309</td>
                         <td>2023-00-00</td>
                         <td>120,000원</td>
-                        <td>결제대기중</td>
-                        <td><button>취소</button></td>
+                        <td>N</td>
+                        <td>N</td>
                     </tr>
                     <tr>
                         <td>4</td>
@@ -122,8 +122,8 @@
                         <td>010-9773-1309</td>
                         <td>2023-00-00</td>
                         <td>120,000원</td>
-                        <td>결제대기중</td>
-                        <td><button>취소</button></td>
+                        <td>N</td>
+                        <td>N</td>
                     </tr>
                     <tr>
                         <td>5</td>
@@ -133,8 +133,8 @@
                         <td>010-9773-1309</td>
                         <td>2023-00-00</td>
                         <td>120,000원</td>
-                        <td>결제대기중</td>
-                        <td><button>취소</button></td>
+                        <td>N</td>
+                        <td>N</td>
                     </tr>
                     <tr>
                         <td>6</td>
@@ -144,8 +144,8 @@
                         <td>010-9773-1309</td>
                         <td>2023-00-00</td>
                         <td>120,000원</td>
-                        <td>결제대기중</td>
-                        <td><button>취소</button></td>
+                        <td>N</td>
+                        <td>N</td>
                     </tr>
                     <tr>
                         <td>7</td>
@@ -155,8 +155,8 @@
                         <td>010-9773-1309</td>
                         <td>2023-00-00</td>
                         <td>120,000원</td>
-                        <td>결제대기중</td>
-                        <td><button>취소</button></td>
+                        <td>N</td>
+                        <td>N</td>
                     </tr>
                     <tr>
                         <td>8</td>
@@ -166,8 +166,8 @@
                         <td>010-9773-1309</td>
                         <td>2023-00-00</td>
                         <td>120,000원</td>
-                        <td>결제대기중</td>
-                        <td><button>취소</button></td>
+                        <td>N</td>
+                        <td>N</td>
                     </tr>
                     <tr>
                         <td>9</td>
@@ -177,8 +177,8 @@
                         <td>010-9773-1309</td>
                         <td>2023-00-00</td>
                         <td>120,000원</td>
-                        <td>결제대기중</td>
-                        <td><button>취소</button></td>
+                        <td>N</td>
+                        <td>N</td>
                     </tr>
                     <tr>
                         <td>10</td>
@@ -188,8 +188,8 @@
                         <td>010-9773-1309</td>
                         <td>2023-00-00</td>
                         <td>120,000원</td>
-                        <td>결제대기중</td>
-                        <td><button>취소</button></td>
+                        <td>N</td>
+                        <td>N</td>
                     </tr>
                     
                 </tbody>
@@ -197,5 +197,6 @@
         </section>
     </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+    <script src="/resources/js/Administrator/reserve.js"></script>
 </body>
 </html>

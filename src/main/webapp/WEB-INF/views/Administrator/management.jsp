@@ -72,22 +72,10 @@
                             <td>${managementList.memberName}</td>
                             <td>${managementList.memberTel}</td>
                             <td>${managementList.enrollDate}</td>
-                            <c:choose>
-                               <c:when test="${managementList.petsitterFlag == 'Y'}">
-                                    <td class="green">${managementList.petsitterFlag}</td>
-                               </c:when>
-                               <c:otherwise>
-                                    <td>${managementList.petsitterFlag}</td>
-                               </c:otherwise>
-                            </c:choose>
-                            <c:choose>
-                               <c:when test="${managementList.sessionFlag == 'Y'}">
-                                    <td class="red">${managementList.sessionFlag}</td>
-                               </c:when>
-                               <c:otherwise>
-                                    <td>${managementList.sessionFlag}</td>
-                               </c:otherwise>
-                            </c:choose>
+                            <td>${managementList.petsitterFlag}</td>
+                            <input type="hidden" name="petflag" value="${managementList.petsitterFlag}">
+                            <td>${managementList.sessionFlag}</td>
+                            <input type="hidden" name="flag" value="${managementList.sessionFlag}">
                         </tr>
                     </c:forEach>
                 </tbody>
