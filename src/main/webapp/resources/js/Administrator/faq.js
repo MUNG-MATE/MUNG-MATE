@@ -19,16 +19,8 @@ toggleButtons.forEach((button, index) => {
     });
 });
 
-window.onload = function(){
-    fetch("/Administrator/faq")
-    .then(resp => resp.text())
-    .then(result => {
-        console.log("불러오기 성공")
-    })
-    .catch(e => console.log(e));
 
-}
-
+// faq 삭제 함수
 function faqDelete(){
 
     const resultTitle = document.getElementById("resultTitle");
@@ -37,31 +29,48 @@ function faqDelete(){
     const result2 = document.getElementById("result2");
     const table = document.getElementById("table");
 
-    console.log("boardNo : " + boardNo);
-
-
-    fetch("/Administrator/faqDelete", {
-        method : "POST",
-        headers : {"Content-Type" : "application/text"},
-        body : boardNo
-    })
-    .then(resp => resp.text())
-    .then(result => {
-
-        if(result > 0){
-            console.log(boardList)
-            table.innerHTML = "";
-            location.reload(true);
-          
-
-
-        }else{
-            console.log("실패~");
-        }
-    })
-    .catch(e => console.log(e))
-   
-
+    if(confirm("정말 삭제하시겠습니까?")){
+        fetch("/Administrator/faqDelete", {
+            method : "POST",
+            headers : {"Content-Type" : "application/text"},
+            body : boardNo
+        })
+        .then(resp => resp.text())
+        .then(result => {
+    
+            if(result > 0){
+                table.innerHTML = "";
+                location.reload(true);
+            }else{
+                console.log("실패~");
+            }
+        })
+        .catch(e => console.log(e))
+    }
     return;
 }
+
+
+const faqFrm = document.getElementsByName("faqFrm")[0];
+const boardTitle = document.getElementById("boardTitle");
+const boardContent = document.getElementsByName("content")[0];
+
+faqFrm.addEventListener("submit", e => {
+
+    console.log("눌렀다")
+
+    if(boardTitle.value.trim().length == 0){
+        alert("제목을 입력해주세요");
+        boardTitle.focus();
+        e.preventDefault();
+        return;
+    }
+
+    if(boardContent.value.trim().length == 0){
+        alert("내용을 입력해주세요");
+        boardContent.focus();
+        e.preventDefault();
+        return;
+    }
+})
 
