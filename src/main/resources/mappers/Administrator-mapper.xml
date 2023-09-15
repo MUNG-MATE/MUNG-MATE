@@ -79,6 +79,8 @@
 		SELECT COUNT(*) FROM MEMBER
 		
 		<if test='managementType == "전체"'>
+		WHERE
+        (MEMBER_EMAIL LIKE '%${managementSearch}%' OR MEMBER_NM LIKE '%${managementSearch}%' OR MEMBER_TEL LIKE '%${managementSearch}%')
 			ORDER BY SECESSION_FL
 		</if>
 		<choose>

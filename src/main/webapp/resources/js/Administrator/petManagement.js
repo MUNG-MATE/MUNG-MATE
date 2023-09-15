@@ -1,57 +1,77 @@
-// const box = document.getElementsByClassName("petsitterBox")
+window.onload = function(){
+  setTimeout(function(){
+    scrollTo(0,0);
+  },100)
+};
 
-//     const sc = window.scrollY;
-//     let boxCount = 2;
-//     let isAnimating = false;
-//     for(let i=2; i<box.length; i++){
-//         box[i].style.display="none";
-//     }
+/* const box = document.getElementsByClassName("petsitterBox");
 
-//     window.addEventListener('scroll', function(){
-//         console.log( window.scrollY )
-//         console.log(window.innerHeight)
-//         console.log(document.body.offsetHeight) 
-        
-//         if( (window.innerHeight + window.scrollY + 210) >=document.body.offsetHeight){
-            
-//             if(boxCount < box.length){
-//                 box[boxCount].style.display="flex";    
-//                 boxCount++;
-//                 console.log(boxCount);
-//             }
+let boxIndex = 2; 
+let isAnimating = false; 
 
-//         }    
-// });
+function revealBox(index) {
+  if (index < box.length && !isAnimating) {
+    isAnimating = true;
+    box[index].style.opacity = "1"; 
+
+    setTimeout(() => {
+      isAnimating = false; 
+    }, 1000); 
+  }
+}
+
+box[0].style.opacity = "1";
+box[1].style.opacity = "1";
+
+window.addEventListener('scroll', function() {
+  console.log(window.scrollY); 
+  console.log(window.innerHeight); 
+  console.log(document.body.offsetHeight); 
+  if ((window.innerHeight *400 *boxIndex)>=document.body.offsetHeight) {
+    console.log("값=="+ (window.innerHeight *300 *boxIndex))
+    if (boxIndex === 0 || !isAnimating) {
+      revealBox(boxIndex);
+      boxIndex++;
+    }
+  }
+}); */
+
 const box = document.getElementsByClassName("petsitterBox");
 
-let boxCount = 0; // 초기에는 0으로 설정
+let boxIndex = 0;
+let isAnimating = false;
 
-for (let i = 0; i < 2; i++) {
-  if (boxCount < box.length) {
-    box[boxCount].style.opacity = "1"; // 초기에 2개의 상자를 보이게 함
-    boxCount++;
+function revealBox(index) {
+  if (index < box.length && !isAnimating) {
+    isAnimating = true;
+    box[index].style.opacity = "1";
+
+    setTimeout(() => {
+      isAnimating = false;
+      boxIndex++; // 다음 상자를 나타내기 위해 인덱스를 증가
+      revealBox(boxIndex); // 다음 상자를 나타냅니다.
+    }, 650);
   }
 }
 
 window.addEventListener('scroll', function() {
-  console.log(window.scrollY);
-  console.log(window.innerHeight);
-  console.log(document.body.offsetHeight);
+  console.log(window.scrollY); 
+  console.log(window.innerHeight); 
+  console.log(document.body.offsetHeight); 
 
-  if ((window.innerHeight + window.scrollY + 1600) >= document.body.offsetHeight) {
-    if (boxCount < box.length) {
-      box[boxCount].style.opacity = "1"; // 투명도를 조절하여 부드럽게 나타나게 함
-      boxCount++;
-      console.log(boxCount);
-    }
+  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+    // 스크롤이 맨 아래에 도달하면 다음 상자를 나타냅니다.
+    revealBox(boxIndex);
   }
 });
 
+// 초기에 첫 번째 상자를 보이게 함
+revealBox(boxIndex);
 
 
 function deleteList(e){
 
-    if( confirm("펫시터자격을 정말 없애시겠습니까?")){
+    if( confirm("해당 펫시터의 자격을 없애시겠습니까?")){
         console.log(e.value);
         fetch("/Administrator/petManagement",{
             method : "put",

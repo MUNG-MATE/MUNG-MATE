@@ -76,34 +76,60 @@ const options = document.querySelectorAll("#managementType > option");
 })();
 
 const deleteButton = document.getElementById("delete");
-const checkbox = document.getElementsByName("checkbox")
+const checkbox = document.getElementsByName("checkbox");
+
+const flag = document.getElementsByName("flag");
+const petflag = document.getElementsByName("petflag");
+
 let checkarr = [];
+
+for(let i=0; i<flag.length; i++){
+
+    if(flag[i].value =='Y'){
+        flag[i].previousElementSibling.classList.add("red");
+    }
+    if(petflag[i].value =='Y'){
+        petflag[i].previousElementSibling.classList.add("green");
+    }
+}   
 
 deleteButton.addEventListener("click",function(){
 
+    let flags = false;
+   
     for(let i=0; i<checkbox.length; i++){
-
-        if(checkbox[i].checked == true){
+        
+        if(checkbox[i].checked){
+            flags = true;
             checkarr.push(checkbox[i].value);
+
+            if(flag[i].value !='Y'){
+
+                fetch("/Administrator/management",{
+                    method : "put",
+                    headers : {"Content-Type" : "application/json"},
+                    body : JSON.stringify(checkarr)
+                })
+                .then( resp => resp.text())
+                .then(result =>{
+            
+                    if(result >0){
+                        alert("탈퇴")
+                        location.href =location;
+                        //managementList()
+                    }else{
+                        alert("실패")
+                    }
+                })
+                .catch(e => console.log(e));
+            }else{
+                alert("이미 탈퇴된회원입니다.")
+                checkbox[i].checked =false;
+            }
         }
     }
 
-    fetch("/Administrator/management",{
-        method : "put",
-        headers : {"Content-Type" : "application/json"},
-        body : JSON.stringify(checkarr)
-    })
-    .then( resp => resp.text())
-    .then(result =>{
-        if(result >0){
-            alert("탈퇴")
-            location.href =location;
-            //managementList()
-        }else{
-            alert("실패")
-        }
-    })
-    .catch(e => console.log(e));
+    if(!flags) alert("회원을 선택한후 탈퇴버튼을 눌러주세요!")
     
 })
 
