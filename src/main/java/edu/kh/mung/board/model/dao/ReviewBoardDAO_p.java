@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.kh.mung.board.model.dto.Board;
+import edu.kh.mung.board.model.dto.BoardImage;
 import edu.kh.mung.board.model.dto.Pagination;
 
 @Repository
@@ -40,7 +41,7 @@ public class ReviewBoardDAO_p {
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 
 		// 3) selectList("namespace.id", 파라미터, RowBounds 호출)
-		return sqlSession.selectList("reviewMapper.selectReviewList", boardCode, rowBounds);
+		return sqlSession.selectList("reviewMapper.selectReviewList", null, rowBounds);
 	}
 
 	/** 게시글 목록 조회(검색하기)
@@ -51,7 +52,7 @@ public class ReviewBoardDAO_p {
 		return sqlSession.selectOne("reviewMapper.getListCount_search", paramMap);
 	}
 
-	/** 게시글 목록 조회
+	/** 게시글 목록 조회 (검색하기)
 	 * @param pagination
 	 * @param paramMap
 	 * @return 
@@ -70,7 +71,7 @@ public class ReviewBoardDAO_p {
 	/** DB 이미지(파일) 목록 조회
 	 * @return list
 	 */
-	public List<String> selectImageList() {
+	public List<BoardImage> selectImageList() {
 		return sqlSession.selectList("reviewMapper.selectImageListAll");
 	}
 

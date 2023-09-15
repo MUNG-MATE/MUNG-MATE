@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import edu.kh.mung.board.model.dao.ReviewBoardDAO_p;
 import edu.kh.mung.board.model.dto.Board;
+import edu.kh.mung.board.model.dto.BoardImage;
 import edu.kh.mung.board.model.dto.Pagination;
 
 @Service
@@ -57,7 +58,7 @@ public class ReviewBoardServiceImpl_p implements ReviewBoardService_p{
 	}
 	// Db 이미지(파일) 목록 조회
 	@Override
-	public List<String> selectImageList() {
+	public List<BoardImage> selectImageList() {
 		return dao.selectImageList();
 	}
 	// 게시글 상세 조회

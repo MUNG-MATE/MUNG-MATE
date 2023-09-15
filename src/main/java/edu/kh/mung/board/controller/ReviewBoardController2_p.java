@@ -49,7 +49,7 @@ public class ReviewBoardController2_p {
 	
 	
 	
-	
+	 
 	
 	// 게시글 수정 화면전환
 	@GetMapping("/reviewBoardList/{boardNo}/update")
@@ -61,7 +61,7 @@ public class ReviewBoardController2_p {
 
 		Board board = boardService.selectBoard(map);
 		
-		System.out.println(board);
+		board.setImagePath(board.getImagePath()+board.getImageReName());
 			
 		model.addAttribute("board",board);
 		

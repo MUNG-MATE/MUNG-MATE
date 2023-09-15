@@ -36,24 +36,23 @@
                         
                     <%-- <c:set var="img" value="${img.imagePath}"/> --%>
                       
-                       
+                      
 
 
                     <!-- 업로드 이미지 영역 -->
                     <div class="imgContent">
                         <div class="imageArea">
                             <label for="img" id="labelImg">
-                                <img class="preview" src="${board.imagePath}">
+                                <img id="preview" class="preview" src="${board.imagePath}" onerror="this.style.display='none'" alt=''/>
                             </label>
-                            <input type="file" name="images" class="uploadImg" id="img" accept="image/*">
-                            <span class="delete-image">&times;</span>
+                            <input type="file" name="images" class="uploadImg" id="img" accept="image/*" value="">
+                            <span class="delete-image" id="deleteBtn">&times;</span>
                         </div>
                     </div>
 
                     <!-- 내용 -->
                     <div class="boardContent">
-                        <textarea name="boardContent" placeholder="내용을 입력해주세요.">
-                        ${board.boardContent}</textarea>
+                        <textarea name="boardContent" id="boardContent"  placeholder="내용을 입력해주세요.">${board.boardContent}</textarea>
                     </div>
 
                     <div class="frame">
@@ -81,18 +80,19 @@
     <script>
         const preview = document.getElementsByClassName("preview");
         const uploadImg = document.getElementsByClassName("uploadImg");
-        const deleteImage = document.getElementsByClassName("delete-image");
-
+        const deleteImage = document.getElementsByClassName("delete-image")[0];
+        const deleteBtn = document.getElementById("deleteBtn");
+        
         const deleteSet = new Set();
         // 파일이 선택되거나, 선택 후 취소 되었을 때 
-        for(let i=0; i < inputImage.length; i++){
+        for(let i=0; i < uploadImg.length; i++){
 
        
             // 파일이 선택되거나, 선택 후 취소 되었을 때 
                 uploadImg[i].addEventListener("change", e=>{
             
                 const file = e.target.files[0] // 선택된 파일의 데이터
-
+       
                 if(file != undefined){ // 파일이 선택 되었을 때 == undefined가 아닐때!!
                     const reader = new FileReader(); // 파일을 읽는 객체
                     reader.readAsDataURL(file);
@@ -111,32 +111,33 @@
                     
                 }
             });
-
+        
             // 미리보기 삭제 버튼(x버튼) 
-            deleteImage[i].addEventListener("click", () => {
+            deleteBtn.addEventListener("click", () => {
+                
                 // 미리보기 이미지가 있을 경우
                 if(preview[i].getAttribute("src") != ""){
                     
                     // 미리보기 삭제
                     preview[i].removeAttribute("src");
-
+                
                     // input type="file" 태그의 value를 삭제
                     // *** input type="file"의 value는 ""(빈칸)만 대입 가능 ***
-                    inputImage[i].value = "";
+                    uploadImg[i].value = "";
 
                     // deleteSet에 삭제된 이미지 순서(i) 추가
                     deleteSet.add(i);
         }
     })
         }
-
+        
         // 게시글 수정 시 제목, 내용 작성 여부 검사
         const boardTitle = document.querySelector("[name='boardTitle']")
         const boardContent = document.querySelector("[name='boardContent']")
         const boardUpdateFrm = document.getElementById("boardUpdateFrm");
-
+        
         boardUpdateFrm.addEventListener("submit", e=>{
-
+            
             if(boardTitle.value.trim().length == ""){
                 alert("제목을 입력해주세요!");
                 boardTitle.value = "";

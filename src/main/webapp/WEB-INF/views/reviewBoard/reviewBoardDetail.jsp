@@ -53,12 +53,14 @@
 
             <!-- 이미지 영역 -->
             <div class="h-imgArea">
-                <img src="${board.imagePath}">
+                <img src="${board.imagePath}" onerror="this.style.display='none'" alt=''/>
             </div>
 
             <!-- 내용 영역 -->
             <div class="h-contentArea">
-                <pre>${board.boardContent}</pre>
+                <pre>
+${board.boardContent}
+                </pre>
             </div>
 
             <!-- 목록으로 버튼 영역 -->
@@ -174,6 +176,7 @@
         // 게시글 삭제 버튼이 클릭 되었을 때
         const deleteBtn = document.getElementById("h-deleteBtn");
         if (deleteBtn != null) {
+            
             deleteBtn.addEventListener("click", () => {
 
                 if (confirm("정말 삭제 하시겠습니까?")) {
