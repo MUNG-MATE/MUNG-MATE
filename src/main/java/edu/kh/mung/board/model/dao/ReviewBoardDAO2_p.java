@@ -1,5 +1,6 @@
 package edu.kh.mung.board.model.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -55,6 +56,30 @@ public class ReviewBoardDAO2_p {
 	 */
 	public int boardDelete(Board board) {
 		return sqlSession.update("reviewMapper.boardDelete",board);
+	}
+
+	/** 게시글 작성
+	 * @param board
+	 * @return
+	 */
+	public int boardInsert(Board board) {
+		
+		int result = sqlSession.insert("reviewMapper.boardInsert", board);
+		
+		if(result > 0) result = board.getBoardNo();
+		
+		return result; 
+		
+	}
+
+	/** 이미지 리스트 삽입
+	 * @param uploadList
+	 * @return
+	 */
+	public int insertImageList(List<BoardImage> uploadList) {
+		
+		return sqlSession.insert("reviewMapper.insertImageList", uploadList);
+
 	}
 
 }

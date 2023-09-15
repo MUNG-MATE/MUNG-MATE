@@ -57,6 +57,7 @@
 
                     <div class="frame">
                         <button class="custom-btn btn-5"><span>수정</span></button>
+                        <button type="button" id="backBtn" class="custom-btn btn-5"><span>뒤로가기</span></button>
                     </div>
 
                     <%-- 기존 이미지가 있다가 삭제된 이미지의 순서를 기록 --%>
@@ -156,7 +157,14 @@
 
         })
 
+        // 뒤로가기
+        const backBtn = document.getElementById("backBtn")
 
+        backBtn.addEventListener("click", () => {
+
+               location.href = "/reviewBoard/reviewBoardList/${board.boardNo}?cp=${pagination.currentPage}${sp}";
+
+        })
     </script>
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />

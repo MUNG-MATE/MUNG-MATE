@@ -18,6 +18,7 @@
     <title>리뷰 게시판 목록</title>
 
     <link rel="stylesheet" href="../../../resources/css/reviewBoard/reviewBoardList.css">
+    <script src="https://kit.fontawesome.com/de9012b52d.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -25,7 +26,7 @@
     <jsp:include page="/WEB-INF/views/common/sidebar.jsp" />
     <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
 
-
+     <a href="#" class="scroll-top-btn">Top</a>
     <main>
 
        
@@ -34,6 +35,15 @@
             <h1>리뷰</h1>
         </div>
 
+        <div class="btn-area">
+
+            <!-- 로그인 상태일 경우 글쓰기 버튼 노출 -->
+
+            <c:if test="${!empty loginMember}" >
+                    <a href="/reviewBoard/reviewBoardList/insert"><button id="insertBtn"><i class="fa-solid fa-pen"></i> 글쓰기</button></a>                
+            </c:if>
+
+        </div>
         <c:if test="${!empty param.key}" >
             <h3 style="margin:30px">"${param.query}" 검색결과<h3>
         </c:if>
@@ -53,10 +63,12 @@
                             <div class="h-list">
 
                                 <div>
-                                    <div>NO.${board.boardNo}</div>
-                                    <h2><a id="reviewTitle" href="/reviewBoard/reviewBoardList/${board.boardNo}?cp=${pagination.currentPage}${sp}">${board.boardTitle}</a></h2>
+                                    <div id="first">No.${board.boardNo} &nbsp;<i style="color:rgb(0,30,60)" class="fa-solid fa-grip-lines-vertical"></i>&nbsp; "${board.memberNickname}" 님의 리뷰  </div>
+                                    <br>
+                                    <h2><a id="reviewTitle" href="/reviewBoard/reviewBoardList/${board.boardNo}?cp=${pagination.currentPage}${sp}"><i class="fa-solid fa-play" style="color:rgb(0,30,60);"></i>&nbsp;${board.boardTitle}</a></h2>
                                     <br>                       
-                                    <div>${board.memberNickname} 님 | ${board.boardDate}</div>
+                                    <div id="second">${board.boardDate}</div>
+                                    <div id="third">[조회수공간]</div>
                                 </div>
 
                                 <c:if test="${!empty board.imagePath}">    
@@ -76,15 +88,7 @@
 
         </section>
 
-        <div class="btn-area">
-
-            <!-- 로그인 상태일 경우 글쓰기 버튼 노출 -->
-
-                <c:if test="${!empty loginMember}" >
-                    <a href="/reviewBoard/reviewBoardWrite"><button id="insertBtn">글쓰기</button></a>                
-                </c:if>
-
-        </div>
+       
 
         <!-- 페이지 네이션 영역 -->
         <div class="pagination-area">
@@ -188,6 +192,29 @@
             }
 
         })
+
+        
+        /* 스크롤 함수 */
+        document.addEventListener('DOMContentLoaded', function () {
+            var scrollTopBtn = document.querySelector('.scroll-top-btn');
+
+            window.addEventListener('scroll', function () {
+                if (window.pageYOffset > 500) {
+                    scrollTopBtn.classList.add('show');
+                } else {
+                    scrollTopBtn.classList.remove('show');
+                }
+            });
+
+            scrollTopBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    
     </script>
 
 

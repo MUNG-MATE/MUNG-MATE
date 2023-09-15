@@ -10,10 +10,13 @@
     <title>리뷰 게시판 상세조회</title>
 
     <link rel="stylesheet" href="../../../resources/css/reviewBoard/reviewBoardDetail.css">
+    <script src="https://kit.fontawesome.com/de9012b52d.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
     <jsp:include page="/WEB-INF/views/common/sidebar.jsp" />
     <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
+
 
     <main>
 
@@ -22,7 +25,7 @@
 
             <!-- 제목 영역 -->
             <div>
-                <h1>${board.boardTitle}</h1>
+                <h1><i class="fa-solid fa-play" style="color:rgb(0,30,60);"></i>&nbsp;${board.boardTitle}&nbsp;[댓글수공간]</h1>
             </div>
 
             <!-- 게시글 상단 작성자 정보 영역 -->
@@ -33,18 +36,16 @@
                     <img src="${board.profileImage}" class="h-profileImg">
                 </div>
 
+                
                 <!-- 작성자 상세 정보 영역 -->
                 <div>
 
-                    <p>${board.memberNickname}</p>
+                    <p>NO.${board.boardNo} | ${board.memberNickname} 님의 리뷰</p>
+                    <br>
                     <p>
                         <span>${board.boardDate}</span>
+                        <div>[조회수공간]</div>
                         <span class="h-btnArea">
-                        <c:if test="${board.memberNo == loginMember.memberNo}" >
-                            <button id="h-updateBtn">수정</button>
-                            <button id="h-deleteBtn">삭제</button>
-                        </c:if>
-                   
                         </span>
                     </p>
 
@@ -58,15 +59,23 @@
 
             <!-- 내용 영역 -->
             <div class="h-contentArea">
-                <pre>
-${board.boardContent}
-                </pre>
+                <pre>${board.boardContent}</pre>
             </div>
 
+            
             <!-- 목록으로 버튼 영역 -->
             <div class="h-backListBtnArea">
+                <c:if test="${board.memberNo == loginMember.memberNo}" >
+                <button id="h-updateBtn">수정</button>
+                <button id="h-deleteBtn">삭제</button>
+                </c:if>
                 <button id="h-backListBtn">목록으로</button>
             </div>
+
+
+
+
+
 
             <!-- 댓글 영역 -->
             <div>
