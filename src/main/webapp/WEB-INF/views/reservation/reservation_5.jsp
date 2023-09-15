@@ -16,7 +16,7 @@
     <h4 id="resSubTitle">서비스 정보를 확인하고 결제 방법을 선택해주세요.</h4>
     <!-- ${rs}
     ${rs.petSitterNo} -->
-    ${petSitter.memberNm}
+    
     
     <form action="5" method="post">
         <section id="container">
@@ -32,6 +32,7 @@
                         <td><div>${rs.rsDate} ${rs.rsStartDate}</div></td>
                     </tr>
                     <tr>
+                        <c:set var = "addr" value =  "${fn:split(loginMember.memberAddress, '^^^')}"/>
                         <th>방문 장소</th>
                         <td><div>${addr[1]} ${addr[2]}</div></td>
                     </tr>
@@ -41,12 +42,12 @@
                         <td>
                             <div id="petsitterArea">
                                 <div class="imageArea">
-                                    <img src="/resources/images/reservation/petsitter.png" class="profileImage">
+                                    <img src="${petSitter.profileImg}" class="profileImage">
                                 </div>
                                 <div class="info">
-                                    <div class="petsitterName">OOO 펫시터</div>
-                                    <div class="point">★ 5.0</div>
-                                    <a href="#" class="review">30개의 리뷰</a>
+                                    <div class="petsitterName">${petSitter.memberNm} 펫시터</div>
+                                    <div class="point">${petSitter.location}</div>
+                                    <a href="#" class="review">${petSitter.memberTel}</a>
                                 </div>
                             </div>
                         </td>
@@ -56,7 +57,7 @@
             <div class="containerDiv right">
                 <h2>결제 정보</h2>
                 <span>결제 금액</span>
-                <h3>${rs.servicePrice}</h3>
+                <h3 id="payment_amount">${rs.servicePrice}</h3>
     
                 <span>결제 방법</span>
                 <ul id="payment">
@@ -67,32 +68,39 @@
                 </ul>
             </div>
         </section>
+        <div class="petListArea">
+            <c:forEach var="i" items="${pet}">
+
+                <div class="backgroundArea">
     
-        <table>
-            <tr>
-                <th>펫 프로필</th>
-                <td><div id="petProfile"><img src="/resources/images/reservation/happy.jpg" id="petProfile"></div></td>
-            </tr>
-            <tr>
-                <th>이름</th>
-                <td><div>해피</div></td>
-            </tr>
-            <tr>
-                <th>품종</th>
-                <td><div>똥개</div></td>
-            </tr>
-            <tr>
-                <th>생년월</th>
-                <td><div>2020년 12월</div></td>
-            </tr>
-            <tr>
-                <th>성별</th>
-                <td><div>여자아이</div></td>
-            </tr>
-        </table>
-    
+                    <table>
+                        <tr>
+                            <th>펫 프로필</th>
+                            <td><div id="petProfile"><img src="${i.petProfile}" id="petProfile"></div></td>
+                        </tr>
+                        <tr>
+                            <th>이름</th>
+                            <td><div>${i.petName}</div></td>
+                        </tr>
+                        <tr>
+                            <th>품종</th>
+                            <td><div>${i.petType}</div></td>
+                        </tr>
+                        <tr>
+                            <th>생년월</th>
+                            <td><div>${i.petBirth}</div></td>
+                        </tr>
+                        <tr>
+                            <th>성별</th>
+                            <td><div>${i.petGender}</div></td>
+                        </tr>
+                    </table>
+                </div>
+            </c:forEach>
+
+        </div>
         <div id="btnArea">
-            <button class="btnStyle prev">&lt 이전</button>
+            <button type="button" class="btnStyle prev" onclick="history.go(-3)">&lt 이전</button>
             <button class="btnStyle next">결제</button>
         </div>
 
@@ -103,6 +111,11 @@
         <input type="hidden" name="rsStartDate" value="${rs.rsStartDate}">
         <input type="hidden" name="petSitterNo" id="selectPetSitterNo">
     </form>
+
+    <script src="/resources/js/reservation/reservation_5.js"></script>
+    <script>
+        const rsServicePrice = Number("${rs.servicePrice}");
+    </script>
 
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 </body>

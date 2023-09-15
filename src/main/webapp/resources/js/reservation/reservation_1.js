@@ -3,6 +3,7 @@ const serviceDivTwo = document.getElementsByClassName("serviceDiv-two");
 const serviceDiv2 = document.getElementsByClassName("serviceDiv2");
 const serviceSubSection2 = document.getElementById("serviceSubSection2");
 const serviceSubSection3 = document.getElementById("serviceSubSection3");
+const nextBtn = document.getElementById("nextBtn");
 
 /* serviceDivOne 산책 클릭 시  */
 
@@ -20,7 +21,9 @@ serviceDivOne[0].addEventListener("mouseout", () => {
 })
 
 serviceDivOne[0].addEventListener("click", () => {
+    removeEvent();
     if(!serviceDivOne[0].classList.contains("clicked")) {
+
         
         serviceDivOne[0].classList.add("clicked");
         serviceDivOne[0].classList.remove("hovered");
@@ -36,6 +39,16 @@ serviceDivOne[0].addEventListener("click", () => {
     }
     
 })
+
+function removeEvent(){
+
+    for(let i = 0; i < serviceDiv2.length; i++) {
+
+        serviceDiv2[i].classList.remove("clicked")
+    };
+
+
+}
 
     
 
@@ -56,7 +69,9 @@ serviceDivTwo[0].addEventListener("mouseout", () => {
 })
 
 serviceDivTwo[0].addEventListener("click", () => {
+    removeEvent()
     if(!serviceDivTwo[0].classList.contains("clicked")) {
+
         
         serviceDivTwo[0].classList.add("clicked");
         serviceDivTwo[0].classList.remove("hovered");
@@ -128,6 +143,27 @@ function serviceType(content) {
     // 선택한 내용을 input 요소에 설정
     document.getElementById('selectedService').value = content;
 }
+
+
+nextBtn.addEventListener("click", e => {
+
+    let flag = false;
+
+    for(let i=0; i < serviceDiv2.length; i++){
+
+        if(serviceDiv2[i].classList.contains("clicked")){
+            flag = true;
+            
+        }
+        
+    }
+    
+    if(!flag){
+        alert('서비스를 선택하신 뒤 버튼을 눌러주세요');
+        e.preventDefault();
+
+    }
+})
 
 
 
