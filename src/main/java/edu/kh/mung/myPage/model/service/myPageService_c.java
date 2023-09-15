@@ -37,7 +37,9 @@ public interface myPageService_c {
 	 * @param filePath
 	 * @param pet
 	 * @return result
+	 * @throws IOException 
+	 * @throws IllegalStateException 
 	 */
-	int updatePet(MultipartFile profileImage, String webPath, String filePath, Pet pet);
+	int updatePet(MultipartFile profileImage, String webPath, String filePath, Pet pet) throws IllegalStateException, IOException;
 
 }
