@@ -26,8 +26,8 @@
                     <div class="C-adminApp-title1">펫시터 신청 관리</div>
                     <div class="C-adminapp-div">
                         <select name="C-adminApp-menu" id="C-adminApp-menu" onchange="location.href=this.value">
-                            <option value="/petsitter/admin/petsitterlist1" selected>펫시터 -> 일반회원 신청 내역</option>
-                            <option value="/petsitter/admin/petsitterlist2">일반회원 -> 펫시터 신청 내역</option>
+                            <option value="/petsitter/admin/petsitterlist1" selected>일반회원 -> 펫시터 신청 내역</option>
+                            <option value="/petsitter/admin/petsitterlist2">펫시터 -> 일반회원 신청 내역</option>
                         </select>
                     </div>
                     <div class="C-adminapplist" id="appListtable">
