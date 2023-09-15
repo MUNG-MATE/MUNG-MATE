@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.fileupload.FileUploadException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -24,6 +26,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import edu.kh.mung.board.model.dto.Board;
 import edu.kh.mung.board.model.service.ReviewBoardService2_p;
 import edu.kh.mung.board.model.service.ReviewBoardService_p;
+import edu.kh.mung.member.model.dto.Member;
 
 @Controller
 @RequestMapping("/reviewBoard")
@@ -36,21 +39,47 @@ public class ReviewBoardController2_p {
 	private ReviewBoardService_p boardService;
 	
 	// 게시글 작성 화면전환
-	@GetMapping("/reviewBoardWrite")
+	@GetMapping("/reviewBoardList/insert")
 	public String reviewWrite() {
 		
 		return "reviewBoard/reviewBoardWrite";
 	}
 	
-	
-	
-	
-	
-	
-	
-	
+	// 게시글 작성
+	@PostMapping("/reviewBoardList/insert")
+	public String boardInsert(Board board // 커맨드 객체(필드에 파라미터 담겨있음!)
+			, @RequestParam(value = "images", required = false) List<MultipartFile> images
+			, @SessionAttribute("loginMember") Member loginMember, RedirectAttributes ra, HttpSession session)
+					throws IllegalStateException, IOException, FileUploadException {
+
+
+		// 1. 로그인한 회원 번호를 얻어와서 board에 세팅
+		board.setMemberNo(loginMember.getMemberNo());
+
+		// 3. 업로드된 이미지 서버에 실제로 저장되는 경로
+		// + 웹에서 요청 시 이미지를 볼 수 있는 경로(웹 접근경로)
+		String webPath = "/resources/images/";
+		String filePath = session.getServletContext().getRealPath(webPath);
+		// 서버단위
+
+		// 게시글 삽입 서비스 호출 후 삽입된 게시글 번호 반환 받기
+		int boardNo = service.boardInsert(board, images, webPath, filePath);
+
+		String message = null;
+		String path = "redirect:";
+
+		if (boardNo > 0) { // 성공 시
+			message = "게시글이 등록 되었습니다.";
+			path += "/reviewBoard/reviewBoardList";
+		} else {
+			message = "게시글 등록 실패ㅠㅠ";
+			path += "insert";
+		}
+		ra.addFlashAttribute("message", message);
+
+		return path;
 	 
-	
+	}
 	// 게시글 수정 화면전환
 	@GetMapping("/reviewBoardList/{boardNo}/update")
 	public String reviewUpdate(@PathVariable("boardNo") int boardNo

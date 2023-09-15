@@ -36,10 +36,10 @@ h1{
 
 .imageArea{
     cursor: pointer;
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
     text-align: center;
-    line-height: 500px;
+    margin: 100px;
 }
 
 .uploadImg{
@@ -85,20 +85,18 @@ h1{
 
 .frame {
     display: flex;
-    justify-content: end;
-    width: 90%;
+    justify-content: flex-end;
     margin: 30px auto;
     text-align: center;
 
   }
   button {
-    margin: 20px;
+    margin-left: 10px;
     outline: none;
   }
   .custom-btn {
     width: 130px;
     height: 40px;
-    padding: 10px 25px;
     border: 2px solid #000;
     font-family: 'Lato', sans-serif;
     font-weight: 500;
@@ -151,8 +149,8 @@ h1{
 /* 삭제 버튼 */
 .delete-image{
   position: absolute;
-  top: 170px;
-  right: 700px;
+  top: 500px;
+  right: 755px;
   font-size: 40px;
   cursor: pointer;
 }

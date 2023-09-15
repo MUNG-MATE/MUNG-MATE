@@ -10,23 +10,32 @@ h1{
     font-weight: 1000;
     font-size: 35px;
     margin-top: 100px;
-    margin-left: 50px;
 }
 
 /* 게시글 작성자 프로필 영역 */
 .h-topArea{
-    margin-left: 50px;
     display: flex;
     align-items: center;
     padding-bottom: 15px;
 
     border-bottom: 1px solid #999;
+    padding-top : 20px;
+}
+.h-topArea > div:first-child{
+    width: 100px;
+    height: 100px;
 }
 
+.h-topArea p:first-child{
+
+    font-size: 20px;
+}
 
 /* 프로필 이미지  */
 .h-profileImg{
     padding-right: 30px;
+    width: 100%;
+    height: 100%;
 }
 /* 버튼 영역 */
 .h-btnArea{
@@ -37,12 +46,16 @@ h1{
 #h-updateBtn{
     margin-right: 10px;
 
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+
     font-weight: bold;
-    border: 1px solid black;
+    border: 1px solid rgb(0,30,60);
     border-radius: 5px;
     cursor: pointer;
     background-color: white;
-    color: black;
+    color: rgb(0,30,60);
     transition: all 0.5s;
 }
 
@@ -50,29 +63,33 @@ h1{
     margin-right: 10px;
     font-weight: bold;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid rgb(0,30,60);
     cursor: pointer;
-    background-color: black;
+    background-color: rgb(0,30,60);
     color: white;
     
 }
 
 /* 삭제 버튼 */
 #h-deleteBtn{
-    border: 1px solid black;
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+
+    border: 1px solid rgb(0,30,60);
     border-radius: 5px;
     cursor: pointer;
     background-color: white;
-    color: black;
+    color: rgb(0,30,60);
     transition: all 0.5s;
     font-weight: bold;
 }
 
 #h-deleteBtn:hover{
     border-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid rgb(0,30,60);
     cursor: pointer;
-    background-color: black;
+    background-color: rgb(0,30,60);
     color: white;
     font-weight: bold;
 }
@@ -84,14 +101,13 @@ h1{
     margin-top: 100px;
 }
 .h-imgArea > img{
-    width:300px;
+    width:400px;
 }
 
 /* 내용 영역 */
 .h-contentArea{
 
-    padding-left: 50px;
-    margin-top: 100px;
+    margin: 100px;
 }
 
 
@@ -100,10 +116,8 @@ h1{
 .h-backListBtnArea{
 
     display: flex;
-    justify-content: end;
-    margin-right: 70px;
+    justify-content: flex-end;
     padding-bottom: 40px;
-
 }
 
 /* 목록으로 버튼 */
@@ -113,13 +127,14 @@ h1{
     height: 30px;
     font-size: 15px;
 
-    border: 1px solid black;
+    border: 1px solid rgb(0,30,60);
     border-radius: 5px;
     cursor: pointer;
     background-color: white;
-    color: black;
+    color: rgb(0,30,60);
     transition: all 0.5s;
     font-weight: bold;
+    margin-left: 10px;
 
 }
 
@@ -128,9 +143,9 @@ h1{
     width: 100px;
     font-size: 15px;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid rgb(0,30,60);
     cursor: pointer;
-    background-color: black;
+    background-color: rgb(0,30,60);
     color: white;
     font-weight: bold;
 }
@@ -171,11 +186,11 @@ h1{
     margin-right: 10px;
 
     font-weight: bold;
-    border: 1px solid black;
+    border: 1px solid rgb(0,30,60);
     border-radius: 5px;
     cursor: pointer;
     background-color: white;
-    color: black;
+    color: rgb(0,30,60);
     transition: all 0.5s;
 }
 
@@ -186,9 +201,9 @@ h1{
     margin-right: 10px;
     font-weight: bold;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid rgb(0,30,60);
     cursor: pointer;
-    background-color: black;
+    background-color: rgb(0,30,60);
     color: white;
     
 }
@@ -197,11 +212,11 @@ h1{
 #h-replyDeleteBtn{
     width: 70px;
     height: 30px;
-    border: 1px solid black;
+    border: 1px solid rgb(0,30,60);
     border-radius: 5px;
     cursor: pointer;
     background-color: white;
-    color: black;
+    color: rgb(0,30,60);
     transition: all 0.5s;
     font-weight: bold;
 }
@@ -210,9 +225,9 @@ h1{
     width: 70px;
     height: 30px;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid rgb(0,30,60);
     cursor: pointer;
-    background-color: black;
+    background-color: rgb(0,30,60);
     color: white;
     font-weight: bold;
 }
