@@ -107,9 +107,14 @@ public class myPageServiceImpl_c implements myPageService_c {
 		
 		List<Board> postList = dao.selectMyPostList(pagination,loginMember);
 		
+		System.out.println(listCount);
+		System.out.println(postList);
+		
+		
 		Map<String, Object> map = new HashMap<>();
 		map.put("pagination", pagination);
-		map.put("boardList", postList);
+		map.put("postList", postList);
+		
 		return map;
 	}
 	
