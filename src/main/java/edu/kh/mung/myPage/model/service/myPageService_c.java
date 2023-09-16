@@ -1,9 +1,11 @@
 package edu.kh.mung.myPage.model.service;
 
 import java.io.IOException;
+import java.util.Map;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import edu.kh.mung.member.model.dto.Member;
 import edu.kh.mung.myPage.model.dto.Pet;
 
 public interface myPageService_c {
@@ -41,5 +43,12 @@ public interface myPageService_c {
 	 * @throws IllegalStateException 
 	 */
 	int updatePet(MultipartFile profileImage, String webPath, String filePath, Pet pet) throws IllegalStateException, IOException;
+
+	/** 내 게시글 목록 조회
+	 * @param loginMember
+	 * @param cp
+	 * @return Map
+	 */
+	Map<String, Object> selectMyPostList(Member loginMember, int cp);
 
 }

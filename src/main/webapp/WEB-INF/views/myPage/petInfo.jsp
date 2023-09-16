@@ -22,9 +22,20 @@
     
 	<section id="container">
 
-		
-		<div class="joinPetArea"><button id="joinPet" onclick="location.href='/myPage/petInfo/insert'">등록하기</button></div>
-		
+		<!-- <c:if test="${loginMemberPet.length == 3 }" > -->
+			<div class="joinPetArea"><button id="joinPet" onclick="location.href='/myPage/petInfo/insert'">등록하기</button></div>
+		<!-- </c:if> -->
+
+		<c:if test="${loginMemberPet == null}" >
+			<div class=petInfolistNull>
+				<h2>등록하신 반려견 정보가 없습니다.</h2>
+			</div>
+
+		</c:if>
+
+
+		<c:if test="${loginMemberPet != null}" >
+
 		
 			<div class=petInfolist>
 
@@ -96,7 +107,7 @@
 					</form>
 				</c:forEach>
 			</div>	
-
+		</c:if>
 	</section>
 
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />

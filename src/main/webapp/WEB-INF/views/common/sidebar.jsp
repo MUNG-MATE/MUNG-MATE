@@ -48,7 +48,7 @@
                     <li>
                         <a href='javascript:void(0);'>멍메이트</a>
                         <ul class="sub_gnb">
-                            <li>1</li>
+                            <li><a  href = "/myPage/myPost">내 게시글</a></li>
                             <li>2</li>
                             <li>3</li>
                             <li>4</li>

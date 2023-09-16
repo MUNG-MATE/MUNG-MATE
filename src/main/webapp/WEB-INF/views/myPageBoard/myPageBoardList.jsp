@@ -8,43 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>내 게시글 목록</title>
 
-    <link rel="stylesheet" href="/resources/css/myPageBoardList.css">
+    <link rel="stylesheet" href="/resources/css/myPageBoard/myPageBoardList.css">
 
 </head>
 <body>
 
     <main>
 
-        <header class="head">
-
-            <!-- 로고 영역 -->
-            <div>
-                <a href="#">
-                    <img src="../image/logo.png" alt="" class="headerLogo">
-                </a>
-            </div>
-            
-            <div class="menu">
-
-                <!-- 회원가입 및 로그인 영역 -->
-                <div class="menu-1">
-                    <a href="#">Login</a>
-                    <span>|</span>
-                    <a href="#">Join</a>
-                </div>
-
-
-                <!-- 메뉴 리스트 영역 -->
-                <div class="menu-2">
-                    <a href="#">Info</a>
-                    <a href="#">Matching</a>
-                    <a href="#">Community</a>
-                    <a href="#">Guide</a>
-
-                </div>
-            </div>
-
-        </header>
+        <jsp:include page="/WEB-INF/views/common/sidebar.jsp" />
+    	<jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
 
         <!-- 게시판 제목 영역 -->
         <div>
@@ -142,17 +114,17 @@
         </section>
 
         <!-- 페이지 네이션 영역 -->
-        <div class="pagination"></div>
-
-
-        <!-- footer 영역 -->
-        <footer></footer>
+        <div class="pagination">
+        
+        </div>
 
 
 
 
 
     </main>
+        <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
     
 </body>
 </html>
