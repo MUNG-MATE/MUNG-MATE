@@ -2,13 +2,19 @@ package edu.kh.mung.myPage.model.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import edu.kh.mung.Administrator.model.dto.Pagination;
+import edu.kh.mung.board.model.dto.Board;
 import edu.kh.mung.common.utility.Util;
+import edu.kh.mung.member.model.dto.Member;
 import edu.kh.mung.myPage.model.dao.myPageDAO_c;
 import edu.kh.mung.myPage.model.dto.Pet;
 
@@ -89,6 +95,22 @@ public class myPageServiceImpl_c implements myPageService_c {
 		}
 		
 		return result;
+	}
+
+	// 내 게시글 목록 조회
+	@Override
+	public Map<String, Object> selectMyPostList(Member loginMember, int cp) {
+		
+		int listCount = dao.selectListCount(loginMember);
+		
+		Pagination pagination = new Pagination(cp, listCount);
+		
+		List<Board> postList = dao.selectMyPostList(pagination,loginMember);
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("pagination", pagination);
+		map.put("boardList", postList);
+		return map;
 	}
 	
 }
