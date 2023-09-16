@@ -80,11 +80,32 @@ h1{
 }
 
 .pagination{
-    background-color: aqua;
-    height: 100px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    padding: 0;
+}
+
+.pagination >li{
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.pagination a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 30px;
 }
 
 footer{
     background-color: antiquewhite;
     height: 200px;
 }
+
