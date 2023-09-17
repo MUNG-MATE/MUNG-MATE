@@ -37,8 +37,8 @@ for(let i = 0; i < profileArea.length; i++) {
     })
 }
 
-const petSitterFrm = document.getElementsById("petSitterFrm");
-const profile = document.getElementsById("profileArea");
+// const petSitterFrm = document.getElementsById("petSitterFrm");
+// const profile = document.getElementsById("profileArea");
 
 function selectPetSitterNo(content) {
     console.log(content);
