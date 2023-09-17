@@ -36,7 +36,10 @@
 
                         <!-- 버튼 영역 -->
                         <div class="reply-btn-area">
+
+                            <c:if test="${!empty loginMember.memberNo}" >
                             <button onclick="showInsertReply(${reply.replyNo}, this)">답글</button>   
+                            </c:if>
                                 
                             <!-- 로그인 회원과 댓글 작성자가 같은 경우 -->  
                             <c:if test="${reply.memberNo == loginMember.memberNo}" >

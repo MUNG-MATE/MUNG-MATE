@@ -22,16 +22,18 @@
         <section class="main_container">
             <div class="main_first">
                 <div>새로운 예약 목록</div>
-                <div>""펫시터 님 에게 신청된 새로운 예약 목록 이에요!</div>
+                <div>"[닉네임]"펫시터 님 에게 신청된 새로운 예약 목록 이에요!</div>
             </div>
-
             <div class="main_second">
+
+                <c:forEach items="${rList_p.reservationList}" var="rList">
                 <div>
                     <div class="content">
-                        <div><img id="petPhoto" src="images/dog-profile.jpg"></div>
+                        <div><img id="petPhoto" src="${rList.petProfile}"></div>
                         <hr>
-                        <div class="info">김광수 / 서울 / 강남구 <br> 10월 6일 / 09:00~17:50</div>
+                        <div class="info">${rList.memberNickname} / [예약주소] <br> [방문날짜] / [방문시간]</div>
                         <div class="select-btn"><button id="addTarget" class="custom-btn btn-15">조회</button></div>
+                            <%-- 팝업창  --%>
                             <div id="addTargetPopupLayer" class="popup-layer-close">  
                                 <div class="detail">
                                     <span id="closeBtn">&times</span>
@@ -48,6 +50,7 @@
                         </div>
                     </div>
                 </div>  
+                </c:forEach>
             </div>
 
         </section>
@@ -79,7 +82,7 @@
             });
         });
 
-        
+        /* 팝업창 */
         const addTargetPopupLayer = document.querySelector("#addTargetPopupLayer"); // 팝업 레이어
 
         const closeBtn = document.querySelector("#closeBtn"); // 닫기 버튼
@@ -93,6 +96,26 @@
         closeBtn.addEventListener("click", e => {
         addTargetPopupLayer.classList.toggle("popup-layer-close");
         });
+
+        function selectReservationList(){
+
+            fetch("/selectList")
+            .then(resp => resp.json())
+            .then(reservationList => {
+
+                const content = document.getElementById("content");
+                
+                for(let rList of reservationList){
+                    
+                
+
+                }
+            })
+            .catch(err =>  console.log(err));
+        }
+
+
+
 
     </script>
 

@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="petsitterMapper">
+	
+	<resultMap type="rList_p" id="rList_p_rm">
+		<id property="rsNo" column="RS_NO"/>
+		
+		<result property="memberNo" column="MEMBER_NO"/>
+		<result property="memberName" column="MEMBER_NM"/>
+		<result property="memberNickname" column="MEMBER_NICKNAME"/>
+		<result property="profileImage" column="PROFILE_IMG"/>
+		
+		<result property="rsDate" column="RS_DATE"/>
+		<result property="rsStartDate" column="RS_START_DATE"/>
+		<result property="petSitterNo" column="PETSITTER_NO"/>
+		<result property="serviceNo" column="SERVICE_NO"/>
+		<result property="rsAddress" column="RS_ADDRESS"/>
+		<result property="serviceType" column="SERVICE_TYPE"/>
+		<result property="servicePrice" column="SERVICE_PRICE"/>
+		
+		<result property="petNo" column="PET_NO"/>
+		<result property="petName" column="PET_NM"/>
+		<result property="petType" column="PET_TYPE"/>
+		<result property="petBirth" column="PET_BIRTH"/>
+		<result property="petGender" column="PET_GENDER"/>
+		<result property="petProfile" column="PET_PROFILE"/>
+		<result property="petOption" column="PET_OPTION"/>
+		
+		<collection property="reservationList"
+			select="selectRsList" column="RS_NO"
+			javaType="java.util.ArrayList" ofType="rList_p">
+		</collection>
+		
+	</resultMap>
 
+	<select id="selectRsList" resultMap="rList_p_rm">
+		SELECT RS_NO, MEMBER_NO, MEMBER_NM, MEMBER_NICKNAME, RS_DATE, RS_START_DATE, RS_ADDRESS, SERVICE_TYPE, PET_NM, PET_TYPE, PET_GENDER, PET_PROFILE, PET_OPTION
+		FROM RESERVATION
+		JOIN MEMBER USING(MEMBER_NO)
+		JOIN SERVICE USING(SERVICE_NO)
+		JOIN PET USING(MEMBER_NO)
+	</select>
+	
 	
 </mapper>

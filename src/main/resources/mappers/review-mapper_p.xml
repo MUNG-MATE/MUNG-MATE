@@ -21,6 +21,12 @@
 		<result property="readCount" column="READ_COUNT" />
 		<result property="replyCount" column="REPLY_COUNT" />
 		
+
+		<collection property="replyList"
+			select="selectReplyList" column="BOARD_NO"
+			javaType="java.util.ArrayList" ofType="Reply">
+		</collection>
+		
 		
 
 	</resultMap>
@@ -123,7 +129,6 @@
 		BOARD_ST = 'N'
 		AND BOARD_CD
 		= 6
-		ORDER BY BOARD_DT DESC
 
 
 		<choose>
