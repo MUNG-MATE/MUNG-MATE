@@ -95,7 +95,7 @@ public class NoticeController_o {
 		
 		model.addAttribute("administrator", administrator);
 		
-		return "/Administrator/noticeUpdate";
+		return "/Administrator/noticeUpdate"; 
 	}
 	
 	
@@ -111,7 +111,6 @@ public class NoticeController_o {
 		int result = service.noticeUpdate(administrator);
 		int boardCode = administrator.getBoardCode();
 		
-		System.out.println(administrator);
 		
 		String path = "redirect:/";
 		String message;
