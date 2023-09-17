@@ -83,6 +83,14 @@ public class ReviewBoardDAO_p {
 		return sqlSession.selectOne("reviewMapper.selectBoard", map);
 	}
 
+	/**조회수 증가
+	 * @param boardNo
+	 * @return
+	 */
+	public int updateReadCount(int boardNo) {
+		return sqlSession.update("reviewMapper.updateReadCount", boardNo);
+	}
+
 }
 
 

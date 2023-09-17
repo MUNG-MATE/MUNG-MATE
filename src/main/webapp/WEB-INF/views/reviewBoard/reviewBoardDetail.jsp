@@ -27,7 +27,7 @@
 
             <!-- 제목 영역 -->
             <div>
-                <h1><i class="fa-solid fa-play" style="color:rgb(0,30,60);"></i>&nbsp;${board.boardTitle}&nbsp;[댓글수공간]</h1>
+                <h1><i class="fa-solid fa-play" style="color:rgb(0,30,60);"></i>&nbsp;${board.boardTitle}</h1>
             </div>
 
             <!-- 게시글 상단 작성자 정보 영역 -->
@@ -46,7 +46,7 @@
                     <br>
                     <p>
                         <span>${board.boardDate}</span>
-                        <div>[조회수공간]</div>
+                        <div><i class="fa-regular fa-eye"></i>&nbsp;${board.readCount}</div>
                         <span class="h-btnArea">
                         </span>
                     </p>

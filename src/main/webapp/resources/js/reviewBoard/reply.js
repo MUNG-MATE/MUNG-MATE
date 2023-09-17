@@ -23,7 +23,7 @@ function selectReplyList(){
 
         // 화면에 출력되어 있는 댓글 목록 삭제
         const replyList = document.getElementById("replyList"); // ul태그
-        replyList.innerHTML = "";
+        replyList.innerText = "";
 
         // cList에 저장된 요소를 하나씩 접근
         for(let reply of cList){
@@ -66,7 +66,7 @@ function selectReplyList(){
             // 댓글 내용
             const replyContent = document.createElement("p");
             replyContent.classList.add("reply-content");
-            replyContent.innerHTML = reply.replyContent;
+            replyContent.innerText = reply.replyContent;
 
             // 행에 작성자, 내용 추가
             replyRow.append(replyWriter, replyContent);
@@ -79,12 +79,12 @@ function selectReplyList(){
                 replyBtnArea.classList.add("reply-btn-area");
 
                 // 답글 버튼
-                const childreplyBtn = document.createElement("button");
-                childreplyBtn.setAttribute("onclick", "showInsertreply("+reply.replyNo+", this)");
-                childreplyBtn.innerText = "답글";
+                const childReplyBtn = document.createElement("button");
+                childReplyBtn.setAttribute("onclick", "showInsertReply("+reply.replyNo+", this)");
+                childReplyBtn.innerText = "답글";
 
                 // 버튼 영역에 답글 버튼 추가
-                replyBtnArea.append(childreplyBtn);
+                replyBtnArea.append(childReplyBtn);
 
                 // 로그인한 회원번호와 댓글 작성자의 회원번호가 같을 때만 버튼 추가
                 if( loginMemberNo == reply.memberNo   ){
@@ -94,14 +94,14 @@ function selectReplyList(){
                     updateBtn.innerText = "수정";
 
                     // 수정 버튼에 onclick 이벤트 속성 추가
-                    updateBtn.setAttribute("onclick", "showUpdatereply("+reply.replyNo+", this)");                        
+                    updateBtn.setAttribute("onclick", "showUpdateReply("+reply.replyNo+", this)");                        
 
 
                     // 삭제 버튼
                     const deleteBtn = document.createElement("button");
                     deleteBtn.innerText = "삭제";
                     // 삭제 버튼에 onclick 이벤트 속성 추가
-                    deleteBtn.setAttribute("onclick", "deletereply("+reply.replyNo+")");                       
+                    deleteBtn.setAttribute("onclick", "deleteReply("+reply.replyNo+")");                       
 
 
                     // 버튼 영역 마지막 자식으로 수정/삭제 버튼 추가
@@ -130,10 +130,10 @@ function selectReplyList(){
 
 
 // 댓글 등록
-const addreply = document.getElementById("addreply");
+const addReply = document.getElementById("addReply");
 const replyContent = document.getElementById("replyContent");
 
-addreply.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 되었을 때
+addReply.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 되었을 때
 
     // 1) 로그인이 되어있나? -> 전역변수 memberNo 이용
     if(loginMemberNo == ""){ // 로그인 X
@@ -180,7 +180,7 @@ addreply.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 �
 
 // -----------------------------------------------------------------------------------
 // 댓글 삭제
-function deletereply(replyNo){
+function deleteReply(replyNo){
 
     if( confirm("정말로 삭제 하시겠습니까?") ){
 
@@ -209,10 +209,10 @@ function deletereply(replyNo){
 // ------------------------------------------------------------------------------------------
 // 댓글 수정 화면 전환 
 
-let beforereplyRow; // 수정 전 원래 행의 상태를 저장할 변수
+let beforeReplyRow; // 수정 전 원래 행의 상태를 저장할 변수
 
 
-function showUpdatereply(replyNo, btn){
+function showUpdateReply(replyNo, btn){
                      // 댓글번호, 이벤트발생요소(수정버튼)
 
     // ** 댓글 수정이 한 개만 열릴 수 있도록 만들기 **
@@ -223,7 +223,7 @@ function showUpdatereply(replyNo, btn){
 
         if(confirm("다른 댓글이 수정 중입니다. 현재 댓글을 수정 하시겠습니까?")){ // 확인
 
-            temp[0].parentElement.innerHTML = beforereplyRow;
+            temp[0].parentElement.innerText = beforeReplyRow;
             // reply-row                       // 백업한 댓글
             // 백업 내용으로 덮어 씌워 지면서 textarea 사라짐
        
@@ -238,19 +238,19 @@ function showUpdatereply(replyNo, btn){
 
     // 2. 행 내용 삭제 전 현재 상태를 저장(백업) (문자열)
     //    (전역변수 이용)
-    beforereplyRow = replyRow.innerHTML;
+    beforeReplyRow = replyRow.innerText;
 
 
     // 3. 댓글에 작성되어 있던 내용만 얻어오기 -> 새롭게 생성된 textarea 추가될 예정
     
-    let beforeContent = replyRow.children[1].innerHTML;
+    let beforeContent = replyRow.children[1].innerText;
 
     // 이것도 가능!
-    //let beforeContent = btn.parentElement.previousElementSibling.innerHTML;
+    //let beforeContent = btn.parentElement.previousElementSibling.innerText;
 
 
     // 4. 댓글 행 내부 내용을 모두 삭제
-    replyRow.innerHTML = "";
+    replyRow.innerText = "";
 
     // 5. textarea 요소 생성 + 클래스 추가  +  **내용 추가**
     const textarea = document.createElement("textarea");
@@ -277,7 +277,7 @@ function showUpdatereply(replyNo, btn){
 
     const updateBtn = document.createElement("button");
     updateBtn.innerText = "수정";
-    updateBtn.setAttribute("onclick", "updatereply("+replyNo+", this)");
+    updateBtn.setAttribute("onclick", "updateReply("+replyNo+", this)");
 
 
     const cancelBtn = document.createElement("button");
@@ -297,16 +297,16 @@ function showUpdatereply(replyNo, btn){
 // 댓글 수정 취소
 function updateCancel(btn){
     // 매개변수 btn : 클릭된 취소 버튼
-    // 전역변수 beforereplyRow : 수정 전 원래 행(댓글)을 저장한 변수
+    // 전역변수 beforeReplyRow : 수정 전 원래 행(댓글)을 저장한 변수
 
     if(confirm("댓글 수정을 취소하시겠습니까?")){
-        btn.parentElement.parentElement.innerHTML = beforereplyRow;
+        btn.parentElement.parentElement.innerText = beforeReplyRow;
     }
 }
 
 // -----------------------------------------------------------------------------------
 // 댓글 수정(AJAX)
-function updatereply(replyNo, btn){
+function updateReply(replyNo, btn){
 
     // 새로 작성된 댓글 내용 얻어오기
     const replyContent = btn.parentElement.previousElementSibling.value;
@@ -338,7 +338,7 @@ function updatereply(replyNo, btn){
 // 답글 작성 화면 추가 
 // -> 답글 작성 화면은 전체 화면에 1개만 존재 해야한다!
 
-function showInsertreply(parentNo, btn){
+function showInsertReply(parentNo, btn){
                         // 부모 댓글 번호, 클릭한 답글 버튼
 
 
@@ -372,7 +372,7 @@ function showInsertreply(parentNo, btn){
 
     const insertBtn = document.createElement("button");
     insertBtn.innerText = "등록";
-    insertBtn.setAttribute("onclick", "insertChildreply("+parentNo+", this)");
+    insertBtn.setAttribute("onclick", "insertChildReply("+parentNo+", this)");
 
 
     const cancelBtn = document.createElement("button");
@@ -397,7 +397,7 @@ function insertCancel(btn){
 
 
 // 답글 등록
-function insertChildreply(parentNo, btn){
+function insertChildReply(parentNo, btn){
                         // 부모 댓글 번호, 답글 등록 버튼
 
     // 누가?                loginMemberNo(로그인한 회원의 memberNo )(전역변수)

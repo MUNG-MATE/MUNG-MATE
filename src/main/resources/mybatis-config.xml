@@ -25,6 +25,8 @@
      <typeAlias type="edu.kh.mung.reservation.model.dto.Pet2" alias="Pet2"/>
      <typeAlias type="edu.kh.mung.reservation.model.dto.PetSitter" alias="PetSitter"/>
      <typeAlias type="edu.kh.mung.reservation.model.dto.Reservation" alias="Reservation"/>
+     <typeAlias type="edu.kh.mung.myPage.model.dto.rList_p" alias="rList_p" />
+     
    </typeAliases>
    
    <!-- ★★ mapper 파일(SQL 작성되는파일) 위치 등록 부분 ★★ -->

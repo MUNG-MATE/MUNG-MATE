@@ -66,5 +66,10 @@ public class ReviewBoardServiceImpl_p implements ReviewBoardService_p{
 	public Board selectBoard(Map<String, Object> map) {
 		return dao.selectBoard(map);
 	}
+	//조회수 증가 서비스
+	@Override
+	public int updateReadCount(int boardNo) {
+		return dao.updateReadCount(boardNo);
+	}
 
 }

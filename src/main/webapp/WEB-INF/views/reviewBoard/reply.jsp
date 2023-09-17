@@ -16,7 +16,7 @@
                             <!-- 프로필 이미지 -->
                             <c:if test="${empty reply.profileImage}" >
                                 <%-- 없을 경우 기본 이미지 --%>
-                                <img src="/resources/images/user.png">
+                                <img src="../../../resources/images/user.png">
                             </c:if>
                             <c:if test="${!empty reply.profileImage}" >
                                 <%-- 없을 경우 기본 이미지 --%>
@@ -36,12 +36,12 @@
 
                         <!-- 버튼 영역 -->
                         <div class="reply-btn-area">
-                            <button onclick="showInsertreply(${reply.replyNo}, this)">답글</button>   
+                            <button onclick="showInsertReply(${reply.replyNo}, this)">답글</button>   
                                 
                             <!-- 로그인 회원과 댓글 작성자가 같은 경우 -->  
                             <c:if test="${reply.memberNo == loginMember.memberNo}" >
-                                <button onclick="showUpdatereply(${reply.replyNo}, this)">수정</button>     
-                                <button onclick="deletereply(${reply.replyNo})">삭제</button>
+                                <button onclick="showUpdateReply(${reply.replyNo}, this)">수정</button>     
+                                <button onclick="deleteReply(${reply.replyNo})">삭제</button>
                             </c:if>
                         </div>
                     </li>
@@ -58,7 +58,7 @@
     <!-- 댓글 작성 부분 -->
     <div class="reply-write-area">
         <textarea id="replyContent"></textarea>
-        <button id="addreply">
+        <button id="addReply">
             댓글<br>
             등록
         </button>

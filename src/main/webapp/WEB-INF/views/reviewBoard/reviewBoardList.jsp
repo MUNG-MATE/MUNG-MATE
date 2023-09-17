@@ -65,10 +65,10 @@
                                 <div>
                                     <div id="first">No.${board.boardNo} &nbsp;<i style="color:rgb(0,30,60)" class="fa-solid fa-grip-lines-vertical"></i>&nbsp; "${board.memberNickname}" 님의 리뷰  </div>
                                     <br>
-                                    <h2><a id="reviewTitle" href="/reviewBoard/reviewBoardList/${board.boardNo}?cp=${pagination.currentPage}${sp}"><i class="fa-solid fa-play" style="color:rgb(0,30,60);"></i>&nbsp;${board.boardTitle}</a></h2>
+                                    <h2><a id="reviewTitle" href="/reviewBoard/reviewBoardList/${board.boardNo}?cp=${pagination.currentPage}${sp}"><i class="fa-solid fa-play" style="color:rgb(0,30,60);"></i>&nbsp;${board.boardTitle}&nbsp;[${board.replyCount}]</a></h2>
                                     <br>                       
-                                    <div id="second">${board.boardDate}</div>
-                                    <div id="third">[조회수공간]</div>
+                                    <div id="second" style="font-size:small">${board.boardDate}</div>
+                                    <div id="third"><i class="fa-regular fa-eye" style="color:rgb(0,30,60)"></i>&nbsp;${board.readCount}</div>
                                 </div>
 
                                 <c:if test="${!empty board.imagePath}">    

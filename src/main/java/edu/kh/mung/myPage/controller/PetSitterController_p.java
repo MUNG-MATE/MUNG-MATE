@@ -10,10 +10,18 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @RequestMapping("/petsitter")
 public class PetSitterController_p {
 	
-	@GetMapping("/reservationList")
-	public String reservationList() {
+//	//화면 전환
+//	@GetMapping("/reservationList_p")
+//	public String reservationList() {
+//		
+//		return "petsitter/reservationList_p";
+//	}
+//	
+	//펫시터 예약목록 조회
+	@GetMapping("/reservationList_p")
+	public String selectRvList() {
 		
-		return "petsitter/reservationList";
+		return "petsitter/reservationList_p";
 	}
 
 }
