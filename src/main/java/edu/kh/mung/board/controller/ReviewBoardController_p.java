@@ -54,7 +54,7 @@ public class ReviewBoardController_p {
 
 			List<BoardImage> selectImageList = service.selectImageList();
 
-			System.out.println(selectImageList);
+			//System.out.println(selectImageList);
 
 			model.addAttribute("imageList", selectImageList);
 			// 조회 결과를 request scope에 세팅 후 forward

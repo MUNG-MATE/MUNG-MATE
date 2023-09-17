@@ -10,8 +10,8 @@
     <title>리뷰 게시판 상세조회</title>
 
     <link rel="stylesheet" href="../../../resources/css/reviewBoard/reviewBoardDetail.css">
-    <script src="https://kit.fontawesome.com/de9012b52d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../../../resources/css/reviewBoard/reply-style.css">
+    <script src="https://kit.fontawesome.com/de9012b52d.js" crossorigin="anonymous"></script>
 
 
 </head>
