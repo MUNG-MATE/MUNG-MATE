@@ -13,6 +13,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,6 +24,7 @@ import edu.kh.mung.member.model.dto.Member;
 import edu.kh.mung.myPage.model.dto.Pet;
 import edu.kh.mung.reservation.model.dto.PetSitter;
 import edu.kh.mung.reservation.model.dto.Reservation;
+import edu.kh.mung.reservation.model.dto.ServiceType;
 import edu.kh.mung.reservation.model.service.ReservationService_h;
 
 @Controller
@@ -34,17 +36,21 @@ public class ReservationController_h {
 	private ReservationService_h service;
 
 	@GetMapping("/1")
-	public String reservation1() {
+	public String reservation1(ServiceType st, Model model) {
+		
+//		List<ServiceType> stNo = service.serviceType(st);
+		
+		model.addAttribute("st", st);
+		System.out.println("st 확인 : " + st);
 		return "/reservation/reservation_1";
 	}
 	
 	
 	@PostMapping("/1")
-	public String reservationType(Model model,Reservation rs, @RequestHeader("referer") String referer) {
-		
+	public String reservationType(Model model,Reservation rs) {
+		 
 		 model.addAttribute("rs", rs);
 		System.out.println("rs1 : "+ rs);
-		
 		return "/reservation/reservation_2";
 	}
 	
@@ -57,15 +63,14 @@ public class ReservationController_h {
 	public String reservationDate(Model model,Reservation rs, HttpSession session
 								, @SessionAttribute(value="loginMember", required = false) Member loginMember
 								, @SessionAttribute(value="loginMemberPet", required=false) Pet pet
-								, @RequestHeader("referer") String referer) {
+								, @RequestHeader("referer") String referer
+								, String[] rsAddress) {
 		
-//		Member loginMember = (Member) session.getAttribute("loginMember");
 		
 		rs.setMemberNo(loginMember.getMemberNo());
 		
 		//펫시터 정보 얻어오기
 		List<PetSitter> petSitterList = service.selectPetSitter(rs);
-		System.out.println("petSitter : " + petSitterList);
 		rs.setPetSitterList(petSitterList);
 		
 		
@@ -73,9 +78,6 @@ public class ReservationController_h {
 		model.addAttribute("pet", pet);
 		
 		
-		
-		
-		System.out.println("loginMember : " + loginMember.getMemberNo());
 		System.out.println("rs2 : " + rs);
 		return "/reservation/reservation_4";
 	}
@@ -102,7 +104,8 @@ public class ReservationController_h {
 	public String reservationPetSitter(Model model,Reservation rs, HttpSession session,
 									@SessionAttribute("loginMember") Member loginMember,
 									@SessionAttribute("loginMemberPet") List<Pet> pet,
-									@RequestHeader("referer") String referer) {
+									@RequestHeader("referer") String referer,
+									String[] rsAddress) {
 		
 		List<PetSitter> petSitterList = service.selectPetSitter(rs);
 		rs.setPetSitterList(petSitterList);
@@ -111,10 +114,6 @@ public class ReservationController_h {
 		rs.setMemberNo(loginMember.getMemberNo());
 		int petSitterNo = rs.getPetSitterNo();
 		
-		// 로그인한 회원의 반려견 조회
-		System.out.println(pet);
-		
-
 		
 		// 받아온 petSitterNo로 선택한 펫시터 조회
 		PetSitter petSitter = service.choicePetSitter(petSitterNo);
@@ -134,15 +133,13 @@ public class ReservationController_h {
 	
 	
 	
-//	@GetMapping("/5")
-//	public String reservation5(Model model, Reservation rs, HttpSession session) {
-//		
-//		
-//		
-//		
-//		
-//		return "/reservation/reservation_5";
-//	}
+	@GetMapping("/5")
+	public String reservation5(Model model, Reservation rs, HttpSession session,
+								@SessionAttribute("loginMember") Member loginMember,
+								@SessionAttribute("loginMemberPet") List<Pet> pet) {
+		System.out.println("rs5 : " + rs);
+		return "/reservation/reservation_5";
+	}
 	
 	@PostMapping("/5")
 	public String reservationPayment(Model model, Reservation rs, HttpSession session) {

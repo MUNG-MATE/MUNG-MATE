@@ -144,6 +144,13 @@ function serviceType(content) {
     document.getElementById('selectedService').value = content;
 }
 
+function serviceNo(content) {
+    console.log(content);
+    
+    // 선택한 내용을 input 요소에 설정
+    document.getElementById('selectServiceNo').value = content;
+}
+
 
 nextBtn.addEventListener("click", e => {
 
@@ -164,6 +171,9 @@ nextBtn.addEventListener("click", e => {
 
     }
 })
+
+
+
 
 
 

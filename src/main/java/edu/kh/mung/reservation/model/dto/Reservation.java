@@ -18,6 +18,7 @@ public class Reservation {
 	private int memberNo;	// 회원 번호
 	private int serviceNo;	// 서비스 번호
 	
+	private String rsAddress; // 입력한 주소
 	private String serviceType; // 타입
 	private String serviceTime; // 시간
 	private int servicePrice;  // 금액

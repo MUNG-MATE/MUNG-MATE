@@ -35,29 +35,29 @@
             </section>
         
             <section id="serviceSubSection2">
-                <div class="serviceDiv2 circle2" onclick="servicePrice('20000'),serviceTime('30분') ">
+                <div class="serviceDiv2 circle2" onclick="servicePrice('20000'),serviceTime('30분'),serviceNo('1')">
                     <div>30분<br>20,000원</div>
                 </div>
             
-                <div class="serviceDiv2 circle2" onclick="servicePrice('30000'),serviceTime('60분')">
+                <div class="serviceDiv2 circle2" onclick="servicePrice('30000'),serviceTime('60분'),serviceNo('2')">
                     <div>60분<br>30,000원</div>
                 </div>
             
-                <div class="serviceDiv2 circle2" onclick="servicePrice('45000'),serviceTime('120분')">
+                <div class="serviceDiv2 circle2" onclick="servicePrice('45000'),serviceTime('120분'),serviceNo('3')">
                     <div>120분<br>45,000원</div>
                 </div>
             </section>
             
             <section id="serviceSubSection3">
-                <div class="serviceDiv2 circle2" onclick="servicePrice('15000'),serviceTime('30분')">
+                <div class="serviceDiv2 circle2" onclick="servicePrice('15000'),serviceTime('30분'),serviceNo('4')">
                     <div>30분<br>15,000원</div>
                 </div>
             
-                <div class="serviceDiv2 circle2" onclick="servicePrice('25000'),serviceTime('60분')">
+                <div class="serviceDiv2 circle2" onclick="servicePrice('25000'),serviceTime('60분'),serviceNo('5')">
                     <div>60분<br>25,000원</div>
                 </div>
             
-                <div class="serviceDiv2 circle2" onclick="servicePrice('40000'),serviceTime('120분')">
+                <div class="serviceDiv2 circle2" onclick="servicePrice('40000'),serviceTime('120분'),serviceNo('6')">
                     <div>120분<br>40,000원</div>
                 </div>
             </section>
@@ -69,6 +69,7 @@
             <input type="hidden" name="servicePrice" id="selectMoney" readonly>
             <input type="hidden" name="serviceTime" id="selectTime" readonly>
             <input type="hidden" name="serviceType" id="selectedService" readonly>
+            <input type="hidden" name="serviceNo" id="selectServiceNo" readonly>
         </form>
         
     </div>

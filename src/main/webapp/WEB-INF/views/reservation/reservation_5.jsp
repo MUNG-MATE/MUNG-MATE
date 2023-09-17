@@ -14,8 +14,8 @@
 <body>
     <h1 id="resTitle">결제</h1>
     <h4 id="resSubTitle">서비스 정보를 확인하고 결제 방법을 선택해주세요.</h4>
-    <!-- ${rs}
-    ${rs.petSitterNo} -->
+    ${rs}
+    <!-- ${rs.petSitterNo} -->
     
     
     <form action="5" method="post">
@@ -32,9 +32,9 @@
                         <td><div>${rs.rsDate} ${rs.rsStartDate}</div></td>
                     </tr>
                     <tr>
-                        <c:set var = "addr" value =  "${fn:split(loginMember.memberAddress, '^^^')}"/>
+                        <!-- <c:set var = "addr" value =  "${fn:split(rs.rsAddress, '^^^')}"/> -->
                         <th>방문 장소</th>
-                        <td><div>${addr[1]} ${addr[2]}</div></td>
+                        <td><div>${rs.rsAddress}</div></td>
                     </tr>
                    
                     <tr>
@@ -51,11 +51,30 @@
                                 </div>
                             </div>
                         </td>
+
+                    </tr>
+
+                    <tr>
+                        
+                        <th>결제 금액</th>
+                        <td><div id="payment_amount"></div></td>
                     </tr>
                 </table>
             </div>
             <div class="containerDiv right">
-                <h2>결제 정보</h2>
+
+                <c:forEach var="i" items="${pet}">
+
+                    <div class="backgroundArea">
+        
+                        <div id="petProfile"><img src="${i.petProfile}" id="petProfile"></div>
+                        
+                        ${i.petName}
+                        
+                    </div>
+                </c:forEach>
+
+                <!-- <h2>결제 정보</h2>
                 <span>결제 금액</span>
                 <h3 id="payment_amount">${rs.servicePrice}</h3>
     
@@ -65,38 +84,14 @@
                     <li>계좌이체</li>
                     <li>무통장 입금</li>
                     <li>카카오페이</li>
-                </ul>
+                </ul> -->
             </div>
-        </section>
-        <div class="petListArea">
-            <c:forEach var="i" items="${pet}">
 
-                <div class="backgroundArea">
-    
-                    <table>
-                        <tr>
-                            <th>펫 프로필</th>
-                            <td><div id="petProfile"><img src="${i.petProfile}" id="petProfile"></div></td>
-                        </tr>
-                        <tr>
-                            <th>이름</th>
-                            <td><div>${i.petName}</div></td>
-                        </tr>
-                        <tr>
-                            <th>품종</th>
-                            <td><div>${i.petType}</div></td>
-                        </tr>
-                        <tr>
-                            <th>생년월</th>
-                            <td><div>${i.petBirth}</div></td>
-                        </tr>
-                        <tr>
-                            <th>성별</th>
-                            <td><div>${i.petGender}</div></td>
-                        </tr>
-                    </table>
-                </div>
-            </c:forEach>
+            
+        </section>
+        
+        <div class="petListArea">
+            
 
         </div>
         <div id="btnArea">
@@ -110,6 +105,8 @@
         <input type="hidden" name="rsDate" value="${rs.rsDate}">
         <input type="hidden" name="rsStartDate" value="${rs.rsStartDate}">
         <input type="hidden" name="petSitterNo" id="selectPetSitterNo">
+        <input type="hidden" name="serviceNo" id="serviceNo" value="${rs.serviceNo}">
+        <input type="hidden" name="rsAddress" value="${rs.rsAddress}">
     </form>
 
     <script src="/resources/js/reservation/reservation_5.js"></script>

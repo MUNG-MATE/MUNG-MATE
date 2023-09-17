@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +14,7 @@
 
 <body>
     <!-- 헤더 -->
-     <jsp:include page="/WEB-INF/views/common/header.jsp" />
+    <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
 
     <!-- 컨텐츠 -->
     <div class="content">
@@ -59,78 +61,41 @@ Mung Mate 개발자 일동
             
         </div>
         <!-- 펫시터 소개 -->
+        <h1>Mung Mate의 펫시터를 소개합니다.</h1>
         <div class="PetsitterInformation">
-            <h1>Mung Mate의 펫시터를 소개합니다.</h1>
-            <!-- 첫번쨰 행 -->
-            <div class="row1">
-                <!-- 소개란 하나 -->
-                <div class="col1">
-                    <div class="petSitterInfo">
-                        <img src= "../../resources/images/강아지증명사진.jpg">
-                            <span>이름 : 멍멍이</span><br>
-                            <span>지역 : 서울</span><br>
-                            <span>멍멍 대학 냥냥과 졸업</span><br>
-                            <span>애견지도사 자격증 보유</span><br>
-                    </div>
-                </div>
+            
 
-                <div class="col2">
-                    <div class="petSitterInfo">
-                        <img src= "../../resources/images/강아지증명사진.jpg">
-                            <span>이름 : 멍멍이</span><br>
-                            <span>지역 : 서울</span><br>
-                            <span>멍멍 대학 냥냥과 졸업</span><br>
-                            <span>애견지도사 자격증 보유</span><br>
+            <c:forEach var="i" items="${petSitterList}">
+                <div class="profileArea" id="profileArea">
+                    <div class="imageArea">
+                        <img src=${i.profileImg} class="profileImage">
+                    </div>
+                    <div class="info">
+                        <div class="petsitterName">${i.memberNm} 펫시터</div>
+                    </div>
+                    <div>
+                        <p class="history" name="location">선호 지역 : ${i.location}</p>
+                        <p class="history" name="memberTel">전화번호 : ${i.memberTel}</p>
+                        <p class="history" name="memberEmail">이메일 : ${i.memberEmail}</p>
+                        <button type="button" class="wishListBtn">찜콩</button>
+                        <input type="hidden" value="${i.petSitterNo}" class="petSitterNo">
                     </div>
                 </div>
-
-                <div class="col3">
-                    <div class="petSitterInfo">
-                        <img src= "../../resources/images/강아지증명사진.jpg">
-                            <span>이름 : 멍멍이</span><br>
-                            <span>지역 : 서울</span><br>
-                            <span>멍멍 대학 냥냥과 졸업</span><br>
-                            <span>애견지도사 자격증 보유</span><br>
-                    </div>
-                </div>
-            </div>
-
-             <!-- 두번째 행 -->
-            <div class="row2">
-                <div class="col1">
-                    <div class="petSitterInfo">
-                        <img src= "../../resources/images/강아지증명사진.jpg">
-                            <span>이름 : 멍멍이</span><br>
-                            <span>지역 : 서울</span><br>
-                            <span>멍멍 대학 냥냥과 졸업</span><br>
-                            <span>애견지도사 자격증 보유</span><br>
-                    </div>
-                </div>
-
-                <div class="col2">
-                    <div class="petSitterInfo">
-                        <img src= "../../resources/images/강아지증명사진.jpg">
-                            <span>이름 : 멍멍이</span><br>
-                            <span>지역 : 서울</span><br>
-                            <span>멍멍 대학 냥냥과 졸업</span><br>
-                            <span>애견지도사 자격증 보유</span><br>
-                    </div>
-                </div>
-
-                <div class="col3">
-                    <div class="petSitterInfo">
-                        <img src= "../../resources/images/강아지증명사진.jpg">
-                            <span>이름 : 멍멍이</span><br>
-                            <span>지역 : 서울</span><br>
-                            <span>멍멍 대학 냥냥과 졸업</span><br>
-                            <span>애견지도사 자격증 보유</span><br>
-                    </div>
-                </div>
-            </div>
+            </c:forEach>
+            ${loginMember.memberNo}
+            
 
         </div>
     </div>
 
+    <script>
+
+        const memberNo = ${loginMember.memberNo};
+        // const loginMember = ${loginMember};
+    </script>
+
+    
+    <script src="/resources/js/info.js"></script>
 </body>
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 

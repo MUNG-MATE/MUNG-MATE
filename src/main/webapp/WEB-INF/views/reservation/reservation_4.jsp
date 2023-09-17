@@ -15,10 +15,10 @@
 <body>
 	<h1 id="resTitle">예약 서비스[4/4]</h1>
     <h4 id="resSubTitle">펫시터를 선택해주세요.</h4>
-    212155151551  ${rs}
-    
+    ${rs.rsAddress}
+    ${rs.petSitterList}
     <h2>펫시터 프로필</h2>
-    <form action="4" method="post" id="petSitterFrm">
+    <form action="4" method="post">
 
         <section id="container">
 
@@ -52,6 +52,8 @@
         <input type="hidden" name="rsDate" value="${rs.rsDate}">
         <input type="hidden" name="rsStartDate" value="${rs.rsStartDate}">
         <input type="hidden" name="petSitterNo" id="selectPetSitterNo">
+        <input type="hidden" name="serviceNo" id="serviceNo" value="${rs.serviceNo}">
+        <input type="hidden" name="rsAddress" value="${rs.rsAddress}">
         
         
     </form>

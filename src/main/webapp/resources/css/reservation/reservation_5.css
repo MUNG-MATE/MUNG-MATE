@@ -31,7 +31,9 @@ h2 {
 
 .containerDiv {
     width: 590px;
-    height: 650px;
+    height: auto;
+
+    padding-bottom: 50px;
 }
 
 hr {
@@ -41,7 +43,10 @@ hr {
     margin: 0;
 }
 
-.left {
+.right {
+    border-left: 1px solid rgb(118, 118, 118);
+    padding-left: 100px;
+    padding-top: 50px;
 }
 
 tr {
@@ -76,6 +81,12 @@ td > div {
     width: 200px;
     height: 200px;
     margin: 0 auto;
+}
+
+#petNameArea{
+    font-size: 20px;
+    font-weight: bold;
+    color : rgb(0,30,60);
 }
 
 #petsitterArea {
@@ -197,7 +208,7 @@ td > div {
 	margin: 0 auto;
 }
 
-.petListArea{
+/* .petListArea{
     width: 1700px;
     height : auto;
     display: flex;
@@ -205,65 +216,48 @@ td > div {
     align-items: center;
     margin: auto;
     
-}
+} */
 
 .backgroundArea{
+    text-align: center;
+    width: 400px;
     border: 2px solid #ddd;
-    border-radius: 15%;
-    padding-right: 30px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    border-radius: 15px;
+    padding: 10px;
     box-shadow: 3px 3px 3px 3px lightgray;
     margin: 0 10px;
+
+    margin-bottom: 40px;
+
+    font-size: 20px;
+    font-weight: bold;
+    color : rgb(0,30,60);
     
     
 }
 
 .backgroundArea:hover{
     border: 2px solid #ddd;
-    border-radius: 15%;
-    padding-right: 30px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    border-radius: 15px;
+    padding: 10px;
     box-shadow: 3px 3px 3px 3px lightgray;
     margin: 0 10px;
     cursor: pointer;
     background-color: rgb(0,30,60);
     color: white;
+
+    margin-bottom: 40px;
+
+    font-size: 20px;
+    font-weight: bold;
     
 }
 
+.clicked{
+    background-color:  rgb(0,30,60);
+    color: white;
 
-
-.clicked td>div {
-    border-radius: 3px;
-    background-color: white;
-    color: rgb(0,30,60);
+    font-size: 20px;
     font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px 0;
 }
 
-.clicked2, .clicked2 th{
-
-    color :white;
-    
-}
-
-.hovered{
-    border-radius: 3px;
-    background-color: white;
-    color: rgb(0,30,60);
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px 0;
-}
-
-
-.hovered2, .hovered2 th{
-    color :white;
-}

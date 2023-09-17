@@ -32,6 +32,30 @@ h2 {
     border: 1px solid rgb(118, 118, 118);
 }
 
+#rs_input0{
+  width: 300px;
+    height: 40px;
+    display: block;
+    margin: 20px auto;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    border: 1px solid rgb(118, 118, 118);
+}
+
+#rs_input1{
+  width: 300px;
+    height: 40px;
+    display: block;
+    margin: 20px auto;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    border: 1px solid rgb(118, 118, 118);
+}
+
 input:focus, select:focus {
     outline: 1px solid rgb(0,30,60);
 }
