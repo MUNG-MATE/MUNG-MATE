@@ -25,9 +25,6 @@ function faqDelete(){
 
     const resultTitle = document.getElementById("resultTitle");
     const resultContent = document.getElementById("resultContent");
-    const result1 = document.getElementById("result1");
-    const result2 = document.getElementById("result2");
-    const table = document.getElementById("table");
 
     if(confirm("정말 삭제하시겠습니까?")){
         fetch("/Administrator/faqDelete", {
@@ -73,4 +70,57 @@ faqFrm.addEventListener("submit", e => {
         return;
     }
 })
+
+
+
+// notice 삭제 함수
+function noticeDelete(){
+
+    const resultTitle = document.getElementById("resultTitle");
+    const resultContent = document.getElementById("resultContent");
+
+    if(confirm("정말 삭제하시겠습니까?")){
+        fetch("/Administrator/noticeDelete", {
+            method : "POST",
+            headers : {"Content-Type" : "application/text"},
+            body : boardNo
+        })
+        .then(resp => resp.text())
+        .then(result => {
+    
+            if(result > 0){
+                table.innerHTML = "";
+                location.reload(true);
+            }else{
+                console.log("실패~");
+            }
+        })
+        .catch(e => console.log(e))
+    }
+    return;
+}
+
+
+const noticeFrm = document.getElementsByName("faqFrm")[0];
+
+faqFrm.addEventListener("submit", e => {
+
+    console.log("눌렀다")
+
+    if(boardTitle.value.trim().length == 0){
+        alert("제목을 입력해주세요");
+        boardTitle.focus();
+        e.preventDefault();
+        return;
+    }
+
+    if(boardContent.value.trim().length == 0){
+        alert("내용을 입력해주세요");
+        boardContent.focus();
+        e.preventDefault();
+        return;
+    }
+})
+
+
 

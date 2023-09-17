@@ -32,4 +32,28 @@ public class NoticeServiceImpl_o implements NoticeService_o{
 		return map;
 	}
 
+	/**
+	 * 공지사항 게시글 삽입
+	 */
+	@Override
+	public int noticeInsert(Administrator administrator) {
+		return dao.noticeInsert(administrator);
+	}
+
+	/**
+	 * 공지사항 수정
+	 */
+	@Override
+	public int noticeUpdate(Administrator administrator) {
+		return dao.noticeUpdate(administrator);
+	}
+
+	/**
+	 * 공지사항 삭제
+	 */
+	@Override
+	public int noticeDelete(String boardNo) {
+		return dao.noticeDelete(boardNo);
+	}
+
 }

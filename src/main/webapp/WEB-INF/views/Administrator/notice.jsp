@@ -42,7 +42,7 @@
                                     <td class="td">▼</td>
                                 </tr>
                                 <tr class="faq-answer" id="result2">
-                                    <form action="/Administrator/notice/update" method="POST" name="updateFrm">
+                                    <form action="/Administrator/notice/update/1" method="POST" name="updateFrm">
                                         <td rowspan="4" id="resultContent">
                                             ${noticeList.content}
                                             <input type="hidden" name="content" value="${noticeList.content}">
@@ -61,7 +61,7 @@
                         </c:forEach>
 
                         <c:if test="${!empty loginMember}">
-                            <button id="writer" onclick="location.href = '/Administrator/noticeWrite'">작성하기</button>
+                            <button id="writer" onclick="location.href = '/Administrator/noticeWrite/1'">작성하기</button>
                         </c:if>
                     </article>
 
@@ -75,7 +75,7 @@
             </script>
 
             <script src="/resources/js/Administrator/code.jquery.com_jquery-3.7.1.min.js"></script>
-            <script src="/resources/js/Administrator/notice.js"></script>
+            <script src="/resources/js/Administrator/faq.js"></script>
         </body>
 
         </html>
