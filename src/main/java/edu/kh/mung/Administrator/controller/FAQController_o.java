@@ -23,6 +23,7 @@ import edu.kh.mung.member.model.dto.Member;
 import oracle.jdbc.proxy.annotation.Post;
 
 @Controller
+@RequestMapping("/Administrator")
 public class FAQController_o {
 	
 	@Autowired
@@ -30,14 +31,13 @@ public class FAQController_o {
 	
 	/** faq 페이지 조회
 	 * @param boardCode
-	 * @returnf
+	 * @return
 	 */
-	@GetMapping( value = "/Administrator/faq/{boardCode:[0-9]+}")
+	@GetMapping("/faq/{boardCode:[0-9]+}")
 	public String FAQ(@PathVariable(required = false) int boardCode
 						, Model model
 						, @RequestParam Map<String, Object> paramMap
 						){
-		String message = "";
 		
 		if (paramMap.get("faqCat") == null) { // 검색어가 없을 때
 
@@ -61,7 +61,7 @@ public class FAQController_o {
 	/** faq 작성 페이지 이동
 	 * @return
 	 */
-	@GetMapping("/Administrator/faqWrite")
+	@GetMapping("/faqWrite")
 	public String faqWrite() {
 		return "/Administrator/faqWrite";
 	}
@@ -70,7 +70,7 @@ public class FAQController_o {
 	 * @param boardCode
 	 * @return
 	 */
-	@PostMapping("/Administrator/faqWrite")
+	@PostMapping("/faqWrite")
 	public String faqWrite(@RequestParam("boardCode") int boardCode
 					, Administrator administrator
 					, @SessionAttribute("loginMember") Member loginMember
@@ -101,7 +101,7 @@ public class FAQController_o {
 	 * @param model
 	 * @return
 	 */
-	@PostMapping( value = "/Administrator/faq/update")
+	@PostMapping( value = "/faq/update")
 	public String faqUpdate(Administrator administrator
 							, Model model) {
 		model.addAttribute("administrator", administrator);
@@ -110,13 +110,12 @@ public class FAQController_o {
 	}
 	
 	
-	
 	/** faq 수정
 	 * @param administrator
 	 * @param ra
 	 * @return
 	 */
-	@PostMapping("/Administrator/faq")
+	@PostMapping("/faq")
 	public String faqUpdate2(Administrator administrator
 							, RedirectAttributes ra) {
 		
@@ -144,7 +143,7 @@ public class FAQController_o {
 	 * @param boardNo
 	 * @return
 	 */
-	@PostMapping("/Administrator/faqDelete")
+	@PostMapping("/faqDelete")
 	@ResponseBody
 	public int faqDelete(@RequestBody String boardNo) {
 		return service.faqDelete(boardNo);
