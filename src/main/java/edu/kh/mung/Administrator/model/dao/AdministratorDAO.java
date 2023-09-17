@@ -90,6 +90,19 @@ public class AdministratorDAO {
 
 		return sqlSession.update("AdministratorMapper.petsitterDelete",petNo);
 	}
+	// 예약관리
+	public int getReserveListCount() {
+		return sqlSession.selectOne("AdministratorMapper.getReserveListCount");
+	}
+	public List<Member> selectReserveList(Pagination pagination) {
+		
+		int offset
+		=(pagination.getCurrentPage() -1) * pagination.getLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset,pagination.getLimit());
+
+		return sqlSession.selectList("AdministratorMapper.selectReserveList", null,rowBounds);
+	}
 	
 	
 	

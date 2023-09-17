@@ -98,11 +98,31 @@ public class AdministratorServiceImpl implements AdministratorService{
 		return map;
 	}
 	
+	// 펫시터삭제
 	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public int petsitterDelete(int petNo) {
 		
 		return dao.petsitterDelete(petNo);
+	}
+	
+	// 예약조회
+	@Override
+	public Map<String, Object> selectReserveList(int cp) {
+		
+		int listCount = dao.getReserveListCount();
+
+		Pagination pagination = new Pagination(cp,listCount);
+
+		List<Member> managementList = dao.selectReserveList(pagination);
+
+		Map<String, Object> map = new HashMap<>();
+		
+		map.put("pagination", pagination);
+		map.put("managementList", managementList);
+		
+		return map;
+		
 	}
 
 	

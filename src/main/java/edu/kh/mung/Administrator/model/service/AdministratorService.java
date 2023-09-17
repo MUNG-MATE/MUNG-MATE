@@ -6,19 +6,27 @@ import java.util.Map;
 import edu.kh.mung.member.model.dto.Member;
 
 public interface AdministratorService {
-
+	
+	// 회원관리
 	Map<String, Object> selectManagementList(int cp);
-
+	// 회원관리(검색)
 	Map<String, Object> selectManagementList(Map<String, Object> paramMap, int cp);
 	
 	// ajax
 	
+	// 회원관리 탈퇴
 	int delete(String[] check);
 	
+	// 회원관리 조회
 	List<Member> select();
-
+	
+	// 펫시터 조회
 	Map<String, Object> petManagement();
-
+	
+	// 펫시터 삭제
 	int petsitterDelete(int petNo);
+	
+	// 예약조회
+	Map<String, Object> selectReserveList(int cp);
 
 }

@@ -1,5 +1,7 @@
 package edu.kh.mung.member.model.dto;
 
+import java.sql.Date;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,4 +27,13 @@ public class Member {
 	private String adminFlag;
 	private String petsitterFlag;
 	private int authority;
+	
+	
+	// 예약관리 (광민)
+	private Date rsDate;
+	private String paySt;
+	private String petsitterSt;
+	private String servicePrice;
+	
+	
 }

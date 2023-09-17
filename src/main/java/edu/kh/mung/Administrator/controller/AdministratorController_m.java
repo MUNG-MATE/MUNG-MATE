@@ -57,16 +57,21 @@ public class AdministratorController_m {
 		return "Administrator/petManagement";
 	}
 
+	@GetMapping("/reserve")
+	public String reserve(@RequestParam(value="cp", required = false, defaultValue = "1") int cp , Model model) {
+		
+		Map<String, Object> map = service.selectReserveList(cp);
+		
+		model.addAttribute(map);
+		
+		return "Administrator/reserve";
+		
+	}
 	
 	@GetMapping("/declaration")
 	public String declaration() {
 
 		return "Administrator/declaration";
-
-	}
-	@GetMapping("/reserve")
-	public String reserve() {
-		return "Administrator/reserve";
 
 	}
 
