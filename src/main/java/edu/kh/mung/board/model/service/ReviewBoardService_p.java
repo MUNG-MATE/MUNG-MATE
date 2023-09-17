@@ -33,4 +33,10 @@ public interface ReviewBoardService_p {
 	 * @return
 	 */
 	Board selectBoard(Map<String, Object> map);
+
+	/** 조회수 증가 서비스
+	 * @param boardNo
+	 * @return
+	 */
+	int updateReadCount(int boardNo);
 }

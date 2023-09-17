@@ -21,6 +21,8 @@ public class Board {
 	private String imagePath;
 	private String boardName;
 	private String imageReName;
+	private int readCount;
+	
 
 	// 서브쿼리
 	private int replyCount; // 댓글 수

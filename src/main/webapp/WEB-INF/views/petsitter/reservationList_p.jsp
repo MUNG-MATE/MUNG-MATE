@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>펫시터 예약 목록</title>
 
-    <link rel="stylesheet" href="../../../resources/css/petsitter/reservationList-style.css">
+    <link rel="stylesheet" href="../../../resources/css/petsitter/reservationList-style_p.css">
     <script src="https://kit.fontawesome.com/de9012b52d.js" crossorigin="anonymous"></script>
 
 </head>
@@ -35,7 +35,7 @@
                             <div id="addTargetPopupLayer" class="popup-layer-close">  
                                 <div class="detail">
                                     <span id="closeBtn">&times</span>
-                                    <div><img id="detailPhoto" src="images/dog-profile.jpg"></div>
+                                    <div><img id="detailPhoto" src="../../../resources/images/dog-profile.jpg"></div>
                                     <hr>
                                     <div class="detailInfo"><i class="fa-solid fa-play" style="color:rgb(0,30,60);"></i>&nbsp;이름 : 김광수</div>
                                     <div class="detailInfo"><i class="fa-solid fa-play" style="color:rgb(0,30,60);"></i>&nbsp;지역 : 서울 강남구</div>
