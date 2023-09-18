@@ -1,5 +1,6 @@
 package edu.kh.mung.main.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -35,8 +36,16 @@ public class MainController {
 	public String info(Reservation rs, Model model,PetSitter petSitter,
 						@SessionAttribute(value="loginMember", required = false) Member loginMember) {
 		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("memberNo", loginMember.getMemberNo());
+		
 		
 		List<PetSitter> petSitterList = service.petSitterList();
+		
+//		map.put("petSitterNo", petSitterList.petSitterNo());
+		
+//		int result = service.wishListCheck(map);
 		
 		
 		
