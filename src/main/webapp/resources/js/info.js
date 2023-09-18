@@ -45,10 +45,10 @@ if(memberNo != ""){
             
             let check;
 
-            // if(memberNo == null){
-            //    alert("로그인 후 이용해주세요.");
-            //    return;
-            // }
+            if(memberNo == ""){
+               alert("로그인 후 이용해주세요.");
+               return;
+            }
 
 
             if(!e.target.classList.contains("good")){
@@ -99,4 +99,17 @@ if(memberNo != ""){
         })
     }
 
+}else{
+
+    for( let i =0; i < profileArea.length; i++){
+
+        wishListBtn[i].addEventListener("click", e => {
+            alert("로그인 후 이용해주세요.");
+               return;
+
+        })
+
+    }
+
 }
+
