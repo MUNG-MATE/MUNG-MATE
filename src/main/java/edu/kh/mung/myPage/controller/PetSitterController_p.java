@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import edu.kh.mung.myPage.model.dto.rList_p;
@@ -40,6 +42,16 @@ public class PetSitterController_p {
 		System.out.println(rList);
 		
 		model.addAttribute("rList", rList);
+		
+		return "petsitter/reservationList_p";
+	}
+	
+	// 해당 예약번호 예약 수락하기
+	@GetMapping(value="/agree", produces="application/json; charset=UTF-8")
+	@ResponseBody
+	public String update(@RequestBody rList_p rsNo) {
+		
+		int result = service.update(rsNo);
 		
 		return "petsitter/reservationList_p";
 	}

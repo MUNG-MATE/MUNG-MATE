@@ -39,7 +39,14 @@
 		JOIN MEMBER USING(MEMBER_NO)
 		JOIN SERVICE_TYPE USING(SERVICE_NO)
 		JOIN PET USING(MEMBER_NO)
+		WHERE PETSITTER_ST = 'N'
 	</select>
+	
+	<update id="updateRs">
+		UPDATE RESERVATION SET
+		PETSITTER_ST = 'Y'
+		WHERE RS_NO = ${rsNo}
+	</update>
 	
 	
 </mapper>
