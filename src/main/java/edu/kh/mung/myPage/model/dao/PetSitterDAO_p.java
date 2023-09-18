@@ -1,6 +1,7 @@
 package edu.kh.mung.myPage.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -14,13 +15,10 @@ public class PetSitterDAO_p {
 
 	@Autowired
 	private SqlSessionTemplate sqlSession;
-	
-	/** 예약목록조회
-	 * @param rsNo
-	 * @return
-	 */
-	public List<rList_p> select(Integer rsNo) {
-		return sqlSession.selectList("petsitterMapper.selectRsList",rsNo);
+
+	public List<rList_p> select() {
+		return sqlSession.selectList("petsitterMapper.selectRsList");
 	}
+	
 
 }

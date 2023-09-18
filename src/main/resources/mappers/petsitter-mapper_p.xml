@@ -26,10 +26,10 @@
 		<result property="petProfile" column="PET_PROFILE"/>
 		<result property="petOption" column="PET_OPTION"/>
 		
-		<collection property="reservationList"
+		<!-- <collection property="reservationList"
 			select="selectRsList" column="RS_NO"
 			javaType="java.util.ArrayList" ofType="rList_p">
-		</collection>
+		</collection> -->
 		
 	</resultMap>
 
@@ -37,7 +37,7 @@
 		SELECT RS_NO, MEMBER_NO, MEMBER_NM, MEMBER_NICKNAME, RS_DATE, RS_START_DATE, RS_ADDRESS, SERVICE_TYPE, PET_NM, PET_TYPE, PET_GENDER, PET_PROFILE, PET_OPTION
 		FROM RESERVATION
 		JOIN MEMBER USING(MEMBER_NO)
-		JOIN SERVICE USING(SERVICE_NO)
+		JOIN SERVICE_TYPE USING(SERVICE_NO)
 		JOIN PET USING(MEMBER_NO)
 	</select>
 	
