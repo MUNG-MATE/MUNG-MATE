@@ -3,10 +3,10 @@
 // 결제 api
 $("#creditBtn").click(function () {
 
-    if(!yes.checked){
+    /* if(!yes.checked){
         alert("약관 동의 후 진행해주세요");
         return;
-    } else {
+    } else { */
 
         IMP.init('imp06854558'); 
         IMP.request_pay({
@@ -61,6 +61,6 @@ $("#creditBtn").click(function () {
     
          // alert(msg)
       })
-    }
+    /* } */
 
 })

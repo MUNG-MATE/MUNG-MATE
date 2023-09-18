@@ -47,4 +47,3 @@ function selectPetSitterNo(content) {
     document.getElementById('selectPetSitterNo').value = content;
 }
 
-

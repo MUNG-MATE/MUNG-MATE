@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import edu.kh.mung.Administrator.model.dto.Pagination;
 import edu.kh.mung.board.model.dto.Board;
+import edu.kh.mung.board.model.dto.BoardImage;
 import edu.kh.mung.common.utility.Util;
 import edu.kh.mung.member.model.dto.Member;
 import edu.kh.mung.myPage.model.dao.myPageDAO_c;
@@ -107,7 +108,6 @@ public class myPageServiceImpl_c implements myPageService_c {
 		
 		List<Board> postList = dao.selectMyPostList(pagination,loginMember);
 		
-		System.out.println(listCount);
 		System.out.println(postList);
 		
 		
@@ -116,6 +116,13 @@ public class myPageServiceImpl_c implements myPageService_c {
 		map.put("postList", postList);
 		
 		return map;
+	}
+	
+	// 게시글 이미지 조회
+	@Override
+	public List<BoardImage> selectImageList() {
+		
+		return dao.selectImageList();
 	}
 	
 }

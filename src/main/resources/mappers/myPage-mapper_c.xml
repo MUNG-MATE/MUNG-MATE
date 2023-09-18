@@ -91,7 +91,12 @@
 		WHERE BOARD_ST = 'N'
 		AND BOARD_CD = 6
 		AND MEMBER_NO = #{memberNo}
-		ORDER BY BOARD_DT DESC
+		ORDER BY BOARD_NO DESC
+	</select>
+	
+	<select id="selectImageListAll" resultMap="boardImage_rm">
+		SELECT
+		BOARD_IMG_PATH,BOARD_IMG_RENAME,BOARD_NO FROM BOARD_IMAGE
 	</select>
 	
 </mapper>

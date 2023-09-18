@@ -1,5 +1,6 @@
 package edu.kh.mung.main.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -32,11 +33,19 @@ public class MainController {
 	}
 	
 	@RequestMapping("/info")
-	public String info(Reservation rs, Model model,PetSitter petSitter,
-						@SessionAttribute(value="loginMember", required = false) Member loginMember) {
+	public String info(Reservation rs, Model model,PetSitter petSitter) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
 		
 		
 		List<PetSitter> petSitterList = service.petSitterList();
+		
+		
+		
+//		map.put("petSitterNo", petSitterList.petSitterNo());
+		
+//		int result = service.wishListCheck(map);
 		
 		
 		
@@ -58,5 +67,20 @@ public class MainController {
 		return service.wishListCheck(paramMap);
 		
 	};
+	
+	@PostMapping("/info/myWishList")
+	@ResponseBody
+	public int myWishList(@RequestBody int petSitterNo,
+						@SessionAttribute(value="loginMember", required = true) Member loginMember) {
+		
+		int result = 0;
+		
+		if(loginMember != null) {
+			
+			result = service.myWishList(petSitterNo, loginMember.getMemberNo());
+		}
+	
+		return result;
+	}
 	
 }

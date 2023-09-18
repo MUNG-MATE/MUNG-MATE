@@ -276,3 +276,36 @@ footer{
    
 }
 
+#writer{
+    width: 60px;
+    height: 30px;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #000;
+    color: #fff;
+    padding: 0;
+    border: none;
+    
+}
+
+.btn{
+    position: relative;
+    left: 370px;
+    width: 137px;
+
+}
+
+#writer:hover{
+    background: transparent;
+    color: #000;
+     box-shadow:
+     -7px -7px 20px 0px #fff9,
+     -4px -4px 5px 0px #fff9,
+     7px 7px 20px 0px #0002,
+     4px 4px 5px 0px #0001;
+}
+
+
+

@@ -19,6 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import edu.kh.mung.Administrator.model.dto.Administrator;
 import edu.kh.mung.Administrator.model.service.FAQService;
 import edu.kh.mung.board.model.dto.Board;
+import edu.kh.mung.common.utility.Util;
 import edu.kh.mung.member.model.dto.Member;
 import oracle.jdbc.proxy.annotation.Post;
 
@@ -79,6 +80,8 @@ public class FAQController_o {
 		administrator.setMemberNo(loginMember.getMemberNo());
 		administrator.setBoardCode(boardCode);
 		int result = service.faqInsert(administrator);
+		
+		
 		
 		String path = "redirect:/";
 		String message;

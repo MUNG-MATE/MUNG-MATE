@@ -40,7 +40,7 @@
 	               </div>
 	
 	               <div>
-	                   <img src="${board.imagePath}${board.imageReName}" class="h-listImg">
+	                   <img src="${post.imagePath}" class="h-listImg">
 	               </div>
 	
 	           </div>

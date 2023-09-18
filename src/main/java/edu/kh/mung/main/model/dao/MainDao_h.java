@@ -1,5 +1,6 @@
 package edu.kh.mung.main.model.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -37,6 +38,22 @@ public class MainDao_h {
 	 */
 	public int deleteWishList(Map<String, Integer> paramMap) {
 		return sqlSession.delete("reservationMapper.deleteWishList", paramMap);
+	}
+
+	/** 이미 눌림 찜 목록
+	 * @param paramMap
+	 * @return
+	 */
+
+
+	public int myWishList(int petSitterNo, int memberNo) {
+		
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		
+		map.put("sitterNo", petSitterNo);
+		map.put("memberNo", memberNo);
+		
+		return sqlSession.selectOne("reservationMapper.myWishList", map);
 	}
 
 }

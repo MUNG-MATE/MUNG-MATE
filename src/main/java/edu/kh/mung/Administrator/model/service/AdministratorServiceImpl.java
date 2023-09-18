@@ -114,13 +114,12 @@ public class AdministratorServiceImpl implements AdministratorService{
 
 		Pagination pagination = new Pagination(cp,listCount);
 
-		List<Member> managementList = dao.selectReserveList(pagination);
+		List<Member> selectReserveList = dao.selectReserveList(pagination);
 
 		Map<String, Object> map = new HashMap<>();
 		
 		map.put("pagination", pagination);
-		map.put("managementList", managementList);
-		
+		map.put("selectReserveList", selectReserveList);
 		return map;
 		
 	}

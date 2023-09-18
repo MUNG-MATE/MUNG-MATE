@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import edu.kh.mung.Administrator.model.dao.NoticeDAO_o;
 import edu.kh.mung.Administrator.model.dto.Administrator;
+import edu.kh.mung.common.utility.Util;
 
 @Service
 public class NoticeServiceImpl_o implements NoticeService_o{
@@ -37,6 +38,13 @@ public class NoticeServiceImpl_o implements NoticeService_o{
 	 */
 	@Override
 	public int noticeInsert(Administrator administrator) {
+		
+		// xss 처리
+		administrator.setContent(Util.XSSHandling(administrator.getContent()));
+		administrator.setTitle(Util.XSSHandling(administrator.getTitle()));
+		administrator.setContent(Util.newLineHandling(administrator.getContent()));
+		administrator.setTitle(Util.newLineHandling(administrator.getTitle()));
+		
 		return dao.noticeInsert(administrator);
 	}
 

@@ -77,7 +77,9 @@ Mung Mate 개발자 일동
                         <p class="history" name="location">선호 지역 : ${i.location}</p>
                         <p class="history" name="memberTel">전화번호 : ${i.memberTel}</p>
                         <p class="history" name="memberEmail">이메일 : ${i.memberEmail}</p>
+                        
                         <button type="button" class="wishListBtn">찜콩</button>
+                        
                         <input type="hidden" value="${i.petSitterNo}" class="petSitterNo">
                     </div>
                 </div>
@@ -90,8 +92,9 @@ Mung Mate 개발자 일동
 
     <script>
 
-        const memberNo = ${loginMember.memberNo};
+        const memberNo = "${loginMember.memberNo}";
         // const loginMember = ${loginMember};
+        
     </script>
 
     
