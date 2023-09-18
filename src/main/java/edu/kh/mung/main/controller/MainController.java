@@ -43,6 +43,8 @@ public class MainController {
 		
 		List<PetSitter> petSitterList = service.petSitterList();
 		
+		
+		
 //		map.put("petSitterNo", petSitterList.petSitterNo());
 		
 //		int result = service.wishListCheck(map);
@@ -67,5 +69,20 @@ public class MainController {
 		return service.wishListCheck(paramMap);
 		
 	};
+	
+	@PostMapping("/info/myWishList")
+	@ResponseBody
+	public int myWishList(@RequestBody int petSitterNo,
+						@SessionAttribute(value="loginMember", required = false) Member loginMember) {
+		
+		int result = 0;
+		
+		if(loginMember != null) {
+			
+			result = service.myWishList(petSitterNo, loginMember.getMemberNo());
+		}
+	
+		return result;
+	}
 	
 }

@@ -18,4 +18,13 @@ public interface MainService_h {
 	 */
 	int wishListCheck(Map<String, Integer> paramMap);
 
+
+
+	/** 찜 목록 확인
+	 * @param petSitterNo
+	 * @param memberNo
+	 * @return 
+	 */
+	int myWishList(int petSitterNo, int memberNo);
+
 }
