@@ -43,22 +43,19 @@ for( let i =0; i < profileArea.length; i++){
             if(result == 1){
 
                 alert("찜 목록에 추가 되었습니다.");
-
+                wishListBtn[i].classList.add("good");
             }
 
             if(result == 2){
                 alert("찜 목록에 삭제 되었습니다.");
-
+                wishListBtn[i].classList.remove("good");
             }
 
-            if(result == -1){
-                
-            }
-
-            e.target.classList.toggle("good");
             
         })
-        .catch(e => console.log(e),console.log("에러"))
+        .catch(e => {console.log(e);
+                console.log("에러");
+            })
 
 
         

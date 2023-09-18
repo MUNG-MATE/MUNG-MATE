@@ -36,6 +36,7 @@
                             <li><a href = "/myPage/memberInfoUpdate">내 정보 수정</a></li>
                             <li><a href = "/myPage/memberSecession">계정 탈퇴</a></li>
                             <li><a href = "/myPage/petInfo">내 반려견</a></li>
+                            <li><a href = "#">내 찜목록</a></li>
                             <c:if test="${loginMember.petsitterFlag == 'N'}" >
                             <li><a href = "/petsitter/toPetsitterApply">펫시터 되기</a></li>
                             </c:if>
