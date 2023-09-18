@@ -1,6 +1,7 @@
 package edu.kh.mung.reservation.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,10 @@ public class ReservationDao_h {
 	 */
 	public PetSitter choicePetSitter(int petSitterNo) {
 		return sqlSession.selectOne("reservationMapper.choicePetSitter", petSitterNo);
+	}
+
+	public int payResult(Map<String, Object> map) {
+		return sqlSession.insert("reservationMapper.payResult", map);
 	}
 
 
