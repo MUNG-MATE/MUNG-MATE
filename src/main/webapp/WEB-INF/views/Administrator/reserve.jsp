@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<c:set var="pagination" value="${map.pagination}"/>
+<c:set var="selectReserveList" value="${map.selectReserveList}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,130 +72,60 @@
                     <th>예약상태</th>
                 </thead>
                 <tbody>
+                    <c:forEach items="${selectReserveList}" var="selectReserveList">
                     <tr>
-                        <td>1</td>
-                        <td><input type="checkbox" class="check" name="checkbox" value="회원번호(추후)"></td>
-                        <td>user01@kh.or.kr</td>
-                        <td>문광민</td>
-                        <td>010-9773-1309</td>
-                        <td>2023-00-00</td>
-                        <td>120,000원</td>
-                        <td>N</td>
-                        <td>N</td>
+                        <td>${selectReserveList.rsNo}</td>
+                        <td><input type="checkbox" class="check" name="checkbox" value="${selectReserveList.rsNo}"></td>
+                        <td>${selectReserveList.memberEmail}</td>
+                        <td>${selectReserveList.memberName}</td>
+                        <td>${selectReserveList.memberTel}</td>
+                        <td>${selectReserveList.rsDate}</td>
+                        <td>${selectReserveList.servicePrice} 원</td>
+                        <td>${selectReserveList.paySt}</td>
+                        <td>${selectReserveList.petsitterSt}</td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><input type="checkbox" class="check" name="checkbox" value="회원번호(추후)"></td>
-                        <td>user01@kh.or.kr</td>
-                        <td>문광민</td>
-                        <td>010-9773-1309</td>
-                        <td>2023-00-00</td>
-                        <td>120,000원</td>
-                        <td>N</td>
-                        <td>N</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><input type="checkbox" class="check" name="checkbox" value="회원번호(추후)"></td>
-                        <td>user01@kh.or.kr</td>
-                        <td>문광민</td>
-                        <td>010-9773-1309</td>
-                        <td>2023-00-00</td>
-                        <td>120,000원</td>
-                        <td>N</td>
-                        <td>N</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td><input type="checkbox" class="check" name="checkbox" value="회원번호(추후)"></td>
-                        <td>user01@kh.or.kr</td>
-                        <td>문광민</td>
-                        <td>010-9773-1309</td>
-                        <td>2023-00-00</td>
-                        <td>120,000원</td>
-                        <td>N</td>
-                        <td>N</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td><input type="checkbox" class="check" name="checkbox" value="회원번호(추후)"></td>
-                        <td>user01@kh.or.kr</td>
-                        <td>문광민</td>
-                        <td>010-9773-1309</td>
-                        <td>2023-00-00</td>
-                        <td>120,000원</td>
-                        <td>N</td>
-                        <td>N</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td><input type="checkbox" class="check" name="checkbox" value="회원번호(추후)"></td>
-                        <td>user01@kh.or.kr</td>
-                        <td>문광민</td>
-                        <td>010-9773-1309</td>
-                        <td>2023-00-00</td>
-                        <td>120,000원</td>
-                        <td>N</td>
-                        <td>N</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td><input type="checkbox" class="check" name="checkbox" value="회원번호(추후)"></td>
-                        <td>user01@kh.or.kr</td>
-                        <td>문광민</td>
-                        <td>010-9773-1309</td>
-                        <td>2023-00-00</td>
-                        <td>120,000원</td>
-                        <td>N</td>
-                        <td>N</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td><input type="checkbox" class="check" name="checkbox" value="회원번호(추후)"></td>
-                        <td>user01@kh.or.kr</td>
-                        <td>문광민</td>
-                        <td>010-9773-1309</td>
-                        <td>2023-00-00</td>
-                        <td>120,000원</td>
-                        <td>N</td>
-                        <td>N</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td><input type="checkbox" class="check" name="checkbox" value="회원번호(추후)"></td>
-                        <td>user01@kh.or.kr</td>
-                        <td>문광민</td>
-                        <td>010-9773-1309</td>
-                        <td>2023-00-00</td>
-                        <td>120,000원</td>
-                        <td>N</td>
-                        <td>N</td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                        <td><input type="checkbox" class="check" name="checkbox" value="회원번호(추후)"></td>
-                        <td>user01@kh.or.kr</td>
-                        <td>문광민</td>
-                        <td>010-9773-1309</td>
-                        <td>2023-00-00</td>
-                        <td>120,000원</td>
-                        <td>N</td>
-                        <td>N</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                        <td><input type="checkbox" class="check" name="checkbox" value="회원번호(추후)"></td>
-                        <td>user01@kh.or.kr</td>
-                        <td>문광민</td>
-                        <td>010-9773-1309</td>
-                        <td>2023-00-00</td>
-                        <td>120,000원</td>
-                        <td>N</td>
-                        <td>N</td>
-                    </tr>
-                    
+                    </c:forEach>
                 </tbody>
             </table>
+        </section>
+
+         <section>
+            <div class="pagination-area">
+
+                <ul class="pagination">
+                
+                    <!-- 첫 페이지로 이동 -->
+                    <li><a href="/Administrator/reserve?cp=1">&lt;&lt;</a></li>
+
+                    <!-- 이전 목록 마지막 번호로 이동 -->
+                    <li><a href="/Administrator/reserve?cp=${pagination.prevPage}">&lt;</a></li>
+
+                   
+                    <!-- 특정 페이지로 이동 -->
+                    <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+        
+                            <c:choose>
+                               <c:when test="${ i == pagination.currentPage}">
+                                    <!-- 현재 보고있는 페이지 -->
+                                    <li><a class="current">${i}</a></li>
+                               </c:when>
+                            
+                               <c:otherwise>
+                                    <!-- 현재 페이지를 제외한 나머지 -->
+                                    <li><a href="/Administrator/reserve?cp=${i}">${i}</a></li>
+                               </c:otherwise>
+                            </c:choose>
+                            
+                    </c:forEach>
+                    
+                    <!-- 다음 목록 시작 번호로 이동 -->
+                    <li><a href="/Administrator/reserve?cp=${pagination.nextPage}">&gt;</a></li>
+
+                    <!-- 끝 페이지로 이동 -->
+                    <li><a href="/Administrator/reserve?cp=${pagination.maxPage}">&gt;&gt;</a></li>
+
+                </ul>
+            </div>
         </section>
     </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />

@@ -94,6 +94,7 @@ public class AdministratorDAO {
 	public int getReserveListCount() {
 		return sqlSession.selectOne("AdministratorMapper.getReserveListCount");
 	}
+	
 	public List<Member> selectReserveList(Pagination pagination) {
 		
 		int offset

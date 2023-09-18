@@ -1,20 +1,14 @@
 package edu.kh.mung.Administrator.controller;
 
-import java.util.Arrays;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 import edu.kh.mung.Administrator.model.service.AdministratorService;
-import edu.kh.mung.member.model.dto.Member;
 
 @RequestMapping("/Administrator")
 @Controller
@@ -62,7 +56,7 @@ public class AdministratorController_m {
 		
 		Map<String, Object> map = service.selectReserveList(cp);
 		
-		model.addAttribute(map);
+		model.addAttribute("map",map);
 		
 		return "Administrator/reserve";
 		
