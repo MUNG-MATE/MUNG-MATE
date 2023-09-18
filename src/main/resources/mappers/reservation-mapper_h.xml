@@ -30,6 +30,13 @@
 
 
   	</resultMap>
+  	
+  	<resultMap type="WishList" id="wishList_rm">
+  	
+  		<result property="memberNo" column="MEMBER_NO" />
+  		<result property="petSitterNo" column="PETSITTER_NO" />
+  	
+  	</resultMap>
 
 	<select id="selectPetSitter" resultMap="petSitter_rm">
 		SELECT LOCATION, MEMBER_TEL, MEMBER_EMAIL, MEMBER_NO, PETSITTER_NO, PROFIlE_IMG,MEMBER_NM
@@ -66,6 +73,13 @@
 		WHERE MEMBER_NO = #{memberNo}
 		AND PETSITTER_NO = #{petSitterNo}
 	</delete>
+	
+	<!-- 이미 눌린 찜 확인 -->
+	<select id="myWishList" resultType="_int">
+		SELECT COUNT(PETSITTER_NO) FROM WISH_LIST
+		WHERE MEMBER_NO = #{memberNo}
+		AND PETSITTER_NO = #{sitterNo}
+	</select>
 	
 	
 	

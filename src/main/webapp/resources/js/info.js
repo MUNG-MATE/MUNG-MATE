@@ -2,6 +2,48 @@ const profileArea = document.getElementsByClassName("profileArea");
 const wishListBtn = document.getElementsByClassName("wishListBtn");
 const petSitterNo = document.getElementsByClassName("petSitterNo");
 
+
+
+
+(() => {
+
+
+    for( let i =0; i < profileArea.length; i++){
+        
+        const data1 = petSitterNo[i].value;
+
+        fetch("/info/myWishList", {
+            method : "POST",
+            headers : {"Content-Type" : "application/json"},
+            body : JSON.stringify(data1)
+        })
+        .then(resp => resp.json())
+        .then(result => {
+
+            if(result > 0){
+                wishListBtn[i].classList.add("good");
+            }else{
+                wishListBtn[i].classList.remove("good");
+            }
+        })
+        .catch(e => {
+
+            console.log(e);
+        })
+    
+    }
+
+})()
+
+
+
+
+
+
+
+
+
+
 for( let i =0; i < profileArea.length; i++){
 
     

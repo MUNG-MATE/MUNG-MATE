@@ -58,6 +58,13 @@ public class MainServiceImpl_h implements MainService_h{
 		System.out.println("result 확인 : " + result);
 		
 		return result;
+	}
+
+	// 찜 목록 확인
+	@Override
+	public int myWishList(int petSitterNo, int memberNo) {
+		
+		return dao.myWishList(petSitterNo, memberNo);
 	} 
 
 }
