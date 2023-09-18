@@ -33,12 +33,10 @@ public class MainController {
 	}
 	
 	@RequestMapping("/info")
-	public String info(Reservation rs, Model model,PetSitter petSitter,
-						@SessionAttribute(value="loginMember", required = false) Member loginMember) {
+	public String info(Reservation rs, Model model,PetSitter petSitter) {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		
-		map.put("memberNo", loginMember.getMemberNo());
 		
 		
 		List<PetSitter> petSitterList = service.petSitterList();
@@ -73,7 +71,7 @@ public class MainController {
 	@PostMapping("/info/myWishList")
 	@ResponseBody
 	public int myWishList(@RequestBody int petSitterNo,
-						@SessionAttribute(value="loginMember", required = false) Member loginMember) {
+						@SessionAttribute(value="loginMember", required = true) Member loginMember) {
 		
 		int result = 0;
 		
