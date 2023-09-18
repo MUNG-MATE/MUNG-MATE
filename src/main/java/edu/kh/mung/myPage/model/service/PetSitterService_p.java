@@ -9,6 +9,8 @@ public interface PetSitterService_p {
 
 	List<rList_p> select();
 
+	int update(rList_p rsNo);
+
 
 
 

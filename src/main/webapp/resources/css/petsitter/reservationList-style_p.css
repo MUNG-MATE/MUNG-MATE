@@ -19,8 +19,13 @@ body{
     width: 1000px;
     margin:auto;
 }
-.main_first{
 
+.main_container > div:nth-child(2){
+
+
+
+}
+.main_first{
 
     display: flex;
     flex-direction: column;
@@ -41,15 +46,10 @@ body{
 }
 
 .main_second{
-    padding-left: 40px;
-    display: flex;
-    justify-content: center;
+    padding: 20px;
 }
 
 .main_second > div{
-    padding: 20px;
-}
-.content{
     background-color: white;
     border:none;
     border-radius: 10px;
@@ -57,6 +57,10 @@ body{
     padding: 5px;
     color: gray;
     box-shadow: 0px 4px 8px rgb(0,30,60);
+ 
+}
+.content{
+   
 
     
 }
@@ -190,7 +194,7 @@ body{
     height: 60px;
     text-align: center;
     line-height: 60px;
-    background: rgb(0,30,60);
+    background: rgb(255,197,227);;
     color: white;
     cursor: pointer;
     border-radius: 50%;
@@ -204,7 +208,7 @@ body{
 
 .scroll-top-btn:hover {
     background: white;
-    color: rgb(0,30,60);
+    color: rgb(255,197,227);;
 }
 
 .scroll-top-btn.show {
