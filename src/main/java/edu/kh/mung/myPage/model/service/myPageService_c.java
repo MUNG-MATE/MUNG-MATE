@@ -1,10 +1,12 @@
 package edu.kh.mung.myPage.model.service;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import edu.kh.mung.board.model.dto.BoardImage;
 import edu.kh.mung.member.model.dto.Member;
 import edu.kh.mung.myPage.model.dto.Pet;
 
@@ -50,5 +52,11 @@ public interface myPageService_c {
 	 * @return Map
 	 */
 	Map<String, Object> selectMyPostList(Member loginMember, int cp);
+
+	
+	/** 내 게시글에 해당하는 이미지 목록 조회
+	 * @return selectImageList
+	 */
+	List<BoardImage> selectImageList();
 
 }

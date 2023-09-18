@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import edu.kh.mung.board.model.dto.BoardImage;
 import edu.kh.mung.member.model.dto.Member;
 import edu.kh.mung.myPage.model.dto.Pet;
 import edu.kh.mung.myPage.model.service.myPageService_c;
@@ -210,6 +211,12 @@ public class myPageController_c {
 						   , Model model) {
 		
 		Map<String, Object> map = service.selectMyPostList(loginMember, cp);
+		
+		List<BoardImage> selectImageList = service.selectImageList();
+		
+		System.out.println(selectImageList);
+		
+		model.addAttribute("imageList", selectImageList);
 		
 		model.addAttribute("map", map);
 		

@@ -21,10 +21,10 @@
     <h4 id="resSubTitle">* 반려견은 총 3마리만 등록 가능 합니다. *</h4>
     
 	<section id="container">
-
-		<!-- <c:if test="${loginMemberPet.length == 3 }" > -->
+	
+		<c:if test="${fn:length(loginMemberPet) != 3}" >
 			<div class="joinPetArea"><button id="joinPet" onclick="location.href='/myPage/petInfo/insert'">등록하기</button></div>
-		<!-- </c:if> -->
+		</c:if>
 
 		<c:if test="${loginMemberPet == null}" >
 			<div class=petInfolistNull>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import edu.kh.mung.Administrator.model.dto.Pagination;
 import edu.kh.mung.board.model.dto.Board;
+import edu.kh.mung.board.model.dto.BoardImage;
 import edu.kh.mung.member.model.dto.Member;
 import edu.kh.mung.myPage.model.dto.Pet;
 
@@ -51,6 +52,11 @@ public class myPageDAO_c {
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		
 		return sqlSession.selectList("myPageMapper_c.selectMyPostList", loginMember, rowBounds);
+	}
+	
+	// 게시글 이미지 조회하기
+	public List<BoardImage> selectImageList() {
+		return sqlSession.selectList("myPageMapper_c.selectImageListAll");
 	}
 	
 }
