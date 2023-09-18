@@ -46,25 +46,26 @@
                         </div>
                         <c:forEach items="${map.boardList}" var="faqList">
                             <table id="table">
+                                    <form action="/Administrator/faq/update" method="POST" name="updateFrm">
 
                                 <tr class="t-tr" id="result1">
                                     <td><img src="/resources/images/Administrator/report.png" class="td-img"></td>
                                     <td id="resultTitle">${faqList.title}</td>
-                                    <td></td>
+                                    <td><div class="btn">
+                                                <button id="writer">수정하기</button>
+                                                <button id="writer" type="button" onclick="faqDelete()">삭제하기</button>
+                                            </div></td>
                                     <td class="td">▼</td>
                                 </tr>
+                                  
                                 <tr class="faq-answer" id="result2">
-                                    <form action="/Administrator/faq/update" method="POST" name="updateFrm">
                                         <td rowspan="4" id="resultContent">
                                             ${faqList.content}
                                             <input type="hidden" name="content" value="${faqList.content}">
                                             <input type="hidden" name="title" value="${faqList.title}">
                                             <input type="hidden" name="boardNo" value="${faqList.boardNo}">
                                             <script>const boardNo = "${faqList.boardNo}"</script>
-                                            <div class="btn">
-                                                <button id="writer">수정하기</button>
-                                                <button id="writer" type="button" onclick="faqDelete()">삭제하기</button>
-                                            </div>
+                                          
                                     </form>
                                     </td>
                                 </tr>

@@ -38,7 +38,10 @@
                                 <tr class="t-tr" id="result1">
                                     <td><img src="/resources/images/Administrator/report.png" class="td-img"></td>
                                     <td id="resultTitle">${noticeList.title}</td>
-                                    <td></td>
+                                    <td><div class="btn">
+                                                <button id="writer">수정하기</button>
+                                                <button id="writer" type="button" onclick="noticeDelete()">삭제하기</button>
+                                            </div></td>
                                     <td class="td">▼</td>
                                 </tr>
                                 <tr class="faq-answer" id="result2">
@@ -49,10 +52,7 @@
                                             <input type="hidden" name="title" value="${noticeList.title}">
                                             <input type="hidden" name="boardNo" value="${noticeList.boardNo}">
                                             <script>const boardNo = "${noticeList.boardNo}"</script>
-                                            <div class="btn">
-                                                <button id="writer">수정하기</button>
-                                                <button id="writer" type="button" onclick="noticeDelete()">삭제하기</button>
-                                            </div>
+                                            
                                     </form>
                                     </td>
                                 </tr>
