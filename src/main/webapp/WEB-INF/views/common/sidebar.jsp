@@ -52,7 +52,7 @@
                             <li><a  href = "/myPage/myPost">내 게시글</a></li>
                             <li>2</li>
                             <li>3</li>
-                            <li>4</li>
+                            <li><a href="/petsitter/reservationList_p">펫시터 예약목록</a></li>
                         </ul>
                     </li>
 

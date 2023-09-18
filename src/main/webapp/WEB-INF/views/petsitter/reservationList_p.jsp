@@ -17,16 +17,16 @@
     <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
 
     <a href="#" class="scroll-top-btn">Top</a>
-
+    <c:set var="rList" value="rList"/>
     <main>
         <section class="main_container">
             <div class="main_first">
                 <div>새로운 예약 목록</div>
-                <div>"[닉네임]"펫시터 님 에게 신청된 새로운 예약 목록 이에요!</div>
+                <div>"${rList.memberNickname}"펫시터 님 에게 신청된 새로운 예약 목록 이에요!</div>
             </div>
             <div class="main_second">
 
-                <c:forEach items="${rList_p.reservationList}" var="rList">
+                <c:forEach items="${rList}" var="rList">
                 <div>
                     <div class="content">
                         <div><img id="petPhoto" src="${rList.petProfile}"></div>
@@ -51,6 +51,7 @@
                     </div>
                 </div>  
                 </c:forEach>
+                
             </div>
 
         </section>
@@ -97,27 +98,10 @@
         addTargetPopupLayer.classList.toggle("popup-layer-close");
         });
 
-        function selectReservationList(){
-
-            fetch("/selectList")
-            .then(resp => resp.json())
-            .then(reservationList => {
-
-                const content = document.getElementById("content");
-                
-                for(let rList of reservationList){
-                    
-                
-
-                }
-            })
-            .catch(err =>  console.log(err));
-        }
-
-
-
-
     </script>
+
+    <script src="/resources/js/reservationList_p.js"></script>
+
 
     
 </body>

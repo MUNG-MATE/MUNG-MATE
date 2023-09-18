@@ -1,6 +1,7 @@
 package edu.kh.mung.myPage.model.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,12 +14,16 @@ public class PetSitterServiceImpl_p implements PetSitterService_p{
 
 	@Autowired
 	private PetSitterDAO_p dao;
-	
-	//예약목록조회
+
+
+
+
 	@Override
-	public List<rList_p> select(Integer rsNo) {
-		return dao.select(rsNo);
+	public List<rList_p> select() {
+		return dao.select();
 	}
+
+
 
 
 }

@@ -27,7 +27,7 @@ public class rList_p {
 	private String rsAddress; // 입력한 주소
 	private String serviceType; // 타입
 	private String serviceTime; // 시간
-	private int servicePrice;  // 금액
+	private String servicePrice;  // 금액
 	
 	// 펫
 	private int petNo;	// 반려견 번호
@@ -37,6 +37,4 @@ public class rList_p {
 	private String petGender; // 성별
 	private String petProfile; // 반려견 프로필 사진
 	private String petOption;	// 반려견 특이사항
-	
-	private List<rList_p> reservationList;
 }
