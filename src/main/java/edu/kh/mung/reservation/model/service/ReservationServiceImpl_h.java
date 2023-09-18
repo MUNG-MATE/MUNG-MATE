@@ -1,6 +1,7 @@
 package edu.kh.mung.reservation.model.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,11 @@ public class ReservationServiceImpl_h implements ReservationService_h{
 	@Override
 	public PetSitter choicePetSitter(int petSitterNo) {
 		return dao.choicePetSitter(petSitterNo);
+	}
+
+	@Override
+	public int payResult(Map<String, Object> map) {
+		return dao.payResult(map);
 	}
 
 }

@@ -1,6 +1,7 @@
 package edu.kh.mung.reservation.model.service;
 
 import java.util.List;
+import java.util.Map;
 
 import edu.kh.mung.member.model.dto.Member;
 import edu.kh.mung.myPage.model.dto.Pet;
@@ -16,6 +17,12 @@ public interface ReservationService_h {
 	List<PetSitter> selectPetSitter(Reservation rs);
 
 	PetSitter choicePetSitter(int petSitterNo);
+
+	/** 결제
+	 * @param map
+	 * @return result
+	 */
+	int payResult(Map<String, Object> map);
 
 
 }

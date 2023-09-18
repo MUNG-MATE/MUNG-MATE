@@ -78,3 +78,85 @@ nextBtn[0].addEventListener("click", e =>{
 
 })
 
+const selectDate = document.getElementById("selectDate"); // 날짜
+const selectStartDate = document.getElementById("selectStartDate"); // 서비스 시작 시간
+const selectAddr = document.getElementById("selectAddr"); // 방문 장소
+const selectPetSitterNo = document.getElementById("selectPetSitterNo"); // 펫시터 번호
+const serviceNo = document.getElementById("serviceNo");// 서비스 번호
+const selectedService = document.getElementById("selectedService"); // 서비스 방식
+const selectMoney = document.getElementById("selectMoney"); // 가격
+
+
+const reservationForm = document.getElementById("reservationForm");
+
+reservationForm.addEventListener("submit", e=>{
+
+    const data = { "rsDate" : selectDate.value,
+                   "rsStartDate" : selectStartDate.value,
+                   "rsAddress" : selectAddr.value,
+                   "rsSitterNo" : selectPetSitterNo.value,
+                   "rsMemberNo" : memberNo,
+                   "serviceNo" : serviceNo.value
+                };
+
+    // 결제 api
+    $("#creditBtn").click(function () {
+    
+        IMP.init('imp06854558'); 
+        IMP.request_pay({
+        pg: "inicis",
+        pay_method: "card",
+        merchant_uid : 'merchant_'+new Date().getTime(),
+        name : selectedService.value,
+        amount : '1',
+        buyer_email : 'choiyonghyuk97@gmail.com',
+        buyer_name : '우리 멍메이트',
+        }, function (rsp) { // callback
+            if (rsp.success) {
+            // 결제 성공 시 로직,
+            var msg = '결제가 완료되었습니다.';
+            msg += '고유ID : ' + rsp.imp_uid;
+            msg += '상점 거래ID : ' + rsp.merchant_uid;
+            msg += '결제 금액 : ' + rsp.paid_amount;
+            msg += '카드 승인번호 : ' + rsp.apply_num;
+                
+            // ajax
+            fetch("/reservation/pay", {
+                method  : "POST",
+                headers : {"Content-Type" : "application/json"},
+                body    : JSON.stringify(data)
+            })
+    
+            .then(resp => resp.text())
+    
+            .then( result => {
+                if(result > 0 ){
+                    console.log("결제 완료!");
+                    e.preventDefault();
+                    /* location.href = "6"; */
+                } else {
+                    console.log("결제에 실패하셨습니다.");
+                    e.preventDefault();
+                    /* location.href = "/"; */ 
+                }
+            })
+    
+            .catch(err => {
+                console.log(err);
+            });
+    
+            } else {
+            // 결제 실패 시 로직,
+            var msg = '결제에 실패하였습니다.';
+            msg += '에러내용 : ' + rsp.error_msg;
+            }
+    
+            // alert(msg)
+        })
+        
+    
+    })
+    e.preventDefault();
+})
+
+
