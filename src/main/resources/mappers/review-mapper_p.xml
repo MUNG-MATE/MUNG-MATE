@@ -231,8 +231,8 @@
 	<!-- 이미지 삽입(1개) -->
 	<insert id="imageInsert">
 		INSERT INTO BOARD_IMAGE
-		VALUES(SEQ_IMG_NO.NEXTVAL,#{imagePath},#{imageOrder},
-		#{boardNo},#{imageReName})
+		VALUES(SEQ_IMG_NO.NEXTVAL,#{imagePath},#{imageOrder},#{imageReName},
+		#{boardNo})
 	</insert>
 
 	<!-- 게시글 삭제 -->
@@ -267,8 +267,8 @@
 			SELECT
 			#{img.imagePath} BOARD_IMG_PATH,
 			#{img.imageOrder} BOARD_IMG_ORDER,
-			#{img.boardNo} BOARD_NO,
-			#{img.imageReName} BOARD_IMG_RENAME
+			#{img.imageReName} BOARD_IMG_RENAME,
+			#{img.boardNo} BOARD_NO
 			FROM DUAL
 		</foreach>
 		)A
