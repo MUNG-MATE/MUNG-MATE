@@ -17,8 +17,13 @@
 		<result property="adminFlag" column="MEMBER_ADMIN" />
 		<result property="petsitterFlag" column="MEMBER_PETSITTER" />
 		<result property="profileImage" column="PROFILE_IMG" />
-		<result property="enrollDate" column="ENROLL_DATE" />
+		<result property="rsNo" column="RS_NO" />
+		<result property="rsDate" column="RS_DATE" />
+		<result property="paySt" column="PAY_ST" />
+		<result property="petsitterSt" column="PETSITTER_ST" />
+		<result property="servicePrice" column="SERVICE_PRICE" />
 	</resultMap>
+
 	
 	<resultMap type="PetSitter" id="petSitter_rm">
   	
@@ -166,9 +171,11 @@
 	<select id="getReserveListCount" resultType="_int">
 		SELECT COUNT(*) FROM RESERVATION
 	</select>
-	
 	<select id="selectReserveList" resultMap="member_rm">
-	
+		SELECT RS_NO,MEMBER_EMAIL,MEMBER_NM, MEMBER_TEL,RS_DATE,SERVICE_PRICE, PETSITTER_ST, PAY_ST
+		FROM RESERVATION R
+		JOIN SERVICE_TYPE USING(SERVICE_NO)
+		LEFT JOIN MEMBER M ON R.MEMBER_NO = M.MEMBER_NO
+		ORDER BY RS_DATE DESC
 	</select>
-
 </mapper>

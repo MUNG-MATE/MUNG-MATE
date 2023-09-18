@@ -30,6 +30,7 @@ public class Member {
 	
 	
 	// 예약관리 (광민)
+	private int rsNo;
 	private Date rsDate;
 	private String paySt;
 	private String petsitterSt;
