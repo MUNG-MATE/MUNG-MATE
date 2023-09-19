@@ -39,4 +39,8 @@ public class MyPageController_k {
 		return rsList;
 	}
 	
+	@GetMapping("/test")
+	public String test() {
+		return "/test";
+	}
 }
