@@ -98,7 +98,7 @@
 	<!-- 반려견 예약 테이블 insert -->
 	
 	<insert id="insertRevPet">
-		INSERT INTO RESERVATION PET VALUES(#{rsNo},#{})
-	</insert>
+		INSERT INTO RESERVATION_PET VALUES(#{rsNo},#{petNo})
+	</insert> 
 	
 </mapper>
