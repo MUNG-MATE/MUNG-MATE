@@ -30,10 +30,28 @@ public class ReservationServiceImpl_h implements ReservationService_h{
 	public PetSitter choicePetSitter(int petSitterNo) {
 		return dao.choicePetSitter(petSitterNo);
 	}
-
+	
+	// 예약 테이블에 insert하기
 	@Override
 	public int payResult(Map<String, Object> map) {
 		return dao.payResult(map);
+	}
+	
+	// 예약 번호 미리 얻어오기
+	@Override
+	public int selectreservationNo() {
+		return dao.selectreservationNo();
+	}
+	
+	// 결제 테이블 insert 하기
+	@Override
+	public int insertReservation(Map<String, Object> map) {
+		return dao.insertReservation(map);
+	}
+	// 반려견 예약 테이블에 insert 하기
+	@Override
+	public int insertRevPet(Map<String, Object> map) {
+		return dao.insertRevPet(map);
 	}
 
 }

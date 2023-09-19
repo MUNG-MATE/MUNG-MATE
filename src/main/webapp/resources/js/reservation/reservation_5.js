@@ -85,23 +85,42 @@ const selectPetSitterNo = document.getElementById("selectPetSitterNo"); // 펫�
 const serviceNo = document.getElementById("serviceNo");// 서비스 번호
 const selectedService = document.getElementById("selectedService"); // 서비스 방식
 const selectMoney = document.getElementById("selectMoney"); // 가격
+const petNo = document.querySelectorAll(".petNo") // 펫 번호
+
+let petList = [];
+
+
+for(let i =0; i < backgroundArea.length; i++){
+    backgroundArea[i].addEventListener("click", ()=>{
+
+        if(backgroundArea[i].classList.contains("clicked")){
+                petList.push(petNo[i].value);
+        
+        }
+    });
+}
 
 
 const reservationForm = document.getElementById("reservationForm");
 
 reservationForm.addEventListener("submit", e=>{
 
+    
     const data = { "rsDate" : selectDate.value,
                    "rsStartDate" : selectStartDate.value,
                    "rsAddress" : selectAddr.value,
                    "rsSitterNo" : selectPetSitterNo.value,
                    "rsMemberNo" : memberNo,
-                   "serviceNo" : serviceNo.value
+                   "serviceNo" : serviceNo.value,
+                   "petNoList" : petList,
+                   "price" : selectMoney.value
                 };
 
     // 결제 api
     $("#creditBtn").click(function () {
-    
+        
+        console.log(data);
+
         IMP.init('imp06854558'); 
         IMP.request_pay({
         pg: "inicis",

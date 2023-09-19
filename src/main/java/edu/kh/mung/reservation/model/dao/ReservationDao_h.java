@@ -30,9 +30,32 @@ public class ReservationDao_h {
 	public PetSitter choicePetSitter(int petSitterNo) {
 		return sqlSession.selectOne("reservationMapper.choicePetSitter", petSitterNo);
 	}
-
+	
+	/** 예약 테이블에 insert하기
+	 * @param map
+	 * @return
+	 */
 	public int payResult(Map<String, Object> map) {
 		return sqlSession.insert("reservationMapper.payResult", map);
+	}
+
+	/** 예약 번호 미리 얻어오기
+	 * @return rsNo
+	 */
+	public int selectreservationNo() {
+		return sqlSession.selectOne("reservationMapper.selectreservationNo");
+	}
+
+	/** 결제 테이블에 insert 하기
+	 * @param map
+	 * @return result
+	 */
+	public int insertReservation(Map<String, Object> map) {
+		return sqlSession.insert("reservationMapper.insertReservation",map);
+	}
+
+	public int insertRevPet(Map<String, Object> map) {
+		return sqlSession.insert("reservationMapper.insertRevPet",map);
 	}
 
 
