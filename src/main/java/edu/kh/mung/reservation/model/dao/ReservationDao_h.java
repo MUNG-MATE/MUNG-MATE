@@ -40,10 +40,11 @@ public class ReservationDao_h {
 	}
 
 	/** 예약 번호 미리 얻어오기
+	 * @param map 
 	 * @return rsNo
 	 */
-	public int selectreservationNo() {
-		return sqlSession.selectOne("reservationMapper.selectreservationNo");
+	public int selectreservationNo(Map<String, Object> map) {
+		return sqlSession.selectOne("reservationMapper.selectreservationNo",map);
 	}
 
 	/** 결제 테이블에 insert 하기

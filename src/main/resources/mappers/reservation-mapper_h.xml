@@ -82,7 +82,10 @@
 	</select>
 	<!-- 예약 번호 미리 얻어오기 -->
 	<select id="selectreservationNo" resultType="_int" >
-		SELECT SEQ_RS_NO.NEXTVAL FROM DUAL
+		SELECT RS_NO FROM RESERVATION
+		WHERE RS_DATE = #{rsDate}
+		AND RS_START_DATE = #{rsStartDate}
+		AND RS_ADDRESS = #{rsAddress}
 	</select>
 	
 	<!-- 결제 테이블 insert -->
@@ -92,7 +95,7 @@
 	
 	<!-- 예약 테이블 insert -->
 	<insert id="payResult">
-		INSERT INTO RESERVATION VALUES(#{rsNo}, #{rsDate}, #{rsStartDate}, #{rsAddress}, #{rsSitterNo}, #{rsMemberNo}, DEFAULT, 'Y', DEFAULT, #{serviceNo})
+		INSERT INTO RESERVATION VALUES(SEQ_RS_NO.NEXTVAL, #{rsDate}, #{rsStartDate}, #{rsAddress}, #{rsSitterNo}, #{rsMemberNo}, DEFAULT, #{serviceNo})
 	</insert>
 	
 	<!-- 반려견 예약 테이블 insert -->

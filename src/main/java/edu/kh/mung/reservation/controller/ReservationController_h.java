@@ -136,18 +136,17 @@ public class ReservationController_h {
 
 		System.out.println(petNoList);
 
-		// 1.예약 번호 얻어오기 
-		int rsNo = service.selectreservationNo();
+		// 1. 예약 테이블에 insert하기 
+		int result = service.payResult(map);
+		
+		// 2.예약 번호 얻어오기 
+		int rsNo = service.selectreservationNo(map);
 
 		map.put("rsNo", rsNo);
 		
-		System.out.println(rsNo);
+		// 3. 결제 테이블에 insert하기 
+		result = service.insertReservation(map);
 		
-		// 2. 결제 테이블에 insert하기 
-		int result = service.insertReservation(map);
-
-		// 3. 예약 테이블에 insert하기 
-		result = service.payResult(map);
 
 
 		for(int i = 0; i < petNoList.size(); i++) { 
