@@ -102,11 +102,11 @@ for(let i =0; i < backgroundArea.length; i++){
 
 
 const reservationForm = document.getElementById("reservationForm");
-
-reservationForm.addEventListener("submit", e=>{
+const creditBtn = document.getElementById("creditBtn");
+creditBtn.addEventListener("click", e=>{
 
     
-    const data = { "rsDate" : selectDate.value,
+     const data = { "rsDate" : selectDate.value,
                    "rsStartDate" : selectStartDate.value,
                    "rsAddress" : selectAddr.value,
                    "rsSitterNo" : selectPetSitterNo.value,
@@ -115,7 +115,7 @@ reservationForm.addEventListener("submit", e=>{
                    "petNoList" : petList,
                    "price" : selectMoney.value
                 };
-
+                /*
     // 결제 api
     $("#creditBtn").click(function () {
         
@@ -138,7 +138,7 @@ reservationForm.addEventListener("submit", e=>{
             msg += '상점 거래ID : ' + rsp.merchant_uid;
             msg += '결제 금액 : ' + rsp.paid_amount;
             msg += '카드 승인번호 : ' + rsp.apply_num;
-                
+                 */
             // ajax
             fetch("/reservation/pay", {
                 method  : "POST",
@@ -164,7 +164,7 @@ reservationForm.addEventListener("submit", e=>{
                 console.log(err);
             });
     
-            } else {
+            /* } else {
             // 결제 실패 시 로직,
             var msg = '결제에 실패하였습니다.';
             msg += '에러내용 : ' + rsp.error_msg;
@@ -175,7 +175,9 @@ reservationForm.addEventListener("submit", e=>{
         
     
     })
-    e.preventDefault();
+    */
+    e.preventDefault(); 
+    
 })
 
 
