@@ -17,11 +17,11 @@
         <i class="fa-solid fa-circle-check fa-5x"></i>
         <br>
         <strong>예약 완료</strong>
-        <p id="message">OOO 고객님! 멍메이트와 함께 해주셔서 감사합니다.
-예약 번호는 1이며, 아래 버튼으로 연결되는 셀프서비스 예약 관리 기능을 이용해
-예약 정보 확인, 예약 취소, 예약 변경을 하실 수 있습니다.</p>
+        <p id="message">${loginMember.memberNickname} 고객님! 멍메이트와 함께 해주셔서 감사합니다.
+아래 버튼으로 연결되는 마이페이지 예약 확인 화면을 이용해
+예약 정보 확인 하실 수 있습니다.</p>
         <div id="reservationBtn">
-            <a href="#">예약 관리</a>
+            <a href="/myPage/selectRsList">예약 관리</a>
         </div>
     </section>
     

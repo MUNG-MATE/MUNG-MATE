@@ -140,7 +140,9 @@ public class ReservationController_h {
 		int rsNo = service.selectreservationNo();
 
 		map.put("rsNo", rsNo);
-
+		
+		System.out.println(rsNo);
+		
 		// 2. 결제 테이블에 insert하기 
 		int result = service.insertReservation(map);
 
@@ -157,8 +159,8 @@ public class ReservationController_h {
 			
 		}
 
-
-		return 0;
+		
+		return result;
 	}
 
 	@GetMapping("/6")

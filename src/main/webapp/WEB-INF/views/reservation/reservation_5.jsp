@@ -21,7 +21,7 @@
     <!-- ${rs.petSitterNo} -->
     
     
-    <form action="5" method="post" id="reservationForm">
+    <%-- <form action="5" method="post" id="reservationForm"> --%>
         <section id="container">
             <div class="containerDiv left">
                 <h2>서비스 정보</h2>
@@ -110,7 +110,7 @@
         <input type="hidden" name="petSitterNo" id="selectPetSitterNo" value="${rs.petSitterNo}">
         <input type="hidden" name="serviceNo" id="serviceNo" value="${rs.serviceNo}">
         <input type="hidden" name="rsAddress" id="selectAddr" value="${rs.rsAddress}">
-    </form>
+    <%-- </form> --%>
 
     <script src="/resources/js/reservation/reservation_5.js"></script>
     <script>
