@@ -3,7 +3,6 @@ const review = document.getElementsByClassName("review");
 const nextBtn = document.getElementById("nextBtn");
 
 
-
 for(let i = 0; i < profileArea.length; i++) {
 
     
