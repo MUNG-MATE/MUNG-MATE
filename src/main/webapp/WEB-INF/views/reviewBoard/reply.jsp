@@ -16,11 +16,11 @@
                             <!-- 프로필 이미지 -->
                             <c:if test="${empty reply.profileImage}" >
                                 <%-- 없을 경우 기본 이미지 --%>
-                                <img src="../../../resources/images/user.png">
+                                <img class="profile" src="../../../resources/images/user.png">
                             </c:if>
                             <c:if test="${!empty reply.profileImage}" >
                                 <%-- 없을 경우 기본 이미지 --%>
-                                <img src="${reply.profileImage}">
+                                <img class="profile" src="${reply.profileImage}">
                             </c:if>
 
                             <!-- 닉네임 -->

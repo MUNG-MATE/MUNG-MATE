@@ -16,10 +16,10 @@
     <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
 
     <main>
-       
+             <h1>리뷰</h1>
         <section>
 
-            <h1>리뷰</h1>
+           
 
             <form action="insert" method="POST"
             class="board-write" id="boardWriteFrm" enctype="multipart/form-data">
@@ -37,8 +37,8 @@
                             <label for="img" id="labelImg">
                                 <img id="preview" class="preview" src="" />
                             </label>
-                            <input type="file" name="images" class="uploadImg" id="img" accept="image/*" value="">
-                            <span class="delete-image" id="deleteBtn">&times;</span>
+                            <input type="file" name="images" class="uploadImg" id="img" accept="image/*" >
+                            <button type="button" id="deleteBtn">사진삭제</button>
                         </div>
                     </div>
 
@@ -64,18 +64,18 @@
     </main>
 
     <script>
-        const preview = document.getElementsByClassName("preview");
-        const uploadImg = document.getElementsByClassName("uploadImg");
+        const preview = document.getElementsByClassName("preview")[0];
+        const uploadImg = document.getElementsByClassName("uploadImg")[0];
         const deleteImage = document.getElementsByClassName("delete-image")[0];
         const deleteBtn = document.getElementById("deleteBtn");
         
         const deleteSet = new Set();
         // 파일이 선택되거나, 선택 후 취소 되었을 때 
-        for(let i=0; i < uploadImg.length; i++){
+        // for(let i=0; i < uploadImg.length; i++){
 
        
             // 파일이 선택되거나, 선택 후 취소 되었을 때 
-                uploadImg[i].addEventListener("change", e=>{
+                uploadImg.addEventListener("change", e=>{
             
                 const file = e.target.files[0] // 선택된 파일의 데이터
        
@@ -85,15 +85,15 @@
                     // 지정된 파일을 읽은 후 result 변수에 URL 형식으로 저장
 
                     reader.onload = e => { // 파일을 다 읽은 후 수행
-                        preview[i].setAttribute("src", e.target.result);
+                        preview.setAttribute("src", e.target.result);
 
                         // 이미지가 성공적으로 읽어지면
                         // deleteSet에서 삭제
-                        deleteSet.delete(i);
+                        deleteSet.delete();
                     }
                 } else{ // 선택 후 취소 되었을 때
                     // -> 선택된 파일이 없음 -> 미리보기 삭제
-                    preview[i].removeAttribute("src");
+                    preview.removeAttribute("src");
                     
                 }
             });
@@ -102,20 +102,20 @@
             deleteBtn.addEventListener("click", () => {
                 
                 // 미리보기 이미지가 있을 경우
-                if(preview[i].getAttribute("src") != ""){
+                if(preview.getAttribute("src") != ""){
                     
                     // 미리보기 삭제
-                    preview[i].removeAttribute("src");
+                    preview.removeAttribute("src");
                 
                     // input type="file" 태그의 value를 삭제
                     // *** input type="file"의 value는 ""(빈칸)만 대입 가능 ***
-                    uploadImg[i].value = "";
+                    uploadImg.value = "";
 
                     // deleteSet에 삭제된 이미지 순서(i) 추가
-                    deleteSet.add(i);
-        }
-    })
-        }
+                    deleteSet.add();
+                }
+            })
+        // }
         
         // 게시글 수정 시 제목, 내용 작성 여부 검사
         const boardTitle = document.querySelector("[name='boardTitle']")
