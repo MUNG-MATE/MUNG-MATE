@@ -1,7 +1,13 @@
 const profileArea = document.getElementsByClassName("profileArea");
 const review = document.getElementsByClassName("review");
+const nextBtn = document.getElementById("nextBtn");
+
+
 
 for(let i = 0; i < profileArea.length; i++) {
+
+    
+    
 
     profileArea[i].addEventListener("mouseover", () => {
         if(!profileArea[i].classList.contains("clicked")) {
@@ -37,6 +43,7 @@ for(let i = 0; i < profileArea.length; i++) {
     })
 }
 
+
 // const petSitterFrm = document.getElementsById("petSitterFrm");
 // const profile = document.getElementsById("profileArea");
 
@@ -47,3 +54,17 @@ function selectPetSitterNo(content) {
     document.getElementById('selectPetSitterNo').value = content;
 }
 
+nextBtn.addEventListener("click", e => {
+
+    
+
+    if(document.getElementById('selectPetSitterNo').value == ""){
+        alert("펫시터를 선택해주세요.");
+        e.preventDefault();
+        return;
+    }
+        
+    
+    
+  
+  } )
