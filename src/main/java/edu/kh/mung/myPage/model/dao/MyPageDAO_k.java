@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.kh.mung.myPage.model.dto.Pet;
+import edu.kh.mung.reservation.model.dto.Pet2;
 import edu.kh.mung.reservation.model.dto.PetSitter;
 import edu.kh.mung.reservation.model.dto.Reservation;
 
@@ -34,7 +35,7 @@ public class MyPageDAO_k {
 			System.out.println("wishListCount : "+rs.getPetSitterList().get(0).getWishListCount());
 			rs.getPetSitterList().get(0).setWishListCount(wishListCount); // 찜 목록 수를 펫시터 리스트에 삽입
 			
-			List<Pet> petList = new ArrayList<Pet>(); // 펫 목록을 담을 리스트 생성
+			List<Pet2> petList = new ArrayList<Pet2>(); // 펫 목록을 담을 리스트 생성
 
 			// 예약 번호로 펫 번호를 조회
 			int rsNo = rs.getRsNo();
@@ -42,7 +43,7 @@ public class MyPageDAO_k {
 
 			// 예약 번호로 얻어온 펫 번호로 펫 목록 조회
 			for (int petNo : petNoList) {
-				Pet pet = sqlSession.selectOne("myPageMapper_k.selectPetList", petNo); // pet : Pet(petNo=1, ...)
+				Pet2 pet = sqlSession.selectOne("myPageMapper_k.selectPetList", petNo); // pet : Pet(petNo=1, ...)
 				petList.add(pet);
 			}
 
