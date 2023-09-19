@@ -39,8 +39,8 @@ public class ReservationServiceImpl_h implements ReservationService_h{
 	
 	// 예약 번호 미리 얻어오기
 	@Override
-	public int selectreservationNo() {
-		return dao.selectreservationNo();
+	public int selectreservationNo(Map<String, Object> map) {
+		return dao.selectreservationNo(map);
 	}
 	
 	// 결제 테이블 insert 하기

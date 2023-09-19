@@ -21,7 +21,7 @@
 아래 버튼으로 연결되는 마이페이지 예약 확인 화면을 이용해
 예약 정보 확인 하실 수 있습니다.</p>
         <div id="reservationBtn">
-            <a href="/myPage/selectRsList">예약 관리</a>
+            <a href="/myPage/rsList">예약 관리</a>
         </div>
     </section>
     

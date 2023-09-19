@@ -25,9 +25,10 @@ public interface ReservationService_h {
 	int payResult(Map<String, Object> map);
 
 	/** 예약 번호 미리 얻어오기
+	 * @param map 
 	 * @return rsNo
 	 */
-	int selectreservationNo();
+	int selectreservationNo(Map<String, Object> map);
 
 	/** 결제 테이블 insert 하기
 	 * @param map
