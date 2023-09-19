@@ -43,9 +43,9 @@
                             <c:if test="${loginMember.petsitterFlag == 'Y'}" >
                             <li><a  href = "/petsitter/toGeneralApply">펫시터 그만두기</a></li>
                             </c:if>
-                            <c:if test="${loginMember.petsitterFlag == 'Y'}" >
-                            <li><a href="/petsitter/reservationList_p">펫시터 예약목록</a></li>
-                            </c:if>
+                           <%--  <c:if test="${loginMember.petsitterFlag == 'Y'}" >
+                            <li><a href="/petsitter/reservationList_p"> 펫시터 예약목록     증발띠    </a></li>
+                            </c:if>  --%>
                         </ul>
                     </li>
                 </c:if>
