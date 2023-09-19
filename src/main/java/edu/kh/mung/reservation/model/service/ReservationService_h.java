@@ -18,11 +18,28 @@ public interface ReservationService_h {
 
 	PetSitter choicePetSitter(int petSitterNo);
 
-	/** 결제
+	/** 예약 테이블에 insert하기
 	 * @param map
 	 * @return result
 	 */
 	int payResult(Map<String, Object> map);
+
+	/** 예약 번호 미리 얻어오기
+	 * @return rsNo
+	 */
+	int selectreservationNo();
+
+	/** 결제 테이블 insert 하기
+	 * @param map
+	 * @return result
+	 */
+	int insertReservation(Map<String, Object> map);
+
+	/** 반려견 예약 테이블에 insert 하기
+	 * @param map
+	 * @return result
+	 */
+	int insertRevPet(Map<String, Object> map);
 
 
 }

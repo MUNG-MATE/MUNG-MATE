@@ -71,7 +71,7 @@
                     <div class="backgroundArea">
         
                         <div id="petProfile"><img src="${i.petProfile}" id="petProfile"></div>
-                        
+                        <input type="hidden" name="petNo" class="petNo" value="${i.petNo}">
                         ${i.petName}
                         
                     </div>

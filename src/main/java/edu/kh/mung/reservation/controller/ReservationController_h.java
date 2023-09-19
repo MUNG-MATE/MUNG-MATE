@@ -155,7 +155,23 @@ public class ReservationController_h {
 	@ResponseBody
 	public int payResult(@RequestBody Map<String, Object> map) {
 		
-		int result = service.payResult(map);
+		System.out.println(map);
+		
+		// 1.예약 번호 얻어오기
+		int rsNo = service.selectreservationNo();
+		
+		map.put("rsNo", rsNo);
+		
+		// 2. 결제 테이블에 insert하기
+		int result = service.insertReservation(map);
+		
+		// 3. 예약 테이블에 insert하기
+		result = service.payResult(map);
+		
+		// 4. 예약 반려견 테이블에 INSERT 하기
+		result = service.insertRevPet(map);
+	
+		
 		return result;
 	}
 	
