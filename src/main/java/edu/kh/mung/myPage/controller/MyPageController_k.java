@@ -32,11 +32,17 @@ public class MyPageController_k {
 	// 로그인 회원의 예약 목록 조회
 	@GetMapping("/selectRsList")
 	@ResponseBody
-	public List<Reservation> selectRsList(int memberNo) {
+	public List<Reservation> selectRsList(@SessionAttribute("loginMember") Member loginMember) {
+		
+		int memberNo = loginMember.getMemberNo();
 		
 		List<Reservation> rsList = service.selectRsList(memberNo);
 		
 		return rsList;
 	}
 	
+	@GetMapping("/test")
+	public String test() {
+		return "/test";
+	}
 }
