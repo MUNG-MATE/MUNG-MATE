@@ -23,18 +23,6 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 
 			function getCurrentPlace() { // GeoLocation을 이용해서 접속 위치를 얻어오는 함수
 				
-				function success(pos) { // 위치 정보를 가져오는데 성공했을 때 호출되는 콜백 함수 (pos : 위치 정보 객체)
-					const lat = pos.coords.latitude;
-					const lng = pos.coords.longitude;
-				}
-				
-				function fail(err) { // 위치 정보를 가져오는데 실패했을 때 호출되는 콜백 함수
-					alert('현위치를 찾을 수 없습니다.');
-				}
-
-				navigator.geolocation.getCurrentPosition(success, fail, {
-					enableHighAccuracy: true
-				})
 
 				// 펫시터 현재 위치 DB 삽입
 				navigator.geolocation.getCurrentPosition(function(position) {
@@ -62,9 +50,6 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 					})
 					.catch(err => console.log(err))
 
-					// 마커와 인포윈도우를 표시합니다
-					displayMarker(locPosition, message);
-
 				})
 			}
 
@@ -78,9 +63,20 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 					console.log(locationList);
 					var linePath = [];
 
-					for(let location of locationList) {
+					/* for(let location of locationList) {
 						linePath.push(new kakao.maps.LatLng(location.lat, location.lon));
+					} */
+
+					for(let i = 0; i < locationList.length - 1; i++) {
+						linePath.push(new kakao.maps.LatLng(locationList[i].lat, locationList[i].lon));
 					}
+
+					linePath.push(new kakao.maps.LatLng(locationList[locationList.length-1].lat, locationList[locationList.length-1].lon));
+
+					// 마커와 인포윈도우를 표시합니다
+					var locPosition = new kakao.maps.LatLng(locationList[locationList.length-1].lat, locationList[locationList.length-1].lon);
+
+					displayMarker(locPosition);
 					
 					// 지도에 표시할 선을 생성합니다
 					var polyline = new kakao.maps.Polyline({
@@ -106,25 +102,30 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 		}
 
 		// 지도에 마커와 인포윈도우를 표시하는 함수입니다
-		function displayMarker(locPosition, message) {
+		function displayMarker(locPosition) {
+
+			// 마커 디자인
+			var imageSrc = '/resources/images/1.gif', // 마커이미지의 주소입니다
+			imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
+			imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+			
+			// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+			var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
+				markerPosition = locPosition; // 마커가 표시될 위치입니다
 
 			// 마커를 생성합니다
-			/* var marker = new kakao.maps.Marker({
-				map : map,
-				position : locPosition
-			}); */
+			var marker = new kakao.maps.Marker({
+				position: markerPosition, 
+				image: markerImage // 마커이미지 설정 
+			});
 
-			var iwContent = message, // 인포윈도우에 표시할 내용
-			iwRemoveable = true;
+			// // 마커를 생성합니다
+			// var marker = new kakao.maps.Marker({
+			// 	map : map,
+			// 	position : locPosition
+			// });
 
-			// 인포윈도우를 생성합니다
-			/* var infowindow = new kakao.maps.InfoWindow({
-				content : iwContent,
-				removable : iwRemoveable
-			}); */
-
-			// 인포윈도우를 마커위에 표시합니다 
-			/* infowindow.open(map, marker); */
+			marker.setMap(map);  
 
 			// 지도 중심좌표를 접속위치로 변경합니다
 			map.setCenter(locPosition);
