@@ -27,6 +27,7 @@
      <typeAlias type="edu.kh.mung.reservation.model.dto.Reservation" alias="Reservation"/>
      <typeAlias type="edu.kh.mung.myPage.model.dto.rList_p" alias="rList_p" />
      <typeAlias type="edu.kh.mung.main.model.dto.WishList" alias="WishList" />
+     <typeAlias type="edu.kh.mung.live.model.dto.LocationService" alias="LocationService" />
      
    </typeAliases>
    
@@ -46,5 +47,6 @@
       <mapper resource="/mappers/Administrator-mapper_o.xml" />
       <mapper resource="/mappers/myPage-mapper_k.xml" />
       <mapper resource="/mappers/reply-mapper_p.xml" />
+      <mapper resource="/mappers/live-mapper.xml" />
    </mappers>
 </configuration>
