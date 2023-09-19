@@ -104,7 +104,7 @@ for(let i =0; i < backgroundArea.length; i++){
 const reservationForm = document.getElementById("reservationForm");
 const creditBtn = document.getElementById("creditBtn");
 creditBtn.addEventListener("click", e=>{
-
+    
     
      const data = { "rsDate" : selectDate.value,
                    "rsStartDate" : selectStartDate.value,
@@ -113,9 +113,9 @@ creditBtn.addEventListener("click", e=>{
                    "rsMemberNo" : memberNo,
                    "serviceNo" : serviceNo.value,
                    "petNoList" : petList,
-                   "price" : selectMoney.value
+                   "price" : totalPrice
                 };
-                /*
+                
     // 결제 api
     $("#creditBtn").click(function () {
         
@@ -138,7 +138,7 @@ creditBtn.addEventListener("click", e=>{
             msg += '상점 거래ID : ' + rsp.merchant_uid;
             msg += '결제 금액 : ' + rsp.paid_amount;
             msg += '카드 승인번호 : ' + rsp.apply_num;
-                 */
+                 
             // ajax
             fetch("/reservation/pay", {
                 method  : "POST",
@@ -151,12 +151,12 @@ creditBtn.addEventListener("click", e=>{
             .then( result => {
                 if(result > 0 ){
                     console.log("결제 완료!");
-                    e.preventDefault();
-                    /* location.href = "6"; */
+                    
+                     location.href = "6";
                 } else {
-                    console.log("결제에 실패하셨습니다.");
+                    alert("결제에 실패하셨습니다.");
                     e.preventDefault();
-                    /* location.href = "/"; */ 
+                    
                 }
             })
     
@@ -164,7 +164,7 @@ creditBtn.addEventListener("click", e=>{
                 console.log(err);
             });
     
-            /* } else {
+             } else {
             // 결제 실패 시 로직,
             var msg = '결제에 실패하였습니다.';
             msg += '에러내용 : ' + rsp.error_msg;
@@ -175,9 +175,6 @@ creditBtn.addEventListener("click", e=>{
         
     
     })
-    */
-    e.preventDefault(); 
-    
 })
 
 

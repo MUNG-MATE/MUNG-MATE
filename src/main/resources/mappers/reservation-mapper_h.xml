@@ -92,13 +92,13 @@
 	
 	<!-- 예약 테이블 insert -->
 	<insert id="payResult">
-		INSERT INTO RESERVATION VALUES(SEQ_RS_NO.NEXTVAL, #{rsDate}, #{rsStartDate}, #{rsAddress}, #{rsSitterNo}, #{rsMemberNo}, DEFAULT, 'Y', DEFAULT, #{serviceNo})
+		INSERT INTO RESERVATION VALUES(#{rsNo}, #{rsDate}, #{rsStartDate}, #{rsAddress}, #{rsSitterNo}, #{rsMemberNo}, DEFAULT, 'Y', DEFAULT, #{serviceNo})
 	</insert>
 	
 	<!-- 반려견 예약 테이블 insert -->
 	
 	<insert id="insertRevPet">
-		INSERT INTO RESERVATION_PET VALUES(#{rsNo},#{petNo})
+		INSERT INTO "RESERVATION PET" VALUES(#{rsNo},#{petNo})
 	</insert> 
 	
 </mapper>
