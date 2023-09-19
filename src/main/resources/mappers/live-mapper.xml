@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="liveMapper">
+
+	<resultMap type="LocationService" id="LocationService_rm">
+		<id property="rsNo" column="RS_NO" />
+		<result property="lat" column="LAT" />
+		<result property="lon" column="LON" />
+	</resultMap>
+	
+	<insert id="insertLocation">
+		INSERT INTO LOCATION_SERVICE VALUES(1, #{lat}, #{lon})
+	</insert>
+	
+	<select id="selectLocation" resultMap="LocationService_rm">
+		SELECT * FROM LOCATION_SERVICE WHERE RS_NO = 1
+	</select>
+</mapper>
