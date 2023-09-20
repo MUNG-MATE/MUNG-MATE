@@ -2,13 +2,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
 <!-- 채팅 -->
-        <section id="right">
-            <ul id="chattingArea">
-                <li class="myChat">
+        <section class="chatting-content" id="right">
+            <ul id="display-chatting">
+                <li class="my-chat">
                     <span class="chatDate">09.04 16:00</span>
                     <p class="chat">떵 치워주세여</p>
                 </li>
-                <li class="opponentChat">
+                <li class="target-chat">
                     <img src="/resources/images/myPage/petsitter.png">
                     <div>
                         <b>펫시터</b> <br>
@@ -17,9 +17,9 @@
                     </div>
                 </li>
             </ul>
-            <div id="inputArea">
+            <div id="input-area">
                 <textarea id="inputChatting" placeholder="펫시터에게 전달할 내용이 있다면 남겨보세요."></textarea>
-                <button id="sendMsg">보내기</button>
+                <button id="send">보내기</button>
             </div>
         </section>
 
