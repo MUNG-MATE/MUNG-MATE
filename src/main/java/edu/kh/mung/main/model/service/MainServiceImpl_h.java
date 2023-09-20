@@ -65,6 +65,13 @@ public class MainServiceImpl_h implements MainService_h{
 	public int myWishList(int petSitterNo, int memberNo) {
 		
 		return dao.myWishList(petSitterNo, memberNo);
+	}
+
+	// 마이페이지 펫시터 찜 목록 
+	@Override
+	public List<PetSitter> petSitterLikeList(int memberNo) {
+		
+		return dao.petSitterLikeList(memberNo);
 	} 
 
 }

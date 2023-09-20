@@ -84,7 +84,6 @@ Mung Mate 개발자 일동
                     </div>
                 </div>
             </c:forEach>
-            ${loginMember.memberNo}
             
 
         </div>

@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -82,5 +83,31 @@ public class MainController {
 	
 		return result;
 	}
+	
+	
+	@GetMapping("/petsitterLikeList")
+	public String reservation3(@SessionAttribute(value="loginMember", required = true) Member loginMember,
+								PetSitter petSitter, Model model) {
+		
+		List<PetSitter> petSitterList = service.petSitterList();
+		
+		int memberNo = loginMember.getMemberNo();
+		
+		System.out.println("회원번호확인 : " + memberNo);
+		
+		List<PetSitter> petSitterLikeList = service.petSitterLikeList(memberNo);
+		
+		System.out.println("홰긴 : " + petSitterLikeList);
+		
+		model.addAttribute("petSitterLikeList", petSitterLikeList);
+		
+		
+		return "/reservation/petsitterLikeList";
+	}
+	
+	
+	
+	
+	
 	
 }

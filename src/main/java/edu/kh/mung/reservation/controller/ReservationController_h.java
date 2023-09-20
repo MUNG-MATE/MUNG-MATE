@@ -79,10 +79,7 @@ public class ReservationController_h {
 		return "/reservation/reservation_4";
 	}
 
-	@GetMapping("/3")
-	public String reservation3() {
-		return "/reservation/reservation_3";
-	}
+	
 
 	@GetMapping("/4")
 	public String reservation4() {
@@ -166,5 +163,8 @@ public class ReservationController_h {
 	public String reservation6() {
 		return "/reservation/reservation_6";
 	}
+	
+	
+	
 
 }

@@ -56,4 +56,12 @@ public class MainDao_h {
 		return sqlSession.selectOne("reservationMapper.myWishList", map);
 	}
 
+	/** 마이페이지 펫시터 찜 목록
+	 * @return
+	 */
+	public List<PetSitter> petSitterLikeList(int memberNo) {
+		
+		return sqlSession.selectList("reservationMapper.petSitterLikeList", memberNo);
+	}
+
 }

@@ -27,4 +27,9 @@ public interface MainService_h {
 	 */
 	int myWishList(int petSitterNo, int memberNo);
 
+	/** 마이페이지 펫시터 찜 목록
+	 * @return
+	 */
+	List<PetSitter> petSitterLikeList(int memberNo);
+
 }
