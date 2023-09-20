@@ -10,6 +10,7 @@
 </head>
 <body>
     <div id="liveText">펫시팅 실시간 LIVE</div>
+    <button type = "button" onclick = "runTime(), startTime()">시작</button>
 
     <!-- 지도 -->
     <section id="section">
@@ -36,12 +37,12 @@
                 <div id="stateTextArea">
                     <div>
                         <div class="stateText">산책 시작</div>
-                        <div class="stateText">오후 03:00</div>
+                        <div class="stateText" id = "startTime"></div>
                     </div>
 
                     <div>
                         <div class="stateText ing">산책 중</div>
-                        <div class="stateText ing">00:00:30</div>
+                        <div class="stateText ing" id ="runTime">00 : 00 : 00</div>
                     </div>
 
                     <div>
@@ -78,7 +79,7 @@
     <script>
         const petsitterFlag = "${loginMember.petsitterFlag}";
     </script>
-
+    
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e99da29f2b6829aa0cab8a9aa4d50a98"></script>
     <script src="/resources/js/live/live.js"></script>
 </body>

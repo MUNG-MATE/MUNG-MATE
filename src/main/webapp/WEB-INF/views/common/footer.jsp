@@ -16,7 +16,8 @@
 		</ul> -->
 
 		<div class = "gotoLive">
-		<a href = "/live"><img src = "/resources/images/newlogo.png" id = "gotoLive"></a>
+		<a href = "/live"><img src = "/resources/images/강아지버튼.png" id = "gotoLive"></a>
+		<h4>LIVE</h4>
 		</div>
 
 		<div class="footer_wrap">

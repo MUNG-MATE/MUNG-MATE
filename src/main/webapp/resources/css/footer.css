@@ -133,8 +133,15 @@ body{font-family:'Montserrat','pretendard';}
 #gotoLive{
 	width: 100px;
 	height: 100px;
+	
+}
+
+.gotoLive{
 	position: fixed;
 	bottom : 50px;
 	left: 20px;
+	text-align: center;
+	color: red;
+	font-size: 25px;
 }
 
