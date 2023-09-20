@@ -110,6 +110,29 @@ public class AdministratorServiceImpl implements AdministratorService{
 	@Override
 	public Map<String, Object> selectReserveList(int cp) {
 		
+		// 결제대기중예약
+		int paymentW = dao.getpaymentW();
+		// 결제완료예약
+		int paymentC = dao.paymentC();
+		// 오늘예약
+		int todayR = dao.todayR();
+		// 내일 예약
+		int tomorrowR = dao.tomorrowR();
+		// 완료된 예약
+		int endR = dao.endR();
+		// 지난달 예약
+		int lastMonthR = dao.lastMonthR();
+		// 이번달 예약
+		int thisMonthR = dao.thisMonthR();
+		// 지난달 매출
+		int lastMonthSales = dao.lastMonthSales();
+		// 이번달 매출
+		int thisMonthSales = dao.thisMonthSales();
+		// 예상매출
+		int F_totalSales = dao.F_totalSales();
+		// 총매출
+		int totalSales = dao.totalSales();
+		
 		int listCount = dao.getReserveListCount();
 
 		Pagination pagination = new Pagination(cp,listCount);
@@ -117,6 +140,18 @@ public class AdministratorServiceImpl implements AdministratorService{
 		List<Member> selectReserveList = dao.selectReserveList(pagination);
 
 		Map<String, Object> map = new HashMap<>();
+		
+		map.put("paymentW", paymentW);
+		map.put("paymentC", paymentC);
+		map.put("todayR", todayR);
+		map.put("tomorrowR", tomorrowR);
+		map.put("endR", endR);
+		map.put("lastMonthR", lastMonthR);
+		map.put("thisMonthR", thisMonthR);
+		map.put("lastMonthSales", lastMonthSales);
+		map.put("thisMonthSales", thisMonthSales);
+		map.put("F_totalSales", F_totalSales);
+		map.put("totalSales", totalSales);
 		
 		map.put("pagination", pagination);
 		map.put("selectReserveList", selectReserveList);

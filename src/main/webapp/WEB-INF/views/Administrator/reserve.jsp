@@ -3,6 +3,18 @@
 
 <c:set var="pagination" value="${map.pagination}"/>
 <c:set var="selectReserveList" value="${map.selectReserveList}"/>
+
+<c:set var="paymentW" value="${map.paymentW}"/>
+<c:set var="paymentC" value="${map.paymentC}"/>
+<c:set var="todayR" value="${map.todayR}"/>
+<c:set var="tomorrowR" value="${map.tomorrowR}"/>
+<c:set var="endR" value="${map.endR}"/>
+<c:set var="lastMonthR" value="${map.lastMonthR}"/>
+<c:set var="thisMonthR" value="${map.thisMonthR}"/>
+<c:set var="lastMonthSales" value="${map.lastMonthSales}"/>
+<c:set var="thisMonthSales" value="${map.thisMonthSales}"/>
+<c:set var="F_totalSales" value="${map.F_totalSales}"/>
+<c:set var="totalSales" value="${map.totalSales}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,43 +31,40 @@
                 <tbody>
                     <tr>
                         <td>결제 대기중 예약</td>
-                        <td>1324건</td>
-                        <td>이번달 예약</td>
-                        <td>334건</td>
+                        <td>${paymentW}건</td>
+                        <td>지난달 예약</td>
+                        <td>${lastMonthR}건</td>
                     </tr>
 
                     <tr>
                         <td>결제 완료된 예약</td>
-                        <td>200건</td>
-                        <td>이번달 매출</td>
-                        <td>14,010,102,489원</td>
+                        <td>${paymentC}건</td>
+                        <td>이번달 예약</td>
+                        <td>${thisMonthR}건</td>
                     </tr>
 
                     <tr>
                         <td>오늘 예약</td>
-                        <td>11건</td>
-                        <td>지난달 예약</td>
-                        <td>433건</td>
-                    </tr>
-
-                    <tr>
-                        <td>종료된 예약</td>
-                        <td>2013건</td>
+                        <td>${todayR}건</td>
                         <td>지난달 매출</td>
-                        <td>19,045,056,458 원</td>
+                        <td>${lastMonthSales}원</td>
                     </tr>
 
                     <tr>
                         <td>내일 예약</td>
-                        <td>14건</td>
-                        <td>총 매출</td>
-                        <td>112,045,056,458 원</td>
+                        <td>${tomorrowR}건</td>
+                        <td>이번달 매출</td>
+                        <td>${thisMonthSales}원</td>
+                    </tr>
+
+                    <tr>
+                        <td>종료된 예약</td>
+                        <td>${endR}건</td>
+                        <td>총매출</td>
+                        <td>${totalSales}원</td>
                     </tr>
                 </tbody>
-                
             </table>
-
-            
         </section>
 
         <section>
