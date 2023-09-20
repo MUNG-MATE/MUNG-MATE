@@ -28,8 +28,6 @@
      <typeAlias type="edu.kh.mung.myPage.model.dto.rList_p" alias="rList_p" />
      <typeAlias type="edu.kh.mung.main.model.dto.WishList" alias="WishList" />
      <typeAlias type="edu.kh.mung.live.model.dto.LocationService" alias="LocationService" />
-     <typeAlias type="edu.kh.mung.chatting.model.dto.ChattingRoom" alias="ChattingRoom" />
-     <typeAlias type="edu.kh.mung.chatting.model.dto.Message" alias="Message" />
      
    </typeAliases>
    
@@ -50,6 +48,5 @@
       <mapper resource="/mappers/myPage-mapper_k.xml" />
       <mapper resource="/mappers/reply-mapper_p.xml" />
       <mapper resource="/mappers/live-mapper.xml" />
-      <mapper resource="/mappers/chatting-mapper.xml" />
    </mappers>
 </configuration>

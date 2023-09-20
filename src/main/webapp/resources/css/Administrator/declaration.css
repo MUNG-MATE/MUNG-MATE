@@ -6,33 +6,25 @@ body{font-family:/* 'Montserrat' */'pretendard';}
 *{margin: 0; padding: 0; box-sizing: border-box;}
 li{list-style: none;} a{text-decoration: none; color: inherit;} img{vertical-align: top;}
 main{
-    width: 1200px;
+    width: 1100px;
     height: auto;
     margin: 75px auto;
     border: 3px solid rgb(0,30,60);
     border-top:0;
     
 }
-.titleBox{
-    display: flex;
-    width: 100%;
+h2{ 
     height: 40px;
-    background-color:rgb(0,30,60);
-    align-items: center;
-    justify-content: flex-end;
+    line-height: 40px;
+    text-align: center;
+    background-color: rgb(0,30,60);
     color: white;
 }
-h2{
-    width: 200px;
-    height: 35px;
-    line-height: 35px;
-    text-align: center;
-    margin-right: 320px;
-}
 .pet-sitter{
-    width: 1100px;
+    width: 1000px;
     height: 200px;
     margin: 10px auto;
+    border: 2px solid #eee;
     display: flex;
     align-items: center;
 }
@@ -44,8 +36,8 @@ h2{
     justify-content: center;
 }
 .pet-sitterimg img{
-    width: 80%;
-    height: 100%;
+    width: 50%;
+    height: 90%;
 }
 .pet-sitter-info{
     width: 50%;
@@ -60,7 +52,7 @@ h2{
 }
 
 form{
-    width: 1100px;
+    width: 1000px;
     margin: 0 auto;
 }
 textarea{
@@ -78,48 +70,14 @@ form button{
     border: none;
     cursor: pointer;
     font-weight: bold;
-    margin-left: 1010px;
+    margin-left: 910px;
     margin-bottom : 15px;
 }
 form button:hover{
     background-color: rgb(255, 175, 175);
     color: rgb(208, 53, 49);
 }
-.selectBox {
-    position: relative;
-    width: 180px;
-    line-height: 35px;
-    height: 35px;
-    border-radius: 4px;
-    border: 3px solid lightcoral;
-    margin-right: 2px;
-}
-.selectBox .select {
-    width: inherit;
-    height: inherit;
-    background: transparent;
-    border: 0 none;
-    outline: 0 none;
-    padding: 0 5px;
-    position: relative;
-    z-index: 3; 
-    color: white;
-    font-size: 16px;
-}
-.selectBox .select option {
-    background: lightcoral;
-    color: #fff;
-    padding: 3px 0;
-    font-size: 16px;
-}
-.selectBox .icoArrow {
-    position: absolute; 
-    top: 0; 
-    right: 0; 
-    z-index: 1; 
-    width: 18px; 
-    height: inherit;
-    border-left: 2px solid lightcoral;   
-}
+
+
 
 

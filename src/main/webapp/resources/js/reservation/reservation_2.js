@@ -12,6 +12,7 @@ const selectDay = document.getElementById("input_date");
 const selectTime = document.getElementById("selectTime");
 const nextBtn = document.getElementById("nextBtn");
 const inputAddr = document.getElementById("rs_input0");
+
 // let lastDay;
 
 // if(month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
@@ -35,19 +36,6 @@ const inputAddr = document.getElementById("rs_input0");
 //     count++;
 //     index++;
 // }
-
-nextBtn.addEventListener("click", e => {
-
-
-  if(selectDay.value.trim().length == 0  || inputAddr.value.trim().length == 0){
-    alert("정보를 입력해주세요.");
-    e.preventDefault();
-    return;
-  }
-
-  
-
-} )
 
 
 
@@ -226,4 +214,15 @@ selectDay.addEventListener("change",() =>{
 
     rsDate = selectDay.value
     console.log(rsDate);
+})
+
+nextBtn.addEventListener("click", e => {
+
+  if(selectDay.value == "" || selectTime.value == "" || inputAddr.value == ""){
+    alert("정보를 입력해주세요.")
+    e.preventDefault();
+    return;
+
+  }
+
 })
