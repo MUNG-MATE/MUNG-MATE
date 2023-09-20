@@ -107,16 +107,23 @@ public class AdministratorDAO {
 
 		return sqlSession.selectList("AdministratorMapper.selectReserveList", null,rowBounds);
 	}
-	// 결제 대기중 예약
-	public int getpaymentW() {
+	
+	// 완료된 예약
+	public int endR() {
 		
-		return sqlSession.selectOne("AdministratorMapper.getpaymentW");
+		return sqlSession.selectOne("AdministratorMapper.endR");
 	}
-	// 결제 완료 예약
-	public int paymentC() {
+	// 완료안된 예약
+	public int noCompletedR() {
 		
-		return sqlSession.selectOne("AdministratorMapper.paymentC");
+		return sqlSession.selectOne("AdministratorMapper.noCompletedR");
 	}
+	// 어제 예약
+	public int yesterdayR() {
+		
+		return sqlSession.selectOne("AdministratorMapper.yesterdayR");
+	}
+	
 	// 오늘예약
 	public int todayR() {
 		
@@ -127,25 +134,16 @@ public class AdministratorDAO {
 		
 		return sqlSession.selectOne("AdministratorMapper.tomorrowR");
 	}
-	// 완료된 예약
-	public int endR() {
-		
-		return sqlSession.selectOne("AdministratorMapper.endR");
-	}
-	// 지난달 예약
-	public int lastMonthR() {
-		
-		return sqlSession.selectOne("AdministratorMapper.lastMonthR");
-	}
+	
 	// 이번달 예약
 	public int thisMonthR() {
 		
 		return sqlSession.selectOne("AdministratorMapper.thisMonthR");
 	}
-	// 지난달 매출
-	public int lastMonthSales() {
+	// 다음달 예약
+	public int FMonthR() {
 		
-		return sqlSession.selectOne("AdministratorMapper.lastMonthSales");
+		return sqlSession.selectOne("AdministratorMapper.FMonthR");
 	}
 	// 이번달 매출
 	public int thisMonthSales() {
@@ -154,9 +152,9 @@ public class AdministratorDAO {
 	}
 	
 	// 앞으로매출
-	public int F_totalSales() {
+	public int FtotalSales() {
 		
-		return sqlSession.selectOne("AdministratorMapper.F_totalSales");
+		return sqlSession.selectOne("AdministratorMapper.FtotalSales");
 	}
 	
 	// 총매출
