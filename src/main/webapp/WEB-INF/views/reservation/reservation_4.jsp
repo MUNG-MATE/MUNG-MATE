@@ -43,7 +43,7 @@
         
         <div id="btnArea">
             <button type="button" class="btnStyle prev" onclick="history.go(-2)">&lt 이전</button>
-            <button class="btnStyle next">다음 &gt</button>
+            <button id="nextBtn" class="btnStyle next">다음 &gt</button>
         </div>
         
         <input type="hidden" name="servicePrice" id="selectMoney" value="${rs.servicePrice}" >
