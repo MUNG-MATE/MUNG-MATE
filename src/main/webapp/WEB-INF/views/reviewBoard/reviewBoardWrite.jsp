@@ -9,6 +9,7 @@
     <title>리뷰 게시판 목록</title>
 
     <link rel="stylesheet" href="../../../resources/css/reviewBoard/reviewBoardWrite.css">
+    <script src="https://kit.fontawesome.com/de9012b52d.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -28,7 +29,7 @@
 
                     <!-- 게시물 제목 -->
                     <div class="titleArea">
-                        <input type="text" id="boardTitle" name="boardTitle" placeholder="제목을 입력해주세요.">
+                        <i class="fa-solid fa-play" style="color:rgb(0,30,60);"></i>&nbsp;<input type="text" id="boardTitle" name="boardTitle" placeholder="제목을 입력해주세요.">
                     </div>
 
                     <!-- 이미지 -->

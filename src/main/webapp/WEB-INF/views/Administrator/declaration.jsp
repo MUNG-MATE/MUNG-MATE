@@ -11,10 +11,20 @@
 <body>		
      <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
 	<main>
-        <h2>신고</h2>
+        <div class="titleBox">
+            <h2>펫시터 신고!</h2>
+            <div class=selectBox>
+            <select name="declarationNo" id="declarationNo" class="select">
+                <option value>펫시터를 고르세요</option>
+                <option value="${loginMember.memberNo}">000펫시터</option>
+            </select>
+            <span class="icoArrow"></span>
+            </div>
+        </div>
+
         <div class="pet-sitter">
             <div class="pet-sitterimg">
-                <img src="/resources/images/m.gif">
+                <img src="/resources/images/member/m.gif">
             </div>
             <div class="pet-sitter-info">
                 <ul>
@@ -32,6 +42,7 @@
         </section>
     </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+    <script src="/resources/js/Administrator/declaration.js"></script>
   
 </body>
 </html>

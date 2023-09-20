@@ -42,9 +42,10 @@
 		SELECT P.LOCATION, M.MEMBER_TEL, M.MEMBER_EMAIL, M.MEMBER_NO, P.PETSITTER_NO, M.PROFILE_IMG, M.MEMBER_NM
         FROM PETSITTER P
         JOIN MEMBER M ON P.MEMBER_NO = M.MEMBER_NO
-        LEFT JOIN RESERVATION R ON P.PETSITTER_NO = R.PETSITTER_NO
         WHERE M.MEMBER_PETSITTER = 'Y' 
-        AND (R.PETSITTER_NO IS NULL OR (R.SERVICE_ST != 'N' OR R.RS_START_DATE != #{rsStartDate}))
+        AND P.PETSITTER_NO NOT IN  ( SELECT PETSITTER_NO FROM RESERVATION
+                              WHERE RS_DATE = #{rsDate}
+                              AND RS_START_DATE = #{rsStartDate})
 	</select>
 	
 	<select id="choicePetSitter" resultMap="petSitter_rm">
