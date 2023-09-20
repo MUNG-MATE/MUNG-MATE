@@ -102,7 +102,7 @@ deleteButton.addEventListener("click",function(){
         if(checkbox[i].checked){
             flags = true;
             checkarr.push(checkbox[i].value);
-
+            
             if(flag[i].value !='Y'){
 
                 fetch("/Administrator/management",{
