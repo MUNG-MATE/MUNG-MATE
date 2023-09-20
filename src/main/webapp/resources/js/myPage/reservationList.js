@@ -5,8 +5,6 @@ let current_day = (new Date()).getDate(); // 현재 일
 $("#year").val(current_year);
 $("#month").val(current_month);
 
-let rsDateList = []; // 2023-09-01
-let rsTimeList = []; // 14:30
 let rList = [];
 
 changeYearMonth(current_year, current_month);
@@ -85,27 +83,9 @@ function changeYearMonth(year, month) {
     fetch("selectRsList?memberNo=" + memberNo)
     .then(resp => resp.json())
     .then(rsList => {
-
+      console.log(rsList);
       for(let rs of rsList) {
-        
-        let rsYear = new Date(rs.rsDate).getFullYear();
-        let rsMonth = new Date(rs.rsDate).getMonth() + 1;
-        let rsDay = new Date(rs.rsDate).getDate();
-        let rsHour = new Date(rs.rsDate).getHours();
-        let rsMinutes = new Date(rs.rsDate).getMinutes();
-
-        if(rsMonth < 10) rsMonth = "0" + rsMonth;
-        if(rsDay < 10) rsDay = "0" + rsDay;
-        if(rsHour < 10) rsHour = "0" + rsHour;
-        if(rsMinutes < 10) rsMinutes = "0" + rsMinutes;
-        
-        let rsDate = rsYear + "-" + rsMonth + "-" + rsDay;
-        let rsTime = rsHour + ":" + rsMinutes;
-
-        rsDateList[rsDateList.length] = rsDate;
-        rsTimeList[rsTimeList.length] = rsTime;
         rList[rList.length] = rs;
-        console.log(rs);
       }
       
       for(let i = 0; i < data.length; i++) {
@@ -131,8 +111,8 @@ function changeYearMonth(year, month) {
         if(i == today && calendarMonth == thisMonth && current_year == calendarYear) {
           h.push('id="today" class="day' + data[i] + '"><div class="day_div">' + data[i]);
 
-          for(let i = 0 ; i < rsDateList.length; i++) {
-            if(rsDateList[i] == i_day) {
+          for(let i = 0 ; i < rList.length; i++) {
+            if(rList[i].rsDate == i_day) {
               h.push('<div class="rs-point"></div>');
               break;
             }
@@ -141,9 +121,9 @@ function changeYearMonth(year, month) {
           h.push('</div>');
 
           // if(일정이 있을 때 추가)
-          for(let i = 0 ; i < rsDateList.length; i++) {
-            if(rsDateList[i] == i_day) {
-              h.push('<div class="schedule">[' + rsTimeList[i] + '] ' + rList[i].serviceType + '(' + rList[i].serviceTime + ')</div>');
+          for(let i = 0 ; i < rList.length; i++) {
+            if(rList[i].rsDate == i_day) {
+              h.push('<div class="schedule">[' + rList[i].rsStartDate + '] ' + rList[i].serviceType + '(' + rList[i].serviceTime + ')</div>');
             }
           }
   
@@ -153,8 +133,8 @@ function changeYearMonth(year, month) {
           h.push('class="day' + data[i] + '"><div class="day_div">' + data[i]);
   
           // if(일정이 있을 때 추가)
-          for(let i = 0 ; i < rsDateList.length; i++) {
-            if(rsDateList[i] == i_day) {
+          for(let i = 0 ; i < rList.length; i++) {
+            if(rList[i].rsDate == i_day) {
               h.push('<div class="rs-point"></div>');
               break;
             }
@@ -163,9 +143,9 @@ function changeYearMonth(year, month) {
           h.push('</div>');
   
           // if(일정이 있을 때 추가)
-          for(let i = 0 ; i < rsDateList.length; i++) {
-            if(rsDateList[i] == i_day) {
-              h.push('<div class="schedule">[' + rsTimeList[i] + '] ' + rList[i].serviceType + '(' + rList[i].serviceTime + ')</div>');
+          for(let i = 0 ; i < rList.length; i++) {
+            if(rList[i].rsDate == i_day) {
+              h.push('<div class="schedule">[' + rList[i].rsStartDate + '] ' + rList[i].serviceType + '(' + rList[i].serviceTime + ')</div>');
             }
           }
   
@@ -202,12 +182,13 @@ function setDate(day) {
   let flag = false;
 
   for(let i = 0; i < rList.length; i++) {
-    if(rsDateList[i] == selectDay) {
+    if(rList[i].rsDate == selectDay) {
       $("#serviceType").html(rList[i].serviceType + " [" + rList[i].serviceTime + "]");
       selectDay += `(${dayOfWeek[new Date(selectDay).getDay()]})`; // 요일 추가
-      $("#serviceDate").html(selectDay + " " + rsTimeList[i]);
+      $("#serviceDate").html(selectDay + " " + rList[i].rsStartDate);
       $("#servicePrice").html((rList[i].servicePrice*rList[i].petList.length).toLocaleString('ko-KR') + "원");
-      $("#address").html(rList[i].memberAddress);
+      const addr = rList[i].rsAddress.split('^^^');
+      $("#address").html(addr[0] + " " + addr[1]);
       $("#profileImage").attr("src", rList[i].petSitterList[0].profileImg);
       $("#petsitterName").html(rList[i].petSitterList[0].memberNm);
       $("#point").html("♥ " + rList[i].petSitterList[0].wishListCount);

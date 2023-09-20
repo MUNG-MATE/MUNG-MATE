@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import edu.kh.mung.member.model.dto.Member;
 import edu.kh.mung.myPage.model.dto.Pet;
 import edu.kh.mung.reservation.model.dto.Pet2;
 import edu.kh.mung.reservation.model.dto.PetSitter;
@@ -19,20 +20,24 @@ public class MyPageDAO_k {
 	private SqlSessionTemplate sqlSession;
 
 	// 로그인 회원의 예약 목록 조회
-	public List<Reservation> selectRsList(int memberNo) {
-
+	public List<Reservation> selectRsList(Member loginMember) {
+		
+		List<Reservation> rsList = new ArrayList<Reservation>();
 		Reservation newRs = new Reservation();
-
-		List<Reservation> rsList = sqlSession.selectList("myPageMapper_k.selectRsList", memberNo);
+		
+		if(loginMember.getPetsitterFlag().equals("Y")) {
+			int psNo = sqlSession.selectOne("myPageMapper_k.selectPetSitterNo", loginMember);
+			rsList = sqlSession.selectList("myPageMapper_k.selectRsList_ps", psNo);
+			
+		} else {
+			rsList = sqlSession.selectList("myPageMapper_k.selectRsList", loginMember);
+		}
 
 		for (Reservation rs : rsList) {
 
 			// 펫시터 번호로 찜 목록 수를 조회
 			int petSitterNo = rs.getPetSitterNo();
 			int wishListCount = sqlSession.selectOne("myPageMapper_k.selectWishListCount", petSitterNo);
-			System.out.println("wishListCount : " + wishListCount);
-			System.out.println("petsitterList : "+rs.getPetSitterList().get(0));
-			System.out.println("wishListCount : "+rs.getPetSitterList().get(0).getWishListCount());
 			rs.getPetSitterList().get(0).setWishListCount(wishListCount); // 찜 목록 수를 펫시터 리스트에 삽입
 			
 			List<Pet2> petList = new ArrayList<Pet2>(); // 펫 목록을 담을 리스트 생성

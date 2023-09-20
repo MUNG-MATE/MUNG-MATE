@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.kh.mung.member.model.dto.Member;
 import edu.kh.mung.myPage.model.dao.MyPageDAO_k;
 import edu.kh.mung.myPage.model.dto.Pet;
 import edu.kh.mung.reservation.model.dto.Reservation;
@@ -17,7 +18,7 @@ public class MyPageServiceImpl_k implements MyPageService_k {
 	
 	// 로그인 회원의 예약 목록 조회
 	@Override
-	public List<Reservation> selectRsList(int memberNo) {
-		return dao.selectRsList(memberNo);
+	public List<Reservation> selectRsList(Member loginMember) {
+		return dao.selectRsList(loginMember);
 	}
 }

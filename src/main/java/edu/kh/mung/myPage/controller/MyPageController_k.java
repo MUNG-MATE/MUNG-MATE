@@ -27,7 +27,7 @@ public class MyPageController_k {
 	
 	// 캘린더 조회
 	@GetMapping("/rsList")
-	public String rsList() {
+	public String rsList(@SessionAttribute("loginMember") Member loginMember) {
 		return "/myPage/reservationList";
 	}
 	
@@ -36,9 +36,7 @@ public class MyPageController_k {
 	@ResponseBody
 	public List<Reservation> selectRsList(@SessionAttribute("loginMember") Member loginMember) {
 		
-		int memberNo = loginMember.getMemberNo();
-		
-		List<Reservation> rsList = service.selectRsList(memberNo);
+		List<Reservation> rsList = service.selectRsList(loginMember);
 		
 		return rsList;
 	}
