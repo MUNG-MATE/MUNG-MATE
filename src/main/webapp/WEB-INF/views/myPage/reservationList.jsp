@@ -13,9 +13,7 @@
     <link rel="stylesheet" href="/resources/css/myPage/reservationList.css">
 </head>
 <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
-
-<c:set var="addr" value="${fn:split(loginMember.memberAddress, '^^^')}"/>
-
+${loginMember}
 <body>
    	<div class="page-title">내 예약 목록</div>
     <section id="container">
@@ -72,7 +70,7 @@
                                 <span>방문 일정</span><div id="serviceDate" class="content-area"></div>
                             </div>
                             <div class="content-box">
-                                <span>방문 장소</span><div id="address" class="content-area">${addr[1]} ${addr[2]}</div>
+                                <span>방문 장소</span><div id="address" class="content-area"></div>
                             </div>
                             <div class="content-box">
                                 <span>결제 금액</span><div id="servicePrice" class="content-area"></div>
