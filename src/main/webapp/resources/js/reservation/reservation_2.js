@@ -12,7 +12,20 @@ const selectDay = document.getElementById("input_date");
 const selectTime = document.getElementById("selectTime");
 const nextBtn = document.getElementById("nextBtn");
 const inputAddr = document.getElementById("rs_input0");
+const reservationForm = document.getElementById("reservationForm");
 
+
+reservationForm.addEventListener("submit", e => {
+
+  if(selectDay.value == "" || selectTime.value == "" || inputAddr.value == ""){
+
+    alert("정보를 입력해주세요.");
+    e.preventDefault();
+    return;
+
+  }
+
+})
 // let lastDay;
 
 // if(month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
@@ -216,13 +229,6 @@ selectDay.addEventListener("change",() =>{
     console.log(rsDate);
 })
 
-nextBtn.addEventListener("click", e => {
 
-  if(selectDay.value == "" || selectTime.value == "" || inputAddr.value == ""){
-    alert("정보를 입력해주세요.")
-    e.preventDefault();
-    return;
+console.log("test");
 
-  }
-
-})

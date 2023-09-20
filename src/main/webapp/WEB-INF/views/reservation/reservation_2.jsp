@@ -19,7 +19,7 @@
    	<h4 id="resSubTitle">언제/어디로 방문할까요?</h4>
    	${rs}
 	<section id="container">
-		<form action="2" method="post">
+		<form action="2" method="post" id="reservationForm">
 
 			<h2>방문 날짜</h2>
 			<div>
