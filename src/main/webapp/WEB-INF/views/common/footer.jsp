@@ -14,6 +14,11 @@
 			<li><a href="#"><img src="/resources/images/footer/footer_menu04.png" alt="우리가최고조">
 					<p>일석2조</p> </a></li>
 		</ul> -->
+
+		<div class = "gotoLive">
+		<a href = "/live"><img src = "/resources/images/newlogo.png" id = "gotoLive"></a>
+		</div>
+
 		<div class="footer_wrap">
 			<div class="container">
 				<ul class="footer_sns_icon">

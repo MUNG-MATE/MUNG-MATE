@@ -128,3 +128,13 @@ body{font-family:'Montserrat','pretendard';}
 	color: #fff;
 	font-size: 11px;
 }
+
+
+#gotoLive{
+	width: 100px;
+	height: 100px;
+	position: fixed;
+	bottom : 50px;
+	left: 20px;
+}
+
