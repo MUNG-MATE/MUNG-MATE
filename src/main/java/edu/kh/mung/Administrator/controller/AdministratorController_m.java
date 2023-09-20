@@ -8,9 +8,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
 import edu.kh.mung.Administrator.model.service.AdministratorService;
+import edu.kh.mung.member.model.dto.Member;
 
 @RequestMapping("/Administrator")
+@SessionAttributes("{loginMember}")
 @Controller
 public class AdministratorController_m {
 
@@ -63,8 +68,15 @@ public class AdministratorController_m {
 	}
 	
 	@GetMapping("/declaration")
-	public String declaration() {
-
+	public String declaration(Model model,@SessionAttribute(value = "loginMember", required = false) Member loginMember) {
+		
+		int memberNo = loginMember.getMemberNo();
+		
+		// 펫시터 목록
+		Map<String, Object> map = service.declarationList(memberNo);
+		
+		model.addAttribute("map",map);
+		
 		return "Administrator/declaration";
 
 	}

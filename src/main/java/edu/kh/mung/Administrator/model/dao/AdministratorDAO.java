@@ -162,6 +162,15 @@ public class AdministratorDAO {
 		
 		return sqlSession.selectOne("AdministratorMapper.totalSales");
 	}
+	// 펫신터 신고목록 조회
+	public List<Member> declarationList(int memberNo) {
+		
+		return sqlSession.selectList("AdministratorMapper.declarationList",memberNo);
+	}
+	public String declarationPesitter(int petsitterNo) {
+		
+		return sqlSession.selectOne("AdministratorMapper.declarationPesitter",petsitterNo);
+	}
 	
 	
 	

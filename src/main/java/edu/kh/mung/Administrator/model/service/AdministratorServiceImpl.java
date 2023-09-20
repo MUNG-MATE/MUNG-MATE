@@ -159,6 +159,24 @@ public class AdministratorServiceImpl implements AdministratorService{
 		return map;
 		
 	}
+	
+	// 펫시터 신고목록
+	@Override
+	public Map<String, Object> declarationList(int memberNo) {
+		
+		List<Member> declarationList = dao.declarationList(memberNo);
+		
+		Map<String, Object> map = new HashMap<>();
+		
+		map.put("declarationList",declarationList);
+		return map;
+	}
+	// 펫시터 정보조회
+	@Override
+	public String declarationPesitter(int petsitterNo) {
+		
+		return dao.declarationPesitter(petsitterNo);
+	}
 
 	
 }

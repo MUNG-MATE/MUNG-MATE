@@ -13,13 +13,16 @@
 		<result property="memberPw" column="MEMBER_PW" />
 		<result property="memberTel" column="MEMBER_TEL" />
 		<result property="memberAddress" column="MEMBER_ADDRESS" />
+		<result property="enrollDate" column="ENROLL_DATE" />
 		<result property="sessionFlag" column="SECESSION_FL" />
 		<result property="adminFlag" column="MEMBER_ADMIN" />
 		<result property="petsitterFlag" column="MEMBER_PETSITTER" />
 		<result property="profileImage" column="PROFILE_IMG" />
 		<result property="rsNo" column="RS_NO" />
 		<result property="rsDate" column="RS_DATE" />
+		<result property="rsStartDate" column="RS_START_DATE" />
 		<result property="servicePrice" column="SERVICE_PRICE" />
+		<result property="serviceTime" column="SERVICE_TIME" />
 		<result property="serviceSt" column="SERVICE_ST" />
 	</resultMap>
 
@@ -287,6 +290,22 @@
 		JOIN SERVICE_TYPE USING(SERVICE_NO)
 		LEFT JOIN MEMBER M ON R.MEMBER_NO = M.MEMBER_NO
 		WHERE RS_DATE BETWEEN TO_DATE('2023-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS') AND TO_DATE('2023-12-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS')
+	</select>
+	
+	<select id="declarationList" resultMap="member_rm">
+		SELECT MEMBER_NM,MEMBER_NO FROM MEMBER
+		JOIN PETSITTER USING(MEMBER_NO)
+		WHERE MEMBER_NO IN (SELECT MEMBER_NO FROM PETSITTER
+		WHERE PETSITTER_NO IN (SELECT PETSITTER_NO FROM RESERVATION
+		WHERE MEMBER_NO = #{memberNo} AND SERVICE_ST = 'Y'))
+	</select>
+	
+	<select id="declarationPesitter" resultMap="member_rm">
+		SELECT MEMBER_NM,RS_DATE,RS_START_DATE,MEMBER_TEL,SERVICE_TIME,SERVICE_PRICE FROM RESERVATION
+		JOIN MEMBER USING(MEMBER_NO)
+		JOIN SERVICE_TYPE USING(SERVICE_NO)
+		WHERE PETSITTER_NO = (SELECT PETSITTER_NO FROM PETSITTER
+		WHERE MEMBER_NO=#{petsitterNo})
 	</select>
 	
 		

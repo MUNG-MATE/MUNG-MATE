@@ -23,7 +23,6 @@
         <c:if test="${!empty param.managementType}" >
             <c:set var="sp" value="&managementType=${param.managementType}&managementSearch=${param.managementSearch}"/>
         </c:if>
-        
         <section>
             <article class="people">
                 <h4>전체사용자 : ${mungCount} 명</h4>
