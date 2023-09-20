@@ -40,6 +40,8 @@
                         <div class="stateText" id = "startTime"></div>
                     </div>
 
+
+
                     <div>
                         <div class="stateText ing">산책 중</div>
                         <div class="stateText ing" id ="runTime">00 : 00 : 00</div>
