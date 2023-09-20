@@ -127,7 +127,7 @@
     padding: 0;
 }
 
-#inputArea {
+#input-area {
     height: 100px;
     border: 1px solid gray;
     border-radius: 5px;
@@ -149,7 +149,7 @@
     line-height: 32px;
 }
 
-#sendMsg {
+#send {
     width: 10%;
     background-color: transparent;
     border: none;
