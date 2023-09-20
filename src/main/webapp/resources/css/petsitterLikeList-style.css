@@ -14,16 +14,16 @@ body{
 }
 
 .main_container{
-    width: 1000px;
+    width: 1200px;
     margin:auto;
 
-}
+} 
 
 
 
 .main_first{
 
-
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -41,19 +41,86 @@ body{
     color:gray;
 }
 
-.main_second{
- 
-    padding : 30px;
+/* 펫시터 소개 전체 */
+.PetsitterInformation{
+    width: 1200px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+}
+
+.petsitterName {
+    font-size: 20px;
+}
+
+.history {
+    width: 270px;
+    margin: 20px auto;
+    word-break: break-all;
+    white-space: pre-wrap;
+}
+
+.imageArea {
     display: flex;
     justify-content: center;
 }
 
-.petsitter-photo{
-    width: 350px;
-    height: 100%;
-    border-radius: 5px;
-    border: 2px double lightgray;
+.profileArea {
+    width: 300px;
+    height: 400px;
+    border: 1px solid rgb(118, 118, 118);
+    border-radius: 10px;
+    margin: 20px 0;
 }
+
+.profileImage {
+    width: 150px;
+    height: 160px;
+    border-radius: 50%;
+    margin: 10px 0;
+    background-color: white;
+}
+
+.info {
+    text-align: center;
+    font-weight: bold;
+}
+
+.info > div {
+    margin: 5px 0;
+}
+
+.wishListBtn{
+    background-color: white;
+    outline: none;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    width: 70px;
+    height: 35px;
+    border-radius: 15px;
+
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 115px;
+}
+
+.good{
+
+    background-color: rgb(0,30,60);
+    color: white;
+    
+}
+
+/* 소개글 내용 */
+.PetSitterIntroduction pre {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* ------------------------------------------- */
+
 
 .main_content{
     display: flex;
