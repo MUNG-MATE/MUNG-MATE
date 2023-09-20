@@ -17,23 +17,27 @@ public class Member {
 	private int memberNo;
 	private String memberName;
 	private String memberEmail;
-	private String memberPw;
 	private String memberNickname;
+	private String memberPw;
 	private String memberTel;
 	private String memberAddress;
-	private String profileImage;
 	private String enrollDate;
 	private String sessionFlag;
 	private String adminFlag;
 	private String petsitterFlag;
+	private String profileImage;
 	private int authority;
 	
 	
-	// 예약관리 (광민)
+	// 예약관리/신고 (광민)
 	private int rsNo;
-	private String serviceSt;
-	private Date rsDate;
+	private String rsDate;
+	private String rsStartDate;
 	private String servicePrice;
+	private String serviceTime;
+	private String serviceSt;
 	
+	
+
 	
 }

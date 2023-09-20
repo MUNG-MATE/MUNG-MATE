@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -37,7 +38,14 @@ public class AjaxController {
 	@PutMapping("/Administrator/petManagement")
 	public int petsitterDelete(@RequestBody int petNo) {
 		
-		System.out.println("petNo 1=" + petNo);
 		return service.petsitterDelete(petNo);
 	}
+	
+	// 신고펫시터 조회
+	@PostMapping(value="/Administrator/declaration/pesitter", produces="application/json; charset=UTF-8" )
+	public String declarationPesitter(@RequestBody int petsitterNo) {
+		
+		return service.declarationPesitter(petsitterNo);
+	}
+	
 }

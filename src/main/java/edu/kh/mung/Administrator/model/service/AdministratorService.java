@@ -28,5 +28,11 @@ public interface AdministratorService {
 	
 	// 예약조회
 	Map<String, Object> selectReserveList(int cp);
+	
+	// 펫시터 신고목록
+	Map<String, Object> declarationList(int memberNo);
+	
+	// 펫시터 정보조회
+	String declarationPesitter(int petsitterNo);
 
 }
