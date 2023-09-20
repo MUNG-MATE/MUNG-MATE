@@ -54,7 +54,7 @@
             <c:choose>
                <c:when test="${empty boardList}">
                 <!-- 게시글 목록 조회 결과가 비어있다면 -->
-                    <h3>게시글이 존재하지 않습니다</h3>
+                    <div id="nothing"><h3>게시글이 존재하지 않습니다</h3><div>
                </c:when>
             
                <c:otherwise>
@@ -78,7 +78,6 @@
                                 </c:if>
 
                             </div>
-                             <hr>
                     </c:forEach>
                </c:otherwise>
             </c:choose>
@@ -95,12 +94,14 @@
 
 
             <ul class="pagination">
-            
+
+                <c:if test="${!empty boardList}" >
                 <!-- 첫 페이지로 이동 -->
                 <li><a href="/reviewBoard/reviewBoardList/${boardCode}?cp=1${sp}">&lt;&lt;</a></li>
 
                 <!-- 이전 목록 마지막 번호로 이동 -->
                 <li><a href="/reviewBoard/reviewBoardList/${boardCode}?cp=${pagination.prevPage}${sp}">&lt;</a></li>
+                </c:if>
 
            
                 <!-- 특정 페이지로 이동 -->
@@ -122,11 +123,13 @@
 
                 </c:forEach>
                 
+                <c:if test="${!empty boardList}" >
                 <!-- 다음 목록 시작 번호로 이동 -->
                 <li><a href="/reviewBoard/reviewBoardList/${boardCode}?cp=${pagination.nextPage}${sp}">&gt;</a></li>
 
                 <!-- 끝 페이지로 이동 -->
                 <li><a href="/reviewBoard/reviewBoardList/${boardCode}?cp=${pagination.maxPage}${sp}">&gt;&gt;</a></li>
+                </c:if>
 
             </ul>
         </div>

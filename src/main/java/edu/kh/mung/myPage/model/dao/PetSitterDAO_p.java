@@ -19,6 +19,10 @@ public class PetSitterDAO_p {
 	public List<rList_p> select() {
 		return sqlSession.selectList("petsitterMapper.selectRsList");
 	}
+
+	public int update(rList_p rsNo) {
+		return sqlSession.update("petsitterMapper.updateRs",rsNo);
+	}
 	
 
 }

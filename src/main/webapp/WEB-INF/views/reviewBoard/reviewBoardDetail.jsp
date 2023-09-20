@@ -9,8 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>리뷰 게시판 상세조회</title>
 
-    <link rel="stylesheet" href="../../../resources/css/reviewBoard/reviewBoardDetail.css">
-    <link rel="stylesheet" href="../../../resources/css/reviewBoard/reply-style.css">
+    <link rel="stylesheet" href="/resources/css/reviewBoard/reviewBoardDetail.css">
+    <link rel="stylesheet" href="/resources/css/reviewBoard/reply-style.css">
     <script src="https://kit.fontawesome.com/de9012b52d.js" crossorigin="anonymous"></script>
 
 
@@ -32,27 +32,28 @@
 
             <!-- 게시글 상단 작성자 정보 영역 -->
             <div class="h-topArea">
-
-                <!-- 작성자 프로필 영역 -->
                 <div>
-                    <img src="${board.profileImage}" class="h-profileImg">
-                </div>
+                    <!-- 작성자 프로필 영역 -->
+                    <div class="profile-img">
+                        <img src="${board.profileImage}" class="h-profileImg">
+                    </div>
 
-                
-                <!-- 작성자 상세 정보 영역 -->
-                <div>
+                    
+                    <!-- 작성자 상세 정보 영역 -->
+                    <div class="first">
 
-                    <p>No.${board.boardNo} &nbsp;<i style="color:rgb(0,30,60)" class="fa-solid fa-grip-lines-vertical"></i>&nbsp;  "${board.memberNickname}" 님의 리뷰</p>
-                    <br>
-                    <p>
-                        <span>${board.boardDate}</span>
-                        <div><i class="fa-regular fa-eye"></i>&nbsp;${board.readCount}</div>
-                        <span class="h-btnArea">
-                        </span>
-                    </p>
+                        <div>No.${board.boardNo} &nbsp;<i style="color:rgb(0,30,60)" class="fa-solid fa-grip-lines-vertical"></i>&nbsp;  "${board.memberNickname}" 님의 리뷰</div>
+                        <br>
+                        <div>
+                            <span>${board.boardDate}</span>
+                            <div><i class="fa-regular fa-eye"></i>&nbsp;${board.readCount}</div>
+                            <span class="h-btnArea"></span>
+                        </div>
 
+                    </div>
                 </div>
             </div>
+          
 
             <!-- 이미지 영역 -->
             <div class="h-imgArea">
@@ -65,6 +66,8 @@
             </div>
 
             
+          
+
             <!-- 목록으로 버튼 영역 -->
             <div class="h-backListBtnArea">
                 <c:if test="${board.memberNo == loginMember.memberNo}" >

@@ -40,9 +40,12 @@
                             <c:if test="${loginMember.petsitterFlag == 'N'}" >
                             <li><a href = "/petsitter/toPetsitterApply">펫시터 되기</a></li>
                             </c:if>
-                             <c:if test="${loginMember.petsitterFlag == 'Y'}" >
+                            <c:if test="${loginMember.petsitterFlag == 'Y'}" >
                             <li><a  href = "/petsitter/toGeneralApply">펫시터 그만두기</a></li>
                             </c:if>
+                           <%--  <c:if test="${loginMember.petsitterFlag == 'Y'}" >
+                            <li><a href="/petsitter/reservationList_p"> 펫시터 예약목록     증발띠    </a></li>
+                            </c:if>  --%>
                         </ul>
                     </li>
                 </c:if>
@@ -52,7 +55,7 @@
                             <li><a  href = "/myPage/myPost">내 게시글</a></li>
                             <li>2</li>
                             <li>3</li>
-                            <li><a href="/petsitter/reservationList_p">펫시터 예약목록</a></li>
+                            <li>4</li>
                         </ul>
                     </li>
 

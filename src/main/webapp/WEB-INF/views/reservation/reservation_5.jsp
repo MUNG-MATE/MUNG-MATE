@@ -8,6 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MUNG MATE</title>
     <link rel="stylesheet" href="/resources/css/reservation/reservation_5.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+
 </head>
     <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
     
@@ -18,7 +21,7 @@
     <!-- ${rs.petSitterNo} -->
     
     
-    <form action="5" method="post">
+    <%-- <form action="5" method="post" id="reservationForm"> --%>
         <section id="container">
             <div class="containerDiv left">
                 <h2>서비스 정보</h2>
@@ -68,7 +71,7 @@
                     <div class="backgroundArea">
         
                         <div id="petProfile"><img src="${i.petProfile}" id="petProfile"></div>
-                        
+                        <input type="hidden" name="petNo" class="petNo" value="${i.petNo}">
                         ${i.petName}
                         
                     </div>
@@ -96,22 +99,23 @@
         </div>
         <div id="btnArea">
             <button type="button" class="btnStyle prev" onclick="history.go(-3)">&lt 이전</button>
-            <button class="btnStyle next">결제</button>
+            <button type="button" class="btnStyle next" id="creditBtn">결제</button>
         </div>
 
         <input type="hidden" name="servicePrice" id="selectMoney" value="${rs.servicePrice}" >
         <input type="hidden" name="serviceTime" id="selectTime" value="${rs.serviceTime}">
         <input type="hidden" name="serviceType" id="selectedService" value="${rs.serviceType}">
-        <input type="hidden" name="rsDate" value="${rs.rsDate}">
-        <input type="hidden" name="rsStartDate" value="${rs.rsStartDate}">
-        <input type="hidden" name="petSitterNo" id="selectPetSitterNo">
+        <input type="hidden" name="rsDate" id="selectDate" value="${rs.rsDate}">
+        <input type="hidden" name="rsStartDate" id="selectStartDate" value="${rs.rsStartDate}">
+        <input type="hidden" name="petSitterNo" id="selectPetSitterNo" value="${rs.petSitterNo}">
         <input type="hidden" name="serviceNo" id="serviceNo" value="${rs.serviceNo}">
-        <input type="hidden" name="rsAddress" value="${rs.rsAddress}">
-    </form>
+        <input type="hidden" name="rsAddress" id="selectAddr" value="${rs.rsAddress}">
+    <%-- </form> --%>
 
     <script src="/resources/js/reservation/reservation_5.js"></script>
     <script>
         const rsServicePrice = Number("${rs.servicePrice}");
+        const memberNo = "${loginMember.memberNo}";
     </script>
 
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />

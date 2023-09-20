@@ -26,4 +26,12 @@ public class PetSitterServiceImpl_p implements PetSitterService_p{
 
 
 
+	@Override
+	public int update(rList_p rsNo) {
+		return dao.update(rsNo);
+	}
+
+
+
+
 }

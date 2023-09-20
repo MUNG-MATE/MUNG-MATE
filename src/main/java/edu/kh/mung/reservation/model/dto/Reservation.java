@@ -25,7 +25,7 @@ public class Reservation {
 	private int servicePrice;  // 금액
 	
 	// 펫
-	private List<Pet> petList;
+	private List<Pet2> petList;
 	
 	// 펫시터
 	private List<PetSitter> petSitterList;

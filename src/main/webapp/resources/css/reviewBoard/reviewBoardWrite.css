@@ -5,9 +5,8 @@ main{
 }
 
 h1{
-    margin-top: 80px;
-    font-weight: bold;
-    font-size: 50px;
+    margin-top: 70px;
+    margin-bottom: 50px;
 }
 
 /* 제목 */
@@ -40,6 +39,9 @@ h1{
     height: 400px;
     text-align: center;
     margin: 100px;
+
+    position:relative;
+
 }
 
 .uploadImg{
@@ -106,37 +108,41 @@ h1{
     outline: none;
   }
   .custom-btn {
-    width: 130px;
-    height: 40px;
-    border: 2px solid #000;
-    font-family: 'Lato', sans-serif;
-    font-weight: 500;
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
+    margin-right: 10px;
+
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+
+    font-weight: bold;
+   border: 1px solid rgb(0,30,60);
+   border-radius: 5px;
+   cursor: pointer;
+   background-color: white;
+   color: rgb(0,30,60);
+   transition: all 0.5s;
   }
 .btn-5 {
-    background: #000;
-    color: #fff;
-    line-height: 42px;
-    padding: 0;
-    border: none;
+  font-weight: bold;
+  border: 1px solid rgb(0,30,60);
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: white;
+  color: rgb(0,30,60);
+  transition: all 0.5s;
   }
   .btn-5:hover {
-    background: transparent;
-    color: #000;
-     box-shadow:
-     -7px -7px 20px 0px #fff9,
-     -4px -4px 5px 0px #fff9,
-     7px 7px 20px 0px #0002,
-     4px 4px 5px 0px #0001;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 1px solid rgb(0,30,60);
+    cursor: pointer;
+    background-color: rgb(0,30,60);
+    color: white;
+
   }
   .btn-5:before,
   .btn-5:after{
     content:'';
-    position:absolute;
     top:0;
     right:0;
     height:2px;
@@ -158,12 +164,18 @@ h1{
 
 
 /* 삭제 버튼 */
-.delete-image{
+#deleteBtn{
   position: absolute;
-  top: 500px;
-  right: 755px;
-  font-size: 40px;
+  right:0;
+  bottom: 0;
   cursor: pointer;
+  font-size: small;
+  font-weight: bold;
+  border: 1px solid rgb(0,30,60);
+  cursor: pointer;
+  background-color: white;
+  color: rgb(0,30,60);
+  transition: all 0.5s;
 }
 
 
