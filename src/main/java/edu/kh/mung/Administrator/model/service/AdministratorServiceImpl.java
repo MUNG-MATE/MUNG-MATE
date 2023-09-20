@@ -110,26 +110,25 @@ public class AdministratorServiceImpl implements AdministratorService{
 	@Override
 	public Map<String, Object> selectReserveList(int cp) {
 		
-		// 결제대기중예약
-		int paymentW = dao.getpaymentW();
-		// 결제완료예약
-		int paymentC = dao.paymentC();
-		// 오늘예약
-		int todayR = dao.todayR();
-		// 내일 예약
-		int tomorrowR = dao.tomorrowR();
 		// 완료된 예약
 		int endR = dao.endR();
-		// 지난달 예약
-		int lastMonthR = dao.lastMonthR();
+		// 진행안된예약
+		int noCompletedR = dao.noCompletedR();
+		
+		// 오늘예약
+		int todayR = dao.todayR();
+		// 어제예약
+		int yesterdayR = dao.yesterdayR();
+		// 내일 예약
+		int tomorrowR = dao.tomorrowR();
+		// 다음달 예약
+		int FMonthR = dao.FMonthR();
 		// 이번달 예약
 		int thisMonthR = dao.thisMonthR();
-		// 지난달 매출
-		int lastMonthSales = dao.lastMonthSales();
 		// 이번달 매출
 		int thisMonthSales = dao.thisMonthSales();
 		// 예상매출
-		int F_totalSales = dao.F_totalSales();
+		int FtotalSales = dao.FtotalSales();
 		// 총매출
 		int totalSales = dao.totalSales();
 		
@@ -141,20 +140,22 @@ public class AdministratorServiceImpl implements AdministratorService{
 
 		Map<String, Object> map = new HashMap<>();
 		
-		map.put("paymentW", paymentW);
-		map.put("paymentC", paymentC);
+		map.put("endR", endR);
+		map.put("noCompletedR", noCompletedR);
+		
+		map.put("yesterdayR", yesterdayR);
 		map.put("todayR", todayR);
 		map.put("tomorrowR", tomorrowR);
-		map.put("endR", endR);
-		map.put("lastMonthR", lastMonthR);
 		map.put("thisMonthR", thisMonthR);
-		map.put("lastMonthSales", lastMonthSales);
+		map.put("FMonthR", FMonthR);
+		
 		map.put("thisMonthSales", thisMonthSales);
-		map.put("F_totalSales", F_totalSales);
+		map.put("FtotalSales", FtotalSales);
 		map.put("totalSales", totalSales);
 		
 		map.put("pagination", pagination);
 		map.put("selectReserveList", selectReserveList);
+		
 		return map;
 		
 	}

@@ -4,17 +4,20 @@
 <c:set var="pagination" value="${map.pagination}"/>
 <c:set var="selectReserveList" value="${map.selectReserveList}"/>
 
-<c:set var="paymentW" value="${map.paymentW}"/>
-<c:set var="paymentC" value="${map.paymentC}"/>
+<c:set var="endR" value="${map.endR}"/>
+<c:set var="noCompletedR" value="${map.noCompletedR}"/>
+
+<c:set var="yesterdayR" value="${map.yesterdayR}"/>
 <c:set var="todayR" value="${map.todayR}"/>
 <c:set var="tomorrowR" value="${map.tomorrowR}"/>
-<c:set var="endR" value="${map.endR}"/>
-<c:set var="lastMonthR" value="${map.lastMonthR}"/>
 <c:set var="thisMonthR" value="${map.thisMonthR}"/>
-<c:set var="lastMonthSales" value="${map.lastMonthSales}"/>
+<c:set var="FMonthR" value="${map.FMonthR}"/>
+
+
 <c:set var="thisMonthSales" value="${map.thisMonthSales}"/>
-<c:set var="F_totalSales" value="${map.F_totalSales}"/>
+<c:set var="FtotalSales" value="${map.FtotalSales}"/>
 <c:set var="totalSales" value="${map.totalSales}"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,41 +29,42 @@
      <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
 	<main>
         <section>
-            <h3>2023년 00 월 00 일 기준 예약현황</h3>
+            <h3 id="sysdate"></h3>
             <table>
                 <tbody>
                     <tr>
-                        <td>결제 대기중 예약</td>
-                        <td>${paymentW}건</td>
-                        <td>지난달 예약</td>
-                        <td>${lastMonthR}건</td>
+                        <td>서비스 진행전 예약</td>
+                        <td>${noCompletedR}건</td>
+                        <td>다음달 예약</td>
+                        <td>${FMonthR}건</td>
                     </tr>
 
                     <tr>
-                        <td>결제 완료된 예약</td>
-                        <td>${paymentC}건</td>
+                        <td>서비스 완료된 예약</td>
+                        <td>${endR}건</td>
                         <td>이번달 예약</td>
                         <td>${thisMonthR}건</td>
                     </tr>
 
                     <tr>
-                        <td>오늘 예약</td>
-                        <td>${todayR}건</td>
-                        <td>지난달 매출</td>
-                        <td>${lastMonthSales}원</td>
+                        <td>어제 예약</td>
+                        <td>${yesterdayR}건</td>
+                        <td>이번달 매출 예상</td>
+                        <td>${thisMonthSales}원</td>
+                        
                     </tr>
 
+                    <tr>
+                        <td>오늘 예약</td>
+                        <td>${todayR}건</td>
+                        <td>서비스전 매출</td>
+                        <td>${FtotalSales}원</td>
+                        
+                    </tr>
                     <tr>
                         <td>내일 예약</td>
                         <td>${tomorrowR}건</td>
-                        <td>이번달 매출</td>
-                        <td>${thisMonthSales}원</td>
-                    </tr>
-
-                    <tr>
-                        <td>종료된 예약</td>
-                        <td>${endR}건</td>
-                        <td>총매출</td>
+                        <td>예상 총매출</td>
                         <td>${totalSales}원</td>
                     </tr>
                 </tbody>
@@ -77,8 +81,8 @@
                     <th>전화번호</th>
                     <th>예약일</th>
                     <th>예약금액</th>
-                    <th>결제상태</th>
-                    <th>예약상태</th>
+                    <th>결제</th>
+                    <th>서비스상태</th>
                 </thead>
                 <tbody>
                     <c:forEach items="${selectReserveList}" var="selectReserveList">
@@ -90,8 +94,8 @@
                         <td>${selectReserveList.memberTel}</td>
                         <td>${selectReserveList.rsDate}</td>
                         <td>${selectReserveList.servicePrice} 원</td>
-                        <td>${selectReserveList.paySt}</td>
-                        <td>${selectReserveList.petsitterSt}</td>
+                        <td>완료</td>
+                        <td>${selectReserveList.serviceSt}</td>
                     </tr>
                     </c:forEach>
                 </tbody>
@@ -139,5 +143,23 @@
     </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
     <script src="/resources/js/Administrator/reserve.js"></script>
+    
+    <script>
+
+    let date = new Date();
+    let year = date.getFullYear();
+    let month = date.getMonth()+1;
+    let day = date.getDate(); 
+
+    if(month < 10 ) month = "0"+month; month;
+    if(day < 10 ) day = "0"+month; day;
+
+    let sysdate = year+"년 "+month+"월 "+day+" 일 기준 예약현황"
+
+    const h3 = document.getElementById("sysdate");
+
+        h3.innerText= sysdate;
+    
+    </script>
 </body>
 </html>
