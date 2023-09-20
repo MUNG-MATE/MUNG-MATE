@@ -10,6 +10,8 @@
 
 const selectDay = document.getElementById("input_date");
 const selectTime = document.getElementById("selectTime");
+const nextBtn = document.getElementById("nextBtn");
+const inputAddr = document.getElementById("rs_input0");
 
 // let lastDay;
 
@@ -212,4 +214,15 @@ selectDay.addEventListener("change",() =>{
 
     rsDate = selectDay.value
     console.log(rsDate);
+})
+
+nextBtn.addEventListener("click", e => {
+
+  if(selectDay.value == "" || selectTime.value == "" || inputAddr.value == ""){
+    alert("정보를 입력해주세요.")
+    e.preventDefault();
+    return;
+
+  }
+
 })
