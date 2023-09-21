@@ -36,7 +36,6 @@ public class LoginFilter implements Filter {
 		Member loginMember = (Member)session.getAttribute("loginMember");
 		
 		if(loginMember == null) {
-			session.setAttribute("message", "로그인 후 이용해주세요. 제발~");
 			resp.sendRedirect("/");
 		} else {
 			chain.doFilter(request, response);

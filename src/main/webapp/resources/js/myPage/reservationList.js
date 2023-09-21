@@ -183,25 +183,63 @@ function setDate(day) {
 
   for(let i = 0; i < rList.length; i++) {
     if(rList[i].rsDate == selectDay) {
+      
+      // 서비스 타입
       $("#serviceType").html(rList[i].serviceType + " [" + rList[i].serviceTime + "]");
-      selectDay += `(${dayOfWeek[new Date(selectDay).getDay()]})`; // 요일 추가
+      
+      // 방문 일정
+      selectDay += `(${dayOfWeek[new Date(selectDay).getDay()]})`; // 요일
       $("#serviceDate").html(selectDay + " " + rList[i].rsStartDate);
+
+      // 결제 금액
       $("#servicePrice").html((rList[i].servicePrice*rList[i].petList.length).toLocaleString('ko-KR') + "원");
+      
+      // 주소
       const addr = rList[i].rsAddress.split('^^^');
       $("#address").html(addr[0] + " " + addr[1]);
-      $("#profileImage").attr("src", rList[i].petSitterList[0].profileImg);
-      $("#petsitterName").html(rList[i].petSitterList[0].memberNm);
-      $("#point").html("♥ " + rList[i].petSitterList[0].wishListCount);
 
+      // 펫시터/일반 회원 프로필
+      if(petsitterFlag == 'N') { // 로그인 회원이 일반 회원인 경우
+        $("#profileImage").attr("src", rList[i].petSitterList[0].profileImg); // 프로필 이미지
+        $("#petsitterName").html(rList[i].petSitterList[0].memberNm); // 펫시터 이름
+        $("#point").html("♥ " + rList[i].petSitterList[0].wishListCount); // 찜목록 수
+      }
+      
+      if(petsitterFlag == 'Y') { // 로그인 회원이 펫시터인 경우
+        
+        fetch("selectMember?memberNo=" + rList[i].memberNo)
+        .then(resp => resp.json())
+        .then(member => {
+          if(member.profileImage == null) { // 프로필 이미지 X
+            $("#profileImage").attr("src", "/resources/images/user.png"); // 기본 이미지
+          } else { // 프로필 이미지 O
+            $("#profileImage").attr("src", member.profileImage); // 해당 프로필 이미지
+          }
+          $("#petsitterName").html(member.memberName); // 회원 이름
+          $("#point").html(member.memberTel.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`)); // 회원 연락처
+        })
+        .catch(e => console.log(e))
+
+      }
+
+      // 펫 프로필
       let p = [];
       for(let j = 0; j < rList[i].petList.length; j++) {
         p.push('<div>');
-        p.push(`<img src="${rList[i].petList[j].petProfile}" class="pet-image">`);
+        p.push(`<img id="petInfo${j}" src="${rList[i].petList[j].petProfile}" class="pet-image">`);
         p.push(`<div class="pet-name">${rList[i].petList[j].petName}</div>`);
         p.push('</div>');
       }
       $("#pet-area").html(p.join(""));
       flag = true;
+
+      for(let j = 0; j < rList[i].petList.length; j++) {
+        tippy(`#petInfo${j}`, {
+          content: rList[i].petList[j].petName,
+          trigger:'click',
+          placement: 'right',
+        });
+      }
     }
   }
   
@@ -246,6 +284,3 @@ function loadCalendar() {
 }
 
 
-function abc() {
-
-}

@@ -19,7 +19,11 @@ public class MyPageDAO_k {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
-	// 로그인 회원의 예약 목록 조회
+	
+	/** 로그인 회원의 예약 목록 조회
+	 * @param loginMember
+	 * @return rsList
+	 */
 	public List<Reservation> selectRsList(Member loginMember) {
 		
 		List<Reservation> rsList = new ArrayList<Reservation>();
@@ -59,5 +63,13 @@ public class MyPageDAO_k {
 		System.out.println("rsList : " + rsList);
 
 		return rsList;
+	}
+
+	/** 예약한 회원의 정보 조회
+	 * @param memberNo
+	 * @return member
+	 */
+	public Member selectMember(int memberNo) {
+		return sqlSession.selectOne("myPageMapper_k.selectMember", memberNo);
 	}
 }

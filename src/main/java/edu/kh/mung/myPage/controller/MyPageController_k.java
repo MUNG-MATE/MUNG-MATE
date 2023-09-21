@@ -40,4 +40,11 @@ public class MyPageController_k {
 		
 		return rsList;
 	}
+	
+	// 예약한 회원의 정보 조회
+	@GetMapping("/selectMember")
+	@ResponseBody
+	public Member selectMember(int memberNo) {
+		return service.selectMember(memberNo);
+	}
 }
