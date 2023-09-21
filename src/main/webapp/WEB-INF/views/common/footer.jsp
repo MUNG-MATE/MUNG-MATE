@@ -59,6 +59,6 @@
         alert("${message}");
         
    		</script>
-
+		<c:remove var="message" scope="session"/>
 	</c:if>
 
