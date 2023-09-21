@@ -21,4 +21,10 @@ public class MyPageServiceImpl_k implements MyPageService_k {
 	public List<Reservation> selectRsList(Member loginMember) {
 		return dao.selectRsList(loginMember);
 	}
+	
+	// 예약한 회원의 정보 조회
+	@Override
+	public Member selectMember(int memberNo) {
+		return dao.selectMember(memberNo);
+	}
 }

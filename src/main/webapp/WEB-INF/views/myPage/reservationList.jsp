@@ -13,8 +13,9 @@
     <link rel="stylesheet" href="/resources/css/myPage/reservationList.css">
 </head>
 <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
-${loginMember}
 <body>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
    	<div class="page-title">내 예약 목록</div>
     <section id="container">
         <div class="flip">
@@ -84,7 +85,7 @@ ${loginMember}
                                 </div>
                                 <div class="info">
                                     <div id="petsitterName"></div>
-                                    <div id="point">♥ 153</div>
+                                    <div id="point"></div>
                                 </div>
                             </div>
                         </section>
@@ -100,11 +101,35 @@ ${loginMember}
             </div>
         </div>
     </section>
-	
+
+    <div>
+        <h3>펫 프로필</h3>
+        <label>
+            <img id="petImage" src="/resources/images/pet/nuri.jpg">
+        </label>
+
+        <h3>기본 사항</h3>
+        <table>
+            <tr>
+                <th>이름</th>
+                <td><div>누리</div></td>
+            </tr>
+            <tr>
+                <th>품종</th>
+                <td><div>시츄</div></td>
+            </tr>
+            <tr>
+                <th>생년월</th>
+                <td>2018년 3월</td>
+            </tr>
+        </table>
+    </div>
+
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 	
     <script>
         const memberNo = "${loginMember.memberNo}";
+        const petsitterFlag = "${loginMember.petsitterFlag}";
     </script>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>

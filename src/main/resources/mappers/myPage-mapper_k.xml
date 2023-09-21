@@ -41,6 +41,21 @@
 		<result property="memberNm" column="MEMBER_NM" />
 	</resultMap>
 	
+	<resultMap type="Member" id="Member_rm">
+  		<id property="memberNo" column="MEMBER_NO" />
+  		<result property="memberName" column="MEMBER_NM" />
+  		<result property="memberEmail" column="MEMBER_EMAIL" />
+  		<result property="memberNickname" column="MEMBER_NICKNAME" />
+  		<result property="memberPw" column="MEMBER_PW" />
+  		<result property="memberTel" column="MEMBER_TEL" />
+  		<result property="memberAddress" column="MEMBER_ADDRESS" />
+  		<result property="sessionFlag" column="SECESSION_FL" />
+  		<result property="adminFlag" column="MEMBER_ADMIN" />
+  		<result property="petsitterFlag" column="MEMBER_PETSITTER" />
+  		<result property="profileImage" column="PROFILE_IMG" />
+  		<result property="enrollDate" column="ENROLL_DATE" />
+  	</resultMap>
+	
 	<select id="selectPetSitterNo" resultType="_int" parameterType="Member">
 		SELECT PETSITTER_NO FROM PETSITTER
 		WHERE MEMBER_NO = ${memberNo}
@@ -86,5 +101,10 @@
 	<select id="selectWishListCount" resultType="_int">
 		SELECT COUNT(*) FROM WISH_LIST
 		WHERE PETSITTER_NO = ${petSitterNo}
+	</select>
+	
+	<select id="selectMember" resultMap="Member_rm">
+		SELECT * FROM MEMBER
+		WHERE MEMBER_NO = ${memberNo}
 	</select>
 </mapper>

@@ -12,4 +12,10 @@ public interface MyPageService_k {
 	 * @return rsList
 	 */
 	List<Reservation> selectRsList(Member loginMember);
+
+	/** 예약한 회원의 정보 조회
+	 * @param memberNo
+	 * @return member
+	 */
+	Member selectMember(int memberNo);
 }
