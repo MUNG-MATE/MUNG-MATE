@@ -105,7 +105,7 @@
 	<!-- 반려견 예약 테이블 insert -->
 	
 	<insert id="insertRevPet">
-		INSERT INTO "RESERVATION PET" VALUES(#{rsNo},#{petNo})
+		INSERT INTO RESERVATION_PET VALUES(#{rsNo},#{petNo})
 	</insert> 
 	
 	<!-- 마이페이지 펫시터 찜 목록 -->
@@ -113,7 +113,7 @@
 		SELECT LOCATION, MEMBER_TEL, MEMBER_EMAIL, MEMBER_NO, PETSITTER_NO, PROFIlE_IMG,MEMBER_NM 
 		FROM PETSITTER
 		JOIN MEMBER  USING(MEMBER_NO)
-        WHERE MEMBER_NO = (SELECT MEMBER_NO FROM WISH_LIST WHERE MEMBER_NO = #{memberNo}) 
+        WHERE PETSITTER_NO IN (SELECT PETSITTER_NO FROM WISH_LIST WHERE MEMBER_NO = #{memberNo}) 
 	</select>
 	
 </mapper>
