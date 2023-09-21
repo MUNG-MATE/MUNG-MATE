@@ -100,16 +100,16 @@ public class MainController {
 		List<PetSitter> petSitterList = service.petSitterList();
 		
 		int memberNo = loginMember.getMemberNo();
-		
+		String memberNm = loginMember.getMemberNickname();
+		System.out.println("회원 이름 확인 : " + memberNm);
 		System.out.println("회원번호확인 : " + memberNo);
 		
 		List<PetSitter> petSitterLikeList = service.petSitterLikeList(memberNo);
 		
 		System.out.println("홰긴 : " + petSitterLikeList);
 		
+		model.addAttribute("memberNm", memberNm);
 		model.addAttribute("petSitterLikeList", petSitterLikeList);
-		
-		
 		return "/reservation/petsitterLikeList";
 	}
 	

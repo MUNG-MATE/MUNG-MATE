@@ -15,9 +15,8 @@
     <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
     
 <body>
-	<h1 id="resTitle">예약 서비스[2/4]</h1>
+	<h1 id="resTitle">예약 서비스[2/3]</h1>
    	<h4 id="resSubTitle">언제/어디로 방문할까요?</h4>
-   	${rs}
 	<section id="container">
 		<form action="2" method="post" id="reservationForm">
 

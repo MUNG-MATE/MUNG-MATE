@@ -13,10 +13,8 @@
     <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
     
 <body>
-	<h1 id="resTitle">예약 서비스[4/4]</h1>
+	<h1 id="resTitle">예약 서비스[3/3]</h1>
     <h4 id="resSubTitle">펫시터를 선택해주세요.</h4>
-    ${rs.rsAddress}
-    ${rs.petSitterList}
     <h2>펫시터 프로필</h2>
     <form action="4" method="post">
 

@@ -25,7 +25,7 @@
             
             <div class="main_first">
                 <div>나의 찜 목록</div>
-                <div>""님이 관심있는 펫시터 분들 이에요!</div>
+                <div>${memberNm} 님이 관심있는 펫시터 분들 이에요!</div>
 
             </div>
             <div class="PetsitterInformation">
@@ -43,8 +43,6 @@
                             <p class="history" name="location">선호 지역 : ${i.location}</p>
                             <p class="history" name="memberTel">전화번호 : ${i.memberTel}</p>
                             <p class="history" name="memberEmail">이메일 : ${i.memberEmail}</p>
-                            
-                            <button type="button" class="wishListBtn">찜콩</button>
                             
                             <input type="hidden" value="${i.petSitterNo}" class="petSitterNo">
                         </div>

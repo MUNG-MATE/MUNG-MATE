@@ -17,7 +17,6 @@
 <body>
     <h1 id="resTitle">결제</h1>
     <h4 id="resSubTitle">서비스 정보를 확인하고 결제 방법을 선택해주세요.</h4>
-    ${rs}
     <!-- ${rs.petSitterNo} -->
     
     

@@ -13,7 +13,7 @@
 <body>
     <div class="body">
 
-        <h1 id="resTitle">예약 서비스[1/4]</h1>
+        <h1 id="resTitle">예약 서비스[1/3]</h1>
         <h4 id="resSubTitle">이용할 서비스를 선택해주세요.</h4>
         
         <form action="1" method="POST">

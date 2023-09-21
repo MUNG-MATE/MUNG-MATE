@@ -28,6 +28,7 @@ body{
     flex-direction: column;
     justify-content: center;
 
+    padding-top: 30px;
     padding-left: 40px;
     padding-bottom: 80px;
 }
@@ -59,6 +60,7 @@ body{
     margin: 20px auto;
     word-break: break-all;
     white-space: pre-wrap;
+    font-size: 15px;
 }
 
 .imageArea {
@@ -265,7 +267,10 @@ body{
     opacity: 1;
     visibility: visible;
 
+}
 
+.PetsitterInformation > p{
+    font-size: 10px;
 }
 
 
