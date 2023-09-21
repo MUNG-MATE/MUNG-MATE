@@ -8,6 +8,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import edu.kh.mung.board.model.dto.Board;
 import edu.kh.mung.reservation.model.dto.PetSitter;
 
 @Repository
@@ -62,6 +63,13 @@ public class MainDao_h {
 	public List<PetSitter> petSitterLikeList(int memberNo) {
 		
 		return sqlSession.selectList("reservationMapper.petSitterLikeList", memberNo);
+	}
+
+	/** 리뷰 리스트 불러오기
+	 * @return
+	 */
+	public List<Board> reviewList() {
+		return null;
 	}
 
 }

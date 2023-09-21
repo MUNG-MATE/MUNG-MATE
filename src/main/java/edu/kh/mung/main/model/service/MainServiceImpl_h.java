@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.kh.mung.board.model.dto.Board;
 import edu.kh.mung.main.model.dao.MainDao_h;
 import edu.kh.mung.reservation.model.dto.PetSitter;
 
@@ -72,6 +73,14 @@ public class MainServiceImpl_h implements MainService_h{
 	public List<PetSitter> petSitterLikeList(int memberNo) {
 		
 		return dao.petSitterLikeList(memberNo);
+	}
+
+	/**
+	 * 리뷰 리스트 불러오기
+	 */
+	@Override
+	public List<Board> reviewList() {
+		return dao.reviewList();
 	} 
 
 }

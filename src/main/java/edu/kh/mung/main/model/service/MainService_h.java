@@ -3,6 +3,7 @@ package edu.kh.mung.main.model.service;
 import java.util.List;
 import java.util.Map;
 
+import edu.kh.mung.board.model.dto.Board;
 import edu.kh.mung.reservation.model.dto.PetSitter;
 
 public interface MainService_h {
@@ -31,5 +32,10 @@ public interface MainService_h {
 	 * @return
 	 */
 	List<PetSitter> petSitterLikeList(int memberNo);
+
+	/** 리뷰 리스트 불러오기
+	 * @return
+	 */
+	List<Board> reviewList();
 
 }
