@@ -13,7 +13,7 @@
     margin: auto;
 }
 
-.mainImage{
+.mainImage {
     width: 100%;
     height: 830px;
 }
@@ -28,7 +28,7 @@
 
 
 
-.mainImage img{
+.mainImage img {
     width: 100%;
     height: 100%;
 }
@@ -53,10 +53,13 @@
     transition: opacity 3s ease-in;
 }
 
-.fade-in.active { /* 생기는 효과 */
-    opacity: 1; /* 투명도 */
-    transition: opacity 3.0s ease-in; /* 생기는 시간 */
-    margin-top : 50px;
+.fade-in.active {
+    /* 생기는 효과 */
+    opacity: 1;
+    /* 투명도 */
+    transition: opacity 3.0s ease-in;
+    /* 생기는 시간 */
+    margin-top: 50px;
 }
 
 .fade-in-2 {
@@ -67,88 +70,90 @@
     transition: opacity 3s ease-in;
 }
 
-.fade-in-2.active { /* 생기는 효과 */
-    opacity: 1; /* 투명도 */
-    transition: opacity 3.0s ease-in; /* 생기는 시간 */
+.fade-in-2.active {
+    /* 생기는 효과 */
+    opacity: 1;
+    /* 투명도 */
+    transition: opacity 3.0s ease-in;
+    /* 생기는 시간 */
 }
 
-.mainContainer1{
+.mainContainer1 {
     width: 100%;
     height: 500px;
 }
 
-.mainPageContent3 { /* 메인 컨텐츠 영역 */
+.mainPageContent3 {
+    /* 메인 컨텐츠 영역 */
 
-   width: 100%;
+    width: 100%;
     min-width: 1200px;
     height: 200px;
     display: flex;
 }
 
-.imgArea{ /* 이미지 영역 */
+.imgArea {
+    /* 이미지 영역 */
     width: 50%;
     height: 60%;
     border-radius: 100%;
     margin: auto;
 }
 
-.imgArea > img{ /* img태그 */
+.imgArea>img {
+    /* img태그 */
     width: 90%;
     height: 90%;
 }
 
-.fade-in > div:nth-child(2){ /* 타이틀 영역 */
+.fade-in>div:nth-child(2) {
+    /* 타이틀 영역 */
     font-size: 20px;
     font-weight: bold;
     text-align: center;
     padding-top: 10px;
 }
-.fade-in > div:nth-child(3){ /* 내용 영역 */
+
+.fade-in>div:nth-child(3) {
+    /* 내용 영역 */
     text-align: center;
 }
 
-.fade-in-2 > div:nth-child(2){ /* 타이틀 영역 */
+.fade-in-2>div:nth-child(2) {
+    /* 타이틀 영역 */
     font-size: 20px;
     font-weight: bold;
     text-align: center;
 }
 
-.fade-in-2 > div:nth-child(3){ /* 내용 영역 */
+.fade-in-2>div:nth-child(3) {
+    /* 내용 영역 */
     text-align: center;
-    
+
 }
 
-
-
-/* 슬라이드 */
-.slideAll {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-
-.mySlides {display: none}
 
 
 /* 후기 슬라이드 전체 */
 .slideshow-container {
-  max-width: 1200px;
-  position: relative;
-  margin: auto;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  padding-left: 24px;
-  padding-top: 70px;
+    max-width: 1200px;
+    display: flex;
+    margin: auto;
+    cursor: pointer;
+    align-items: center;
+    padding-left: 24px;
+    padding-top: 70px;
+
 }
+
+
 
 .slideAll img {
     width: 100%;
 }
 
 /* 리뷰 한칸 */
-.review{
+.review {
     width: 285px;
     height: 440px;
     display: flex;
@@ -183,7 +188,7 @@
 }
 
 /* 리뷰 내용 */
-.reviewContent{
+.reviewContent {
     box-shadow: 3px 3px 5px 2px lightgray;
     width: 275px;
     height: 400px;
@@ -194,10 +199,10 @@
 
 .reviewContent:hover {
     border: 2px solid rgb(0, 30, 60);
-    transform: translate(0,-50px);
+    transform: translate(0, -50px);
 }
 
-.reviewInfo img{
+.reviewInfo img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -206,38 +211,38 @@
 
 .reviewInfo {
     display: flex;
-    
+
 }
 
-.reviewNickname{
+.reviewNickname {
     position: relative;
     top: 22px;
 }
 
 .star {
     position: relative;
-    top: 43px; 
+    top: 43px;
     left: 13px;
 }
 
-.reviewTime{
+.reviewTime {
     position: relative;
     top: 43px;
 
 }
 
-.reviewImage{
+.reviewImage {
     width: 275px;
     height: 220px;
     position: relative;
     top: 13px;
-    
+
 }
 
-.reviewImage img{
+.reviewImage img {
     width: 100%;
     height: 100%;
-    
+
 
 }
 
@@ -294,7 +299,7 @@
 }
 
 
-.content2{
+.content2 {
     width: 100%;
     min-width: 1500px;
     height: auto;
@@ -306,72 +311,77 @@
 
 
 .content2ImgFile {
-  width: 100px;
+    width: 100px;
 }
 
 
-.mainContainerbox { /* 메인컨텐츠 전체 */
-  box-sizing: border-box;
-  width : 1200px;
-  margin : auto;
+.mainContainerbox {
+    /* 메인컨텐츠 전체 */
+    box-sizing: border-box;
+    width: 1200px;
+    margin: auto;
 }
 
 
-.mainContainerbox .mainContent_inner { /* 메인컨텐츠 이미지랑 + 타이틀 전부 */
-  display: flex;
-  flex-wrap: wrap;
+.mainContainerbox .mainContent_inner {
+    /* 메인컨텐츠 이미지랑 + 타이틀 전부 */
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.mainContainerbox.mainContent_inner section> :first-child img { /* 컨텐츠 이미지 들  */
-  width: 100%;
-  height: 400px;
+.mainContainerbox.mainContent_inner section> :first-child img {
+    /* 컨텐츠 이미지 들  */
+    width: 100%;
+    height: 400px;
 }
 
-.mainContainerbox .mainContent_inner section> :last-child div { /* 컨텐츠 타이틀 들*/
-  width: 100%;
-  height: 200px;
-  padding: 1.7rem;
-  text-align: center;
-  line-height: 1.5rem;
+.mainContainerbox .mainContent_inner section> :last-child div {
+    /* 컨텐츠 타이틀 들*/
+    width: 100%;
+    height: 200px;
+    padding: 1.7rem;
+    text-align: center;
+    line-height: 1.5rem;
 }
 
 
-.mainContainerbox .mainContent_inner { /* 각 컨텐츠 공간 */
+.mainContainerbox .mainContent_inner {
+    /* 각 컨텐츠 공간 */
     width: 1000px;
-  }
+}
 
-  .mainContainerbox h2 {
+.mainContainerbox h2 {
     width: 1000px;
     margin: 0 auto;
     margin-bottom: 1rem;
-  }
+}
 
-  .mainContainerbox h3 {
+.mainContainerbox h3 {
     font-size: 2rem;
     margin-bottom: 1rem;
-  }
+}
 
-  .mainContainerbox .mainContent_inner> :first-child {
+.mainContainerbox .mainContent_inner> :first-child {
     display: flex;
     margin-bottom: 2rem;
-  }
+}
 
-  .mainContainerbox  .mainContent_inner> :last-child {
+.mainContainerbox .mainContent_inner> :last-child {
     display: flex;
     flex-direction: row-reverse;
-  }
+}
 
-  .mainContainerbox  .mainContent_inner section> :first-child img,
-  .mainContainerbox  .mainContent_inner section> :last-child {
+.mainContainerbox .mainContent_inner section> :first-child img,
+.mainContainerbox .mainContent_inner section> :last-child {
     width: 600px;
     height: 400px;
-  }
+}
 
-  .mainContainerbox  .mainContent_inner section> :last-child div {
+.mainContainerbox .mainContent_inner section> :last-child div {
     padding: 7.5rem 0;
-  }
+}
 
-  .mainContainerbox  .mainContent_inner section> :last-child button {
+.mainContainerbox .mainContent_inner section> :last-child button {
     width: 180px;
     padding: 0.7rem 0;
     font-size: 15px;
@@ -379,10 +389,9 @@
     color: #AD9E87;
     transition: 0.3s;
     margin-top: 1rem;
-  }
+}
 
-  .mainContainerbox  .mainContent_inner section> :last-child button:hover {
+.mainContainerbox .mainContent_inner section> :last-child button:hover {
     background: #AD9E87;
     color: #fff;
-  }
-
+}

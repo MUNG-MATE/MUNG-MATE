@@ -1,4 +1,7 @@
 
+
+
+
 // 요소의 투명도를 처리하는 함수
 function fadeInOnScroll() {
     var elements = document.getElementsByClassName("fade-in");
@@ -60,6 +63,6 @@ function showSlides(n) {
   for (i = 0; i < dots.length; i++) {
       dots[i].className = dots[i].className.replace("active", "");
   }
-  slides[slideIndex-1].style.display = "block";  
+  slides[slideIndex-1].style.display = "flex";  
   dots[slideIndex-1].className += "active";
 }
