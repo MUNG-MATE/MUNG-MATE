@@ -74,7 +74,8 @@
                                 <li><a href="/Administrator/management">회원정보 관리</a></li>
                                 <li><a href="/Administrator/petManagement">펫시터 관리</a></li>
                                 <li><a href="/Administrator/reserve">예약 관리</a></li>
-                                <li><a  href = "/petsitter/admin/petsitterlist1">펫시터 신청 관리</a></li>
+                                <li><a href="/petsitter/admin/petsitterlist1">펫시터 신청 관리</a></li>
+                                <li><a href="/Administrator/declarationList">신고 관리</a></li>
                             </ul>
                         </li>
                     </c:if>
