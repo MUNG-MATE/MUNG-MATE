@@ -12,9 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
 import edu.kh.mung.member.model.dto.Member;
 
-@WebFilter(filterName = "loginFilter", urlPatterns = {"/myPage/*"})
+@WebFilter(filterName = "loginFilter", urlPatterns = {"/myPage/*","/Administrator/*"})
 
 public class LoginFilter implements Filter {
 
@@ -30,13 +31,15 @@ public class LoginFilter implements Filter {
 		
 		HttpServletRequest req = (HttpServletRequest)request;
 		HttpServletResponse resp = (HttpServletResponse)response;
-		
 		HttpSession session = req.getSession();
 		
 		Member loginMember = (Member)session.getAttribute("loginMember");
 		
 		if(loginMember == null) {
+			
+			session.setAttribute("message", "로그인후 이용해주세요 뿌우~.~");
 			resp.sendRedirect("/");
+			
 		} else {
 			chain.doFilter(request, response);
 		}
