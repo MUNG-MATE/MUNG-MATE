@@ -98,10 +98,10 @@
 
                 <c:if test="${!empty boardList}" >
                 <!-- 첫 페이지로 이동 -->
-                <li><a href="/reviewBoard/reviewBoardList/${boardCode}?cp=1${sp}">&lt;&lt;</a></li>
+                <li><a href="/reviewBoard/reviewBoardList/${boardCode}?cp=1${sp}"><i class="fa-solid fa-angles-left"></i></a></li>
 
                 <!-- 이전 목록 마지막 번호로 이동 -->
-                <li><a href="/reviewBoard/reviewBoardList/${boardCode}?cp=${pagination.prevPage}${sp}">&lt;</a></li>
+                <li><a href="/reviewBoard/reviewBoardList/${boardCode}?cp=${pagination.prevPage}${sp}"><i class="fa-solid fa-chevron-left"></i></a></li>
                 </c:if>
 
            
@@ -126,10 +126,10 @@
                 
                 <c:if test="${!empty boardList}" >
                 <!-- 다음 목록 시작 번호로 이동 -->
-                <li><a href="/reviewBoard/reviewBoardList/${boardCode}?cp=${pagination.nextPage}${sp}">&gt;</a></li>
+                <li><a href="/reviewBoard/reviewBoardList/${boardCode}?cp=${pagination.nextPage}${sp}"><i class="fa-solid fa-chevron-right"></i></a></li>
 
                 <!-- 끝 페이지로 이동 -->
-                <li><a href="/reviewBoard/reviewBoardList/${boardCode}?cp=${pagination.maxPage}${sp}">&gt;&gt;</a></li>
+                <li><a href="/reviewBoard/reviewBoardList/${boardCode}?cp=${pagination.maxPage}${sp}"><i class="fa-solid fa-angles-right"></i></a></li>
                 </c:if>
 
             </ul>
@@ -139,16 +139,18 @@
      <!-- 검색창 -->
         <form action="${boardCode}" method="get" id="boardSearch">
 
-            <select name="key" id="searchKey">
-                <option value="t">제목</option>
-                <option value="c">내용</option>
-                <option value="tc">제목+내용</option>
-                <option value="w">작성자</option>
-            </select>
 
-            <input type="text" name="query"  id="searchQuery" placeholder="검색어를 입력해주세요.">
-
-            <button>검색</button>
+            <div class="window" style="padding: 20px;">
+                <select name="key" id="searchKey">
+                    <option value="t">제목</option>
+                    <option value="c">내용</option>
+                    <option value="tc">제목+내용</option>
+                    <option value="w">작성자</option>
+                </select>
+                <input type="text" name="query"  id="searchQuery" placeholder="검색어를 입력해주세요.">
+                <button><i class="fa fa-search"></i></button>
+            </div>
+           
         </form>
 
 
