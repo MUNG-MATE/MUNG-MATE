@@ -63,12 +63,13 @@
                             <div class="h-list">
 
                                 <div>
-                                    <div id="first">No.${board.boardNo} &nbsp;<i style="color:rgb(0,30,60)" class="fa-solid fa-grip-lines-vertical"></i>&nbsp; "${board.memberNickname}" 님의 리뷰  </div>
+                                    <div class="first">No.${board.boardNo}&nbsp;<i class="fa-regular fa-eye" style="color:rgb(0,30,60)"></i>&nbsp;${board.readCount}</div>
                                     <br>
                                     <h2><a id="reviewTitle" href="/reviewBoard/reviewBoardList/${board.boardNo}?cp=${pagination.currentPage}${sp}"><i class="fa-solid fa-play" style="color:rgb(0,30,60);"></i>&nbsp;${board.boardTitle}&nbsp;[${board.replyCount}]</a></h2>
-                                    <br>                       
-                                    <div id="second" style="font-size:small">${board.boardDate}</div>
-                                    <div id="third"><i class="fa-regular fa-eye" style="color:rgb(0,30,60)"></i>&nbsp;${board.readCount}</div>
+                                    <br>
+                                    <div class="first">"${board.memberNickname}" 님의 리뷰</div>
+                                    <div id="third"></div>
+                                    <div id="second" style="font-size:small; color:gray;">${board.boardDate}</div>
                                 </div>
 
                                 <c:if test="${!empty board.imagePath}">    

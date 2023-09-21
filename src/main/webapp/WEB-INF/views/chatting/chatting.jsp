@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
+<%-- live.jsp 의 시작버튼 누르면 비동기로 채팅창! --%>
+
 <!-- 채팅 -->
         <section class="chatting-content" id="right">
             <ul id="display-chatting">
