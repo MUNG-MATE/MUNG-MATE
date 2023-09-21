@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import edu.kh.mung.board.model.dto.Board;
 import edu.kh.mung.main.model.service.MainService_h;
 import edu.kh.mung.member.model.dto.Member;
 import edu.kh.mung.reservation.model.dto.PetSitter;
@@ -29,6 +30,9 @@ public class MainController {
 	
 	@RequestMapping("/")
 	public String sample() {
+		
+		List<Board> reviewList = service.reviewList();
+	
 		return "index";
 		
 	}
@@ -104,8 +108,6 @@ public class MainController {
 		
 		return "/reservation/petsitterLikeList";
 	}
-	
-	
 	
 	
 	

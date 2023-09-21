@@ -22,67 +22,16 @@
 
             <!-- 후기 슬라이드 -->
         <div class="slideshow-container">
+
+          <!-- 여기서부터 반복문 -->
             <div class="mySlides fade">
                 <div class="slideAll">
                     <div class="numbertext"></div>
-
                     <div class="review">
                         <div class="reviewContent">
                             <div class="reviewInfo">
                                 <img src="/resources/images/user.png">
                             <span class="reviewNickname">강아지조아님</span>
-                            <span class="star">★★★★★</span>
-                        </div>
-                            <p>
-                                이번에도 시터님을 찾게 되었네요 토비도 낯설지 않은지
-                                잘 지내주어서 다행이었습니다.
-                            </p>
-                            <div class="reviewImage">
-                                <img src="/resources/images/강아지증명사진.jpg">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="review">
-                        <div class="reviewContent">
-                            <div class="reviewInfo">
-                                <img src="/resources/images/user.png">
-                            <span class="reviewNickname">강아지조아님</span>
-                            <span class="star">★★★★★</span>
-                        </div>
-                            <p>
-                                이번에도 시터님을 찾게 되었네요 토비도 낯설지 않은지
-                                잘 지내주어서 다행이었습니다.
-                            </p>
-                            <div class="reviewImage">
-                                <img src="/resources/images/강아지증명사진.jpg">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="review">
-                        <div class="reviewContent">
-                            <div class="reviewInfo">
-                                <img src="/resources/images/user.png">
-                            <span class="reviewNickname">강아지조아님</span>
-                            <span class="star">★★★★★</span>
-                        </div>
-                            <p>
-                                이번에도 시터님을 찾게 되었네요 토비도 낯설지 않은지
-                                잘 지내주어서 다행이었습니다.
-                            </p>
-                            <div class="reviewImage">
-                                <img src="/resources/images/강아지증명사진.jpg">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="review">
-                        <div class="reviewContent">
-                            <div class="reviewInfo">
-                                <img src="/resources/images/user.png">
-                            <span class="reviewNickname">강아지조아님</span>
-                            <span class="star">★★★★★</span>
                         </div>
                             <p>
                                 이번에도 시터님을 찾게 되었네요 토비도 낯설지 않은지
@@ -95,146 +44,7 @@
                     </div>
                 </div>
             </div>
-
-            <div class="mySlides fade">
-                <div class="slideAll">
-                    <div class="numbertext"></div>
-                    <div class="review">
-                        <div class="reviewContent">
-                            <div class="reviewInfo">
-                                <img src="/resources/images/user.png">
-                            <span class="reviewNickname">강아지조아님</span>
-                            <span class="star">★★★★★</span>
-                        </div>
-                            <p>
-                                이번에도 시터님을 찾게 되었네요 토비도 낯설지 않은지
-                                잘 지내주어서 다행이었습니다.
-                            </p>
-                            <div class="reviewImage">
-                                <img src="/resources/images/강아지증명사진.jpg">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="review">
-                        <div class="reviewContent">
-                            <div class="reviewInfo">
-                                <img src="/resources/images/user.png">
-                            <span class="reviewNickname">강아지조아님</span>
-                            <span class="star">★★★★★</span>
-                        </div>
-                            <p>
-                                이번에도 시터님을 찾게 되었네요 토비도 낯설지 않은지
-                                잘 지내주어서 다행이었습니다.
-                            </p>
-                            <div class="reviewImage">
-                                <img src="/resources/images/강아지증명사진.jpg">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="review">
-                        <div class="reviewContent">
-                            <div class="reviewInfo">
-                                <img src="/resources/images/user.png">
-                            <span class="reviewNickname">강아지조아님</span>
-                            <span class="star">★★★★★</span>
-                        </div>
-                            <p>
-                                이번에도 시터님을 찾게 되었네요 토비도 낯설지 않은지
-                                잘 지내주어서 다행이었습니다.
-                            </p>
-                            <div class="reviewImage">
-                                <img src="/resources/images/강아지증명사진.jpg">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="review">
-                        <div class="reviewContent">
-                            <div class="reviewInfo">
-                                <img src="/resources/images/user.png">
-                            <span class="reviewNickname">강아지조아님</span>
-                            <span class="star">★★★★★</span>
-                        </div>
-                            <p>
-                                이번에도 시터님을 찾게 되었네요 토비도 낯설지 않은지
-                                잘 지내주어서 다행이었습니다.
-                            </p>
-                            <div class="reviewImage">
-                                <img src="/resources/images/강아지증명사진.jpg">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mySlides fade">
-                <div class="slideAll">
-                    <div class="numbertext"></div>
-                    <div class="review">
-                        <div class="reviewContent">
-                            <div class="reviewInfo">
-                                <img src="/resources/images/user.png">
-                            <span class="reviewNickname">강아지조아님</span>
-                            <span class="star">★★★★★</span>
-                        </div>
-                            <p>
-                                이번에도 시터님을 찾게 되었네요 토비도 낯설지 않은지
-                                잘 지내주어서 다행이었습니다.
-                            </p>
-                            <div class="reviewImage">
-                                <img src="/resources/images/강아지증명사진.jpg">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="review">
-                        <div class="reviewContent">
-                            <div class="reviewInfo">
-                                <img src="/resources/images/user.png">
-                            <span class="reviewNickname">강아지조아님</span>
-                            <span class="star">★★★★★</span>
-                        </div>
-                            <p>
-                                이번에도 시터님을 찾게 되었네요 토비도 낯설지 않은지
-                                잘 지내주어서 다행이었습니다.
-                            </p>
-                            <div class="reviewImage">
-                                <img src="/resources/images/강아지증명사진.jpg">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="review">
-                        <div class="reviewContent">
-                            <div class="reviewInfo">
-                                <img src="/resources/images/user.png">
-                            <span class="reviewNickname">강아지조아님</span>
-                            <span class="star">★★★★★</span>
-                        </div>
-                            <p>
-                                이번에도 시터님을 찾게 되었네요 토비도 낯설지 않은지
-                                잘 지내주어서 다행이었습니다.
-                            </p>
-                            <div class="reviewImage">
-                                <img src="/resources/images/강아지증명사진.jpg">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="review">
-                        <div class="reviewContent">
-                            <div class="reviewInfo">
-                                <img src="/resources/images/user.png">
-                            <span class="reviewNickname">강아지조아님</span>
-                            <span class="star">★★★★★</span>
-                        </div>
-                            <p>
-                                이번에도 시터님을 찾게 되었네요 토비도 낯설지 않은지
-                                잘 지내주어서 다행이었습니다.
-                            </p>
-                            <div class="reviewImage">
-                                <img src="/resources/images/강아지증명사진.jpg">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- 여기까지 -->
 
             <a class="prev" onclick="plusSlides(-1)"><img src="/resources/images/chevron-left.svg"></a>
             <a class="next" onclick="plusSlides(1)"><img src="/resources/images/chevron-right.svg"></a>
