@@ -43,7 +43,8 @@ public class AjaxController {
 	
 	// 신고펫시터 조회
 	@PostMapping(value="/Administrator/declaration/pesitter", produces="application/json; charset=UTF-8" )
-	public String declarationPesitter(@RequestBody int petsitterNo) {
+	public List<Member> declarationPesitter(@RequestBody int petsitterNo) {
+		
 		
 		return service.declarationPesitter(petsitterNo);
 	}

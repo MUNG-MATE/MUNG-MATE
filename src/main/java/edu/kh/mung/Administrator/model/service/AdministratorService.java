@@ -33,6 +33,9 @@ public interface AdministratorService {
 	Map<String, Object> declarationList(int memberNo);
 	
 	// 펫시터 정보조회
-	String declarationPesitter(int petsitterNo);
+	List<Member> declarationPesitter(int petsitterNo);
+	
+	// 펫시터 신고삽입
+	int declarationInsert(Map<String, Object> map);
 
 }

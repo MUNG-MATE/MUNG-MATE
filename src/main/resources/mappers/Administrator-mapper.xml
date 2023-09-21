@@ -24,8 +24,8 @@
 		<result property="servicePrice" column="SERVICE_PRICE" />
 		<result property="serviceTime" column="SERVICE_TIME" />
 		<result property="serviceSt" column="SERVICE_ST" />
+		<result property="petsitterNo" column="PETSITTER_NO" />
 	</resultMap>
-
 	
 	<resultMap type="PetSitter" id="petSitter_rm">
   	
@@ -292,21 +292,28 @@
 		WHERE RS_DATE BETWEEN TO_DATE('2023-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS') AND TO_DATE('2023-12-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS')
 	</select>
 	
+	<!-- 펫시터 신고 목록-->
 	<select id="declarationList" resultMap="member_rm">
-		SELECT MEMBER_NM,MEMBER_NO FROM MEMBER
+		SELECT MEMBER_NM,MEMBER_NO,PETSITTER_NO FROM MEMBER
 		JOIN PETSITTER USING(MEMBER_NO)
 		WHERE MEMBER_NO IN (SELECT MEMBER_NO FROM PETSITTER
 		WHERE PETSITTER_NO IN (SELECT PETSITTER_NO FROM RESERVATION
 		WHERE MEMBER_NO = #{memberNo} AND SERVICE_ST = 'Y'))
 	</select>
-	
-	<select id="declarationPesitter" resultMap="member_rm">
-		SELECT MEMBER_NM,RS_DATE,RS_START_DATE,MEMBER_TEL,SERVICE_TIME,SERVICE_PRICE FROM RESERVATION
-		JOIN MEMBER USING(MEMBER_NO)
+	<!-- 펫시터 신고 정보 목록-->
+	<select id="declarationPetsitter" resultMap="member_rm">
+		SELECT M.MEMBER_NO,MEMBER_NM,RS_DATE,RS_START_DATE,MEMBER_TEL,SERVICE_TIME,SERVICE_PRICE,PROFILE_IMG,P.PETSITTER_NO FROM MEMBER M
+        JOIN PETSITTER P ON P.MEMBER_NO = M.MEMBER_NO
+        JOIN RESERVATION R ON R.PETSITTER_NO = P.PETSITTER_NO
 		JOIN SERVICE_TYPE USING(SERVICE_NO)
-		WHERE PETSITTER_NO = (SELECT PETSITTER_NO FROM PETSITTER
-		WHERE MEMBER_NO=#{petsitterNo})
+        WHERE M.MEMBER_NO =(SELECT MEMBER_NO FROM MEMBER
+                WHERE MEMBER_NO = (SELECT MEMBER_NO FROM PETSITTER
+                                    WHERE PETSITTER_NO =#{petsitterNo}))
 	</select>
 	
+	<!-- 신고삽입  -->
+	<insert id="declarationInsert">
+		INSERT INTO REPORT VALUES (${memberNo}, ${pet}, #{singo},DEFAULT)
+	</insert>
 		
 </mapper>
