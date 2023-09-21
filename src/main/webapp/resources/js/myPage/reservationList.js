@@ -1,6 +1,7 @@
 let current_year = (new Date()).getFullYear(); // 현재 년
 let current_month = (new Date()).getMonth() + 1; // 현재 월
 let current_day = (new Date()).getDate(); // 현재 일
+const dayOfWeek = ['일', '월', '화', '수', '목', '금', '토']; // 요일
 
 $("#year").val(current_year);
 $("#month").val(current_month);
@@ -96,6 +97,7 @@ function changeYearMonth(year, month) {
         else dataDay = data[i];
 
         let i_day = calendarYear + "-" + calendarMonth + "-" + dataDay;
+        if(data[i] != '') i_day = i_day + "(" + dayOfWeek[new Date(i_day).getDay()] + ")";
 
         if(i == 0) {
           h.push('<tr>');
@@ -106,7 +108,7 @@ function changeYearMonth(year, month) {
         }
         
         h.push('<td onclick="setDate(' + data[i] +')" ');
-  
+        
         // 조회한 날짜가 이번 달이면서 오늘인 경우
         if(i == today && calendarMonth == thisMonth && current_year == calendarYear) {
           h.push('id="today" class="day' + data[i] + '"><div class="day_div">' + data[i]);
@@ -166,8 +168,6 @@ function changeYearMonth(year, month) {
 // 날짜 클릭 시 input에 해당 날짜 대입
 function setDate(day) {
   
-  const dayOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
-  
   // 선택된 날짜가 없으면 실행 X
   if(day == undefined) return;
 
@@ -177,25 +177,23 @@ function setDate(day) {
   let input_month = $("#month").val();
   if(input_month < 10) input_month = "0" + input_month;
   
-  let selectDay = input_year + "-" + input_month + "-" + day; // 2023-09-14
-
+  let select = input_year + "-" + input_month + "-" + day; // 2023-09-22
+  let selectDay = select + "(" + dayOfWeek[new Date(select).getDay()] + ")"; // 2023-09-22(토)
   let flag = false;
 
   for(let i = 0; i < rList.length; i++) {
     if(rList[i].rsDate == selectDay) {
-      
       // 서비스 타입
       $("#serviceType").html(rList[i].serviceType + " [" + rList[i].serviceTime + "]");
       
       // 방문 일정
-      selectDay += `(${dayOfWeek[new Date(selectDay).getDay()]})`; // 요일
       $("#serviceDate").html(selectDay + " " + rList[i].rsStartDate);
 
       // 결제 금액
       $("#servicePrice").html((rList[i].servicePrice*rList[i].petList.length).toLocaleString('ko-KR') + "원");
       
       // 주소
-      const addr = rList[i].rsAddress.split('^^^');
+      const addr = rList[i].rsAddress.split(',');
       $("#address").html(addr[0] + " " + addr[1]);
 
       // 펫시터/일반 회원 프로필
@@ -235,9 +233,36 @@ function setDate(day) {
 
       for(let j = 0; j < rList[i].petList.length; j++) {
         tippy(`#petInfo${j}`, {
-          content: rList[i].petList[j].petName,
+          content:
+          `<div id="petProfileBox">
+            <h4>펫 프로필</h4>
+            <div id="petImageBox">
+                <img id="petImage" src="${rList[i].petList[j].petProfile}">
+            </div>
+    
+            <table id="petTable">
+                <tr>
+                  <th>이름</th>
+                  <td><div class="petText">${rList[i].petList[j].petName}</div></td>
+                </tr>
+                <tr>
+                  <th>성별</th>
+                  <td><div class="petText">${rList[i].petList[j].petGender}자아이</div></td>
+                </tr>
+                <tr>
+                  <th>품종</th>
+                  <td><div class="petText">${rList[i].petList[j].petType}</div></td>
+                </tr>
+                <tr>
+                  <th>생년월</th>
+                  <td><div class="petText">${rList[i].petList[j].petBirth}</div></td>
+                </tr>
+              </table>
+              <div><strong>참고사항</strong><br>${rList[i].petList[j].petOption}</div>
+          </div>`,
           trigger:'click',
           placement: 'right',
+          allowHTML: true
         });
       }
     }

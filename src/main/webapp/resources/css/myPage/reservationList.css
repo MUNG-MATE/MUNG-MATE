@@ -274,38 +274,37 @@ option {
   margin: 0 10px 10px;
 }
 
-.modal {
-	display: none;
-	z-index: 500;
-	width: 100%;
-	height: 100vh;
-	position: fixed;
-	top: 0;
-	left: 0;
-	background-color: rgba(0, 0, 0, 0.3);
+#petProfileBox {
+  margin: 5px 10px;
 }
 
-.modal button {
-	position: absolute;
-	top: 3rem;
-	right: 3rem;
-	background: transparent;
-	border: 0;
-	color: #ffffff;
-	font-size: 3rem;
+#petProfileBox > h4 {
+  margin: 10px auto;
+  text-align: center;
 }
 
-.modalBox {
-	position: relative;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -20%);
-	background-color: #ffffff;
-	width: 50%;
-	height: 50%;
-	text-align: center;
+#petTable {
+  width: 100%;
+  margin: 10px auto;
 }
 
-.modalBox img {
-	width: 100%;
+#petTable th {
+  text-align: center;
+}
+
+#petImageBox {
+  display: flex;
+  justify-content: center;
+}
+
+#petImage {
+  width: 150px;
+  margin: 0 auto;
+}
+
+.petText {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-left: 28px;
 }

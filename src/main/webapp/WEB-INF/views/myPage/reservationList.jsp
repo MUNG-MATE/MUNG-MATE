@@ -19,7 +19,7 @@
    	<div class="page-title">내 예약 목록</div>
     <section id="container">
         <div class="flip">
-            <div class="card" <%-- style="transform: rotateY(180deg);" --%>>
+            <div class="card">
                 <div id="div_calendar" class="front-side">
                     <div id="date_controller">
                         <button type="button" class="month-btn" onclick="changeMonth(-1);"><i class="fa fa-chevron-left"></i></button>
@@ -101,29 +101,6 @@
             </div>
         </div>
     </section>
-
-    <div>
-        <h3>펫 프로필</h3>
-        <label>
-            <img id="petImage" src="/resources/images/pet/nuri.jpg">
-        </label>
-
-        <h3>기본 사항</h3>
-        <table>
-            <tr>
-                <th>이름</th>
-                <td><div>누리</div></td>
-            </tr>
-            <tr>
-                <th>품종</th>
-                <td><div>시츄</div></td>
-            </tr>
-            <tr>
-                <th>생년월</th>
-                <td>2018년 3월</td>
-            </tr>
-        </table>
-    </div>
 
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 	
