@@ -173,10 +173,17 @@ public class AdministratorServiceImpl implements AdministratorService{
 	}
 	// 펫시터 정보조회
 	@Override
-	public String declarationPesitter(int petsitterNo) {
+	public List<Member> declarationPesitter(int petsitterNo) {
 		
 		return dao.declarationPesitter(petsitterNo);
 	}
+
+	@Override
+	public int declarationInsert(Map<String, Object> map) {
+		
+		return dao.declarationInsert(map);
+	}
+
 
 	
 }

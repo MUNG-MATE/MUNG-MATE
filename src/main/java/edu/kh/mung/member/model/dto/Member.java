@@ -36,6 +36,7 @@ public class Member {
 	private String servicePrice;
 	private String serviceTime;
 	private String serviceSt;
+	private int petsitterNo;
 	
 	
 
