@@ -29,9 +29,13 @@ public class MainController {
 	private MainService_h service;
 	
 	@RequestMapping("/")
-	public String sample() {
+	public String sample(Model model) {
 		
 		List<Board> reviewList = service.reviewList();
+		
+		System.out.println(reviewList);
+		
+		model.addAttribute("reviewList", reviewList);
 	
 		return "index";
 		

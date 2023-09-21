@@ -69,7 +69,7 @@ public class MainDao_h {
 	 * @return
 	 */
 	public List<Board> reviewList() {
-		return null;
+		return sqlSession.selectList("reviewMapper.reviewList");
 	}
 
 }
