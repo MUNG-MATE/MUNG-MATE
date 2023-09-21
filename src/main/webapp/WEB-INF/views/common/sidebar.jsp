@@ -33,16 +33,15 @@
                         <a href='javascript:void(0);'>My Page</a>
                         <ul class="sub_gnb">
                             <li><a href = "/myPage/memberInfo">내 정보</a></li>
-                            <li><a href = "/myPage/memberInfoUpdate">내 정보 수정</a></li>
-                            <li><a href = "/myPage/memberSecession">계정 탈퇴</a></li>
                             <li><a href = "/myPage/petInfo">내 반려견</a></li>
                             <li><a href = "#">내 찜목록</a></li>
                             <c:if test="${loginMember.petsitterFlag == 'N'}" >
-                            <li><a href = "/petsitter/toPetsitterApply">펫시터 되기</a></li>
+                                <li><a href = "/petsitter/toPetsitterApply">펫시터 되기</a></li>
                             </c:if>
                             <c:if test="${loginMember.petsitterFlag == 'Y'}" >
-                            <li><a  href = "/petsitter/toGeneralApply">펫시터 그만두기</a></li>
+                                <li><a  href = "/petsitter/toGeneralApply">펫시터 그만두기</a></li>
                             </c:if>
+                            <li><a href = "/myPage/memberSecession">계정 탈퇴</a></li>
                            <%--  <c:if test="${loginMember.petsitterFlag == 'Y'}" >
                             <li><a href="/petsitter/reservationList_p"> 펫시터 예약목록     증발띠    </a></li>
                             </c:if>  --%>
