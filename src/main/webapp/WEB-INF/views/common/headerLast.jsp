@@ -56,10 +56,11 @@
 
         <!-- 메뉴 리스트 영역 -->
         <div class="menu-2">
-            <a href="#">Info</a>
+            <a href ="/info">Info</a>
+            <a href ="/Administrator/notice/1">Notice</a>
             <a href="/reservation/1">Matching</a>
             <a href="/reviewBoard/reviewBoardList">Community</a>
-            <a href="#">Guide</a>
+            <a href="/Administrator/faq/3">FAQ</a>
         <jsp:include page="/WEB-INF/views/common/sidebar.jsp" />
         </div>
     </div>

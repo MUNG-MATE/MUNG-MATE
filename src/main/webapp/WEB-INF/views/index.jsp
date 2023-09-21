@@ -25,26 +25,28 @@
                 <div class="slideshow-container">
 
                     <c:forEach items="${reviewList}" var="rList" varStatus="loop">
-                        <c:if test="${loop.index % 4 == 0}">
-                            <div class="mySlides" id="mySlides">
-                        </c:if>
-                        <div class="review">
-                            <div class="reviewContent">
-                                <div class="reviewInfo">
-                                    <img src="${rList.profileImage}">
-                                    <span class="reviewNickname">${rList.memberNickname}</span>
-                                </div>
-                                <p>
-                                    ${rList.boardContent}
-                                </p>
-                                <div class="reviewImage">
-                                    <img src="/resources/images/${rList.imageReName}">
+                        <a href = "/reviewBoard/reviewBoardList/${rList.boardNo}" method = "GET">
+                            <c:if test="${loop.index % 4 == 0}">
+                                <div class="mySlides" id="mySlides">
+                            </c:if>
+                            <div class="review">
+                                <div class="reviewContent">
+                                    <div class="reviewInfo">
+                                        <img src="${rList.profileImage}">
+                                        <span class="reviewNickname">${rList.memberNickname}</span>
+                                    </div>
+                                    <p>
+                                        ${rList.boardContent}
+                                    </p>
+                                    <div class="reviewImage">
+                                        <img src="${rList.imagePath}${rList.imageReName}">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <c:if test="${loop.index % 4 == 3 || loop.last}">
+                            <c:if test="${loop.index % 4 == 3 || loop.last}">
                 </div>
+                </a>
                 </c:if>
                 </c:forEach>
 
@@ -132,13 +134,11 @@
                                 </div>
                                 <div>
                                     <div>
-                                        <h3> 노즈워크를 아시나요?</h3>
+                                        <h3> 산책의 중요성 </h3>
                                         <pre>
 
-노즈워크란 한국어로 번역하자면 후각 활동입니다. 
-반려견이 코를 이용하는 모든 후각 활동을 노즈워크라 부를 수 있습니다. 
-바닥에 뿌린 간식을 찾는 것, 장난감을 숨기고 찾는 것, 
-공항에서 일하는 마약 탐지견, 인명구조 견들이 재난 시 사람을 찾는 활동들도 노즈워크라 부를 수 있습니다.
+반려동물에게 산책은 바깥세상을 살피며 호기심을 충족하며 보호자와 교감 및
+소통하는 시간으로, 신체적, 정신적 건강을 위해서 꼭 필요합니다.
                 </pre>
                                     </div>
                                 </div>
@@ -171,7 +171,7 @@
                 <jsp:include page="/WEB-INF/views/common/footer.jsp" />
             </body>
 
-            
+
             <script src="/resources/js/index.js"></script>
 
             </html>

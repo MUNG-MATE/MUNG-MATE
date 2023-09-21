@@ -13,9 +13,10 @@ body{
     position: absolute;
     right: -130px;
     top:52px;
-    background-color: antiquewhite;
+    background-color: white;
     z-index: 10;
     display: none;
+    box-shadow: 20px 20px 20px 20px lightgray;
 }
 .gnb {
     width: 100%;
@@ -61,7 +62,7 @@ body{
 }
 
 .gnb > li > a:hover {
-    color: rgb(208, 53, 49);
+    color: rgb(255,197,227);
 }
 .sub_gnb {
     height: 250px;
@@ -76,12 +77,12 @@ body{
     line-height: 50px;
     font-size: 16px;
     font-weight: bold;
-    background-color: rgb(255, 175, 175);
+    background-color: rgb(0,30,60);
     cursor: pointer;
 }
 
 .sub_gnb > li:hover {
-    color: rgb(208, 53, 49);
+    color: rgb(255,197,227);
 }
 
 .toggle {
