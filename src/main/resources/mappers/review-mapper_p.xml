@@ -231,7 +231,7 @@
 	<!-- 이미지 삽입(1개) -->
 	<insert id="imageInsert">
 		INSERT INTO BOARD_IMAGE
-		VALUES(SEQ_IMG_NO.NEXTVAL,#{imagePath},#{imageOrder},#{imageReName},
+		VALUES(SEQ_BOARD_IMG_NO.NEXTVAL,#{imagePath},#{imageOrder},#{imageReName},
 		#{boardNo})
 	</insert>
 

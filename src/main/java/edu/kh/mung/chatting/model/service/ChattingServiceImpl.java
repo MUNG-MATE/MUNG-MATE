@@ -1,5 +1,7 @@
 package edu.kh.mung.chatting.model.service;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,4 +21,11 @@ public class ChattingServiceImpl implements ChattingService{
 		msg.setMessageContent(Util.XSSHandling(msg.getMessageContent()));
 		return dao.insertMessage(msg);
 	}
+
+	// 채팅 읽음표시
+	@Override
+    public int updateReadFlag(Map<String, Object> paramMap) {
+        return dao.updateReadFlag(paramMap);
+    }
+
 }
