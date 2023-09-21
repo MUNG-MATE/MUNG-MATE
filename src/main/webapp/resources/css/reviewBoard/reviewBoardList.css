@@ -10,9 +10,13 @@ h1{
     margin-top: 70px;
 }
 
-#first{
+.first{
 
     color: gray;
+}
+
+#reviewTitle{
+    padding: 20px 0;
 }
 
 /* 리뷰 게시글 영역 */
