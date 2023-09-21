@@ -45,7 +45,6 @@ public class AjaxController {
 	@PostMapping(value="/Administrator/declaration/pesitter", produces="application/json; charset=UTF-8" )
 	public List<Member> declarationPesitter(@RequestBody int petsitterNo) {
 		
-		
 		return service.declarationPesitter(petsitterNo);
 	}
 	

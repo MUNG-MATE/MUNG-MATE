@@ -113,5 +113,10 @@ public class AdministratorController_m {
 		ra.addFlashAttribute("message",message);
 		return path; 
 	}
+	@GetMapping("/declarationList")
+	public String declarationList(Model model) {
+		
+		return "Administrator/declarationList";
+	}
 
 }
