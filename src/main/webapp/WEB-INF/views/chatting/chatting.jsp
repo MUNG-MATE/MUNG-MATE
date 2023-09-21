@@ -4,6 +4,7 @@
 <!-- 채팅 -->
         <section class="chatting-content" id="right">
             <ul id="display-chatting">
+                <%-- notReadCount를 카톡처럼 1있다가 사라지게?! --%>
                 <li class="my-chat">
                     <span class="chatDate">09.04 16:00</span>
                     <p class="chat">떵 치워주세여</p>
