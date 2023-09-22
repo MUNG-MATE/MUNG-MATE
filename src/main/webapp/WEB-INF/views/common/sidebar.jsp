@@ -52,7 +52,7 @@
                         <a href='javascript:void(0);'>멍메이트</a>
                         <ul class="sub_gnb">
                             <li><a  href = "/myPage/myPost">내 게시글</a></li>
-                            <li>2</li>
+                            <li><a  href = "/chatting/chatting">chatting</li>
                             <li>3</li>
                             <li>4</li>
                         </ul>
@@ -62,7 +62,7 @@
                        <a href='javascript:void(0);'>신고하기</a>
                         <ul class="sub_gnb">
                             <li><a href="/Administrator/declaration">신고</a></li>
-                            <li>2</li>
+                            <li>모르겠는데?</li>
                             <li>3</li>
                             <li>4</li>
                         </ul>

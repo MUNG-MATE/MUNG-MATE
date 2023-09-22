@@ -9,11 +9,11 @@ import lombok.ToString;
 @ToString
 public class Message {
 
-	private int chattingNo;
 	private int messageNo;
 	private String messageContent;
 	private String readFlag;
 	private int senderNo;
-	private int targetNo;
 	private String sendTime;
+	private int petSitterNo;
+
 }

@@ -78,7 +78,7 @@ public class ChattingWebsocketHandler extends TextWebSocketHandler{
                 int loginMemberNo = ((Member)s.getAttributes().get("loginMember")).getMemberNo();
                 
                 // 로그인 상태인 회원 중 targetNo가 일티하는 회원에게 메세지 전달
-                if(loginMemberNo == msg.getTargetNo() || loginMemberNo == msg.getSenderNo()) {
+                if(loginMemberNo == msg.getPetSitterNo() || loginMemberNo == msg.getSenderNo()) {
                     
                     s.sendMessage(new TextMessage(new Gson().toJson(msg)));
                 }

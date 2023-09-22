@@ -1,0 +1,101 @@
+
+
+#display-chatting {
+    width: 1000px;
+    height: 500px;
+    background-color: #fff;
+    margin: 100px auto 0;
+    padding: 10px 0;
+    list-style: none;
+    overflow: auto;
+    border: 3px solid rgb(0, 30, 60);
+}
+
+#input-area {
+    width: 990px;
+    height: 100px;
+    border: 2px solid rgb(226, 223, 39);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    margin: 0 auto;
+}
+
+#inputChatting {
+    width: 90%;
+    height: 32px;
+    resize: none;
+    outline: 0;
+    border: none;
+    line-height: 32px;
+}
+
+#inputChatting::placeholder {
+    line-height: 32px;
+}
+#input-area div{
+    width: 10%;
+    height: 100%;
+    border-left: 2px solid black;
+    display: flex;
+    align-items: center;
+}
+#send {
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    font-weight: bold;
+    
+}
+
+
+.chat {
+    display: inline-block;
+    border-radius: 5px;
+    margin: 3px 0;
+    padding: 5px;
+    word-break: break-all;
+    white-space: pre-wrap;
+}
+.target-chat {
+    margin-left: 15px;
+}
+.target-chat > img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.chatDate {
+    font-size: 9px;
+    margin: 0 5px;
+}
+
+.my-chat {
+    text-align: right;
+    margin-right: 15px;
+}
+
+.my-chat > p {
+    background-color: rgb(0,30,60);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    color: white;
+    font-weight: bold;
+}
+
+.target-chat {
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+.target-chat p {
+    background-color: rgb(253, 249, 244);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+li {
+    list-style: none;
+}

@@ -19,6 +19,7 @@ import edu.kh.mung.chatting.model.dto.Message;
 import edu.kh.mung.chatting.model.service.ChattingService;
 import edu.kh.mung.member.model.dto.Member;
 import edu.kh.mung.reservation.model.dto.PetSitter;
+import edu.kh.mung.reservation.model.dto.Reservation;
 
 @SessionAttributes("loginMember")
 @Controller
@@ -27,26 +28,36 @@ public class ChattingController {
 	@Autowired
 	private ChattingService service;
 
-//	// 채팅 페이지
-//	@GetMapping("/chatting")
-//	public String chatting(@SessionAttribute("loginMember") Member loginMember , Model model) {
-//
-//		List<ChattingRoom> roomList = service.selectRoomList(loginMember.getMemberNo() );
-//		model.addAttribute("roomList", roomList);
-//		return "chatting/chatting";
-//	}
-//
-//	// 채팅 읽음 표시
-//	@PutMapping("/chatting/updateReadFlag")
-//	@ResponseBody
-//	public int updateReadFlag(@RequestBody Map<String, Object> paramMap) {
-//		return service.updateReadFlag(paramMap);
-//	}
-//
-//	// 채팅방 메세지 조회
-//	@GetMapping(value="/chatting/selectMessage", produces="application/json; charset=UTF-8")
-//	@ResponseBody
-//	public List<Message> selectMessageList(@RequestParam Map<String, Object> paramMap) {
-//		return service.selectMessageList(paramMap);
-//	}
+	// 채팅 페이지
+	@GetMapping("/chatting/chatting")
+	public String chatting(@SessionAttribute("loginMember") Member loginMember, Model model) {
+		
+		int memberNo = loginMember.getMemberNo();
+		
+		Map<String, Object> map = service.selectPetsitterNo(memberNo);
+		
+		model.addAttribute("map", map);
+
+		return "chatting/chatting";
+	}
+
+	// 채팅방 메세지 조회
+	
+	@GetMapping(value="/chatting/selectMessage",produces="application/json; charset=UTF-8")
+	@ResponseBody 
+	public List<Message> selectMessageList(@RequestParam Map<String, Object> paramMap) {
+		
+		return service.selectMessageList(paramMap); 
+	}
+
+	// 채팅 읽음 표시
+
+	@PutMapping("/chatting/updateReadFlag")
+	@ResponseBody public int updateReadFlag(@RequestBody Map<String, Object> paramMap){ 
+		
+	return service.updateReadFlag(paramMap); 
+		
+	}
+
+
 }
