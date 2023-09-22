@@ -23,6 +23,7 @@ public class Reservation {
 	private String serviceType; // 타입
 	private String serviceTime; // 시간
 	private int servicePrice;  // 금액
+	private String serviceState; // 서비스 상태
 	
 	// 펫
 	private List<Pet2> petList;

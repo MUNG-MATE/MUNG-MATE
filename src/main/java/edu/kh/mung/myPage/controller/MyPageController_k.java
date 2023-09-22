@@ -35,7 +35,7 @@ public class MyPageController_k {
 	@GetMapping("/selectRsList")
 	@ResponseBody
 	public List<Reservation> selectRsList(@SessionAttribute("loginMember") Member loginMember) {
-		
+		System.out.println("test");
 		List<Reservation> rsList = service.selectRsList(loginMember);
 		
 		return rsList;

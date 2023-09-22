@@ -27,14 +27,15 @@ public class MyPageDAO_k {
 	public List<Reservation> selectRsList(Member loginMember) {
 		
 		List<Reservation> rsList = new ArrayList<Reservation>();
-		Reservation newRs = new Reservation();
 		
 		if(loginMember.getPetsitterFlag().equals("Y")) {
 			int psNo = sqlSession.selectOne("myPageMapper_k.selectPetSitterNo", loginMember);
 			rsList = sqlSession.selectList("myPageMapper_k.selectRsList_ps", psNo);
+			System.out.println("rsList : " + rsList);
 			
 		} else {
 			rsList = sqlSession.selectList("myPageMapper_k.selectRsList", loginMember);
+			System.out.println("rsList : " + rsList);
 		}
 
 		for (Reservation rs : rsList) {
@@ -57,9 +58,7 @@ public class MyPageDAO_k {
 			}
 
 			rs.setPetList(petList);
-			newRs = rs;
 		}
-		rsList.add(newRs);
 		System.out.println("rsList : " + rsList);
 
 		return rsList;

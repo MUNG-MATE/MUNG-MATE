@@ -78,13 +78,13 @@ function changeYearMonth(year, month) {
     
     let calendarYear = $("#year").val(); // 캘린더 년도
 
-    let h = [];
-
     /* ajax */
     fetch("selectRsList?memberNo=" + memberNo)
     .then(resp => resp.json())
     .then(rsList => {
+      let h = [];
       console.log(rsList);
+      rList = [];
       for(let rs of rsList) {
         rList[rList.length] = rs;
       }
@@ -107,14 +107,14 @@ function changeYearMonth(year, month) {
           h.push('<tr>');
         }
         
-        h.push('<td onclick="setDate(' + data[i] +')" ');
+        h.push('<td ');
         
         // 조회한 날짜가 이번 달이면서 오늘인 경우
         if(i == today && calendarMonth == thisMonth && current_year == calendarYear) {
           h.push('id="today" class="day' + data[i] + '"><div class="day_div">' + data[i]);
 
-          for(let i = 0 ; i < rList.length; i++) {
-            if(rList[i].rsDate == i_day) {
+          for(let j = 0 ; j < rList.length; j++) {
+            if(rList[j].rsDate == i_day) {
               h.push('<div class="rs-point"></div>');
               break;
             }
@@ -123,9 +123,9 @@ function changeYearMonth(year, month) {
           h.push('</div>');
 
           // if(일정이 있을 때 추가)
-          for(let i = 0 ; i < rList.length; i++) {
-            if(rList[i].rsDate == i_day) {
-              h.push('<div class="schedule">[' + rList[i].rsStartDate + '] ' + rList[i].serviceType + '(' + rList[i].serviceTime + ')</div>');
+          for(let j = 0 ; j < rList.length; j++) {
+            if(rList[j].rsDate == i_day) {
+              h.push('<div onclick="setDate(' + data[i] + ', \'' + rList[j].rsStartDate +'\')" class="schedule">[' + rList[j].rsStartDate + '] ' + rList[j].serviceType + '(' + rList[j].serviceTime + ')</div>');
             }
           }
   
@@ -135,8 +135,8 @@ function changeYearMonth(year, month) {
           h.push('class="day' + data[i] + '"><div class="day_div">' + data[i]);
   
           // if(일정이 있을 때 추가)
-          for(let i = 0 ; i < rList.length; i++) {
-            if(rList[i].rsDate == i_day) {
+          for(let j = 0 ; j < rList.length; j++) {
+            if(rList[j].rsDate == i_day) {
               h.push('<div class="rs-point"></div>');
               break;
             }
@@ -145,9 +145,9 @@ function changeYearMonth(year, month) {
           h.push('</div>');
   
           // if(일정이 있을 때 추가)
-          for(let i = 0 ; i < rList.length; i++) {
-            if(rList[i].rsDate == i_day) {
-              h.push('<div class="schedule">[' + rList[i].rsStartDate + '] ' + rList[i].serviceType + '(' + rList[i].serviceTime + ')</div>');
+          for(let j = 0 ; j < rList.length; j++) {
+            if(rList[j].rsDate == i_day) {
+              h.push('<div onclick="setDate(' + data[i] + ', \'' + rList[j].rsStartDate +'\')" class="schedule">[' + rList[j].rsStartDate + '] ' + rList[j].serviceType + '(' + rList[j].serviceTime + ')</div>');
             }
           }
   
@@ -158,15 +158,49 @@ function changeYearMonth(year, month) {
   
       $("#tb_tbody").html(h.join(""));
       
+      countReservation(data);
+
     })
     .catch(e => console.log(e))
     
   }
 }
 
+// 예약 개수 확인
+function countReservation(data) {
+  for(let i = 0; i < data.length; i++) {
+
+    const td = document.getElementsByClassName("day" + data[i])[0];
+
+    if(td.childElementCount > 3) {
+
+      const count = td.childElementCount - 3;
+      let div = [];
+
+      for(let j = 3; j < td.childElementCount; j++) {
+        div.push(td.childNodes[j]);
+        td.childNodes[j].remove();
+        j--;
+      }
+
+      for(let d of div) {
+        document.getElementById("test").append(d);
+      }
+
+      td.innerHTML += `<div class="schedule" id="more${data[i]}">+${count} 더보기</div>`;
+      tippy(`#more${data[i]}`, {
+        content : document.getElementById("test"),
+        trigger:'click',
+        placement: 'right',
+        allowHTML: true,
+        interactive: true
+      });
+    }
+  }
+}
 
 // 날짜 클릭 시 input에 해당 날짜 대입
-function setDate(day) {
+function setDate(day,time) {
   
   // 선택된 날짜가 없으면 실행 X
   if(day == undefined) return;
@@ -178,16 +212,16 @@ function setDate(day) {
   if(input_month < 10) input_month = "0" + input_month;
   
   let select = input_year + "-" + input_month + "-" + day; // 2023-09-22
-  let selectDay = select + "(" + dayOfWeek[new Date(select).getDay()] + ")"; // 2023-09-22(토)
+  let selectDay = select + "(" + dayOfWeek[new Date(select).getDay()] + ") " + time; // 2023-09-22(토) 10:00
   let flag = false;
 
   for(let i = 0; i < rList.length; i++) {
-    if(rList[i].rsDate == selectDay) {
+    if(rList[i].rsDate + " " + rList[i].rsStartDate == selectDay) {
       // 서비스 타입
       $("#serviceType").html(rList[i].serviceType + " [" + rList[i].serviceTime + "]");
       
       // 방문 일정
-      $("#serviceDate").html(selectDay + " " + rList[i].rsStartDate);
+      $("#serviceDate").html(selectDay);
 
       // 결제 금액
       $("#servicePrice").html((rList[i].servicePrice*rList[i].petList.length).toLocaleString('ko-KR') + "원");
@@ -201,6 +235,11 @@ function setDate(day) {
         $("#profileImage").attr("src", rList[i].petSitterList[0].profileImg); // 프로필 이미지
         $("#petsitterName").html(rList[i].petSitterList[0].memberNm); // 펫시터 이름
         $("#point").html("♥ " + rList[i].petSitterList[0].wishListCount); // 찜목록 수
+        if(rList[i].serviceState == 'Y') { // 서비스 완료 상태인 경우
+          $("#liveCardDiv").html('<button class="liveCardBtn" ><a href="#">라이브 카드</a></button>');
+        } else {
+          $("#liveCardDiv").html('');
+        }
       }
       
       if(petsitterFlag == 'Y') { // 로그인 회원이 펫시터인 경우
@@ -241,19 +280,19 @@ function setDate(day) {
             </div>
     
             <table id="petTable">
-                <tr>
+                <tr class="petTr">
                   <th>이름</th>
                   <td><div class="petText">${rList[i].petList[j].petName}</div></td>
                 </tr>
-                <tr>
+                <tr class="petTr">
                   <th>성별</th>
                   <td><div class="petText">${rList[i].petList[j].petGender}자아이</div></td>
                 </tr>
-                <tr>
+                <tr class="petTr">
                   <th>품종</th>
                   <td><div class="petText">${rList[i].petList[j].petType}</div></td>
                 </tr>
-                <tr>
+                <tr class="petTr">
                   <th>생년월</th>
                   <td><div class="petText">${rList[i].petList[j].petBirth}</div></td>
                 </tr>
