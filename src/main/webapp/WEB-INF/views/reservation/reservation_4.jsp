@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="/resources/css/reservation/reservation_4.css">
 </head>
     <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
-    
 <body>
 	<h1 id="resTitle">예약 서비스[3/3]</h1>
     <h4 id="resSubTitle">펫시터를 선택해주세요.</h4>
@@ -21,7 +20,7 @@
         <section id="container">
 
             <c:forEach var="i" items="${rs.petSitterList}">
-                <div class="profileArea" id="profileArea" onclick="selectPetSitterNo('${i.petSitterNo}')">
+                <div class="profileArea" id="${i.petSitterNo}" onclick="selectPetSitterNo('${i.petSitterNo}')">
                     <div class="imageArea">
                         <img src=${i.profileImg} class="profileImage">
                     </div>
@@ -49,15 +48,26 @@
         <input type="hidden" name="serviceType" id="selectedService" value="${rs.serviceType}">
         <input type="hidden" name="rsDate" value="${rs.rsDate}">
         <input type="hidden" name="rsStartDate" value="${rs.rsStartDate}">
-        <input type="hidden" name="petSitterNo" id="selectPetSitterNo">
         <input type="hidden" name="serviceNo" id="serviceNo" value="${rs.serviceNo}">
         <input type="hidden" name="rsAddress" value="${rs.rsAddress}">
         
         
-    </form>
+            <input type="hidden" name="petSitterNo" id="selectPetSitterNo">
     
 
-    <script src="/resources/js/reservation/reservation_4.js"></script>
+        
+
+        
+            
+        </form>
+        
+    <script>
+
+        const petSitterNo = "${rs.petSitterNo}";
+    </script>
+        <script src="/resources/js/reservation/reservation_4.js"></script>
+
+
 
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 </body>
