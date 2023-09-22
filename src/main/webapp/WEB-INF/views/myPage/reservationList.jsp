@@ -14,6 +14,7 @@
 </head>
 <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
 <body>
+    ${loginMember.memberNo}
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
    	<div class="page-title">내 예약 목록</div>
@@ -109,7 +110,6 @@
 	
     <script>
         const memberNo = "${loginMember.memberNo}";
-        const petsitterFlag = "${loginMember.petsitterFlag}";
     </script>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
