@@ -4,15 +4,22 @@ const serviceDiv2 = document.getElementsByClassName("serviceDiv2");
 const serviceSubSection2 = document.getElementById("serviceSubSection2");
 const serviceSubSection3 = document.getElementById("serviceSubSection3");
 const nextBtn = document.getElementById("nextBtn");
-/* serviceDivOne 산책 클릭 시  */
+
 
 const urlParams = new URL(location.href).searchParams;
-const petSitterNo = urlParams.get('petSitterNo');
-document.getElementById("petSitterNo").value = petSitterNo;
 
-console.log(petSitterNo);
+console.log(urlParams);
+
+if(urlParams != 0){
+
+    const petSitterNo = urlParams.get('petSitterNo');
+    document.getElementById("petSitterNo").value = petSitterNo;
+    console.log(petSitterNo);
+}
 
 
+
+/* serviceDivOne 산책 클릭 시  */
 serviceDivOne[0].addEventListener("mouseover", () => {
     if(!serviceDivOne[0].classList.contains("clicked")) {
         serviceDivOne[0].classList.add("hovered");
