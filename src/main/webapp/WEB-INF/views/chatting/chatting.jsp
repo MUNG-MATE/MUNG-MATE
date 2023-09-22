@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
-<c:set var="chattingList" value="${map.chattingList}"/>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -14,11 +13,10 @@
    <%-- live.jsp 의 시작버튼 누르면 비동기로 채팅창! --%>
 
 <!-- 채팅 -->
-        ${chattingList} << 
-        ${chattingList.memberNo} , ${chattingList.petSitterNo}
+    
         <section class="chatting-content" id="right">
         <button onclick="selectChattingFn()">버튼</button>
-            <ul id="display-chatting">
+            <ul id="display-chatting" class="display-chatting">
                 <%-- notReadCount를 카톡처럼 1있다가 사라지게?! --%>
                 <%-- <li class="my-chat">
                     <p class="not-read-count">${room.notReadCount}</p>
@@ -49,7 +47,7 @@
     <script>
         // 로그인한 회원 번호
         const loginMemberNo = "${loginMember.memberNo}";
-        let petsitterNo = "${petsitterNo}";
+        let petSitterNo = "${petSitterNo}";
     
     </script>
     <script src="/resources/js/chatting/chatting.js"></script>
