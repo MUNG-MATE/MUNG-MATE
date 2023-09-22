@@ -52,7 +52,7 @@
         <input type="hidden" name="rsAddress" value="${rs.rsAddress}">
         
         
-            <input type="hidden" name="petSitterNo" id="selectPetSitterNo">
+        <input type="hidden" name="petSitterNo" id="selectPetSitterNo">
     
 
         
