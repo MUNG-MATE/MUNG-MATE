@@ -42,6 +42,7 @@ public class ReservationController_h {
 
 		//		List<ServiceType> stNo = service.serviceType(st);
 		
+		System.out.println("rs 너너: " + rs);
 		
 		model.addAttribute("st", st);
 		return "/reservation/reservation_1";
@@ -51,11 +52,13 @@ public class ReservationController_h {
 	public String reservationType(Model model, Reservation rs) {
 
 		model.addAttribute("rs", rs);
+		System.out.println("rs1 : " + rs);
 		return "/reservation/reservation_2";
 	}
 
 	@GetMapping("/2")
 	public String reservation2(Model model, Reservation rs) {
+		
 		model.addAttribute("rs", rs);
 		return "/reservation/reservation_2";
 	}
@@ -67,7 +70,6 @@ public class ReservationController_h {
 			@RequestHeader("referer") String referer, String[] rsAddress) {
 
 		
-		System.out.println("rsddd : " + rs);
 		rs.setMemberNo(loginMember.getMemberNo());
 
 		// 펫시터 정보 얻어오기
@@ -131,6 +133,7 @@ public class ReservationController_h {
 
 		List<Integer> petNoList = (List<Integer>) map.get("petNoList");
 
+		System.out.println(petNoList);
 
 		// 1. 예약 테이블에 insert하기 
 		int result = service.payResult(map);
