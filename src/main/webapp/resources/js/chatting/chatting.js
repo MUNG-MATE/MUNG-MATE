@@ -5,7 +5,7 @@
 
 
 // 채팅방 입장 또는 선택 함수
-function chattingEnter(e){
+/* function chattingEnter(e){
    console.log(e.target); // 실제 클릭된 요소
    console.log(e.currentTarget); // 이벤트 리스트가 설정된 요소
 
@@ -36,22 +36,22 @@ function chattingEnter(e){
 
    })
    .catch(err => console.log(err));
-}
+} */
+
 
 // 채팅 메세지 영역
 const display = document.getElementsByClassName("display-chatting")[0];
 
-
 // 비동기로 메세지 목록을 조회하는 함수
 function selectChattingFn() {
 
-   fetch("/chatting/selectMessage?" + `chattingNo=${selectChattingNo}&memberNo=${loginMemberNo}`)
+   fetch("/chatting/selectMessage?" + `petsitterNo=${petsitterNo}&memberNo=${loginMemberNo}`)
       .then(resp => resp.json())
       .then(messageList => {
          console.log(messageList);
-
+         alert("여기까지는와야되는거아닐까?")
          // <ul class="display-chatting">
-         const ul = document.querySelector(".display-chatting");
+         const ul = document.querySelector("#display-chatting");
 
          ul.innerHTML = ""; // 이전 내용 지우기
 
@@ -69,7 +69,6 @@ function selectChattingFn() {
             const p = document.createElement("p");
             p.classList.add("chat");
             p.innerHTML = msg.messageContent; // br태그 해석을 위해 innerHTML
-
             // 내가 작성한 메세지인 경우
             if (loginMemberNo == msg.senderNo) {
                li.classList.add("my-chat");
@@ -107,10 +106,6 @@ function selectChattingFn() {
 
 }
 
-
-
-
-
 // sockjs를 이용한 WebSocket 구현
 
 // 로그인이 되어 있을 경우에만
@@ -135,8 +130,7 @@ const sendMessage = () => {
    } else {
       var obj = {
          "senderNo": loginMemberNo,
-         "targetNo": selectTargetNo,
-         "chattingNo": selectChattingNo,
+         "petsitterNo": petsitterNo,
          "messageContent": inputChatting.value,
       };
       console.log(obj)
@@ -168,10 +162,9 @@ chattingSock.onmessage = function (e) {
 
 
    // 현재 채팅방을 보고있는 경우
-   if (selectChattingNo == msg.chattingNo) {
 
 
-      const ul = document.querySelector(".display-chatting");
+      const ul = document.querySelector("#display-chatting");
 
       // 메세지 만들어서 출력하기
       //<li>,  <li class="my-chat">
@@ -216,11 +209,9 @@ chattingSock.onmessage = function (e) {
 
       ul.append(li)
       display.scrollTop = display.scrollHeight; // 스크롤 제일 밑으로
-   }
 
 
 
-   selectRoomList();
 }
 
 
@@ -229,8 +220,8 @@ chattingSock.onmessage = function (e) {
 // 문서 로딩 완료 후 수행할 기능
 document.addEventListener("DOMContentLoaded", () => {
 
-   // 채팅방 목록에 클릭 이벤트 추가
-   roomListAddEvent();
+   /* // 채팅방 목록에 클릭 이벤트 추가
+   roomListAddEvent(); */
 
    // 보내기 버튼에 이벤트 추가
    send.addEventListener("click", sendMessage);

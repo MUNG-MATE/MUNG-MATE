@@ -1,13 +1,18 @@
 package edu.kh.mung.chatting.model.service;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import edu.kh.mung.chatting.model.dao.ChattingDAO;
 import edu.kh.mung.chatting.model.dto.Message;
 import edu.kh.mung.common.utility.Util;
+import edu.kh.mung.member.model.dto.Member;
+import edu.kh.mung.reservation.model.dto.Reservation;
 
 @Service
 public class ChattingServiceImpl implements ChattingService{
@@ -27,5 +32,30 @@ public class ChattingServiceImpl implements ChattingService{
     public int updateReadFlag(Map<String, Object> paramMap) {
         return dao.updateReadFlag(paramMap);
     }
+	
+	// 펫시터 번호조회
+	@Override
+	public Map<String, Object> selectPetsitterNo(int memberNo) {
+		
+		List<Reservation> chattingList = dao.chattingList(memberNo);
+
+		Map<String, Object> map = new HashMap<>();
+		
+		map.put("chattingList", chattingList);
+		
+		return map;
+	}
+	
+	// 채팅메세지 목록
+	@Override
+	public List<Message> selectMessageList(Map<String, Object> paramMap) {
+		
+		 List<Message> messageList = dao.selectMessageList(  Integer.parseInt( String.valueOf(paramMap.get("petsitterNo") )));
+		 if(!messageList.isEmpty()) {
+	            int result = dao.updateReadFlag(paramMap);
+	        }
+		 
+		return messageList;
+	}
 
 }

@@ -1,8 +1,10 @@
 package edu.kh.mung.chatting.model.service;
 
+import java.util.List;
 import java.util.Map;
 
 import edu.kh.mung.chatting.model.dto.Message;
+import edu.kh.mung.reservation.model.dto.Reservation;
 
 public interface ChattingService {
 
@@ -18,5 +20,10 @@ public interface ChattingService {
 	 * @return
 	 */
 	int updateReadFlag(Map<String, Object> paramMap);
+	
+	// 펫시터번호 조회
+	Map<String, Object> selectPetsitterNo(int memberNo);
+
+	List<Message> selectMessageList(Map<String, Object> paramMap);
 
 }
