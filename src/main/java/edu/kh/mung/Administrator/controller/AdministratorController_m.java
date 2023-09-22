@@ -102,7 +102,6 @@ public class AdministratorController_m {
 			message ="신고완료 연락드리겠습니다!";
 			path += "/";
 			
-			
 		}else {
 			
 			message ="펫시터신고 실패입니다!";

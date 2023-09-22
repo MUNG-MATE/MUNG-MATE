@@ -35,27 +35,28 @@ public class ChattingServiceImpl implements ChattingService{
 	
 	// 펫시터 번호조회
 	@Override
-	public Map<String, Object> selectPetsitterNo(int memberNo) {
+	public int selectPetsitterNo(int memberNo) {
 		
-		List<Reservation> chattingList = dao.chattingList(memberNo);
-
-		Map<String, Object> map = new HashMap<>();
-		
-		map.put("chattingList", chattingList);
-		
-		return map;
+		return dao.selectPetsitterNo(memberNo);
 	}
 	
 	// 채팅메세지 목록
 	@Override
 	public List<Message> selectMessageList(Map<String, Object> paramMap) {
 		
-		 List<Message> messageList = dao.selectMessageList(  Integer.parseInt( String.valueOf(paramMap.get("petsitterNo") )));
+		 List<Message> messageList = dao.selectMessageList(  Integer.parseInt( String.valueOf(paramMap.get("petSitterNo") )));
 		 if(!messageList.isEmpty()) {
 	            int result = dao.updateReadFlag(paramMap);
 	        }
 		 
 		return messageList;
+	}
+
+	// 채팅회원번호 조회
+	@Override
+	public int selectChattingMemberNo(int memberNo) {
+		
+		return dao.selectChattingMemberNo(memberNo);
 	}
 
 }
