@@ -10,14 +10,19 @@ const urlParams = new URL(location.href).searchParams;
 
 console.log(urlParams);
 
-if(urlParams != 0){
+let petSitterNo = 1;
 
-    const petSitterNo = urlParams.get('petSitterNo');
+if(urlParams.size != 0){
+
+
+    petSitterNo = urlParams.get('petSitterNo');
     document.getElementById("petSitterNo").value = petSitterNo;
-    console.log(petSitterNo);
+    console.log("test");
+}else{
+    document.getElementById("petSitterNo").value = 0;
 }
 
-
+console.log(petSitterNo);
 
 /* serviceDivOne 산책 클릭 시  */
 serviceDivOne[0].addEventListener("mouseover", () => {

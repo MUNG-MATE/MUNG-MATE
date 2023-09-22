@@ -70,7 +70,7 @@
             <input type="hidden" name="serviceTime" id="selectTime" readonly>
             <input type="hidden" name="serviceType" id="selectedService" readonly>
             <input type="hidden" name="serviceNo" id="selectServiceNo" readonly>
-            <input name="petSitterNo" type="hidden" id="petSitterNo">
+            <input name="petSitterNo" type="hidden" id="petSitterNo" value="${rs.petSitterNo}">
         </form>
         
     </div>
