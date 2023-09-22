@@ -42,7 +42,7 @@
                     </div>
                     <table class="table table-bordered">
                         <thead>
-                            <tr>
+                            <tr style="height: 41px;">
                                 <th class="day-of-week">일</th>
                                 <th class="day-of-week">월</th>
                                 <th class="day-of-week">화</th>
@@ -52,7 +52,9 @@
                                 <th class="day-of-week">토</th>
                             </tr>
                         </thead>
-                        <tbody id="tb_tbody"></tbody>
+                        <tbody id="tb_tbody">
+                            <div id="test"></div>
+                        </tbody>
                     </table>
                 </div>
                 <div class="back-side">
@@ -86,6 +88,7 @@
                                 <div class="info">
                                     <div id="petsitterName"></div>
                                     <div id="point"></div>
+                                    <div id="liveCardDiv"></div>
                                 </div>
                             </div>
                         </section>
@@ -101,7 +104,7 @@
             </div>
         </div>
     </section>
-
+    
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 	
     <script>
