@@ -50,8 +50,14 @@
 				</div>
 			</div>
 		</div>
-
+		
 	</footer>
+
+	<!-- live 페이지 모달창 -->
+	<div class="liveMadal">
+	<jsp:include page="/WEB-INF/views/live/live.jsp" />
+	</div>
+
 	<c:if test="${!empty message}">
 
 		<script>

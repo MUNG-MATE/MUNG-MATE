@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/resources/css/live/live.css">
     <title>MUNG MATE</title>
 </head>
+<jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
 <body>
     <div id="liveText">펫시팅 실시간 LIVE</div>
     <button type = "button" onclick = "runTime(), startTime()">시작</button>
@@ -83,4 +84,6 @@
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e99da29f2b6829aa0cab8a9aa4d50a98"></script>
     <script src="/resources/js/live/live.js"></script>
 </body>
+
+<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 </html>

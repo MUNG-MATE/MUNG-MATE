@@ -1,3 +1,7 @@
+*{
+    background-color: white;
+}
+
 #liveText {
     height: 40px;
     background-color: rgb(0,30,60);
