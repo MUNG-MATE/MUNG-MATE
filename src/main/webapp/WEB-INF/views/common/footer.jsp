@@ -56,7 +56,6 @@
 	<div class="liveMadal" id = "liveMadal">
 	<jsp:include page="/WEB-INF/views/live/live.jsp" />
 	</div>
-	<script src="/resources/js/live/live.js"></script>
 	<c:if test="${!empty message}">
 
 		<script>
