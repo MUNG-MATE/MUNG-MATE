@@ -15,8 +15,8 @@
 					<p>일석2조</p> </a></li>
 		</ul> -->
 
-		<div class = "gotoLive">
-			<a href = "/live"><img src = "/resources/images/강아지버튼.png" id = "gotoLive"></a>
+		<div class = "gotoLive" id = "gotoLive">
+			<img src = "/resources/images/강아지버튼.png" id = "gotoLive">
 			<h4>LIVE</h4>
 		</div>
 
@@ -50,14 +50,13 @@
 				</div>
 			</div>
 		</div>
-		
 	</footer>
 
 	<!-- live 페이지 모달창 -->
-	<div class="liveMadal">
+	<div class="liveMadal" id = "liveMadal">
 	<jsp:include page="/WEB-INF/views/live/live.jsp" />
 	</div>
-
+	<script src="/resources/js/live/live.js"></script>
 	<c:if test="${!empty message}">
 
 		<script>
