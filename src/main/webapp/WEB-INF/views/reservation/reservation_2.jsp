@@ -119,7 +119,7 @@
 			<input type="hidden" name="serviceTime" id="selectTime" value="${rs.serviceTime}">
 			<input type="hidden" name="serviceType" id="selectedService" value="${rs.serviceType}">
 			<input type="hidden" name="serviceNo" id="serviceNo" value="${rs.serviceNo}">
-			<input name="petSitterNo" type="hidden" id="petSitterNo">
+			<input name="petSitterNo" type="hidden" id="petSitterNo" value="${rs.petSitterNo}">
 
 		</form>
     </section>
@@ -134,7 +134,6 @@
 	<script>
 
 		const petSitterNo = "${rs.petSitterNo}";
-
 
 		console.log(petSitterNo)
 
