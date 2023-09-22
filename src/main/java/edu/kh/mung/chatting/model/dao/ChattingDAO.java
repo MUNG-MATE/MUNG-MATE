@@ -35,9 +35,9 @@ public class ChattingDAO {
 	 * @param parseInt
 	 * @return
 	 */
-	public List<Message> selectMessageList(int petsitterNo) {
+	public List<Message> selectMessageList(int petSitterNo) {
 		
-		return sqlSession.selectList("chattingMapper.selectMessageList", petsitterNo);
+		return sqlSession.selectList("chattingMapper.selectMessageList", petSitterNo);
 	}	
 
 	/** 채팅 읽음 표시
@@ -48,9 +48,17 @@ public class ChattingDAO {
 		return sqlSession.update("chattingMapper.updateReadFlag", paramMap);
 	}
 
-	public List<Reservation> chattingList(int memberNo) {
+	public int selectPetsitterNo(int memberNo) {
 	
-		return sqlSession.selectList("chattingMapper.selectPetsitterNo", memberNo);
+		return sqlSession.selectOne("chattingMapper.selectPetsitterNo", memberNo);
+	}
+
+	/** 채팅회원번호
+	 * @param memberNo
+	 * @return
+	 */
+	public int selectChattingMemberNo(int memberNo) {
+		return sqlSession.selectOne("chattingMapper.selectChattingMemberNo", memberNo);
 	}
 
 }

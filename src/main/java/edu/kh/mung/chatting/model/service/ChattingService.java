@@ -22,8 +22,11 @@ public interface ChattingService {
 	int updateReadFlag(Map<String, Object> paramMap);
 	
 	// 펫시터번호 조회
-	Map<String, Object> selectPetsitterNo(int memberNo);
+	int selectPetsitterNo(int memberNo);
 
 	List<Message> selectMessageList(Map<String, Object> paramMap);
+	
+	// 채팅멤버번호 조회
+	int selectChattingMemberNo(int memberNo);
 
 }

@@ -30,13 +30,19 @@ public class ChattingController {
 
 	// 채팅 페이지
 	@GetMapping("/chatting/chatting")
-	public String chatting(@SessionAttribute("loginMember") Member loginMember, Model model) {
+	public String selectPetsitterNo(@SessionAttribute("loginMember") Member loginMember, Model model) {
 		
 		int memberNo = loginMember.getMemberNo();
+		String memberPetsitter = loginMember.getPetsitterFlag();
 		
-		Map<String, Object> map = service.selectPetsitterNo(memberNo);
-		
-		model.addAttribute("map", map);
+		if(memberPetsitter.equals("N")) {
+			int petSitterNo= service.selectPetsitterNo(memberNo);
+			model.addAttribute("petSitterNo", petSitterNo);
+			
+		}else {
+			int chattingMemberNo= service.selectChattingMemberNo(memberNo);
+			model.addAttribute("chattingMemberNo",chattingMemberNo);
+		}
 
 		return "chatting/chatting";
 	}
