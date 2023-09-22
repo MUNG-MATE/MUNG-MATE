@@ -144,3 +144,12 @@ body{font-family:'Montserrat','pretendard';}
 	bottom : 50px;
 	left: 20px;
 }
+
+
+.liveMadal{
+	/* display: none; */
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top : 40px;
+}
