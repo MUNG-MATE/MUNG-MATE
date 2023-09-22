@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="/resources/css/live/live.css">
     <title>MUNG MATE</title>
 </head>
-<jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
 <body>
     <div id="liveText">펫시팅 실시간 LIVE</div>
+    <button type = "button" onclick = "closeBtn()">닫기</button>
     <button type = "button" onclick = "runTime(), startTime()">시작</button>
 
     <!-- 지도 -->
@@ -85,5 +85,4 @@
     <script src="/resources/js/live/live.js"></script>
 </body>
 
-<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 </html>

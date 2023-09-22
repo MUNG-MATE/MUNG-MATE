@@ -1,3 +1,21 @@
+// live 버튼 클릭 시 보였다 안보였다 하기
+const liveMadal = document.getElementById("liveMadal");
+const gotoLive = document.getElementById("gotoLive");
+
+
+gotoLive.addEventListener("click", function () {
+	if (liveMadal.style.display = "none") {
+		liveMadal.style.display = "block"
+		return;
+	}
+})
+
+function closeBtn(){
+	liveMadal.style.display = "none"
+}
+
+
+
 // 시작시간
 function startTime() {
 	const startTime = document.getElementById("startTime")
