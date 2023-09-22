@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="/resources/css/reservation/reservation_2.css">
 </head>
     <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
-    
 <body>
 	<h1 id="resTitle">예약 서비스[2/3]</h1>
    	<h4 id="resSubTitle">언제/어디로 방문할까요?</h4>
@@ -120,6 +119,7 @@
 			<input type="hidden" name="serviceTime" id="selectTime" value="${rs.serviceTime}">
 			<input type="hidden" name="serviceType" id="selectedService" value="${rs.serviceType}">
 			<input type="hidden" name="serviceNo" id="serviceNo" value="${rs.serviceNo}">
+			<input name="petSitterNo" type="hidden" id="petSitterNo">
 
 		</form>
     </section>
@@ -132,6 +132,14 @@
 
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
+
+		const petSitterNo = "${rs.petSitterNo}";
+
+
+		console.log(petSitterNo)
+
+		document.getElementById("petSitterNo").value = petSitterNo;
+
         function sample6_execDaumPostcode() {
 
             new daum.Postcode({

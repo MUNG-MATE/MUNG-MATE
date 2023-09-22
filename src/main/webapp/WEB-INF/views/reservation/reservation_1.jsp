@@ -10,9 +10,9 @@
 </head>
     <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
     
+
 <body>
     <div class="body">
-
         <h1 id="resTitle">예약 서비스[1/3]</h1>
         <h4 id="resSubTitle">이용할 서비스를 선택해주세요.</h4>
         
@@ -70,6 +70,7 @@
             <input type="hidden" name="serviceTime" id="selectTime" readonly>
             <input type="hidden" name="serviceType" id="selectedService" readonly>
             <input type="hidden" name="serviceNo" id="selectServiceNo" readonly>
+            <input name="petSitterNo" type="hidden" id="petSitterNo">
         </form>
         
     </div>

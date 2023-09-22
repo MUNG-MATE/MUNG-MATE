@@ -30,9 +30,10 @@
             </div>
             <div class="PetsitterInformation">
         
-
+                
                 <c:forEach var="i" items="${petSitterLikeList}">
-                    <div class="profileArea" id="profileArea">
+                <form action="/reservation/1?petSitterNo=${i.petSitterNo}" method="get">
+                        <div class="profileArea" id="profileArea">
                         <div class="imageArea">
                             <img src=${i.profileImg} class="profileImage">
                         </div>
@@ -44,9 +45,12 @@
                             <p class="history" name="memberTel">전화번호 : ${i.memberTel}</p>
                             <p class="history" name="memberEmail">이메일 : ${i.memberEmail}</p>
                             
-                            <input type="hidden" value="${i.petSitterNo}" class="petSitterNo">
+                            <button class="reservationBtn">예약하기</button>
+                            
+                            <input name="petSitterNo" type="hidden" value="${i.petSitterNo}" class="petSitterNo">
                         </div>
                     </div>
+                </form>
                 </c:forEach>
                 
         

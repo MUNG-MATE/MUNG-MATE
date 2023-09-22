@@ -4,8 +4,14 @@ const nextBtn = document.getElementById("nextBtn");
 
 
 for(let i = 0; i < profileArea.length; i++) {
-
     
+    if(petSitterNo != null){
+        document.getElementById('selectPetSitterNo').value = petSitterNo
+        
+        if(i+1 == petSitterNo) {
+            document.getElementById(i+1).classList.add("clicked");
+        }
+    }
     
 
     profileArea[i].addEventListener("mouseover", () => {
@@ -66,4 +72,6 @@ nextBtn.addEventListener("click", e => {
     
     
   
-  } )
+  } );
+
+console.log(petSitterNo);
