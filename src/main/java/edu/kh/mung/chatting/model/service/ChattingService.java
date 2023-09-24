@@ -3,6 +3,7 @@ package edu.kh.mung.chatting.model.service;
 import java.util.List;
 import java.util.Map;
 
+import edu.kh.mung.chatting.model.dto.ChattingRoom;
 import edu.kh.mung.chatting.model.dto.Message;
 import edu.kh.mung.reservation.model.dto.Reservation;
 
@@ -28,5 +29,8 @@ public interface ChattingService {
 	
 	// 채팅멤버번호 조회
 	int selectChattingMemberNo(int memberNo);
+	
+	// 채팅 - 광민
+	List<ChattingRoom> chattingList(int memberNo);
 
 }
