@@ -34,6 +34,54 @@ public class FAQController_o {
 	 * @param boardCode
 	 * @return
 	 */
+	
+	// 포워딩이 있을대 == 도메인이 바뀔때
+	/*
+	 * faq select 
+	 * faq를 불러오는 메소드 파리미터로 디폴트밸류 3 << 이거있음 -> 
+	 * isFaq = service.selectFaqList(); 예약관련
+	 * 값이 있으면? 화면 jsp에서 없으면 '게시글이 없다'	 
+	 */
+	
+	/*
+	 * 검색은 별개임 faq조회랑 분리가 되어야돼
+	 * public String searchKeyword($RequestParam 검색인풋창 네임값 ){
+	 * 	
+	 * 		네임값에서 넘어온값으로 
+	 * 		ex. var keyword = 결제 <-- 
+	 * 		select faq관련컬럼 from 해당테이블 where 제목컬럼 like %keyword%  -> 
+	 * }
+	 */
+	
+	/*
+	 * 페이징바 하고싶다면
+	 * public String page(디폴트밸류임 cpage=1 ,boardCode) 
+	 * 페이징처리 꼭 한번 해보길
+	 * 실무에서 많이 쓰임 근데 다 가져온코드인데 쓸줄은 알아야함!!!
+	 */
+	
+	/*
+	 * if (boardType == '3') {
+	 * 	  $sql = 'SELECT BOARD_NO,
+				BOARD_TITLE, MEMBER_NO, BOARD_CONTENT, BOARD_CD
+				FROM BOARD
+				
+				
+		 pstmt = prepareStatement
+		 
+		 pstmt->execute
+		 
+		 		
+		 		$var->query($sql);
+	 *    $sql += 'where boardType == '3'';
+	 * }
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
+	
 	@GetMapping("/faq/{boardCode:[0-9]+}")
 	public String FAQ(@PathVariable(required = false) int boardCode
 						, Model model

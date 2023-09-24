@@ -10,10 +10,59 @@ gotoLive.addEventListener("click", function () {
 	}
 })
 
+// 문서가 로딩될때 
+document.addEventListener("DOMContentLoaded", function() {
+    
+	// 스타트 버튼 토글 적용함 
+    let startStopButton = document.getElementById('startStopButton');
+	// 경과 시간
+    let timeEle = document.getElementById('elapsedTime');
+	
+	// 시작 시간 기본값 null 로컬에서 다시 값받아서 interval 돌리기위함
+    let startTime = localStorage.getItem("startTime");
+	var interval;
+
+    function updateEleTime() {
+		// 현재시간
+        const currentTime = Date.now();
+		// 현재시간 - 시작시간 = 진행시간
+        const elapsedTime = Math.floor((currentTime - startTime) / 1000);
+		// 시간 출력 		
+        timeEle.textContent = elapsedTime + '초';
+		localStorage.setItem("startTime", startTime)
+    }
+
+	function toggleTime(){
+		if (!startTime) {
+            startTime = Date.now();
+			localStorage.setItem("startTime", startTime);
+            interval = setInterval(updateEleTime, 1000);
+			startStopButton.textContent = "중지";
+        } else {
+            clearInterval(interval);
+            startTime = 0;
+			localStorage.removeItem("startTime");
+            timeEle.textContent = "";
+			startStopButton.textContent = "시작";
+        }
+	}
+
+	if(startTime){
+		interval = setInterval(updateEleTime, 1000); 
+		startStopButton.textContent = "중지";
+	} else {
+		startStopButton.textContent = "시작";
+	}
+	
+    startStopButton.addEventListener("click", toggleTime);
+
+});
+
 function closeBtn(){
 	liveMadal.style.display = "none"
 }
 
+/*
 
 
 // 시작시간
@@ -41,7 +90,6 @@ function startTime() {
  
  // 진행 중
  function runTime() {
-	console.log("D")
 	const runTime = document.getElementById("runTime")
 	runTime.innerHTML = "00 : 00 : 00";
 	ingTime();
@@ -49,6 +97,9 @@ function startTime() {
  
  
  // 진행 중
+
+ const ingTime = () => {
+
  function ingTime() {
 	const runTime = document.getElementById("runTime")
  
@@ -88,12 +139,12 @@ function startTime() {
 	   const Time = hour + " : " + min + " : " + sec;
 	   return runTime.innerHTML = Time;
 	}, 1000);
- 
- }
- 
- 
- 
- 
+	localStorage.setItem("ingTime", ingTime)
+	console.log( localStorage.setItem("ingTime", ingTime));
+}
+
+}
+
  
  
  
@@ -164,7 +215,7 @@ function startTime() {
  
 			 /* for(let location of locationList) {
 				linePath.push(new kakao.maps.LatLng(location.lat, location.lon));
-			 } */
+			 } 
  
 			 for (let i = 0; i < locationList.length - 1; i++) {
 				linePath.push(new kakao.maps.LatLng(locationList[i].lat, locationList[i].lon));
@@ -228,7 +279,10 @@ function startTime() {
  
 	// 지도 중심좌표를 접속위치로 변경합니다
 	map.setCenter(locPosition);
+
+	
+
  }
  
  
- 
+ */

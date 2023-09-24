@@ -8,6 +8,8 @@
             <meta charset="UTF-8">
             <title>FAQ</title>
             <link rel="stylesheet" href="/resources/css/Administrator/faq.css">
+            <script src="/resources/js/Administrator/code.jquery.com_jquery-3.7.1.min.js"></script>
+            <script src="/resources/js/Administrator/faq.js"></script>
         </head>
 
         <body>
@@ -87,8 +89,6 @@
                 const boardList = "${map.boardList}"
             </script>
 
-            <script src="/resources/js/Administrator/code.jquery.com_jquery-3.7.1.min.js"></script>
-            <script src="/resources/js/Administrator/faq.js"></script>
         </body>
 
         </html>

@@ -25,7 +25,7 @@ function faqDelete(){
 
     const resultTitle = document.getElementById("resultTitle");
     const resultContent = document.getElementById("resultContent");
-
+    
     if(confirm("정말 삭제하시겠습니까?")){
         fetch("/Administrator/faqDelete", {
             method : "POST",

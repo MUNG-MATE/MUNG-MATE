@@ -6,12 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="small-logo.png">
     <link rel="stylesheet" href="/resources/css/live/live.css">
+    
     <title>MUNG MATE</title>
 </head>
 <body>
     <div id="liveText">펫시팅 실시간 LIVE</div>
     <button type = "button" onclick = "closeBtn()">닫기</button>
-    <button type = "button" onclick = "runTime(), startTime()">시작</button>
+    <!-- <button type = "button" onclick = "runTime(), startTime()">시작</button> -->
+    
+    
+       
 
     <!-- 지도 -->
     <section id="section">
@@ -43,12 +47,12 @@
 
                     <div>
                         <div class="stateText ing">산책 중</div>
-                        <div class="stateText ing" id ="runTime">00 : 00 : 00</div>
+                        <div class="stateText ing" id ="elapsedTime"></div>
                     </div>
 
                     <div>
-                        <div class="stateText">산책 종료</div>
-                        <div class="stateText">-</div>
+                        <!-- 시작 중지 토글 (스위치라고 생각하셈) -->
+                        <button id="startStopButton"></button>
                     </div>
                 </div>
             </div>
