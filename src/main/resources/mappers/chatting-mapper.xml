@@ -44,10 +44,17 @@
 	</resultMap>
 
 	<!-- 해당펫시터 번호 조회 -->
-	<select id="selectPetsitterNo" resultMap="Reservation_rm">
-		SELECT PETSITTER_NO,
-		MEMBER_NO FROM RESERVATION
+	<select id="selectPetsitterNo" resultType="_int">
+		SELECT PETSITTER_NO
+		FROM RESERVATION
 		WHERE MEMBER_NO = #{memberNo}
+	</select>
+
+	<!-- 해당 멤버 번호 조회 -->
+	<select id="selectChattingMemberNo" resultType="_int">
+		SELECT MEMBER_NO
+		FROM RESERVATION
+		WHERE PETSITTER_NO = (SELECT PETSITTER_NO FROM PETSITTER WHERE MEMBER_NO = #{memberNo})
 	</select>
 
 	<!-- 채팅방 메세지 조회 -->
@@ -58,7 +65,7 @@
 		'YYYY.MM.DD HH24:MI') SEND_TIME
 		FROM CHATTING_MESSAGE
 		WHERE PETSITTER_NO
-		= #{petsitterNo}
+		= #{petSitterNo}
 		ORDER BY MESSAGE_NO
 	</select>
 
@@ -67,7 +74,7 @@
 		UPDATE "CHATTING_MESSAGE" SET
 		READ_FL = 'Y'
 		WHERE
-		PETSITTER_NO = #{petsitterNo}
+		PETSITTER_NO = #{petSitterNo}
 		AND SENDER_NO != #{memberNo}
 	</update>
 
@@ -75,7 +82,7 @@
 	<insert id="insertMessage">
 		INSERT INTO "CHATTING_MESSAGE"
 		VALUES(SEQ_MESSAGE_NO.NEXTVAL, #{messageContent},#{senderNo}, SYSDATE,
-		DEFAULT, #{petsitterNo})
+		DEFAULT, #{petSitterNo})
 	</insert>
 
 

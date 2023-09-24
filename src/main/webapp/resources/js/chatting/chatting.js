@@ -42,16 +42,17 @@
 // 채팅 메세지 영역
 const display = document.getElementsByClassName("display-chatting")[0];
 
+
+
 // 비동기로 메세지 목록을 조회하는 함수
 function selectChattingFn() {
-
-   fetch("/chatting/selectMessage?" + `petsitterNo=${petsitterNo}&memberNo=${loginMemberNo}`)
+   
+   fetch("/chatting/selectMessage?" + `petSitterNo=${petSitterNo}&memberNo=${loginMemberNo}`)
       .then(resp => resp.json())
       .then(messageList => {
          console.log(messageList);
-         alert("여기까지는와야되는거아닐까?")
          // <ul class="display-chatting">
-         const ul = document.querySelector("#display-chatting");
+         const ul = document.querySelector(".display-chatting");
 
          ul.innerHTML = ""; // 이전 내용 지우기
 
@@ -130,7 +131,7 @@ const sendMessage = () => {
    } else {
       var obj = {
          "senderNo": loginMemberNo,
-         "petsitterNo": petsitterNo,
+         "petSitterNo": petSitterNo,
          "messageContent": inputChatting.value,
       };
       console.log(obj)
@@ -164,7 +165,7 @@ chattingSock.onmessage = function (e) {
    // 현재 채팅방을 보고있는 경우
 
 
-      const ul = document.querySelector("#display-chatting");
+      const ul = document.querySelector(".display-chatting");
 
       // 메세지 만들어서 출력하기
       //<li>,  <li class="my-chat">

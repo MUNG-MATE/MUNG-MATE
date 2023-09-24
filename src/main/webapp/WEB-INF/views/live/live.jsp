@@ -12,10 +12,12 @@
 <body>
     <div id="liveText">펫시팅 실시간 LIVE</div>
     <button type = "button" onclick = "closeBtn()">닫기</button>
+
     <!-- <button type = "button" onclick = "runTime(), startTime()">시작</button> -->
     
     
        
+
 
     <!-- 지도 -->
     <section id="section">
@@ -47,7 +49,9 @@
 
                     <div>
                         <div class="stateText ing">산책 중</div>
+
                         <div class="stateText ing" id ="elapsedTime"></div>
+
                     </div>
 
                     <div>
