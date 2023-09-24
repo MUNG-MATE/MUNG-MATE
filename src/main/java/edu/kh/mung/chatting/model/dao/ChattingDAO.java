@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import edu.kh.mung.chatting.model.dto.ChattingRoom;
 import edu.kh.mung.chatting.model.dto.Message;
 import edu.kh.mung.reservation.model.dto.Reservation;
 
@@ -59,6 +60,11 @@ public class ChattingDAO {
 	 */
 	public int selectChattingMemberNo(int memberNo) {
 		return sqlSession.selectOne("chattingMapper.selectChattingMemberNo", memberNo);
+	}
+	
+	// 채팅-광민
+	public List<ChattingRoom> chattingList(int memberNo) {
+		return sqlSession.selectList("chattingMapper.chattingList",memberNo);
 	}
 
 }

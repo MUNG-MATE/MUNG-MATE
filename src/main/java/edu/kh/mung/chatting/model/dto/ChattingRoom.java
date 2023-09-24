@@ -8,11 +8,13 @@ import lombok.ToString;
 @Setter
 @ToString
 public class ChattingRoom {
-
-	private int chattingNo;
-	private String lastMessage;
-	private String sendTime;
-	private String targetNickName;
-	private String targetProfile;
-	private int notReadCount;
+	
+    private int chattingNo;
+    private String lastMessage;
+    private String sendTime;
+    private int petsitterNo;
+    private String petsitterNickName;
+    private String petsitterProfile;
+    private int notReadCount;
+    
 }

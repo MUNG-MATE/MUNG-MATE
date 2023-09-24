@@ -13,7 +13,7 @@
    <%-- live.jsp 의 시작버튼 누르면 비동기로 채팅창! --%>
 
 <!-- 채팅 -->
-    
+        ${chattingList[0].petsitterNo}
         <section class="chatting-content" id="right">
         <button onclick="selectChattingFn()">버튼</button>
             <ul id="display-chatting" class="display-chatting">

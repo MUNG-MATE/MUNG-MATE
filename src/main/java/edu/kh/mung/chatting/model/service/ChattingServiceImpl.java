@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 
 import edu.kh.mung.chatting.model.dao.ChattingDAO;
+import edu.kh.mung.chatting.model.dto.ChattingRoom;
 import edu.kh.mung.chatting.model.dto.Message;
 import edu.kh.mung.common.utility.Util;
 import edu.kh.mung.member.model.dto.Member;
@@ -57,6 +58,12 @@ public class ChattingServiceImpl implements ChattingService{
 	public int selectChattingMemberNo(int memberNo) {
 		
 		return dao.selectChattingMemberNo(memberNo);
+	}
+	
+	// 채팅 - 광민
+	@Override
+	public List<ChattingRoom> chattingList(int memberNo) {
+		return dao.chattingList(memberNo);
 	}
 
 }
