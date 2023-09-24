@@ -20,88 +20,73 @@ gotoLive.addEventListener("click", function () {
 	}
 })
 
+
+// 문서가 로딩될때 
+document.addEventListener("DOMContentLoaded", function() {
+    
+	// 스타트 버튼 토글 적용함 
+    let startStopButton = document.getElementById('startStopButton');
+	// 경과 시간
+    let timeEle = document.getElementById('elapsedTime');
+	
+	// 시작 시간 기본값 null 로컬에서 다시 값받아서 interval 돌리기위함
+    let startTime = localStorage.getItem("startTime");
+	var interval;
+
+    function updateEleTime() {
+		// 현재시간
+        const currentTime = Date.now();
+		// 현재시간 - 시작시간 = 진행시간
+        const elapsedTime = Math.floor((currentTime - startTime) / 1000);
+		// 시간 출력 		
+        timeEle.textContent = elapsedTime + '초';
+		localStorage.setItem("startTime", startTime)
+    }
+
+	function toggleTime(){
+		if (!startTime) {
+            startTime = Date.now();
+			localStorage.setItem("startTime", startTime);
+            interval = setInterval(updateEleTime, 1000);
+			startStopButton.textContent = "중지";
+        } else {
+            clearInterval(interval);
+            startTime = 0;
+			localStorage.removeItem("startTime");
+            timeEle.textContent = "";
+			startStopButton.textContent = "시작";
+        }
+	}
+
+	if(startTime){
+		interval = setInterval(updateEleTime, 1000); 
+		startStopButton.textContent = "중지";
+	} else {
+		startStopButton.textContent = "시작";
+	}
+	
+    startStopButton.addEventListener("click", toggleTime);
+
+});
+
+function closeBtn(){
+	liveMadal.style.display = "none"
+}
+
+/*
+
+
+=======
 function closeBtn() {
 	liveMadal.style.display = "none";
 }
 
-// 시작시간
-function startTime() {
-	const startTime = document.getElementById("startTime");
-	startTime.innerHTML = currentTime();
-}
 
-// 시작시간
-function currentTime() {
-	const currentTime = new Date();
-
-	let hour = currentTime.getHours();
-	let min = currentTime.getMinutes();
-	let sec = currentTime.getSeconds();
-
-	// 만약 10보다 작은 숫자라면 0을 붙혀서
-	if (hour < 10) hour = "0" + hour;
-	if (min < 10) min = "0" + min;
-	if (sec < 10) sec = "0" + sec;
-
-	return hour + " : " + min + " : " + sec;
-}
-
-// ------------------------------------------------------------------------------
-
-let intervalId;
-
-function startInterval() {
-  intervalId = setInterval(myFunction(hour, min, sec), 1000); // 1초마다 myFunction을 호출
-}
-
-function stopInterval() {
-  clearInterval(intervalId);
-}
-
-function myFunction(hour, min, sec) {
-	sec++;
-	if(sec < 10) sec = "0" + sec;
-
-	if(sec === 60) {
-		sec = "00";
-		min++;
-
-		if(min < 10) {
-			min = "0" + min;
-		}
-
-		if(min === 60) {
-			min = "00";
-			hour++;
-
-			if(hour < 10) {
-				hour = "0" + hour;
-			}
-		}
-	}
-
-	const Time = hour + ":" + min + ":" + sec;
-	return document.getElementById("runTime").innerHTML = Time;
-}
-
-// 페이지를 나갈 때 인터벌을 중지하고 ID를 저장
-window.addEventListener('beforeunload', () => {
-  stopInterval();
-  localStorage.setItem('intervalId', intervalId);
-});
-
-// 페이지를 다시 불러올 때 인터벌을 재개
-// window.addEventListener('load', () => {
-//   const savedIntervalId = localStorage.getItem('intervalId');
-//   if (savedIntervalId) {
-//     intervalId = savedIntervalId;
-//     startInterval();
-//   }
-// });
 
 // ------------------------------------------------------------------------------
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+
 	mapOption = {
 		center: new kakao.maps.LatLng(37.499031, 127.032904), // 지도의 중심좌표
 		level: 2
@@ -159,6 +144,45 @@ if (navigator.geolocation) {
 	// 펫시터 현재 위치 지도 표시
 	function selectLocation() {
 
+ 
+	   fetch("/live/selectLocation?rsNo=1")
+		  .then(resp => resp.json())
+		  .then(locationList => {
+ 
+			 console.log(locationList);
+			 var linePath = [];
+ 
+			 /* for(let location of locationList) {
+				linePath.push(new kakao.maps.LatLng(location.lat, location.lon));
+			 } 
+ 
+			 for (let i = 0; i < locationList.length - 1; i++) {
+				linePath.push(new kakao.maps.LatLng(locationList[i].lat, locationList[i].lon));
+			 }
+ 
+			 linePath.push(new kakao.maps.LatLng(locationList[locationList.length - 1].lat, locationList[locationList.length - 1].lon));
+ 
+			 // 마커와 인포윈도우를 표시합니다
+			 var locPosition = new kakao.maps.LatLng(locationList[locationList.length - 1].lat, locationList[locationList.length - 1].lon);
+ 
+			 displayMarker(locPosition);
+ 
+			 // 지도에 표시할 선을 생성합니다
+			 var polyline = new kakao.maps.Polyline({
+				path: linePath, // 선을 구성하는 좌표배열 입니다
+				strokeWeight: 5, // 선의 두께 입니다
+				strokeColor: 'RGB(0, 30, 60)', // 선의 색깔입니다
+				strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+				strokeStyle: 'solid' // 선의 스타일입니다
+			 });
+ 
+			 polyline.setPath(linePath);
+			 polyline.setMap(map);
+ 
+		  })
+		  .catch(err => console.log(err))
+=======
+
 		fetch("/live/selectLocation?rsNo=1")
 			.then(resp => resp.json())
 			.then(locationList => {
@@ -195,6 +219,7 @@ if (navigator.geolocation) {
 
 			})
 			.catch(err => console.log(err))
+
 	}
 
 } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
@@ -232,4 +257,4 @@ function displayMarker(locPosition) {
 
 	// 지도 중심좌표를 접속위치로 변경합니다
 	map.setCenter(locPosition);
-}
+
