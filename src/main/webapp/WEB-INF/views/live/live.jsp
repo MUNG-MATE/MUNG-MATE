@@ -11,12 +11,9 @@
 </head>
 <body>
     <div id="liveText">펫시팅 실시간 LIVE</div>
+    
+   <!--   <button type = "button" onclick = "runTime()">시작</button> -->
     <button type = "button" onclick = "closeBtn()">닫기</button>
-
-    <!-- <button type = "button" onclick = "runTime(), startTime()">시작</button> -->
-    
-    
-       
 
 
     <!-- 지도 -->
@@ -88,9 +85,8 @@
     <script>
         const petsitterFlag = "${loginMember.petsitterFlag}";
     </script>
-    
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e99da29f2b6829aa0cab8a9aa4d50a98"></script>
     <script src="/resources/js/live/live.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e99da29f2b6829aa0cab8a9aa4d50a98"></script>
 </body>
 
 </html>
