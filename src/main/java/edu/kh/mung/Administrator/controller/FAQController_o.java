@@ -152,7 +152,7 @@ public class FAQController_o {
 	 * @param model
 	 * @return
 	 */
-	@PostMapping( value = "/faq/update")
+	@PostMapping("/faq/update")
 	public String faqUpdate(Administrator administrator
 							, Model model) {
 		model.addAttribute("administrator", administrator);

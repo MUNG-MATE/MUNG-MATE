@@ -53,6 +53,13 @@ public class FAQServiceImpl implements FAQService {
 	 */
 	@Override
 	public int faqUpdate(Administrator administrator) {
+
+		// xss 처리
+		administrator.setContent(Util.XSSHandling(administrator.getContent()));
+		administrator.setTitle(Util.XSSHandling(administrator.getTitle()));
+		administrator.setContent(Util.newLineHandling(administrator.getContent()));
+		administrator.setTitle(Util.newLineHandling(administrator.getTitle()));
+
 		return dao.faqUpdate(administrator);
 	}
 

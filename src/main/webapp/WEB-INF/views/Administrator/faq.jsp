@@ -66,8 +66,6 @@
                                             <input type="hidden" name="content" value="${faqList.content}">
                                             <input type="hidden" name="title" value="${faqList.title}">
                                             <input type="hidden" name="boardNo" value="${faqList.boardNo}">
-                                            <script>const boardNo = "${faqList.boardNo}"</script>
-                                          
                                     </form>
                                     </td>
                                 </tr>
@@ -87,6 +85,7 @@
                 const title = "${faqList.title}"
                 const content = "${faqList.content}"
                 const boardList = "${map.boardList}"
+                const boardNo = "${faqList.boardNo}"
             </script>
 
         </body>
