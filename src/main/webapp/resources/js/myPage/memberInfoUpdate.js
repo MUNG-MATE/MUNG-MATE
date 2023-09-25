@@ -92,6 +92,13 @@ if (memberInfoUpdate != null) {
             e.preventDefault();
             return;
         }
+
+        if(nickName.value == initNickname && memberName.value == initName && memberTel.value == initTel){
+            alert("변경 후 클릭해주세요.");
+            e.preventDefault();
+            return;
+        }
+
     })
 }
 

@@ -48,7 +48,7 @@
                                 </tr>
                                 <tr class="faq-answer" id="result2">
                                         <td rowspan="4" id="resultContent">
-                                            ${noticeList.content}
+${noticeList.content}
                                             <input type="hidden" name="content" value="${noticeList.content}">
                                             <input type="hidden" name="title" value="${noticeList.title}">
                                             <input type="hidden" name="boardNo" value="${noticeList.boardNo}">

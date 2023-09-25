@@ -23,7 +23,7 @@
 
         <!-- 일석이님의 회원 정보 -->
         <div class="infoTitle">
-            <h1>일석이님의 회원 정보 수정</h1>
+            <h1>${loginMember.memberNickname}님의 회원 정보 수정</h1>
         </div>
 
         <form action="/myPage/memberInfoUpdate" method = "POST" id = "memberInfoUpdate" name = "memberInfoUpdate" enctype ="multipart/form-data">
@@ -52,13 +52,13 @@
 
                 <!-- 이메일, 이름, 닉네임, 전화번호, 주소 -->
                 <div class="info">
-                    이름<div> <input type="text" id="name"  name="name" value="${loginMember.memberName}"></div><br>
+                    <b>이름</b><div> <input type="text" id="name"  name="name" value="${loginMember.memberName}"></div><br>
 
-                    닉네임 <div><input type="text" id="nickName" name="nickName"  value="${loginMember.memberNickname}"></div><br>
+                    <b>닉네임</b> <div><input type="text" id="nickName" name="nickName"  value="${loginMember.memberNickname}"></div><br>
 
-                    전화번호<div> <input type="text" id="phone" name="phone" maxlength="11" value="${loginMember.memberTel}"></div><br>
+                    <b>전화번호</b><div> <input type="text" id="phone" name="phone" maxlength="11" value="${loginMember.memberTel}"></div><br>
                     
-                    주소
+                    <b>주소</b>
 
                     <c:set var = "addr" value =  "${fn:split(loginMember.memberAddress, '^^^')}"/>
                     <div class="address">
@@ -81,7 +81,7 @@
             </div>
             <!-- 수정완료 버튼 -->
             <div class="updateBtn">
-                <button id="backBtn" class="infoUpdateBtn">돌아가기</button>
+                <button type="button"  id="backBtn" class="infoUpdateBtn" onclick="location.href = '/myPage/memberInfo'">돌아가기</button>
                 <button id="updateBtn" class="infoUpdateBtn">수정하기</button>
             </div>
         </form>

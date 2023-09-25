@@ -11,49 +11,44 @@
 }
 
 /* 회원 정보 제목 */
-.infoTitle{
+.infoTitle {
     display: flex;
     width: 1200px;
     height: 180px;
-    flex-direction : column-reverse;
+    flex-direction: column-reverse;
     font-size: 20px;
     border-bottom: 2px solid #ddd;
 }
 
 /* 프로필이랑 정보 들어가있는 칸 */
-.memberInfo{
+.memberInfo {
     display: flex;
-    height: 500px;
+    height: auto;
     width: 1200px;
     margin: auto;
     margin-top: 20px;
+    flex-direction: column;
+    align-items: center
 }
 
-/* 프로필 칸 */
-.profileImage {
-    display: flex;
-    flex-direction: row-reverse;
-    height: 382px;
-    width: 596px;
-    padding:60px;
-    align-items: center;
-}
 
 /* 정보 칸 */
-.info{
-   
-        height: 400px;
-        width: 279px;
-        font-size: 20px;
-        padding-top: 66px;
-        display: flex;
-        flex-direction: column;
-    
-    
+.info {
+    height: 600px;
+    width: 279px;
+    font-size: 18px;
+    padding-top: 66px;
+    display: flex;
+    flex-direction: column;
+}
+
+.info>div {
+    box-shadow: 0px 2px 0px 0px lightgray;
+    padding-top: 10px;
 }
 
 /* 프로필 이미지 */
-.profile-image-area{
+.profile-image-area {
     width: 220px;
     height: 220px;
     border: 3px solid #ccc;
@@ -67,42 +62,42 @@
     align-content: center;
 }
 
-#profileImage{
+#profileImage {
     height: 100%;
 }
 
 
 /* 수정하기 버튼 */
 
-.updateBtn{
-    width: 1200px;
+.updateBtn {
     height: 100px;
     display: flex;
-    flex-direction: row-reverse;
-    
+    justify-content: center;
 }
 
-#updateBtn {
-    width: 83px;
+.updateBtn > button {
+    width: 200px;
     height: 44px;
-    margin-right: 70px;
+    margin-right: 10px;
     border-style: none;
-    background-color: rgb(0,30,60);
-    color: white;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-#updateBtn:hover {
-   border: 2px solid  rgb(0,30,60);
     background-color: white;
-    color:  rgb(0,30,60);
+    color: rgb(0,30,60);
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid rgb(0,30,60);
+}
+
+
+.updateBtn > button :hover {
+    border: 2px solid rgb(0, 30, 60);
+    background-color: white;
+    color: rgb(0, 30, 60);
     border-radius: 10px;
     cursor: pointer;
 }
 
 
-.modal_body1{
+.modal_body1 {
 
     display: flex;
     flex-direction: column;
@@ -113,17 +108,17 @@
     width: 600px;
     height: 400px;
     border-radius: 20px;
-    
+
     background-color: white;
-    border: 3px solid rgb(0,30,60); 
-    
+    border: 3px solid rgb(0, 30, 60);
+
 
 }
 
 /* 모달 전체 */
-.modal{
+.modal {
     position: fixed;
-    top : 26%;
+    top: 26%;
     left: 50%;
     transform: translate(-50%, 0);
     align-items: center;
@@ -132,24 +127,24 @@
     display: none;
     border-radius: 30px;
     box-shadow: 0 0 20px 4px rgba(0, 220, 244, 0.1);
- 
+
 }
 
 
-.modal_body1 > h1{
+.modal_body1>h1 {
     font-size: 25px;
     margin-right: 190px;
     margin-bottom: 50px;
 
 }
 
-.modal_body1 > button{
+.modal_body1>button {
     width: 200px;
     height: 40px;
     cursor: pointer;
     border-radius: 10px;
     border: 2px solid rgb(0, 30, 60);
-    color:rgb(0, 30, 60);
+    color: rgb(0, 30, 60);
     font-size: 15px;
     font-weight: bold;
     background-color: white;
@@ -157,12 +152,12 @@
 
 }
 
-.modal_body1 > textarea{
+.modal_body1>textarea {
     font-size: mediums;
 }
 
-.modal_body1 > button:hover{
-    background-color:  rgb(0, 30, 60);
+.modal_body1>button:hover {
+    background-color: rgb(0, 30, 60);
     color: white;
 }
 
@@ -171,7 +166,7 @@
 }
 
 
-#memberPw{
+#memberPw {
     width: 40%;
     height: 40px;
     font-size: 18px;
@@ -180,15 +175,14 @@
 
     border: none;
     border-bottom: 2px solid #ddd;
-    outline: none; /* 기본 outline 제거 */
+    outline: none;
+    /* 기본 outline 제거 */
     transition: outline-color 0.3s ease, outline-offset 0.3s ease;
 }
 
 /* focus 상태 (outline 색상 및 offset 변경) */
 #memberPw:focus {
-    outline: none !important; border-color: rgb(0, 30, 60); box-shadow: 0 0 10px rgb(0, 30, 60);
+    outline: none !important;
+    border-color: rgb(0, 30, 60);
+    box-shadow: 0 0 10px rgb(0, 30, 60);
 }
-
-
-
-

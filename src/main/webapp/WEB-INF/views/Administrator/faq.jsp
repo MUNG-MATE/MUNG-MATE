@@ -74,11 +74,9 @@ ${faqList.content}
                                             <input type="hidden" name="boardNo" value="${faqList.boardNo}">
                                         </td>
                                     </tr>
-                                    
                                 </form>
                             </table>
                         </c:forEach>
-
                     </article>
 
                 </section>

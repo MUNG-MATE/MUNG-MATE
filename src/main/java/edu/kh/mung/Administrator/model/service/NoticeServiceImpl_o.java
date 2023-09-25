@@ -42,8 +42,6 @@ public class NoticeServiceImpl_o implements NoticeService_o{
 		// xss 처리
 		administrator.setContent(Util.XSSHandling(administrator.getContent()));
 		administrator.setTitle(Util.XSSHandling(administrator.getTitle()));
-		administrator.setContent(Util.newLineHandling(administrator.getContent()));
-		administrator.setTitle(Util.newLineHandling(administrator.getTitle()));
 		
 		return dao.noticeInsert(administrator);
 	}
@@ -57,8 +55,6 @@ public class NoticeServiceImpl_o implements NoticeService_o{
 		// xss 처리
 		administrator.setContent(Util.XSSHandling(administrator.getContent()));
 		administrator.setTitle(Util.XSSHandling(administrator.getTitle()));
-		administrator.setContent(Util.newLineHandling(administrator.getContent()));
-		administrator.setTitle(Util.newLineHandling(administrator.getTitle()));
 
 		return dao.noticeUpdate(administrator);
 	}
