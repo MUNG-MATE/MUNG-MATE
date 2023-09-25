@@ -156,7 +156,7 @@ creditBtn.addEventListener("click", e=>{
                 } else {
                     alert("결제에 실패하셨습니다.");
                     e.preventDefault();
-                    
+                    return;
                 }
             })
     

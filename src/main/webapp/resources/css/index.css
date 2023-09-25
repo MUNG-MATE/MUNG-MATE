@@ -272,7 +272,7 @@
     margin-top: 15px;
 }
 
-#goReservation span {
+#goReservation a {
     position: relative;
     z-index: 1;
 }
