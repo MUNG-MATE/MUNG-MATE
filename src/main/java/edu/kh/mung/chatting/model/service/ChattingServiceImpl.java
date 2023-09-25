@@ -1,6 +1,5 @@
 package edu.kh.mung.chatting.model.service;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,7 +11,6 @@ import edu.kh.mung.chatting.model.dao.ChattingDAO;
 import edu.kh.mung.chatting.model.dto.ChattingRoom;
 import edu.kh.mung.chatting.model.dto.Message;
 import edu.kh.mung.common.utility.Util;
-import edu.kh.mung.member.model.dto.Member;
 import edu.kh.mung.reservation.model.dto.Reservation;
 
 @Service
@@ -33,19 +31,12 @@ public class ChattingServiceImpl implements ChattingService{
     public int updateReadFlag(Map<String, Object> paramMap) {
         return dao.updateReadFlag(paramMap);
     }
-	
-	// 펫시터 번호조회
-	@Override
-	public int selectPetsitterNo(int memberNo) {
 		
-		return dao.selectPetsitterNo(memberNo);
-	}
-	
 	// 채팅메세지 목록
 	@Override
 	public List<Message> selectMessageList(Map<String, Object> paramMap) {
 		
-		 List<Message> messageList = dao.selectMessageList(  Integer.parseInt( String.valueOf(paramMap.get("petSitterNo") )));
+		 List<Message> messageList = dao.selectMessageList(  Integer.parseInt( String.valueOf(paramMap.get("chatNo") )));
 		 if(!messageList.isEmpty()) {
 	            int result = dao.updateReadFlag(paramMap);
 	        }
@@ -53,17 +44,38 @@ public class ChattingServiceImpl implements ChattingService{
 		return messageList;
 	}
 
-	// 채팅회원번호 조회
-	@Override
-	public int selectChattingMemberNo(int memberNo) {
-		
-		return dao.selectChattingMemberNo(memberNo);
-	}
-	
-	// 채팅 - 광민
+	// 채팅 - 일반
 	@Override
 	public List<ChattingRoom> chattingList(int memberNo) {
 		return dao.chattingList(memberNo);
+	}
+	
+	// 채팅 - 일반
+	@Override
+	public List<Reservation> reservation(int memberNo) {
+		
+		return dao.reservation(memberNo);
+	}
+	
+	// 채팅 - 펫시터 
+	
+	@Override
+	public List<ChattingRoom> chattingList1(int memberNo) {
+		
+		return dao.chattingList1(memberNo);
+	}
+	
+	// 채팅룸
+	@Override
+	public int createChattingRoom(Map<String, Integer> map) {
+		
+		return dao.createChattingRoom(map);
+	}
+
+	// 채팅방 체크 
+	@Override
+	public int checkChattingNo(Map<String, Integer> map) {
+		return dao.checkChattingNo(map);
 	}
 
 }

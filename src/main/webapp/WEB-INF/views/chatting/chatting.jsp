@@ -13,10 +13,12 @@
    <%-- live.jsp 의 시작버튼 누르면 비동기로 채팅창! --%>
 
 <!-- 채팅 -->
-        ${chattingList[0].petsitterNo}
+        rere == ${reservation}
         <section class="chatting-content" id="right">
         <button onclick="selectChattingFn()">버튼</button>
-            <ul id="display-chatting" class="display-chatting">
+
+        <ul id="display-chatting" class="display-chatting" >
+            <li id="chattingStart" petsitterNo="${reservation[0].petSitterNo}" memberNo="${reservation[0].memberNo}">채팅시작하기</li>
                 <%-- notReadCount를 카톡처럼 1있다가 사라지게?! --%>
                 <%-- <li class="my-chat">
                     <p class="not-read-count">${room.notReadCount}</p>
@@ -44,11 +46,11 @@
    
     <!-- https://github.com/sockjs/sockjs-client -->
     <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    <script src=></script>
     <script>
         // 로그인한 회원 번호
         const loginMemberNo = "${loginMember.memberNo}";
-        let petSitterNo = "${petSitterNo}";
-    
+        const chatNo = "${reservation[0].rsNo}";
     </script>
     <script src="/resources/js/chatting/chatting.js"></script>
 </body>
