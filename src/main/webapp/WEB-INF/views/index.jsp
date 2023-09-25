@@ -18,7 +18,7 @@
                     <img src="/resources/images/mainImage2.jpg">
                     <div class="mainImageIn">
                         <h1>언제나 가까운 곳에서<br> 안심할 수 있게</h1>
-                        <button id="goReservation"><span>예약하러 가기</span></button>
+                        <button id="goReservation"><a href="/reservation/1">예약하러 가기</a></button>
                     </div>
                 </div>
 
@@ -147,14 +147,14 @@
                             <section>
                                 <div>
                                     <img class="H-img"
-                                        src="https://eshop.lottehotel.com/uploads/banner/b2bbeedfa09e1040cb5901d0aca57325.jpg"
+                                        src="https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201703/18/c2a695b1-56c5-4fff-a4bd-1ebc362a6b72.jpg"
                                         alt="시그니엘 드립백 커피">
                                 </div>
                                 <div>
                                     <div>
-                                        <h3>시그니엘 드립백 커피</h3>
-                                        <p>시그니엘의 전문 바리스타가 직접 개발한<br>
-                                            프리미엄 원두 세트로 하루를 향기롭게 시작해보세요.</p>
+                                        <h3> 펫시터의 중요성 </h3>
+                                        <p>반려견의 언어인 카밍시그널부터 가장 기초가 되는 산책 교육, 예절 교육, 분리불안 등<br>
+                                            다양한 토픽에 대한 강형욱 훈련사님의 노하우를 담았습니다. </p>
                                     </div>
                                 </div>
                             </section>
