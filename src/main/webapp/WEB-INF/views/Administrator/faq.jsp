@@ -41,8 +41,13 @@
                                 <li><a href="/Administrator/faq/3">예약관련</a></li>
                                 <li><a href="/Administrator/faq/4">서비스이용</a></li>
                                 <li><a href="/Administrator/faq/5">기타</a></li>
+                                <div class="writeBtnArea">
+                                    <c:if test="${!empty loginMember}">
+                                        <button class="writerBtn" id="writer" onclick="location.href = '/Administrator/faqWrite'">작성하기</button>
+                                    </c:if>
 
-
+                                </div>
+                            
                             </ul>
                         </div>
                         <c:forEach items="${map.boardList}" var="faqList">
@@ -55,7 +60,7 @@
                                         <td>
                                             <div class="btn">
                                                 <button id="writer">수정하기</button>
-                                                <button id="writer" type="button" onclick="faqDelete()">삭제하기</button>
+                                                <button id="writer" type="button" onclick="faqDelete(${faqList.boardNo})">삭제하기</button>
                                             </div>
                                         </td>
                                         <td class="td">▼</td>
@@ -63,20 +68,17 @@
 
                                     <tr class="faq-answer" id="result2">
                                         <td rowspan="4" id="resultContent">
-                                            ${faqList.content}
+${faqList.content}
                                             <input type="hidden" name="content" value="${faqList.content}">
                                             <input type="hidden" name="title" value="${faqList.title}">
                                             <input type="hidden" name="boardNo" value="${faqList.boardNo}">
+                                        </td>
+                                    </tr>
+                                    
                                 </form>
-                                </td>
-                                </tr>
-
                             </table>
                         </c:forEach>
 
-                        <c:if test="${!empty loginMember}">
-                            <button id="writer" onclick="location.href = '/Administrator/faqWrite'">작성하기</button>
-                        </c:if>
                     </article>
 
                 </section>

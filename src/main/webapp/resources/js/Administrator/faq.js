@@ -21,7 +21,7 @@ toggleButtons.forEach((button, index) => {
 
 
 // faq 삭제 함수
-function faqDelete(){
+function faqDelete(boardNo){
 
     const resultTitle = document.getElementById("resultTitle");
     const resultContent = document.getElementById("resultContent");
@@ -52,24 +52,28 @@ const faqFrm = document.getElementsByName("faqFrm")[0];
 const boardTitle = document.getElementById("boardTitle");
 const boardContent = document.getElementsByName("content")[0];
 
-faqFrm.addEventListener("submit", e => {
+if(faqFrm != null){
 
-    console.log("눌렀다")
+    faqFrm.addEventListener("submit", e => {
+    
+        console.log("눌렀다")
+    
+        if(boardTitle.value.trim().length == 0){
+            alert("제목을 입력해주세요");
+            boardTitle.focus();
+            e.preventDefault();
+            return;
+        }
+    
+        if(boardContent.value.trim().length == 0){
+            alert("내용을 입력해주세요");
+            boardContent.focus();
+            e.preventDefault();
+            return;
+        }
+    })
+}
 
-    if(boardTitle.value.trim().length == 0){
-        alert("제목을 입력해주세요");
-        boardTitle.focus();
-        e.preventDefault();
-        return;
-    }
-
-    if(boardContent.value.trim().length == 0){
-        alert("내용을 입력해주세요");
-        boardContent.focus();
-        e.preventDefault();
-        return;
-    }
-})
 
 
 
