@@ -34,6 +34,7 @@
                         </div>
                         <c:forEach items="${map.boardList}" var="noticeList">
                             <table id="table">
+                                <form action="/Administrator/notice/update/1" method="POST" name="updateFrm">
 
                                 <tr class="t-tr" id="result1">
                                     <td><img src="/resources/images/Administrator/report.png" class="td-img"></td>
@@ -45,7 +46,6 @@
                                     <td class="td">▼</td>
                                 </tr>
                                 <tr class="faq-answer" id="result2">
-                                    <form action="/Administrator/notice/update/1" method="POST" name="updateFrm">
                                         <td rowspan="4" id="resultContent">
                                             ${noticeList.content}
                                             <input type="hidden" name="content" value="${noticeList.content}">

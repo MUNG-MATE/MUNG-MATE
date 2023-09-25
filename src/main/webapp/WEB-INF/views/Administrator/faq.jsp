@@ -8,8 +8,7 @@
             <meta charset="UTF-8">
             <title>FAQ</title>
             <link rel="stylesheet" href="/resources/css/Administrator/faq.css">
-            <script src="/resources/js/Administrator/code.jquery.com_jquery-3.7.1.min.js"></script>
-            <script src="/resources/js/Administrator/faq.js"></script>
+
         </head>
 
         <body>
@@ -48,28 +47,28 @@
                         </div>
                         <c:forEach items="${map.boardList}" var="faqList">
                             <table id="table">
-                                    <form action="/Administrator/faq/update" method="POST" name="updateFrm">
+                                <form action="/Administrator/faq/update" method="POST" name="updateFrm">
 
-                                <tr class="t-tr" id="result1">
-                                    <td><img src="/resources/images/Administrator/report.png" class="td-img"></td>
-                                    <td id="resultTitle">${faqList.title}</td>
-                                    <td><div class="btn">
+                                    <tr class="t-tr" id="result1">
+                                        <td><img src="/resources/images/Administrator/report.png" class="td-img"></td>
+                                        <td id="resultTitle">${faqList.title}</td>
+                                        <td>
+                                            <div class="btn">
                                                 <button id="writer">수정하기</button>
                                                 <button id="writer" type="button" onclick="faqDelete()">삭제하기</button>
-                                            </div></td>
-                                    <td class="td">▼</td>
-                                </tr>
-                                  
-                                <tr class="faq-answer" id="result2">
+                                            </div>
+                                        </td>
+                                        <td class="td">▼</td>
+                                    </tr>
+
+                                    <tr class="faq-answer" id="result2">
                                         <td rowspan="4" id="resultContent">
                                             ${faqList.content}
                                             <input type="hidden" name="content" value="${faqList.content}">
                                             <input type="hidden" name="title" value="${faqList.title}">
                                             <input type="hidden" name="boardNo" value="${faqList.boardNo}">
-                                            <script>const boardNo = "${faqList.boardNo}"</script>
-                                          
-                                    </form>
-                                    </td>
+                                </form>
+                                </td>
                                 </tr>
 
                             </table>
@@ -87,8 +86,10 @@
                 const title = "${faqList.title}"
                 const content = "${faqList.content}"
                 const boardList = "${map.boardList}"
+                const boardNo = "${faqList.boardNo}"
             </script>
-
+            <script src="/resources/js/Administrator/code.jquery.com_jquery-3.7.1.min.js"></script>
+            <script src="/resources/js/Administrator/faq.js"></script>
         </body>
 
         </html>
