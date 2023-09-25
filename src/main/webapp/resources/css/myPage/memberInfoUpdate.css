@@ -16,17 +16,19 @@
     width: 1200px;
     height: 180px;
     flex-direction : column-reverse;
-    font-size: 20px;
+    font-size: 18px;
     border-bottom: 2px solid #ddd;
 }
 
 /* 프로필이랑 정보 들어가있는 칸 */
 .memberInfo{
     display: flex;
-    height: 600px;
+    height: 1000px;
     width: 1200px;
     margin: auto;
     margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* 프로필 칸 */
@@ -34,7 +36,7 @@
     display: flex;
     flex-direction: row-reverse;
     flex-direction: column;
-    height: 553px;
+    height: auto;
     width: 610px;
     padding:60px;
     align-items: center;
@@ -44,10 +46,9 @@
 
 /* 정보 칸 */
 .info{
-    height: 400px;
+    height: auto;
     width: 279px;
     font-size: 20px;
-    padding-top: 66px;
     display: flex;
     flex-direction: column;
 
@@ -134,7 +135,7 @@
 .infoUpdateBtn {
     width: 200px;
     height: 44px;
-    margin-right: 70px;
+    margin-right: 10px;
     border-style: none;
     background-color: white;
     color: rgb(0,30,60);
@@ -153,7 +154,7 @@
 
 .info input{
     border: none;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 2px solid #ccc;
     font-size: 20px;
     padding: 7px 7px;
 }

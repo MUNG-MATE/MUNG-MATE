@@ -48,34 +48,28 @@
 
         <!-- 이메일, 이름, 닉네임, 전화번호, 주소 -->
         <div class="info">
-                    이메일<div>${loginMember.memberEmail}</div><br>
+                    <b>이메일</b><div>${loginMember.memberEmail}</div><br>
 
-                    이름<div>${loginMember.memberName}</div><br>
+                    <b>이름</b><div>${loginMember.memberName}</div><br>
 
-                    닉네임 <div>${loginMember.memberNickname}</div><br>
+                    <b>닉네임</b> <div>${loginMember.memberNickname}</div><br>
 
-                    전화번호<div> ${loginMember.memberTel}</div><br>
+                    <b>전화번호</b><div> ${loginMember.memberTel}</div><br>
                     
-                    주소
+                    <b>주소</b>
 
                     <c:set var = "addr" value =  "${fn:split(loginMember.memberAddress, '^^^')}"/>
                     <div class="address">
-                       ${addr[0]}
-                    </div>
-
-                    <div class="address">
-                        ${addr[1]}
-                    </div>
-
-                    <div class="address">
-                        ${addr[2]}
+                       ${addr[1]}  ${addr[2]}
                     </div>
             </div>
         </div>
     </div>
 
+
     <!-- 수정하기 버튼 -->
     <div class="updateBtn">
+        <button type="button"  id="backBtn" class="infoUpdateBtn" onclick="location.href = '/'">메인으로</button>
         <button id = "updateBtn">수정하기</button>
     </div>
     </div>
