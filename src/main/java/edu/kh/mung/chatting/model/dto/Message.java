@@ -13,6 +13,6 @@ public class Message {
     private String readFlag;
     private int senderNo;
     private int targetNo;
-    private int chattingNo;
+    private int chatNo;
     private String sendTime;
 }

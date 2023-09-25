@@ -59,13 +59,12 @@ public class ChattingWebsocketHandler extends TextWebSocketHandler{
         Message msg = objectMapper.readValue( message.getPayload(), Message.class);
         
         // Message 객체 확인
-        System.out.println(msg); 
+        System.out.println("이미친놈아 메세지뭔데?"+msg); 
         
         // DB 삽입 서비스 호출
         int result = service.insertMessage(msg);
         
         if(result > 0 ) {
-            
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd hh:mm");
             msg.setSendTime(sdf.format(new Date()) );
             
@@ -79,7 +78,7 @@ public class ChattingWebsocketHandler extends TextWebSocketHandler{
                 
                 // 로그인 상태인 회원 중 targetNo가 일티하는 회원에게 메세지 전달
                 if(loginMemberNo == msg.getTargetNo() || loginMemberNo == msg.getSenderNo()) {
-                    
+                    System.out.println("chattingWeb=="+msg);
                     s.sendMessage(new TextMessage(new Gson().toJson(msg)));
                 }
             }

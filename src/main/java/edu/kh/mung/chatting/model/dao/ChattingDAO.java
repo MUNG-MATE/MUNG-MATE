@@ -21,6 +21,11 @@ public class ChattingDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
+	// 채팅-광민 0
+	public List<ChattingRoom> chattingList(int memberNo) {
+		return sqlSession.selectList("chattingMapper.chattingList",memberNo);
+	}
+	
 	/** 메세지 전송(websocketHandler)
 	 * @param msg
 	 * @return
@@ -28,17 +33,15 @@ public class ChattingDAO {
 	public int insertMessage(Message msg) {
 		
 		return sqlSession.insert("chattingMapper.insertMessage", msg);
-		
-		
 	}
 	
-	/** 메세지 목록
+	/** 메세지 목록 0
 	 * @param parseInt
 	 * @return
 	 */
-	public List<Message> selectMessageList(int petSitterNo) {
+	public List<Message> selectMessageList(int chatNo) {
 		
-		return sqlSession.selectList("chattingMapper.selectMessageList", petSitterNo);
+		return sqlSession.selectList("chattingMapper.selectMessageList", chatNo);
 	}	
 
 	/** 채팅 읽음 표시
@@ -48,23 +51,27 @@ public class ChattingDAO {
 	public int updateReadFlag(Map<String, Object> paramMap) {
 		return sqlSession.update("chattingMapper.updateReadFlag", paramMap);
 	}
-
-	public int selectPetsitterNo(int memberNo) {
 	
-		return sqlSession.selectOne("chattingMapper.selectPetsitterNo", memberNo);
+	// 채팅방 생성
+	public int createChattingRoom(Map<String, Integer> map) {
+		int result = sqlSession.insert("chattingMapper.createChattingRoom", map);
+	
+	    return result;
+	}
+	// 예약 펫시터/멤버번호 조회
+	public List<Reservation> reservation(int memberNo) {
+		
+		return sqlSession.selectList("chattingMapper.reservation",memberNo);
+	}
+	// 채팅 - 펫시터
+	public List<ChattingRoom> chattingList1(int memberNo) {
+		return sqlSession.selectList("chattingMapper.chattingList1",memberNo);
 	}
 
-	/** 채팅회원번호
-	 * @param memberNo
-	 * @return
-	 */
-	public int selectChattingMemberNo(int memberNo) {
-		return sqlSession.selectOne("chattingMapper.selectChattingMemberNo", memberNo);
+	public int checkChattingNo(Map<String, Integer> map) {
+		return sqlSession.selectOne("chattingMapper.checkChattingNo", map);
 	}
+
 	
-	// 채팅-광민
-	public List<ChattingRoom> chattingList(int memberNo) {
-		return sqlSession.selectList("chattingMapper.chattingList",memberNo);
-	}
 
 }

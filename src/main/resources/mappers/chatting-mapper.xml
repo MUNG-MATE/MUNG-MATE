@@ -3,13 +3,13 @@
 <mapper namespace="chattingMapper">
 	
 	<resultMap type="ChattingRoom" id="chattingRoom_rm">
-      <id property="chattingNo" column="CHAT_NO" />
+      <id property="chatNo" column="CHAT_NO" />
 
       <result property="lastMessage" column="LAST_MESSAGE" />
       <result property="sendTime" column="SEND_TIME" />
-      <result property="petsitterNo" column="PETSITTER_NO" />
-      <result property="petsitterNickName" column="PETSITTER_NICKNAME" />
-      <result property="petsitterProfile" column="PETSITTER_PROFILE" />
+      <result property="targetNo" column="TARGET_NO" />
+      <result property="targetNickName" column="TARGET_NICKNAME" />
+      <result property="targetProfile" column="TARGET_PROFILE" />
       <result property="notReadCount" column="NOT_READ_COUNT" />
    </resultMap>
 
@@ -19,11 +19,11 @@
       <result property="messageContent" column="MESSAGE_CONTENT" />
       <result property="readFlag" column="READ_FL" />
       <result property="senderNo" column="SENDER_NO" />
-      <result property="chattingNo" column="CHAT_NO" />
+      <result property="chatNo" column="CHAT_NO" />
+      <result property="targetNo" column="TARGET_NO" />
       <result property="sendTime" column="SEND_TIME" />
    </resultMap>
-
-
+   
 	<resultMap type="Member" id="member_rm">
 		<id property="memberNo" column="MEMBER_NO" />
 		<result property="memberEmail" column="MEMBER_EMAIL" />
@@ -53,48 +53,18 @@
 		<result property="serviceTime" column="SERVICE_TIME" />
 		<result property="servicePrice" column="SERVICE_PRICE" />
 	</resultMap>
-
-	<!-- 해당펫시터 번호 조회 -->
-	<!-- <select id="selectPetsitterNo" resultType="_int">
-		SELECT PETSITTER_NO
-		FROM RESERVATION
+	
+	<select id="reservation" resultMap="Reservation_rm">
+		SELECT * FROM RESERVATION
 		WHERE MEMBER_NO = #{memberNo}
-	</select> -->
-
-	<!-- 해당 멤버 번호 조회 -->
-	<!-- <select id="selectChattingMemberNo" resultType="_int">
-		SELECT MEMBER_NO
-		FROM RESERVATION
-		WHERE PETSITTER_NO = (SELECT PETSITTER_NO FROM PETSITTER WHERE MEMBER_NO = #{memberNo})
-	</select> -->
-
-	<!-- 채팅방 메세지 조회 -->
-	<!-- <select id="selectMessageList" resultMap="message_rm">
-		SELECT MESSAGE_NO,
-		MESSAGE_CONTENT, READ_FL, SENDER_NO, PETSITTER_NO,
-		TO_CHAR(SEND_TIME,
-		'YYYY.MM.DD HH24:MI') SEND_TIME
-		FROM CHATTING_MESSAGE
-		WHERE PETSITTER_NO
-		= #{petSitterNo}
-		ORDER BY MESSAGE_NO
 	</select>
- -->
-	<!-- 채팅 메세지 중 내가 보내지 않은 글을 읽음으로 표시 -->
-	<!-- <update id="updateReadFlag">
-		UPDATE "CHATTING_MESSAGE" SET
-		READ_FL = 'Y'
-		WHERE
-		PETSITTER_NO = #{petSitterNo}
-		AND SENDER_NO != #{memberNo}
-	</update> -->
-
-	<!-- 채팅 메세지 삽입 -->
-	<!-- <insert id="insertMessage">
-		INSERT INTO "CHATTING_MESSAGE"
-		VALUES(SEQ_MESSAGE_NO.NEXTVAL, #{messageContent},#{senderNo}, SYSDATE,
-		DEFAULT, #{petSitterNo})
-	</insert> -->
+	
+	<select id="reservation1" resultMap="Reservation_rm">
+		SELECT * FROM RESERVATION
+		WHERE PETSITTER_NO = (SELECT PETSITTER_NO FROM PETSITTER
+        WHERE MEMBER_NO = #{memberNo})
+	</select>
+	
 	
 	<select id="chattingList" resultMap="chattingRoom_rm">
 	SELECT CHAT_NO
@@ -112,25 +82,64 @@
             AND R2.OPEN_MEMBER = #{memberNo}),
             R.PARTICIPANT,
             R.OPEN_MEMBER
-            ) PETSITTER_NO   
+            ) TARGET_NO   
          ,NVL2((SELECT OPEN_MEMBER FROM CHATTING_ROOM R2
             WHERE R2.CHAT_NO = R.CHAT_NO
             AND R2.OPEN_MEMBER = #{memberNo}),
             (SELECT MEMBER_NICKNAME FROM MEMBER WHERE MEMBER_NO = R.PARTICIPANT),
             (SELECT MEMBER_NICKNAME FROM MEMBER WHERE MEMBER_NO = R.OPEN_MEMBER)
-            ) PETSITTER_NICKNAME   
+            ) TARGET_NICKNAME   
          ,NVL2((SELECT OPEN_MEMBER FROM CHATTING_ROOM R2
             WHERE R2.CHAT_NO = R.CHAT_NO
             AND R2.OPEN_MEMBER = #{memberNo}),
             (SELECT PROFILE_IMG FROM MEMBER WHERE MEMBER_NO = R.PARTICIPANT),
             (SELECT PROFILE_IMG FROM MEMBER WHERE MEMBER_NO = R.OPEN_MEMBER)
-            ) PETSITTER_PROFILE
+            ) TARGET_PROFILE
          ,(SELECT COUNT(*) FROM CHATTING_MESSAGE M WHERE M.CHAT_NO = R.CHAT_NO AND READ_FL = 'N' AND SENDER_NO != #{memberNo}) NOT_READ_COUNT
       FROM CHATTING_ROOM R
       WHERE OPEN_MEMBER = #{memberNo}
       OR PARTICIPANT = #{memberNo}
-      
 	</select>
 
+	<!-- 채팅방 메세지 조회 -->
+	<select id="selectMessageList" resultMap="message_rm">
+		SELECT MESSAGE_NO, MESSAGE_CONTENT, READ_FL, SENDER_NO, CHAT_NO,
+      TO_CHAR(SEND_TIME, 'YYYY.MM.DD HH24:MI') SEND_TIME 
+      FROM CHATTING_MESSAGE
+      WHERE CHAT_NO  = #{chatNo}
+      ORDER BY MESSAGE_NO
+	</select>
+
+	<!-- 채팅 메세지 중 내가 보내지 않은 글을 읽음으로 표시 -->
+	<update id="updateReadFlag">
+		UPDATE CHATTING_MESSAGE SET 
+		READ_FL = 'Y'
+      	WHERE CHAT_NO = #{chatNo}
+      	AND SENDER_NO != #{memberNo}
+	</update>
+
+	<!-- 채팅 메세지 삽입 -->
+	<insert id="insertMessage">
+		INSERT INTO CHATTING_MESSAGE
+	    VALUES(SEQ_MESSAGE_NO.NEXTVAL,#{messageContent}, #{senderNo},SYSDATE,DEFAULT,#{chatNo})
+	</insert> 
+	
+	<!-- 채팅방생성 -->
+	<insert id="createChattingRoom" parameterType="map" useGeneratedKeys="true">
+	  <selectKey keyProperty="chatNo" order="BEFORE" resultType="_int">
+         SELECT SEQ_CHATTING_ROOM_NO.NEXTVAL FROM DUAL
+      </selectKey>
+   
+      INSERT INTO CHATTING_ROOM
+      VALUES(#{chatNo}, DEFAULT, #{memberNo}, #{targetNo})
+	
+	</insert>
+	
+	 <!-- 채팅 확인 -->
+   	 <select id="checkChattingNo" resultType="_int">
+	      SELECT NVL(SUM(CHAT_NO),0) CHAT_NO FROM CHATTING_ROOM
+	      WHERE (OPEN_MEMBER = #{memberNo} AND PARTICIPANT = #{targetNo})
+	      OR (OPEN_MEMBER = #{targetNo} AND PARTICIPANT = #{memberNo})
+     </select>
 
 </mapper>

@@ -2,21 +2,33 @@
 // 해당 펫시터와 해당고객 1대1 채팅방. (선생님꺼 targetNo 를 petsitterNo or 고객 memberNo 로하면 될듯)
 // so, 채팅상대목록(검색)은 필요 없음.
 
+const chattingPet = document.getElementById("chattingStart").getAttribute("petsitterNo");
+const chattingMember = document.getElementById("chattingStart").getAttribute("petsitterNo");
+
+let petsitter = chattingPet;
+let member = chattingMember;
+
+let selectChattingNo; // 선택한 채팅방 번호
+let selectTargetNo; // 현재 채팅 대상
+let selectTargetName; // 대상의 이름
+let selectTargetProfile; // 대상의 프로필
 
 
 // 채팅방 입장 또는 선택 함수
-/* function chattingEnter(e){
-   console.log(e.target); // 실제 클릭된 요소
-   console.log(e.currentTarget); // 이벤트 리스트가 설정된 요소
+   
+   const li = document.getElementById("chattingStart")
 
-   const targetNo = e.currentTarget.getAttribute("data-id");
+   li.addEventListener('click',chattingEnter);
+   
+   function chattingEnter(e){
+   
+   const targetNo = e.currentTarget.getAttribute("petsitterNo");
 
    fetch("/chatting/enter?targetNo="+targetNo)
    .then(resp => resp.text())
    .then(chattingNo => {
+      alert("여기까지와라")
       console.log(chattingNo);
-      
-      selectRoomList(); // 채팅방 목록 조회
       
       setTimeout(()=>{ 
          // 만약 채팅방 목록 중 이미 존재하는 채팅방이 있으면 클릭해서 입장
@@ -36,21 +48,17 @@
 
    })
    .catch(err => console.log(err));
-} */
+}
 
 
 // 채팅 메세지 영역
 const display = document.getElementsByClassName("display-chatting")[0];
 
-
-
 // 비동기로 메세지 목록을 조회하는 함수
 function selectChattingFn() {
-   
-   fetch("/chatting/selectMessage?" + `petSitterNo=${petSitterNo}&memberNo=${loginMemberNo}`)
+   fetch("/chatting/selectMessage?" + `chatNo=${chatNo}&memberNo=${loginMemberNo}`)
       .then(resp => resp.json())
       .then(messageList => {
-         console.log(messageList);
          // <ul class="display-chatting">
          const ul = document.querySelector(".display-chatting");
 
@@ -118,7 +126,6 @@ if (loginMemberNo != "") {
 }
 
 
-
 // 채팅 입력
 const send = document.getElementById("send");
 
@@ -131,7 +138,8 @@ const sendMessage = () => {
    } else {
       var obj = {
          "senderNo": loginMemberNo,
-         "petSitterNo": petSitterNo,
+         "targetNo": 2,
+         "chatNo" : chatNo,
          "messageContent": inputChatting.value,
       };
       console.log(obj)
@@ -163,8 +171,6 @@ chattingSock.onmessage = function (e) {
 
 
    // 현재 채팅방을 보고있는 경우
-
-
       const ul = document.querySelector(".display-chatting");
 
       // 메세지 만들어서 출력하기
@@ -214,9 +220,6 @@ chattingSock.onmessage = function (e) {
 
 
 }
-
-
-
 
 // 문서 로딩 완료 후 수행할 기능
 document.addEventListener("DOMContentLoaded", () => {

@@ -22,15 +22,21 @@ public interface ChattingService {
 	 */
 	int updateReadFlag(Map<String, Object> paramMap);
 	
-	// 펫시터번호 조회
-	int selectPetsitterNo(int memberNo);
-
+	// 채팅목록조회
 	List<Message> selectMessageList(Map<String, Object> paramMap);
 	
-	// 채팅멤버번호 조회
-	int selectChattingMemberNo(int memberNo);
-	
-	// 채팅 - 광민
+	// 채팅 - 일반
 	List<ChattingRoom> chattingList(int memberNo);
 
+	// 채팅 - 일반
+	List<Reservation> reservation(int memberNo);
+	
+	// 채팅 - 펫시터
+	List<ChattingRoom> chattingList1(int memberNo);
+
+	// 채팅룸
+	int createChattingRoom(Map<String, Integer> map);
+
+	// 채팅방 체크
+	int checkChattingNo(Map<String, Integer> map);
 }
