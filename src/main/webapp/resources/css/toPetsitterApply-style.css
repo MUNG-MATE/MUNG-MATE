@@ -27,9 +27,10 @@ body{
 
 .main_first{
     width: 350px;
+    font-size: 25px;
     font-weight: bold;
     padding: 33px;
-    color: gray;
+    color: rgb(0,30,60);
 }
 .main_second{
     padding: 33px;
@@ -83,6 +84,7 @@ body{
     border: 2px solid rgb(0,30,60);
     border-radius: 5px;
     outline-color: rgb(0,30,60);
+    white-space: nowrap;
 }
 .main_sixth{
     padding-left: 33px;
