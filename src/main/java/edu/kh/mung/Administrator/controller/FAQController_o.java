@@ -155,6 +155,8 @@ public class FAQController_o {
 	@PostMapping("/faq/update")
 	public String faqUpdate(Administrator administrator
 							, Model model) {
+		
+
 		model.addAttribute("administrator", administrator);
 		
 		return "/Administrator/faqUpdate";

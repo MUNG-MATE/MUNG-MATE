@@ -27,9 +27,10 @@
                     </article>
                     <article class="faq-content">
                         <div>
-                            <ul>
-
-
+                            <ul class="noticeWriteBtnArea">
+                                <c:if test="${!empty loginMember}">
+                                    <button id="writer" onclick="location.href = '/Administrator/noticeWrite/1'">작성하기</button>
+                                </c:if>
                             </ul>
                         </div>
                         <c:forEach items="${map.boardList}" var="noticeList">
@@ -60,9 +61,6 @@
                             </table>
                         </c:forEach>
 
-                        <c:if test="${!empty loginMember}">
-                            <button id="writer" onclick="location.href = '/Administrator/noticeWrite/1'">작성하기</button>
-                        </c:if>
                     </article>
 
                 </section>
