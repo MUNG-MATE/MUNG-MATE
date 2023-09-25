@@ -47,7 +47,6 @@ main{
 
 /* 상단 메뉴 */
 .menu-2{
-    padding-top: 30px;
     display: flex;
     justify-content: space-between;
 }

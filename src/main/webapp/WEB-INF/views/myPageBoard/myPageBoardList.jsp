@@ -18,10 +18,10 @@
 </head>
 <body>
 
-    <main>
-
         <jsp:include page="/WEB-INF/views/common/sidebar.jsp" />
     	<jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
+    <main>
+
 
         <!-- 게시판 제목 영역 -->
         <div>
