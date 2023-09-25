@@ -1,8 +1,13 @@
 package edu.kh.mung.live.model.service;
 
+import java.io.IOException;
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
+import edu.kh.mung.live.model.dto.LiveCard;
 import edu.kh.mung.live.model.dto.LocationService;
+import edu.kh.mung.reservation.model.dto.Pet2;
 
 public interface LiveService {
 
@@ -17,5 +22,19 @@ public interface LiveService {
 	 * @return locationList
 	 */
 	List<LocationService> selectLocation(LocationService ls);
+
+	/** 예약 번호로 펫 이미지 조회
+	 * @param rsNo
+	 * @return pet
+	 */
+	List<Pet2> selectPetImage(int rsNo);
+
+	/** 라이브 카드 삽입
+	 * @param filePath 
+	 * @param webPath 
+	 * @param images 
+	 * @return result
+	 */
+	int insertLiveCard(LiveCard lc, List<MultipartFile> images, String webPath, String filePath) throws IllegalStateException, IOException;
 	
 }

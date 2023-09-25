@@ -127,7 +127,7 @@
     padding: 0;
 }
 
-#input-area {
+#inputArea {
     height: 100px;
     border: 1px solid gray;
     border-radius: 5px;
@@ -149,7 +149,7 @@
     line-height: 32px;
 }
 
-#send {
+#sendMsg {
     width: 10%;
     background-color: transparent;
     border: none;
@@ -212,15 +212,4 @@
 
 li {
     list-style: none;
-}
-
-#petProfile {
-    width: 64px;
-    height: 69px;
-    border-radius: 50%;
-}
-
-#petName {
-    text-align: center;
-    font-weight: bold;
 }

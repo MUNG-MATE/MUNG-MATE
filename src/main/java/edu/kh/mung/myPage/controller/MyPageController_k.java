@@ -47,4 +47,5 @@ public class MyPageController_k {
 	public Member selectMember(int memberNo) {
 		return service.selectMember(memberNo);
 	}
+	
 }

@@ -184,17 +184,20 @@ function countReservation(data) {
       }
 
       for(let d of div) {
-        document.getElementById("test").append(d);
+        document.getElementById("moreContent").append(d);
       }
 
       td.innerHTML += `<div class="schedule" id="more${data[i]}">+${count} 더보기</div>`;
       tippy(`#more${data[i]}`, {
-        content : document.getElementById("test"),
+        content : document.getElementById("moreContent"),
         trigger:'click',
         placement: 'right',
         allowHTML: true,
         interactive: true
       });
+
+      document.getElementById("contentSection").innerHTML += `<div id="moreContent"></div>`;
+
     }
   }
 }
