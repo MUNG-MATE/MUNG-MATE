@@ -14,7 +14,6 @@
 </head>
 <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
 <body>
-    ${loginMember.memberNo}
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
    	<div class="page-title">내 예약 목록</div>
@@ -53,9 +52,7 @@
                                 <th class="day-of-week">토</th>
                             </tr>
                         </thead>
-                        <tbody id="tb_tbody">
-                            <div id="test"></div>
-                        </tbody>
+                        <tbody id="tb_tbody"></tbody>
                     </table>
                 </div>
                 <div class="back-side">
@@ -106,6 +103,10 @@
         </div>
     </section>
     
+    <section id="contentSection">
+        <div id="moreContent"></div>
+    </section>
+
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 	
     <script>

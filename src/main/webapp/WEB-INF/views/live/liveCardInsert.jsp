@@ -5,16 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="small-logo.png">
-    <link rel="stylesheet" href="/resources/css/live/live.css">
-    
+    <link rel="stylesheet" href="/resources/css/live/insertLiveCard.css">
+    <link rel="stylesheet" href="/resources/css/live/petsittingLive.css">
     <title>MUNG MATE</title>
 </head>
 <body>
-    <div id="liveText">펫시팅 실시간 LIVE</div>
-    
-   <!--   <button type = "button" onclick = "runTime()">시작</button> -->
-    <button type = "button" onclick = "closeBtn()">닫기</button>
+    <section id="liveCardSection">
+        <div id="titleArea">
+            <img src="petsitter.png" class="profile">
+            <span>OOO 펫시터 님의 산책 LIVE 카드</span>
+        </div>
+        
+        <div id="serviceName">
+            <div>산책 시작</div>
+            <div>오후 03:00</div>
+            <div>산책 종료</div>
+            <div>오후 03:32</div>
+        </div>
+        
+        <form method="POST" action="/live/card/insert" enctype="multipart/form-data">
+            <div id="liveCardContent">
+                <label id="imageLabel">
+                    이미지 추가
+                    <input onchange="addFile(this)" type="file" id="inputImage" name="inputImage" for="imageLabel" multiple />
+                </label>
+                <div id="inputImageDiv"></div>
+                <textarea id="inputContent" name="liveContent"></textarea>
+                <button>제출</button>
+            </div>
+        </form>
+    </section>
 
+    <div id="liveText">펫시팅 LIVE 다시보기</div>
 
     <!-- 지도 -->
     <section id="section">
@@ -23,10 +45,10 @@
             <div id="stateArea">
                 <div id="profileDiv">
                     <div>
-                        <img src="/resources/images/myPage/petsitter.png" id="profile">
+                        <img src="/resources/images/myPage/khw.jpg" class="profile">
                     </div>
                     <div>
-                        <span>김광수</span>
+                        <span>강형욱</span>
                     </div>
                 </div>
                 
@@ -35,25 +57,23 @@
                 </div>
 
                 <div id="iconArea">
-                    <img src="/resources/images/reservation/stroll.png" id="stateIcon">
+                    <img src="stroll.png" id="stateIcon">
                 </div>
 
                 <div id="stateTextArea">
                     <div>
                         <div class="stateText">산책 시작</div>
-                        <div class="stateText" id = "startTime"></div>
+                        <div class="stateText">오후 03:00</div>
                     </div>
 
                     <div>
                         <div class="stateText ing">산책 중</div>
-
-                        <div class="stateText ing" id ="elapsedTime"></div>
-
+                        <div class="stateText ing">00:00:30</div>
                     </div>
 
                     <div>
-                        <!-- 시작 중지 토글 (스위치라고 생각하셈) -->
-                        <button id="startStopButton"></button>
+                        <div class="stateText">산책 종료</div>
+                        <div class="stateText">-</div>
                     </div>
                 </div>
             </div>
@@ -67,7 +87,7 @@
                     <p class="chat">떵 치워주세여</p>
                 </li>
                 <li class="opponentChat">
-                    <img src="/resources/images/myPage/petsitter.png">
+                    <img src="petsitter.png">
                     <div>
                         <b>펫시터</b> <br>
                         <p class="chat">알겠습니다 고갱님</p>
@@ -82,11 +102,9 @@
         </section>
     </section>
 
-    <script>
-        const petsitterFlag = "${loginMember.petsitterFlag}";
-    </script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e99da29f2b6829aa0cab8a9aa4d50a98"></script>
-    <script src="/resources/js/live/live.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="/resources/js/live/petsittingLive.js"></script>
+    <script src="/resources/js/live/insertLiveCard.js"></script>
 </body>
-
 </html>

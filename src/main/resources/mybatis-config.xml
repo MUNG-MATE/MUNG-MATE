@@ -30,6 +30,8 @@
      <typeAlias type="edu.kh.mung.live.model.dto.LocationService" alias="LocationService" />
      <typeAlias type="edu.kh.mung.chatting.model.dto.Message" alias="Message" />
      <typeAlias type="edu.kh.mung.chatting.model.dto.ChattingRoom" alias="ChattingRoom" />
+     <typeAlias type="edu.kh.mung.live.model.dto.LiveCard" alias="LiveCard" />
+     <typeAlias type="edu.kh.mung.live.model.dto.LiveCardImage" alias="LiveCardImage" />
      
    </typeAliases>
    
