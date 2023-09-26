@@ -58,7 +58,7 @@
 	</script>
 	<script src="/resources/js/common/footer.js"></script>
 	${rsList}
-	<div class="liveMadal" id = "liveMadal">
+	<div class="liveMadal" id="liveMadal">
 		<jsp:include page="/WEB-INF/views/live/live.jsp" />
 	</div>
 
