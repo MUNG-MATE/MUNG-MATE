@@ -15,7 +15,7 @@
             <body>
 
                 <div class="mainImage">
-                    <img src="/resources/images/mainImage2.jpg">
+                    <img src="https://newsimg.hankookilbo.com/2016/03/17/201603171472767937_1.jpg">
                     <div class="mainImageIn">
                         <h1>언제나 가까운 곳에서<br> 안심할 수 있게</h1>
                         <button id="goReservation"><a href="/reservation/1">예약하러 가기</a></button>
