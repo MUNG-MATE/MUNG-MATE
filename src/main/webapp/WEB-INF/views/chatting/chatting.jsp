@@ -17,10 +17,10 @@
                           reservation == ${reservation}
 
         <section class="chatting-content" id="right">
-        <button onclick="selectChattingFn()">버튼</button>
+        <%-- <button onclick="selectChattingFn()">버튼</button> --%>
 
         <ul id="display-chatting" class="display-chatting" >
-            <li id="chattingStart" petsitterNo="${reservation[0].petSitterNo}" memberNo="${reservation[0].memberNo}">채팅시작하기</li>
+            <li onclick="selectChattingFn()" id="chattingStart" petsitterNo="${reservation[0].petSitterNo}" memberNo="${reservation[0].memberNo}">채팅시작하기</li>
             <%-- <li class="result-row" data-id="1">
                <img class="result-row-img" src="/resources/images/user.png">
                <span> <mark>유저</mark>일</span>
@@ -56,7 +56,6 @@
     <script>
         // 로그인한 회원 번호
         const loginMemberNo = "${loginMember.memberNo}";
-        const chatNo = "${reservation[0].rsNo}";
     </script>
     <script src="/resources/js/chatting/chatting.js"></script>
 </body>

@@ -61,20 +61,18 @@ public class ChattingController {
 		if(loginMember.getPetsitterFlag().equals("N")) {
 			
 			List<ChattingRoom> chattingList = service.chattingList(memberNo);
-			List<Reservation> reservation = service.reservation(memberNo);
-			System.out.println("N=="+reservation);
 			System.out.println("N=="+chattingList);
-			model.addAttribute("reservation",reservation);
 			model.addAttribute("chattingList",chattingList);
 		}else {
 			List<ChattingRoom> chattingList = service.chattingList1(memberNo);
-			List<Reservation> reservation = service.reservation(memberNo);
-			System.out.println("Y=="+reservation);
+			
 			System.out.println("Y=="+chattingList);
-			model.addAttribute("reservation",reservation);
+		
 			model.addAttribute("chattingList",chattingList);
 		}
 		
+		List<Reservation> reservation = service.reservation(memberNo);
+		model.addAttribute("reservation",reservation);
 		return "chatting/chatting";
 	}
 	

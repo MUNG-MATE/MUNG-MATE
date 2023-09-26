@@ -28,19 +28,19 @@ public class ChattingServiceImpl implements ChattingService{
 
 	// 채팅 읽음표시
 	@Override
-    public int updateReadFlag(Map<String, Object> paramMap) {
-        return dao.updateReadFlag(paramMap);
-    }
-		
+	public int updateReadFlag(Map<String, Object> paramMap) {
+		return dao.updateReadFlag(paramMap);
+	}
+
 	// 채팅메세지 목록
 	@Override
 	public List<Message> selectMessageList(Map<String, Object> paramMap) {
-		
-		 List<Message> messageList = dao.selectMessageList(  Integer.parseInt( String.valueOf(paramMap.get("chatNo") )));
-		 if(!messageList.isEmpty()) {
-	            int result = dao.updateReadFlag(paramMap);
-	        }
-		 
+
+		List<Message> messageList = dao.selectMessageList(  Integer.parseInt( String.valueOf(paramMap.get("chatNo") )));
+		if(!messageList.isEmpty()) {
+			int result = dao.updateReadFlag(paramMap);
+		}
+
 		return messageList;
 	}
 
@@ -49,27 +49,29 @@ public class ChattingServiceImpl implements ChattingService{
 	public List<ChattingRoom> chattingList(int memberNo) {
 		return dao.chattingList(memberNo);
 	}
-	
-	/*
-	 * // 채팅 - 일반
-	 * 
-	 * @Override public List<Reservation> reservation(int memberNo) {
-	 * 
-	 * return dao.reservation(memberNo); }
-	 */
-	
+
+
+	// 채팅 - 일반
+
+	@Override public List<Reservation> reservation(int memberNo) {
+
+		return dao.reservation(memberNo); 
+
+	}
+
+
 	// 채팅 - 펫시터 
-	
+
 	@Override
 	public List<ChattingRoom> chattingList1(int memberNo) {
-		
+
 		return dao.chattingList1(memberNo);
 	}
-	
+
 	// 채팅룸
 	@Override
 	public int createChattingRoom(Map<String, Integer> map) {
-		
+
 		return dao.createChattingRoom(map);
 	}
 
@@ -79,10 +81,7 @@ public class ChattingServiceImpl implements ChattingService{
 		return dao.checkChattingNo(map);
 	}
 
-	@Override
-	public List<Reservation> reservation(int memberNo) {
-		
-		return dao.reservation(memberNo);
-	}
+
+
 
 }

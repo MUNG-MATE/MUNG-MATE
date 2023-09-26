@@ -8,7 +8,7 @@ const chattingMember = document.getElementById("chattingStart").getAttribute("pe
 let petsitter = chattingPet;
 let member = chattingMember;
 
-let selectChatNo; // 선택한 채팅방 번호
+let chatNo; // 선택한 채팅방 번호
 let selectTargetNo; // 현재 채팅 대상
 let selectTargetName; // 대상의 이름
 let selectTargetProfile; // 대상의 프로필
@@ -26,9 +26,9 @@ let selectTargetProfile; // 대상의 프로필
 
    fetch("/chatting/enter?targetNo="+chatNo)
    .then(resp => resp.text())
-   .then(chatNo => {
+   .then(result => {
       alert("여기까지와라")
-      console.log(chatNo);
+      console.log(result);
       
       // setTimeout(()=>{ 
       //    // 만약 채팅방 목록 중 이미 존재하는 채팅방이 있으면 클릭해서 입장
@@ -46,6 +46,8 @@ let selectTargetProfile; // 대상의 프로필
 
       // }, 200);
 
+      selectChattingFn();
+
    })
    .catch(err => console.log(err));
 }
@@ -56,7 +58,7 @@ const display = document.getElementsByClassName("display-chatting")[0];
 
 // 비동기로 메세지 목록을 조회하는 함수
 function selectChattingFn() {
-   fetch("/chatting/selectMessage?" + `chatNo=${selectChatNo}&memberNo=${loginMemberNo}`)
+   fetch("/chatting/selectMessage?" + `chatNo=${chatNo}&memberNo=${loginMemberNo}`)
       .then(resp => resp.json())
       .then(messageList => {
          // <ul class="display-chatting">
@@ -139,7 +141,7 @@ const sendMessage = () => {
       var obj = {
          "senderNo": loginMemberNo,
          "targetNo": selectTargetNo,
-         "chatNo" : selectChatNo,
+         "chatNo" : chatNo,
          "messageContent": inputChatting.value,
       };
       console.log(obj)
