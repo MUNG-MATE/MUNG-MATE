@@ -53,5 +53,6 @@
       <mapper resource="/mappers/reply-mapper_p.xml" />
       <mapper resource="/mappers/live-mapper.xml" />
       <mapper resource="/mappers/chatting-mapper.xml" />
+      <mapper resource="/mappers/chatting-mapper2.xml" />
    </mappers>
 </configuration>
