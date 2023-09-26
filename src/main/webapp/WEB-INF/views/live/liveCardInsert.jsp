@@ -12,8 +12,8 @@
 <body>
     <section id="liveCardSection">
         <div id="titleArea">
-            <img src="petsitter.png" class="profile">
-            <span>OOO 펫시터 님의 산책 LIVE 카드</span>
+            <img src="/resources/images/myPage/khw.jpg" class="profile">
+            <span>강형욱 펫시터 님의 산책 LIVE 카드</span>
         </div>
         
         <div id="serviceName">
@@ -23,15 +23,17 @@
             <div>오후 03:32</div>
         </div>
         
-        <form method="POST" enctype="multipart/form-data" onsubmit="submitForm()">
+        <form method="POST" action="insert?rsNo=${param.rsNo}" enctype="multipart/form-data" id="insertForm">
             <div id="liveCardContent">
-                <label id="imageLabel">
-                    이미지 추가
-                    <input onchange="addFile(this)" type="file" id="inputImage" name="inputImage" for="imageLabel" multiple />
+                <label id="imgLabel">
+                    <input type="file" id="inputImage" name="inputImage" for="imageLabel"/>
+                    <img id="petImage" src="/resources/images/reservation/inputpetimage.png">
                 </label>
-                <div id="inputImageDiv"></div>
                 <textarea id="inputContent" name="liveContent"></textarea>
-                <button>제출</button>
+                <div id="btnArea">
+                    <button id="submitBtn">등록</button>
+                    <button id="submitBtn">취소</button>
+                </div>
             </div>
         </form>
     </section>
@@ -57,7 +59,7 @@
                 </div>
 
                 <div id="iconArea">
-                    <img src="stroll.png" id="stateIcon">
+                    <img src="/resources/images/reservation/stroll.png" id="stateIcon">
                 </div>
 
                 <div id="stateTextArea">
@@ -87,9 +89,9 @@
                     <p class="chat">떵 치워주세여</p>
                 </li>
                 <li class="opponentChat">
-                    <img src="petsitter.png">
+                    <img src="/resources/images/myPage/khw.jpg">
                     <div>
-                        <b>펫시터</b> <br>
+                        <b>강형욱 펫시터</b> <br>
                         <p class="chat">알겠습니다 고갱님</p>
                         <span class="chatDate">09.04 16:01</span>
                     </div>
