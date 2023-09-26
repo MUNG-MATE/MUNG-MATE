@@ -52,7 +52,6 @@
                         <a href='javascript:void(0);'>멍메이트</a>
                         <ul class="sub_gnb">
                             <li><a  href = "/myPage/myPost">내 게시글</a></li>
-                            <li><a  href = "/chatting/chatting">chatting</li>
                             <li>3</li>
                             <li>4</li>
                         </ul>
