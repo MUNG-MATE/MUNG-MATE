@@ -15,7 +15,7 @@ import edu.kh.mung.common.utility.Util;
 import edu.kh.mung.reservation.model.dto.Reservation;
 
 @Service
-public class ChattingServiceImpl2 implements ChattingService{
+public class ChattingServiceImpl2 implements ChattingService2{
 
 	@Autowired
 	private ChattingDAO2 dao;
