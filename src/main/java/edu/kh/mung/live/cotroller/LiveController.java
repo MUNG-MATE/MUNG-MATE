@@ -25,7 +25,10 @@ import edu.kh.mung.live.model.dto.LiveCard;
 import edu.kh.mung.live.model.dto.LocationService;
 import edu.kh.mung.live.model.service.LiveService;
 import edu.kh.mung.member.model.dto.Member;
+import edu.kh.mung.myPage.model.service.MyPageServiceImpl_k;
+import edu.kh.mung.myPage.model.service.MyPageService_k;
 import edu.kh.mung.reservation.model.dto.Pet2;
+import edu.kh.mung.reservation.model.dto.Reservation;
 
 @Controller
 @RequestMapping("/live")
@@ -34,6 +37,9 @@ public class LiveController {
 	
 	@Autowired
 	private LiveService service;
+	
+	@Autowired
+	private MyPageService_k myPageService;
 	
 	@GetMapping
 	public String test() {
