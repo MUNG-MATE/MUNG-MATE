@@ -2,26 +2,12 @@
 const liveMadal = document.getElementById("liveMadal");
 const gotoLive = document.getElementById("gotoLive");
 
-/* const runTime = document.getElementById("runTime").innerText; */
-
 gotoLive.addEventListener("click", function () {
 	if (liveMadal.style.display = "none") {
 		liveMadal.style.display = "block";
 
 	}
 })
-/*  let hour = new Date('2023-09-22 ' + runTime).getHours();
-if (hour < 10) hour = "0" + hour;
-
-let min = new Date('2023-09-22 ' + runTime).getMinutes();
-if (min < 10) min = "0" + min;
-
-let sec = new Date('2023-09-22 ' + runTime).getSeconds();
-if (sec < 10) sec = "0" + sec; */
-
-
-// 시작시간
-
 
 // 문서가 로딩될때 
 document.addEventListener("DOMContentLoaded", function () {
