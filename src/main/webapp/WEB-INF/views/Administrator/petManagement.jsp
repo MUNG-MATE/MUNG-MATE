@@ -17,7 +17,14 @@
 
     <div class="petsitterBox">
         <div class="petsitterImg">
-            <img src="${petManagement.profileImg}">
+            <c:if test="${petManagement.profileImg != null}" >
+                <img src="${petManagement.profileImg}">
+            </c:if>
+            
+            <c:if test="${petManagement.profileImg == null}" >
+                <img src="/resources/images/member/petsitterNo.jpg">
+            </c:if>
+
         </div>
         <div class="petsitterInfo">
             <h3>${petManagement.memberNm} 펫시터</h3><button name="petNo" value="${petManagement.memberNo}" onclick="deleteList(this)">자격박탈</button>

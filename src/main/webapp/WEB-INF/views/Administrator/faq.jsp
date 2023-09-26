@@ -42,7 +42,7 @@
                                 <li><a href="/Administrator/faq/4">서비스이용</a></li>
                                 <li><a href="/Administrator/faq/5">기타</a></li>
                                 <div class="writeBtnArea">
-                                    <c:if test="${!empty loginMember}">
+                                    <c:if test="${loginMember.adminFlag == 'Y'}">
                                         <button class="writerBtn" id="writer" onclick="location.href = '/Administrator/faqWrite'">작성하기</button>
                                     </c:if>
 
@@ -59,8 +59,10 @@
                                         <td id="resultTitle">${faqList.title}</td>
                                         <td>
                                             <div class="btn">
-                                                <button id="writer">수정하기</button>
-                                                <button id="writer" type="button" onclick="faqDelete(${faqList.boardNo})">삭제하기</button>
+                                                <c:if test="${loginMember.adminFlag == 'Y'}" >
+                                                    <button id="writer">수정하기</button>
+                                                    <button id="writer" type="button" onclick="faqDelete(${faqList.boardNo})">삭제하기</button>
+                                                </c:if>
                                             </div>
                                         </td>
                                         <td class="td">▼</td>

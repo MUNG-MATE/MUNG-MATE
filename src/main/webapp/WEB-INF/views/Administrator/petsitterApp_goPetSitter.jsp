@@ -41,6 +41,12 @@
                                 <div>지원동기</div>
                             </div>
                             
+                            <c:if test="${empty appList}" >
+                                 <div id="nothing">
+                                    <h2>신청내역이 존재하지 않습니다.</h2>
+                                </div>
+                            </c:if>
+
                            <c:forEach var="app" items="${appList}">
                                 <div class="C-applist-container">
                                     <div>${app.appNo}</div>

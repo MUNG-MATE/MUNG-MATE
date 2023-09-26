@@ -25,14 +25,19 @@
 
 /* 비밀번호 입력창 div */
 .password{
-    width: 400px;
-    height: 200px;
-    padding-top: 60px;
-    padding-bottom: 60px;
+    width: 800px;
+    height: 100px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     font-size: 20px;
     margin: auto;
-    margin-left: 95px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.password > label {
+    width: auto;
 }
 
 /* 비밀번호 입력창 */
@@ -51,16 +56,20 @@
 
 /* 약관 내용 */
 .termsContent{
-    width: 500px;
-    height: 500px;
+    width: 800px;
+    height: 200px;
     border: 1px solid #ddd;
     overflow-y:scroll;
+    margin-bottom: 70px;
 }
 
 /* 약관 동의 체크박스 div */
 .agree{
+    margin: auto;
     width: 200px;
     height: 50px;
+    font-size: 18px;
+
 }
 
 

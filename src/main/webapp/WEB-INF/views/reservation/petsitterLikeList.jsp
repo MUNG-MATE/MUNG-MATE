@@ -28,8 +28,14 @@
                 <div>${memberNm} 님이 관심있는 펫시터 분들 이에요!</div>
 
             </div>
+
+            <c:if test="${empty petSitterLikeList}" >
+                <div id="nothing">
+                    <h2>찜하신 펫시터가 존재하지 않습니다.</h2>
+                </div>
+            </c:if>
+
             <div class="PetsitterInformation">
-        
                 
                 <c:forEach var="i" items="${petSitterLikeList}">
                 <form action="/reservation/1?petSitterNo=${i.petSitterNo}" method="get">
@@ -64,8 +70,7 @@
     </main>
 
 
-    <footer>
-    </footer>
+    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
     <script>
         /* 스크롤 함수 */
