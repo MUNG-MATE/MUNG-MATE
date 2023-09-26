@@ -102,6 +102,7 @@ if(searchYesBtn != null){
                 if(content8 != null){
                     content8.addEventListener("click",()=>{
                         findprofile.classList.toggle("modal");
+                        location.reload(true);
                     })
                 }
             }
