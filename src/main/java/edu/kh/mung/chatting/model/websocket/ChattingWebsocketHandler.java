@@ -76,8 +76,8 @@ public class ChattingWebsocketHandler extends TextWebSocketHandler{
                 // 로그인된 회원 정보 중 회원 번호 얻어오기
                 int loginMemberNo = ((Member)s.getAttributes().get("loginMember")).getMemberNo();
                 
-                // 로그인 상태인 회원 중 targetNo가 일티하는 회원에게 메세지 전달
-                if(loginMemberNo == msg.getTargetNo() || loginMemberNo == msg.getSenderNo()) {
+                // 로그인 상태인 회원 중 targetNo가 일치하는 회원에게 메세지 전달
+                if(loginMemberNo == msg.getChatNo() || loginMemberNo == msg.getSenderNo()) {
                     System.out.println("chattingWeb=="+msg);
                     s.sendMessage(new TextMessage(new Gson().toJson(msg)));
                 }

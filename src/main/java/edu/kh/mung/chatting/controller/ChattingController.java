@@ -33,7 +33,8 @@ public class ChattingController {
     @GetMapping("/chatting/enter")
     @ResponseBody
     public int chattingEnter(int targetNo, @SessionAttribute("loginMember") Member loginMember) {
-    	System.out.println("targetNo=="+targetNo);
+//    	System.out.println("targetNo=="+targetNo);
+    	
         Map<String, Integer> map = new HashMap<String, Integer>();
         
         map.put("targetNo", targetNo);
