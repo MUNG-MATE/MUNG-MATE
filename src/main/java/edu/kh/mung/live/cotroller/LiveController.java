@@ -1,11 +1,13 @@
 package edu.kh.mung.live.cotroller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
@@ -62,20 +65,22 @@ public class LiveController {
 	
 	@PostMapping("/card/insert")
 	public int insertLiveCard(
-			LiveCard lc,
+			LiveCard lc, @RequestParam("rsNo") int rsNo,
 			@RequestParam(value="inputImage", required=false) List<MultipartFile> images,
 			@SessionAttribute("loginMember") Member loginMember,
 			RedirectAttributes ra,
 			HttpSession session) throws IllegalStateException, IOException {
 		
+		System.out.println("rsNo : " + rsNo);
 		System.out.println("LiveCard : " + lc);
 		System.out.println("images : " + images);
 		
 		String webPath = "/resources/images/live/";
 		String filePath = session.getServletContext().getRealPath(webPath);
 		
-		int liveNo = service.insertLiveCard(lc, images, webPath, filePath);
+		//int liveNo = service.insertLiveCard(lc, images, webPath, filePath);
 		
 		return 0;
 	}
+	
 }

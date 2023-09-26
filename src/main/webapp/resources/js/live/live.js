@@ -100,9 +100,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	if (startTime) {
 		interval = setInterval(updateEleTime, 1000);
-		startStopButton.textContent = "중지";
+		startStopButton.textContent = "서비스 종료";
 	} else {
-		startStopButton.textContent = "시작";
+		startStopButton.textContent = "서비스 시작";
 	}
 	startStopButton.addEventListener("click", toggleTime);
 });
