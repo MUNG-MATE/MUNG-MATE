@@ -1,0 +1,142 @@
+
+#display-chatting {
+    height: 500px;
+    background-color: #fff;
+    list-style: none;
+    overflow: auto;
+    border: 3px solid rgb(0, 30, 60);
+    margin: 0;
+}
+
+#input-area {
+    height: 100px;
+    border: 2px solid rgb(226, 223, 39);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+}
+
+#inputChatting {
+    width: 90%;
+    height: 32px;
+    resize: none;
+    outline: 0;
+    border: none;
+    line-height: 32px;
+}
+
+#inputChatting::placeholder {
+    line-height: 32px;
+}
+#input-area div{
+    width: 10%;
+    height: 100%;
+    border-left: 2px solid black;
+    display: flex;
+    align-items: center;
+}
+#send {
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    font-weight: bold;
+    
+}
+
+
+.chat {
+    display: inline-block;
+    border-radius: 5px;
+    margin: 3px 0;
+    padding: 5px;
+    word-break: break-all;
+    white-space: pre-wrap;
+}
+.target-chat {
+    margin-left: 15px;
+}
+.target-chat > img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.chatDate {
+    font-size: 9px;
+    margin: 0 5px;
+}
+
+.my-chat {
+    text-align: right;
+    margin-right: 15px;
+}
+
+.my-chat > p {
+    background-color: rgb(0,30,60);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    color: white;
+    font-weight: bold;
+}
+
+.target-chat {
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+.target-chat p {
+    background-color: rgb(253, 249, 244);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+li {
+    list-style: none;
+}
+#chattingBox{
+    width: 1000px;
+    height: 700px;
+    margin: 0 auto;
+}
+#chattingStart{
+    width: 200px;
+    height: 100%;
+    line-height: 70px;
+    text-align: center;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    margin: 0;
+}
+#chattingInfo{
+    width: 995px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    background-color: beige;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+    border-top: 3px solid black;
+    text-align: center;
+}
+#chattingInfo img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid black;
+    margin-left: 219px;
+}
+#chattingInfo span:nth-of-type(1){
+    margin: 0 30px;
+    font-size: 22px;
+    font-weight: bold;
+    width: 150px;
+}
+#chattingInfo span:nth-of-type(2){
+    font-size: 18px;
+    font-weight: bold;
+    width: 150px;
+}
+
