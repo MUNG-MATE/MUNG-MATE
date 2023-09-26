@@ -29,8 +29,8 @@ public class ChattingController2 {
 	private ChattingService2 service;
 	
 	// 채팅 페이지 - 광민
-	@GetMapping("/chatting/chatting")
-	public String chattingList(@SessionAttribute("loginMember") Member loginMember, Model model) {
+	@GetMapping("/chatting/chatting2")
+	public String chattingList2(@SessionAttribute("loginMember") Member loginMember, Model model) {
 		
 		List<ChattingRoom> chatList = service.chatList(loginMember.getMemberNo());
 		model.addAttribute("cahtList",chatList);
@@ -39,9 +39,9 @@ public class ChattingController2 {
 	}
 	
 	// 채팅 상대 조회
-    @GetMapping(value="/chatting/target", produces="application/json; charset=UTF-8")
+    @GetMapping(value="/chatting/target2", produces="application/json; charset=UTF-8")
 	@ResponseBody
-	public List<Reservation> chattingTarget(@SessionAttribute("loginMember") Member loginMember){
+	public List<Reservation> chattingTarget2(@SessionAttribute("loginMember") Member loginMember){
     	
     	Map<String, Object> map = new HashMap<String, Object>();
     	map.put("memberNo", loginMember.getMemberNo());
@@ -50,9 +50,9 @@ public class ChattingController2 {
     }
     
 	// 채팅방 생성
-    @GetMapping("/chatting/enter")
+    @GetMapping("/chatting/enter2")
     @ResponseBody
-    public int chattingEnter(int targetNo, @SessionAttribute("loginMember") Member loginMember) {
+    public int chattingEnter2(int targetNo, @SessionAttribute("loginMember") Member loginMember) {
     	
         Map<String, Integer> map = new HashMap<String, Integer>();
         
@@ -71,15 +71,15 @@ public class ChattingController2 {
 
 	
 	// 채팅방 메세지 조회
-	@GetMapping(value="/chatting/selectMessage",produces="application/json; charset=UTF-8")
+	@GetMapping(value="/chatting/selectMessage2",produces="application/json; charset=UTF-8")
 	@ResponseBody 
-	public List<Message> selectMessageList(@RequestParam Map<String, Object> paramMap) {
+	public List<Message> selectMessageList2(@RequestParam Map<String, Object> paramMap) {
 		return service.selectMessageList(paramMap); 
 	}
 
 	// 채팅 읽음 표시
-	@PutMapping("/chatting/updateReadFlag")
-	@ResponseBody public int updateReadFlag(@RequestBody Map<String, Object> paramMap){ 
+	@PutMapping("/chatting/updateReadFlag2")
+	@ResponseBody public int updateReadFlag2(@RequestBody Map<String, Object> paramMap){ 
 		System.out.println("chatting22 == "+paramMap);
 		return service.updateReadFlag(paramMap); 
 
