@@ -9,7 +9,7 @@
 
 <header class="head">
     <!-- 로고 영역 -->
-    <div>
+    <div class="headMainLogo">
         <a href="/">
             <img src="/resources/images/newlogo.png" alt="" class="headerLogo">
         </a>
