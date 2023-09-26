@@ -53,8 +53,13 @@
 	</footer>
 
 	<!-- live 페이지 모달창 -->
+	<script>
+		const lgMemberNo = "${loginMember.memberNo}";
+	</script>
+	<script src="/resources/js/common/footer.js"></script>
+	${rsList}
 	<div class="liveMadal" id = "liveMadal">
-	<jsp:include page="/WEB-INF/views/live/live.jsp" />
+		<jsp:include page="/WEB-INF/views/live/live.jsp" />
 	</div>
 
 	

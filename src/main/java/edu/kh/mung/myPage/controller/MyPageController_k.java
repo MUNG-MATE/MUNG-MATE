@@ -2,8 +2,11 @@ package edu.kh.mung.myPage.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,9 +37,10 @@ public class MyPageController_k {
 	// 로그인 회원의 예약 목록 조회
 	@GetMapping("/selectRsList")
 	@ResponseBody
-	public List<Reservation> selectRsList(@SessionAttribute("loginMember") Member loginMember) {
-		System.out.println("test");
+	public List<Reservation> selectRsList(@SessionAttribute("loginMember") Member loginMember,
+			HttpSession session) {
 		List<Reservation> rsList = service.selectRsList(loginMember);
+		session.setAttribute("rsList", rsList);
 		
 		return rsList;
 	}
