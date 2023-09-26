@@ -26,11 +26,10 @@
 			<div class="joinPetArea"><button id="joinPet" onclick="location.href='/myPage/petInfo/insert'">등록하기</button></div>
 		</c:if>
 
-		<c:if test="${loginMemberPet == null}" >
-			<div class=petInfolistNull>
+		<c:if test="${loginMemberPet == []}" >
+			<div id="nothing">
 				<h2>등록하신 반려견 정보가 없습니다.</h2>
 			</div>
-
 		</c:if>
 
 

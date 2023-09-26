@@ -27,7 +27,14 @@
         <div>
             <h1>내 게시글 조회</h1>
         </div>
-      
+
+        <c:if test="${empty postList}" >
+            <div id="nothing">
+				<h2>작성하신 게시글이 존재하지 않습니다.</h2>
+			</div>
+        </c:if>  
+
+
         <section>
 			<c:forEach items="${postList}" var="post">
 	           <!-- 게시글 한 칸 영역 -->
