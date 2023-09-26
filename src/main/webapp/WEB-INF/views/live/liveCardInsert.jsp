@@ -23,7 +23,7 @@
             <div>오후 03:32</div>
         </div>
         
-        <form method="POST" action="/live/card/insert" enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data" onsubmit="submitForm()">
             <div id="liveCardContent">
                 <label id="imageLabel">
                     이미지 추가
