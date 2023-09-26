@@ -43,14 +43,14 @@
                                     <img src="../../../resources/images/shield-lock.svg" class="passwordImg">
                                 </div>
                                 <div class="passwordInputPart">
-                                    <input type="text" id="inputPassword" name="memberPw" placeholder="패스워드" autocomplete="off">
+                                    <input type="password" id="inputPassword" name="memberPw" placeholder="패스워드" autocomplete="off">
                                 </div>
                             </div>
                             <div class="checkboxArea">
                                 <div><input type="checkbox" id="saveId" name="saveId" ${chk}><label for="saveId" autocomplete="off" >아이디 저장</label></div>
                                 <div></div>
                                 <div>
-                                    <button type="button" id="findInfoBtn1">이메일 찾기</button> &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <button type="button" id="findInfoBtn1">아이디 찾기</button> &nbsp;&nbsp;&nbsp;&nbsp;
                                     <button type="button" id="findInfoBtn2">비밀번호 찾기</button>
                                 </div>
                             </div>

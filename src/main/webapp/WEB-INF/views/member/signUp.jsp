@@ -14,7 +14,7 @@
     <body>
         <div class="totalContainer">
 
-            <jsp:include page="/WEB-INF/views/common/header.jsp" />
+            <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
 
             <form action="/member/signUp" method="POST" name="signUpFrm" id="signUpFrm">
 
@@ -53,14 +53,14 @@
 
                         <div class="signUpPassword">
                             <div>비밀번호</div>
-                            <div><input type="text" id="signUpInputPassword" name="memberPw" autocomplete="off"></div>
+                            <div><input type="password" id="signUpInputPassword" name="memberPw" autocomplete="off"></div>
                         </div>
                         <div id="pwMessage1">영어,숫자,특수문자(!,@,#,-,_) 6~20글자 사이로 입력해주세요.</div>
 
 
                         <div class="signUpPasswordCheck">
                             <div>비밀번호 확인</div>
-                            <div><input type="text" id="signUpInputPasswordCheck" autocomplete="off"></div>
+                            <div><input type="password" id="signUpInputPasswordCheck" autocomplete="off"></div>
                         </div>
                         <div id="pwMessage2">비밀번호가 일치하지 않습니다.</div>
 
