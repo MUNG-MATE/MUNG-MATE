@@ -15,7 +15,10 @@
             <body>
 
                 <div class="mainImage">
-                    <img src="https://newsimg.hankookilbo.com/2016/03/17/201603171472767937_1.jpg">
+                    <!-- <img src="C:\Users\82103\Downloads\video (1080p).mp4"> -->
+                    <video  autoplay loop="100" muted>
+                        <source src="/resources/images/mainVideo.mp4" type="video/ogg">
+                    </video>
                     <div class="mainImageIn">
                         <h1>언제나 가까운 곳에서<br> 안심할 수 있게</h1>
                         <button id="goReservation"><a href="/reservation/1">예약하러 가기</a></button>

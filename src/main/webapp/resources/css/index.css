@@ -15,7 +15,7 @@
 
 .mainImage {
     width: 100%;
-    height: 800px;
+    height: 100%;
 }
 
 .mainImageIn {
@@ -28,9 +28,9 @@
 
 
 
-.mainImage img {
+.mainImage video {
     width: 100%;
-    opacity: 0.6;
+    opacity: 0.8;
     height: 100%;
 }
 
