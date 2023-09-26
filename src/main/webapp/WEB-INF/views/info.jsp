@@ -68,7 +68,12 @@ Mung Mate 개발자 일동
             <c:forEach var="i" items="${petSitterList}">
                 <div class="profileArea" id="profileArea">
                     <div class="imageArea">
+                        <c:if test="${!empty i.profileImg}" >
                         <img src=${i.profileImg} class="profileImage">
+                        </c:if>
+                        <c:if test="${empty i.profileImg}" >
+                         <img src= "/resources/images/user.png" class="profileImage">
+                        </c:if>
                     </div>
                     <div class="info">
                         <div class="petsitterName">${i.memberNm} 펫시터</div>
