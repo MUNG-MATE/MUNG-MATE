@@ -65,13 +65,12 @@ public class LiveController {
 	
 	@PostMapping("/card/insert")
 	public int insertLiveCard(
-			LiveCard lc, @RequestParam("rsNo") int rsNo,
+			LiveCard lc,
 			@RequestParam(value="inputImage", required=false) List<MultipartFile> images,
 			@SessionAttribute("loginMember") Member loginMember,
 			RedirectAttributes ra,
 			HttpSession session) throws IllegalStateException, IOException {
 		
-		System.out.println("rsNo : " + rsNo);
 		System.out.println("LiveCard : " + lc);
 		System.out.println("images : " + images);
 		
