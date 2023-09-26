@@ -53,12 +53,11 @@ public class ReviewBoardController2_p {
 					throws IllegalStateException, IOException, FileUploadException {
 
 
-		// 1. 로그인한 회원 번호를 얻어와서 board에 세팅
 		board.setMemberNo(loginMember.getMemberNo());
 
-		// 3. 업로드된 이미지 서버에 실제로 저장되는 경로
+		// 업로드된 이미지 서버에 실제로 저장되는 경로
 		// + 웹에서 요청 시 이미지를 볼 수 있는 경로(웹 접근경로)
-		String webPath = "/resources/images/";
+		String webPath = "/resources/images/board";
 		String filePath = session.getServletContext().getRealPath(webPath);
 		// 서버단위
 
@@ -110,7 +109,7 @@ public class ReviewBoardController2_p {
 		
 		board.setBoardNo(boardNo);
 		
-		String webPath = "/resources/images/";
+		String webPath = "/resources/images/board";
 		String filePath = session.getServletContext().getRealPath(webPath);
 		
 		int rowCount = service.reviewUpdate(board, images, webPath, filePath, deleteList);

@@ -120,6 +120,7 @@
 
 	<!-- 채팅 메세지 삽입 -->
 	<insert id="insertMessage">
+		
 		INSERT INTO CHATTING_MESSAGE
 	    VALUES(SEQ_MESSAGE_NO.NEXTVAL,#{messageContent}, #{senderNo},SYSDATE,DEFAULT,#{chatNo})
 	</insert> 
@@ -127,7 +128,7 @@
 	<!-- 채팅방생성 -->
 	<insert id="createChattingRoom" parameterType="map" useGeneratedKeys="true">
 	  <selectKey keyProperty="chatNo" order="BEFORE" resultType="_int">
-         SELECT SEQ_CHATTING_ROOM_NO.NEXTVAL FROM DUAL
+         SELECT SEQ_CHAT_NO.NEXTVAL FROM DUAL
       </selectKey>
    
       INSERT INTO CHATTING_ROOM

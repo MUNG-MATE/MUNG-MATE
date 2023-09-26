@@ -50,12 +50,13 @@ public class ChattingServiceImpl implements ChattingService{
 		return dao.chattingList(memberNo);
 	}
 	
-	// 채팅 - 일반
-	@Override
-	public List<Reservation> reservation(int memberNo) {
-		
-		return dao.reservation(memberNo);
-	}
+	/*
+	 * // 채팅 - 일반
+	 * 
+	 * @Override public List<Reservation> reservation(int memberNo) {
+	 * 
+	 * return dao.reservation(memberNo); }
+	 */
 	
 	// 채팅 - 펫시터 
 	
@@ -76,6 +77,12 @@ public class ChattingServiceImpl implements ChattingService{
 	@Override
 	public int checkChattingNo(Map<String, Integer> map) {
 		return dao.checkChattingNo(map);
+	}
+
+	@Override
+	public List<Reservation> reservation(int memberNo) {
+		
+		return dao.reservation(memberNo);
 	}
 
 }

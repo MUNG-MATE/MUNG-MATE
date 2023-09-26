@@ -8,7 +8,7 @@ const chattingMember = document.getElementById("chattingStart").getAttribute("pe
 let petsitter = chattingPet;
 let member = chattingMember;
 
-let selectChattingNo; // 선택한 채팅방 번호
+let selectChatNo; // 선택한 채팅방 번호
 let selectTargetNo; // 현재 채팅 대상
 let selectTargetName; // 대상의 이름
 let selectTargetProfile; // 대상의 프로필
@@ -22,29 +22,29 @@ let selectTargetProfile; // 대상의 프로필
    
    function chattingEnter(e){
    
-   const targetNo = e.currentTarget.getAttribute("petsitterNo");
+   const targetNo = e.currentTarget.getAttribute("chattingStart");
 
-   fetch("/chatting/enter?targetNo="+targetNo)
+   fetch("/chatting/enter?targetNo="+chatNo)
    .then(resp => resp.text())
-   .then(chattingNo => {
+   .then(chatNo => {
       alert("여기까지와라")
-      console.log(chattingNo);
+      console.log(chatNo);
       
-      setTimeout(()=>{ 
-         // 만약 채팅방 목록 중 이미 존재하는 채팅방이 있으면 클릭해서 입장
-         const itemList = document.querySelectorAll(".chatting-item")
-         for(let item of itemList) {      
-            if(item.getAttribute("chat-no") == chattingNo){
-               item.focus();
-               item.click();
-               addTargetPopupLayer.classList.toggle("popup-layer-close");
-               targetInput.value = "";
-               resultArea.innerHTML = "";
-               return;
-            }
-         }
+      // setTimeout(()=>{ 
+      //    // 만약 채팅방 목록 중 이미 존재하는 채팅방이 있으면 클릭해서 입장
+      //    const itemList = document.querySelectorAll(".chatting-item")
+      //    for(let item of itemList) {      
+      //       if(item.getAttribute("chat-no") == chatNo){
+      //          item.focus();
+      //          item.click();
+      //          addTargetPopupLayer.classList.toggle("popup-layer-close");
+      //          targetInput.value = "";
+      //          resultArea.innerHTML = "";
+      //          return;
+      //       }
+      //    }
 
-      }, 200);
+      // }, 200);
 
    })
    .catch(err => console.log(err));
@@ -56,7 +56,7 @@ const display = document.getElementsByClassName("display-chatting")[0];
 
 // 비동기로 메세지 목록을 조회하는 함수
 function selectChattingFn() {
-   fetch("/chatting/selectMessage?" + `chatNo=${chatNo}&memberNo=${loginMemberNo}`)
+   fetch("/chatting/selectMessage?" + `chatNo=${selectChatNo}&memberNo=${loginMemberNo}`)
       .then(resp => resp.json())
       .then(messageList => {
          // <ul class="display-chatting">
@@ -138,8 +138,8 @@ const sendMessage = () => {
    } else {
       var obj = {
          "senderNo": loginMemberNo,
-         "targetNo": 2,
-         "chatNo" : chatNo,
+         "targetNo": selectTargetNo,
+         "chatNo" : selectChatNo,
          "messageContent": inputChatting.value,
       };
       console.log(obj)

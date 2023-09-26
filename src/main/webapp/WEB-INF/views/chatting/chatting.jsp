@@ -13,12 +13,18 @@
    <%-- live.jsp 의 시작버튼 누르면 비동기로 채팅창! --%>
 
 <!-- 채팅 -->
-        rere == ${reservation}
+
+                          reservation == ${reservation}
+
         <section class="chatting-content" id="right">
         <button onclick="selectChattingFn()">버튼</button>
 
         <ul id="display-chatting" class="display-chatting" >
             <li id="chattingStart" petsitterNo="${reservation[0].petSitterNo}" memberNo="${reservation[0].memberNo}">채팅시작하기</li>
+            <%-- <li class="result-row" data-id="1">
+               <img class="result-row-img" src="/resources/images/user.png">
+               <span> <mark>유저</mark>일</span>
+            </li> --%>
                 <%-- notReadCount를 카톡처럼 1있다가 사라지게?! --%>
                 <%-- <li class="my-chat">
                     <p class="not-read-count">${room.notReadCount}</p>
