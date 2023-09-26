@@ -103,10 +103,10 @@
 
 	<!-- 채팅방 메세지 조회 -->
 	<select id="selectMessageList" resultMap="message_rm">
-		SELECT MESSAGE_NO, MESSAGE_CONTENT, READ_FL, SENDER_NO, CHAT_NO,
-      TO_CHAR(SEND_TIME, 'YYYY.MM.DD HH24:MI') SEND_TIME 
+		SELECT MESSAGE_NO, MESSAGE_CONTENT, READ_FL, SENDER_NO,
+      TO_CHAR(SEND_TIME, 'YYYY.MM.DD HH24:MI') SEND_TIME,
+      (SELECT CHAT_NO FROM CHATTING_ROOM) CHAT_NO
       FROM CHATTING_MESSAGE
-      WHERE CHAT_NO  = #{chatNo}
       ORDER BY MESSAGE_NO
 	</select>
 
@@ -119,7 +119,11 @@
 	</update>
 
 	<!-- 채팅 메세지 삽입 -->
-	<insert id="insertMessage">
+	<insert id="insertMessage" parameterType="map" useGeneratedKeys="true">
+		
+		<selectKey keyProperty="chatNo" order="BEFORE" resultType="_int">
+         SELECT CHAT_NO FROM CHATTING_ROOM
+      </selectKey>
 		
 		INSERT INTO CHATTING_MESSAGE
 	    VALUES(SEQ_MESSAGE_NO.NEXTVAL,#{messageContent}, #{senderNo},SYSDATE,DEFAULT,#{chatNo})
