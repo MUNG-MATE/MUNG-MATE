@@ -30,6 +30,12 @@ public interface FAQService {
 	 */
 	int faqDelete(String boardNo);
 
-	Map<String, Object> selectFaqList(Map<String, Object> paramMap);
+	
+	
+	/** faq 게시글 리스트 조회 (검색일 때)
+	 * @param paramMap
+	 * @return
+	 */
+	Map<String, Object> selectSearchList(Map<String, Object> paramMap);
 
 }

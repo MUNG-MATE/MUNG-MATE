@@ -164,6 +164,32 @@ if (imageInput != null) {
 
         deleteCheck = 0;
     })
-
-
 }
+
+document.getElementById("memberInfoUpdate").addEventListener("submit", e => {
+
+    let flag = true;
+
+    // 프로필 이미지가 없다 -> 있다
+    if(!initCheck &&deleteCheck == 1){
+        flag = false;
+    }
+    // 이전 프로필 이미지가 있다 -> 삭제
+    if(initCheck &&deleteCheck == 0){
+        flag = false;
+    }
+
+    // 이전 프로필 이미지가 있다 -> 새 이미지
+    if(initCheck &&deleteCheck == 1){
+        flag = false;
+    }
+
+    if(flag){ 
+        e.preventDefault(); 
+        alert("이미지 변경 후 클릭하세요.");
+    }
+
+
+
+
+})

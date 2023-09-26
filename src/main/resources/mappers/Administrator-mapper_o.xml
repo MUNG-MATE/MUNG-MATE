@@ -90,7 +90,7 @@
 	</select>
 
 	<!-- 검색한 게시글 리스트 조회 -->
-	<select id="selectBoardList_search" resultMap="ad_rm">
+	<select id="selectSearchList" resultMap="ad_rm">
 		SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT
 		FROM BOARD
 		WHERE BOARD_ST =
@@ -100,7 +100,7 @@
 			<when test='faqCat == "서비스이용"'>
 				AND BOARD_CD = 4
 				AND BOARD_CONTENT LIKE '%${faq}%'
-				AND BOARD_TITLE LIKE
+				OR BOARD_TITLE LIKE
 				'%${faq}%'
 
 			</when>
@@ -108,7 +108,7 @@
 			<when test='faqCat == "기타"'>
 				AND BOARD_CD = 5
 				AND BOARD_CONTENT LIKE '%${faq}%'
-				AND
+				OR
 				BOARD_TITLE LIKE
 				'%${faq}%'
 			</when>
@@ -116,12 +116,11 @@
 			<when test='faqCat == "예약관련"'>
 				AND BOARD_CD = 3
 				AND BOARD_CONTENT LIKE '%${faq}%'
-				AND
+				OR
 				BOARD_TITLE LIKE
 				'%${faq}%'
 			</when>
 		</choose>
-
 	</select>
 	
 	
