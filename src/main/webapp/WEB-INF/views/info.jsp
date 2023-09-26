@@ -72,7 +72,7 @@ Mung Mate 개발자 일동
                         <img src=${i.profileImg} class="profileImage">
                         </c:if>
                         <c:if test="${empty i.profileImg}" >
-                         <img src= "/resources/images/user.png" class="profileImage">
+                         <img src= "/resources/images/member/petsitterNo.jpg" class="profileImage">
                         </c:if>
                     </div>
                     <div class="info">

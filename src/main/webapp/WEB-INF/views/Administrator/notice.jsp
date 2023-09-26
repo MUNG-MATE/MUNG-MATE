@@ -28,7 +28,7 @@
                     <article class="faq-content">
                         <div>
                             <ul class="noticeWriteBtnArea">
-                                <c:if test="${!empty loginMember}">
+                                <c:if test="${loginMember.adminFlag == 'Y'}">
                                     <button id="writer" onclick="location.href = '/Administrator/noticeWrite/1'">작성하기</button>
                                 </c:if>
                             </ul>
@@ -41,8 +41,10 @@
                                     <td><img src="/resources/images/Administrator/report.png" class="td-img"></td>
                                     <td id="resultTitle">${noticeList.title}</td>
                                     <td><div class="btn">
-                                                <button id="writer">수정하기</button>
-                                                <button id="writer" type="button" onclick="noticeDelete()">삭제하기</button>
+                                                    <c:if test="${loginMember.adminFlag == 'Y'}" >
+                                                        <button id="writer">수정하기</button>
+                                                        <button id="writer" type="button" onclick="noticeDelete()">삭제하기</button>
+                                                    </c:if>
                                             </div></td>
                                     <td class="td">▼</td>
                                 </tr>

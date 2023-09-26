@@ -22,7 +22,14 @@
                 <c:if test="${!empty loginMember}" >
                     <li>
                     <a href='/myPage/memberInfo' class="sideimgbox">
-                        <img src="${loginMember.profileImage}">
+                        <c:if test="${loginMember.profileImage != null}" >
+                            <img src="${loginMember.profileImage}">
+                        </c:if>
+
+                        <c:if test="${loginMember.profileImage == null}" >
+                            <img src="/resources/images/member/user.png">
+                        </c:if>
+
                     </a>
                     </li>
 
@@ -34,7 +41,7 @@
                         <ul class="sub_gnb">
                             <li><a href = "/myPage/memberInfo">내 정보</a></li>
                             <li><a href = "/myPage/petInfo">내 반려견</a></li>
-                            <li><a href = "#">내 찜목록</a></li>
+                            <li><a href = "/petsitterLikeList">내 찜목록</a></li>
                             <c:if test="${loginMember.petsitterFlag == 'N'}" >
                                 <li><a href = "/petsitter/toPetsitterApply">펫시터 되기</a></li>
                             </c:if>
