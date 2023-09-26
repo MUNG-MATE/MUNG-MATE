@@ -26,7 +26,6 @@ public class FAQServiceImpl implements FAQService {
 		int listCount = dao.getListCount(boardCode);
 
 		List<Administrator> boardList = dao.selectBoardList(boardCode);
-
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("boardList", boardList);
 
@@ -69,15 +68,18 @@ public class FAQServiceImpl implements FAQService {
 		return dao.faqDelete(boardNo);
 	}
 
+
 	@Override
-	public Map<String, Object> selectFaqList(Map<String, Object> paramMap) {
+	public Map<String, Object> selectSearchList(Map<String, Object> paramMap) {
+		
 		int listCount = dao.getListCount(paramMap);
 
-		List<Administrator> boardList = dao.selectBoardList(paramMap);
-
+		List<Administrator> boardList = dao.selectSearchList(paramMap);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("boardList", boardList);
 
 		return map;
+		
 	}
+
 }

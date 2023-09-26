@@ -49,16 +49,30 @@ public class FAQDAO_o {
 		return sqlSession.update("AdministratorMapper_o.faqUpdate", administrator);
 	}
 
+	/** faq 게시글 삭제
+	 * @param boardNo
+	 * @return
+	 */
 	public int faqDelete(String boardNo) {
 		return sqlSession.delete("AdministratorMapper_o.faqDelete", boardNo);
 	}
 
+	/** faq 게시글 수 카운트 (검색 일 때)
+	 * @param paramMap
+	 * @return
+	 */
 	public int getListCount(Map<String, Object> paramMap) {
 		return sqlSession.selectOne("AdministratorMapper_o.getListCount_search", paramMap);
 	}
 
-	public List<Administrator> selectBoardList(Map<String, Object> paramMap) {
-		return sqlSession.selectList("AdministratorMapper_o.selectBoardList_search", paramMap);
+	
+	/** faq 게시글 리스트 조회 (검색 일 때)
+	 * @param paramMap
+	 * @return
+	 */
+	public List<Administrator> selectSearchList(Map<String, Object> paramMap) {
+		System.out.println("검색어가 있을 때 컨트롤러");
+		return sqlSession.selectList("AdministratorMapper_o.selectSearchList", paramMap);
 	}
 	
 
