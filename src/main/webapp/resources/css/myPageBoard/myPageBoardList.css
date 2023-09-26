@@ -15,7 +15,10 @@ main{
     text-decoration: none;
     color: rgb(208, 53, 49);
 }
-
+section{
+    height: auto;
+    min-height: 600px;
+}
 /* 헤더 로고 */
 .headerLogo{
     width: 150px;
@@ -108,3 +111,14 @@ footer{
     height: 200px;
 }
 
+#nothing{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    min-height: 500px;
+    height: auto;
+    color: #ccc;
+}
