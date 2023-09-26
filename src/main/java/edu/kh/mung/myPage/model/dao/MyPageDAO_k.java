@@ -31,11 +31,9 @@ public class MyPageDAO_k {
 		if(loginMember.getPetsitterFlag().equals("Y")) {
 			int psNo = sqlSession.selectOne("myPageMapper_k.selectPetSitterNo", loginMember);
 			rsList = sqlSession.selectList("myPageMapper_k.selectRsList_ps", psNo);
-			System.out.println("rsList : " + rsList);
 			
 		} else {
 			rsList = sqlSession.selectList("myPageMapper_k.selectRsList", loginMember);
-			System.out.println("rsList : " + rsList);
 		}
 
 		for (Reservation rs : rsList) {

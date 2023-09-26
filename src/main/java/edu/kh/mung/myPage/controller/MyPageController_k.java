@@ -1,5 +1,6 @@
 package edu.kh.mung.myPage.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -39,8 +40,8 @@ public class MyPageController_k {
 	@ResponseBody
 	public List<Reservation> selectRsList(@SessionAttribute("loginMember") Member loginMember,
 			HttpSession session) {
+		
 		List<Reservation> rsList = service.selectRsList(loginMember);
-		session.setAttribute("rsList", rsList);
 		
 		return rsList;
 	}

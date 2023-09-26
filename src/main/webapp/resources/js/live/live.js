@@ -1,3 +1,46 @@
+let serviceFlag = false;
+let rsNo = 0;
+
+if(lgMemberNo != null) {
+    fetch("/myPage/selectRsList?memberNo=" + lgMemberNo)
+    .then(resp => resp.json())
+    .then(rsList => {
+        for(let rs of rsList) {
+
+			// 오늘 날짜 구하기
+            let year = new Date().getFullYear();
+			let month = new Date().getMonth()+1;
+			let day = new Date().getDate();
+			if(month < 10) month = "0" + month;
+			if(day < 10) day = "0" + day;
+			let hours = new Date().getHours();
+			if(hours < 10) hours = "0" + hours;
+			let minutes = new Date().getMinutes();
+			if(minutes < 10) minutes = "0" + minutes;
+			let today = year+"-"+month+"-"+day+" "+hours+":"+minutes; // 2023-09-27 02:00
+			let rsDate = rs.rsDate.substring(0,10) + " " + rs.rsStartDate;
+			
+			// 오늘이 예약 날짜/시간이면서 서비스 상태가 N인 경우
+			if(today >= rsDate && rs.serviceState == 'N') {
+				rsNo = rs.rsNo;
+				serviceFlag = true;
+				return;
+
+			} else { 
+				serviceFlag = false;
+			}
+        }
+
+		if(!serviceFlag) {
+			document.getElementById("liveMadal").remove();
+			document.getElementById("gotoLive").remove();
+		}
+    })
+    .catch(err => {
+        console.log(err);
+    })
+}
+
 // live 버튼 클릭 시 보였다 안보였다 하기
 const liveMadal = document.getElementById("liveMadal");
 const gotoLive = document.getElementById("gotoLive");
@@ -5,7 +48,6 @@ const gotoLive = document.getElementById("gotoLive");
 gotoLive.addEventListener("click", function () {
 	if (liveMadal.style.display = "none") {
 		liveMadal.style.display = "block";
-
 	}
 })
 
@@ -78,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
 				localStorage.removeItem("startTime");
 				timeEle.textContent = "";
 				/* startStopButton.textContent = "시작"; */
-				location.href = "/live/card/insert?rsNo=1";
+				location.href = "/live/card/insert?rsNo=" + rsNo;
 				// 이 주소는 라이브 카드 페이지로 변경하면 됩니다 !
 			}
 		}
