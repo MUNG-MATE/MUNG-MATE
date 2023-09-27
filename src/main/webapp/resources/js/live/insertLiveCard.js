@@ -3,6 +3,30 @@ const inputImage = document.getElementById("inputImage");
 const petImage = document.getElementById("petImage");
 let deleteCheck = -1;
 
+const startTime = document.getElementById("startTime");
+const endTime = document.getElementById("endTime");
+
+const localTime = localStorage.realTime.substring(0,2);
+
+startTime.innerText = guessAmPm(localTime) + " : " + localStorage.realTime.substring(5,7);
+endTime.innerText = guessAmPm(new Date().getHours()) + " : " + new Date().getMinutes();
+
+
+
+function guessAmPm(localTime) {
+    if(localTime > 12) {
+        localTime = localTime - 12;
+        if(localTime < 10) localTime = "0" + localTime;
+        localTime = "오후 " + localTime;
+
+    } else {
+        if(localTime < 10) localTime = "0" + localTime;
+        localTime = "오전 " + localTime;
+    }
+
+    return localTime;
+}
+
 inputImage.addEventListener("change", e => {
     const maxSize = 1 * 1024 * 1024 * 5; // 이미지 최대 크기 : 5MB
 

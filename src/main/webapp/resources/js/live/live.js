@@ -1,5 +1,6 @@
 let serviceFlag = false;
 let rsNo = 0;
+let reservation;
 
 if(lgMemberNo != '') {
 
@@ -27,6 +28,7 @@ if(lgMemberNo != '') {
 			
 			// 오늘이 예약 날짜/시간이면서 서비스 상태가 N인 경우
 			if(today >= rsDate && rs.serviceState == 'N') {
+				reservation = rs;
 				rsNo = rs.rsNo;
 				serviceFlag = true;
 				return;
@@ -135,7 +137,9 @@ document.addEventListener("DOMContentLoaded", function () {
 				localStorage.removeItem("startTime");
 				timeEle.textContent = "";
 				/* startStopButton.textContent = "시작"; */
-				location.href = "/live/card/insert?rsNo=" + rsNo;
+				location.href = "/live/card/insert?rsNo=" + rsNo +
+								"&memberNm=" + reservation.petSitterList[0].memberNm + 
+								"&profileImg=" + reservation.petSitterList[0].profileImage;
 				// 이 주소는 라이브 카드 페이지로 변경하면 됩니다 !
 			}
 		}
