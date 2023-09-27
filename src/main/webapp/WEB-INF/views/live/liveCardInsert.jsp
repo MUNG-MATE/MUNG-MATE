@@ -13,21 +13,21 @@
     <section id="liveCardSection">
         <div id="titleArea">
             <img src="/resources/images/myPage/khw.jpg" class="profile">
-            <span>강형욱 펫시터 님의 산책 LIVE 카드</span>
+            <span>${param.memberNm} 펫시터 님의 산책 LIVE 카드</span>
         </div>
         
         <div id="serviceName">
             <div>산책 시작</div>
-            <div>오후 03:00</div>
+            <div id="startTime">오후 03:00</div>
             <div>산책 종료</div>
-            <div>오후 03:32</div>
+            <div id="endTime">오후 03:32</div>
         </div>
         
         <form method="POST" action="insert?rsNo=${param.rsNo}" enctype="multipart/form-data" id="insertForm">
             <div id="liveCardContent">
                 <label id="imgLabel">
                     <input type="file" id="inputImage" name="inputImage" for="imageLabel"/>
-                    <img id="petImage" src="/resources/images/reservation/inputpetimage.png">
+                    <img id="petImage" src="${param.profileImage}">
                 </label>
                 <textarea id="inputContent" name="liveContent"></textarea>
                 <div id="btnArea">
@@ -50,7 +50,7 @@
                         <img src="/resources/images/myPage/khw.jpg" class="profile">
                     </div>
                     <div>
-                        <span>강형욱</span>
+                        <span>${param.memberNm}</span>
                     </div>
                 </div>
                 
@@ -91,7 +91,7 @@
                 <li class="opponentChat">
                     <img src="/resources/images/myPage/khw.jpg">
                     <div>
-                        <b>강형욱 펫시터</b> <br>
+                        <b>${param.memberNm} 펫시터</b> <br>
                         <p class="chat">알겠습니다 고갱님</p>
                         <span class="chatDate">09.04 16:01</span>
                     </div>
