@@ -155,6 +155,14 @@ function closeBtn() {
 	liveMadal.style.display = "none"
 }
 
+let sharedData = localStorage.getItem("startTime");
+
+if(sharedData){
+	console.log("공유된 데이터 : " , sharedData)
+}else{
+	console.log('공유된 데이터 없음')
+}
+
 // ------------------------------------------------------------------------------
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
