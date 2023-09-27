@@ -42,7 +42,6 @@ public class FAQServiceImpl implements FAQService {
 		administrator.setContent(Util.XSSHandling(administrator.getContent()));
 		administrator.setTitle(Util.XSSHandling(administrator.getTitle()));
 
-
 		return dao.faqInsert(administrator);
 	}
 
@@ -56,7 +55,6 @@ public class FAQServiceImpl implements FAQService {
 		administrator.setContent(Util.XSSHandling(administrator.getContent()));
 		administrator.setTitle(Util.XSSHandling(administrator.getTitle()));
 		
-
 		return dao.faqUpdate(administrator);
 	}
 
@@ -69,6 +67,9 @@ public class FAQServiceImpl implements FAQService {
 	}
 
 
+	/**
+	 * faq 게시글 목록 조회 (검색일 때)
+	 */
 	@Override
 	public Map<String, Object> selectSearchList(Map<String, Object> paramMap) {
 		

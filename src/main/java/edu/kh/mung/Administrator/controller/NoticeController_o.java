@@ -44,12 +44,22 @@ public class NoticeController_o {
 	}
 	
 	
+	/**공지사항 작성 페이지로 이동
+	 * @return
+	 */
 	@GetMapping("/noticeWrite/{boardCode}")
 	public String noticeWrite() {
 		return "/Administrator/noticeWrite";
 	}
 	
 	
+	/** 공지사항 작성
+	 * @param boardCode
+	 * @param administrator
+	 * @param loginMember
+	 * @param ra
+	 * @return
+	 */
 	@PostMapping("/noticeWrite/{boardCode}")
 	public String noticeWrite(@PathVariable(required = false) int boardCode
 							, Administrator administrator
