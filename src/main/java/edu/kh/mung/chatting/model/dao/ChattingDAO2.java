@@ -66,7 +66,6 @@ public class ChattingDAO2 {
 		
 		return sqlSession.selectList("chattingMapper2.chatList",memberNo);
 	}
-
 	
 
 }

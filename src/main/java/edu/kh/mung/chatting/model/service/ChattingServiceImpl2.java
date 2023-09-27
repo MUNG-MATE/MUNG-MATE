@@ -69,5 +69,5 @@ public class ChattingServiceImpl2 implements ChattingService2{
 	public List<ChattingRoom> chatList(int memberNo) {
 		return dao.chatList(memberNo);
 	}
-
+	
 }
