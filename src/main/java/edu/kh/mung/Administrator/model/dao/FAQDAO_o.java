@@ -71,7 +71,6 @@ public class FAQDAO_o {
 	 * @return
 	 */
 	public List<Administrator> selectSearchList(Map<String, Object> paramMap) {
-		System.out.println("검색어가 있을 때 컨트롤러");
 		return sqlSession.selectList("AdministratorMapper_o.selectSearchList", paramMap);
 	}
 	

@@ -96,7 +96,6 @@ public class FAQController_o {
 			model.addAttribute("map", map);
 
 		} else { // 검색어가 있을 때
-		System.out.println("검색어가 있을 때 컨트롤러");
 			paramMap.put("boardCode", boardCode);
 
 			 Map<String, Object> map = service.selectSearchList(paramMap);
