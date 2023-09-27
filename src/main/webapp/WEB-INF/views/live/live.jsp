@@ -10,11 +10,10 @@
     <title>MUNG MATE</title>
 </head>
 <body>
-    <div id="liveText">펫시팅 실시간 LIVE</div>
-    
-   <!--   <button type = "button" onclick = "runTime()">시작</button> -->
-    <button type = "button" onclick = "closeBtn()">닫기</button>
-
+    <div id="liveText">
+        펫시팅 실시간 LIVE
+        <button id="closeBtn" class="btncss" type="button" onclick = "closeBtn()">&times;</button>
+    </div>
 
     <!-- 지도 -->
     <section id="section">
@@ -51,7 +50,7 @@
 
                     </div>
 
-                    <div>
+                    <div id="displayBtn">
                         <!-- 시작 중지 토글 (스위치라고 생각하셈) -->
                         <button id="startStopButton"></button>
                     </div>
