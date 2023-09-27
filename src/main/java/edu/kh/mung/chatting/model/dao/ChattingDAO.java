@@ -65,7 +65,7 @@ public class ChattingDAO {
 	}
 	// 채팅 - 펫시터
 	public List<ChattingRoom> chattingList1(int memberNo) {
-		return sqlSession.selectList("chattingMapper.reservation1",memberNo);
+		return sqlSession.selectList("chattingMapper.chattingList1",memberNo);
 	}
 
 	public int checkChattingNo(Map<String, Integer> map) {

@@ -8,10 +8,8 @@ const chattingMember = document.getElementById("chattingStart").getAttribute("pe
 let petsitter = chattingPet;
 let member = chattingMember;
 
-let chatNo; // 선택한 채팅방 번호
-let selectTargetNo; // 현재 채팅 대상
-let selectTargetName; // 대상의 이름
-let selectTargetProfile; // 대상의 프로필
+
+
 
 
 // 채팅방 입장 또는 선택 함수
@@ -21,30 +19,28 @@ let selectTargetProfile; // 대상의 프로필
    li.addEventListener('click',chattingEnter);
    
    function chattingEnter(e){
-   
-   const targetNo = e.currentTarget.getAttribute("chattingStart");
 
-   fetch("/chatting/enter?targetNo="+chatNo)
+   fetch("/chatting/enter?"+`targetNo=${selectTargetNo}&chatNo=${chatNo}`)
    .then(resp => resp.text())
    .then(result => {
       alert("여기까지와라")
       console.log(result);
       
-      // setTimeout(()=>{ 
-      //    // 만약 채팅방 목록 중 이미 존재하는 채팅방이 있으면 클릭해서 입장
-      //    const itemList = document.querySelectorAll(".chatting-item")
-      //    for(let item of itemList) {      
-      //       if(item.getAttribute("chat-no") == chatNo){
-      //          item.focus();
-      //          item.click();
-      //          addTargetPopupLayer.classList.toggle("popup-layer-close");
-      //          targetInput.value = "";
-      //          resultArea.innerHTML = "";
-      //          return;
-      //       }
-      //    }
+     
+         // // 만약 채팅방 목록 중 이미 존재하는 채팅방이 있으면 클릭해서 입장
+         // const itemList = document.querySelectorAll(".chatting-item")
+         // for(let item of itemList) {      
+         //    if(item.getAttribute("chat-no") == chatNo){
+         //       item.focus();
+         //       item.click();
+         //       addTargetPopupLayer.classList.toggle("popup-layer-close");
+         //       targetInput.value = "";
+         //       resultArea.innerHTML = "";
+         //       return;
+         //    }
+         // }
 
-      // }, 200);
+     
 
       selectChattingFn();
 
