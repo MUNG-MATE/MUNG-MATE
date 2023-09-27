@@ -15,13 +15,15 @@
 <!-- 채팅 -->
         rere == ${reservation}
         <section class="chatting-content" id="right">
-        <button id="start" onclick="selectChattingFn()">버튼</button>
+        <button id="start">버튼</button>
         <div id="chattingBox">
             <div id="chattingInfo">
                 <h3 id="chattingStart">채팅시작</h3>
-                <img src="/resources/images/member/m.gif">
-                <span>문광민 펫시터</span>
-                <span>010-1234-1234</span>
+                <div id="div">
+                    <img src="/resources/images/member/m.gif">
+                    <span>문광민 펫시터</span>
+                    <span>010-1234-1234</span>
+                </div>
             </div>
             <ul id="display-chatting" class="display-chatting" >
                     <%-- notReadCount를 카톡처럼 1있다가 사라지게?! --%>

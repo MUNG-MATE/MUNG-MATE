@@ -30,5 +30,5 @@ public interface ChattingService2 {
 	
 	// 채팅 상대 조회 
 	List<Reservation> chattingTarget(Map<String, Object> map);
-
+	
 }

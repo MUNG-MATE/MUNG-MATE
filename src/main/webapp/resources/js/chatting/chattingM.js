@@ -16,37 +16,37 @@ let selectTargetProfile; // 대상의 프로필
 // 채팅방 입장 또는 선택 함수
 document.getElementById("start").addEventListener("click",e =>{
 
-   fetch("/chatting/target")
+   fetch("/chatting/target2")
    .then(resp => resp.json())
    .then(targetList =>{
 
       document.getElementById("chattingInfo").innerHTML = "";
 
       for(let target of targetList){
-         
          const h3 = document.createElement("h3");
          h3.setAttribute("id","chattingStart")
          h3.setAttribute("data-id",target.memberNo);
          h3.innerText="채팅시작";
 
-         const img = document.createElement("img");
-         img.setAttribute("data-id",target.memberNo);
+         // const img = document.createElement("img");
+         // img.setAttribute("data-id",target.memberNo);
 
-         if(target.profileImage == null) img.setAttribute("src", "/resources/images/user.png ")
-         else img.setAttribute("src",target.profileImage);
+         // if(target.profileImage == null) img.setAttribute("src", "/resources/images/user.png ")
+         // else img.setAttribute("src",target.profileImage);
 
-         const span1 = document.createElement("span");
-         const span2 = document.createElement("span");
+         // const span1 = document.createElement("span");
+         // const span2 = document.createElement("span");
          
-         span1.setAttribute("data-id",target.memberNo);
-         span2.setAttribute("data-id",target.memberNo);
+         // span1.setAttribute("data-id",target.memberNo);
+         // span2.setAttribute("data-id",target.memberNo);
 
-         span1.innerText = target.memberName+ "펫시터"
-         span2.innerText = target.memberTel;
+         // span1.innerText = target.memberName+ "펫시터"
+         // span2.innerText = target.memberTel;
 
-         document.getElementById("chattingInfo").append(h3,img,span1,span2);
+         // document.getElementById("chattingInfo").append(h3,img,span1,span2);
+         document.getElementById("chattingInfo").append(h3);
 
-         h3.addEventListener('click',chattingEnter);
+          h3.addEventListener('click',chattingEnter);
       }
    })
    .catch(err => console.log(err) );
@@ -56,14 +56,17 @@ document.getElementById("start").addEventListener("click",e =>{
 function chattingEnter(e){
    console.log(e.target)
    console.log(e.currentTarget);
+
    const targetNo = e.currentTarget.getAttribute("data-id");
 
-   fetch("/chatting/enter?targetNo="+targetNo)
+   fetch("/chatting/enter2?targetNo="+targetNo)
    .then(resp => resp.text())
    .then(chattingNo => {
       console.log(chattingNo);
       alert("여기까지와라")
       
+      selectRoomList();
+
       setTimeout(()=>{ 
          // 만약 채팅방 목록 중 이미 존재하는 채팅방이 있으면 클릭해서 입장
          const itemList = document.querySelectorAll(".chatting-item")
@@ -91,9 +94,11 @@ function selectRoomList(){
    .then(roomList => {
       console.log(roomList);
 
+      const div = document.createElement("div");
       // 채팅방 목록 지우기
-      chattingList.innerHTML = "";
-
+      const h3 = document.createElement("h3");
+      document.createElement("h3").innerText ="123213123"
+      document.getElementById("div").append(h3)
       // 조회한 채팅방 목록을 화면에 추가
       for(let room of roomList){
          const li = document.createElement("li");
@@ -159,7 +164,7 @@ function selectRoomList(){
             div.append(notReadCount);
          }else{
 
-            fetch("/chatting/updateReadFlag",{
+            fetch("/chatting/updateReadFlag2",{
                method : "PUT",
                headers : {"Content-Type": "application/json"},
                body : JSON.stringify({"chattingNo" : selectChattingNo, "memberNo" : loginMemberNo})
@@ -184,7 +189,7 @@ const display = document.getElementsByClassName("display-chatting")[0];
 
 // 비동기로 메세지 목록을 조회하는 함수
 function selectChattingFn() {
-   fetch("/chatting/selectMessage?" + `chatNo=${chatNo}&memberNo=${loginMemberNo}`)
+   fetch("/chatting/selectMessage2?" + `chatNo=${chatNo}&memberNo=${loginMemberNo}`)
       .then(resp => resp.json())
       .then(messageList => {
          // <ul class="display-chatting">

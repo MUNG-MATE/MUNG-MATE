@@ -54,6 +54,7 @@ public class ChattingController2 {
     @ResponseBody
     public int chattingEnter2(int targetNo, @SessionAttribute("loginMember") Member loginMember) {
     	
+    	System.out.println("enter=="+targetNo);
         Map<String, Integer> map = new HashMap<String, Integer>();
         
         map.put("targetNo", targetNo);
@@ -80,11 +81,16 @@ public class ChattingController2 {
 	// 채팅 읽음 표시
 	@PutMapping("/chatting/updateReadFlag2")
 	@ResponseBody public int updateReadFlag2(@RequestBody Map<String, Object> paramMap){ 
-		System.out.println("chatting22 == "+paramMap);
+	
 		return service.updateReadFlag(paramMap); 
-
 	}
 	
+	// 채팅방 목록 조회
+    @GetMapping(value="/chatting/petsitter", produces="application/json; charset=UTF-8")
+    @ResponseBody
+    public List<ChattingRoom> selectRoomList(@SessionAttribute("loginMember") Member loginMember) {
+       return service.chatList(loginMember.getMemberNo());
+    }
 	
 
 
