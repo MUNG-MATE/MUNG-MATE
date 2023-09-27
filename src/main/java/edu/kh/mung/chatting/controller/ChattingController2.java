@@ -35,7 +35,7 @@ public class ChattingController2 {
 		List<ChattingRoom> chatList = service.chatList(loginMember.getMemberNo());
 		model.addAttribute("cahtList",chatList);
 		
-		return "chatting/chatting";
+		return "chatting/chattingM";
 	}
 	
 	// 채팅 상대 조회
