@@ -1,7 +1,12 @@
 let serviceFlag = false;
 let rsNo = 0;
 
-if(lgMemberNo != null) {
+if(lgMemberNo != '') {
+
+	if(psFlag == 'Y') {
+		document.getElementById("startStopButton").style.display = 'block';
+	}
+
     fetch("/myPage/selectRsList?memberNo=" + lgMemberNo)
     .then(resp => resp.json())
     .then(rsList => {
@@ -39,6 +44,9 @@ if(lgMemberNo != null) {
     .catch(err => {
         console.log(err);
     })
+} else {
+	document.getElementById("liveMadal").remove();
+	document.getElementById("gotoLive").remove();
 }
 
 // live 버튼 클릭 시 보였다 안보였다 하기
@@ -48,6 +56,13 @@ const gotoLive = document.getElementById("gotoLive");
 gotoLive.addEventListener("click", function () {
 	if (liveMadal.style.display = "none") {
 		liveMadal.style.display = "block";
+		map.relayout();
+	}
+})
+
+window.addEventListener("keyup", e => {
+	if(e.key == "Escape" && liveMadal.style.display == "block") {
+		liveMadal.style.display = "none";
 	}
 })
 

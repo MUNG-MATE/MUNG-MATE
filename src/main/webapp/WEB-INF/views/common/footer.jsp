@@ -15,10 +15,7 @@
 					<p>일석2조</p> </a></li>
 		</ul> -->
 
-		<div class = "gotoLive" id = "gotoLive">
-			<img src = "/resources/images/강아지버튼.png" id = "gotoLive">
-			<h4>LIVE</h4>
-		</div>
+		<div class="gotoLive" id="gotoLive"><h4>LIVE</h4></div>
 
 		<div class="footer_wrap">
 			<div class="container">
@@ -51,13 +48,12 @@
 			</div>
 		</div>
 	</footer>
-
 	<!-- live 페이지 모달창 -->
 	<script>
 		const lgMemberNo = "${loginMember.memberNo}";
+		const psFlag = "${loginMember.petsitterFlag}";
 	</script>
 	<script src="/resources/js/common/footer.js"></script>
-	${rsList}
 	<div class="liveMadal" id="liveMadal">
 		<jsp:include page="/WEB-INF/views/live/live.jsp" />
 	</div>
