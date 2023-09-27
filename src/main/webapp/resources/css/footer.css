@@ -135,21 +135,30 @@ body{font-family:'Montserrat','pretendard';}
 	height: 100px;
 	cursor: pointer;
 	background: url("/resources/images/puppyButton.png") center center / 100% no-repeat;
+	transition: all ease 1s;
 }
 
 #gotoLive:hover {
-	animation: gotoLive 0.3s linear 1 both;
+	 animation: gotoLive 1s linear 1 both; 
+	 animation-iteration-count: infinite;
+	/* transform: rotate( 35deg ); */
 }
 
 @keyframes gotoLive {
-	0% {transform: translate(0);}
-	20% {transform: translate(-2px, 2px);}
-	40% {transform: translate(-2px, -2px);}
-	60% {transform: translate(2px, 2px);}
-	80% {transform: translate(2px, -2px);}
-	100% {transform: translate(0);}
-}
+	/* 0% {transform: translate(0);} */
+	/* 20% {transform: translate(-10px, 10px);} */
+	/* 30% {transform: translate(-10px, 10px);} */
+	 /*  40% {transform: translate(-10px, -10px);}  */
+	/* 60% {transform: translate(10px, 10px);}  */
+	/* 70% {transform: translate(10px, 10px);}  */
+	 /* 80% {transform: translate(2px, -2px);}  */
+	/* 100% {transform: translate(0);} */
 
+	0% { transform: translateX(0); }
+    50% { transform: translateX(-3px);} /* 왼쪽으로 10px 이동 */
+    100% { transform: translateX(3px);} /* 다시 오른쪽으로 10px 이동 */
+}
+ 
 .gotoLive{
 	color: red;
 	font-size: 25px;
@@ -162,6 +171,8 @@ body{font-family:'Montserrat','pretendard';}
 #gotoLive > h4 {
 	margin-top: 92px;
 }
+
+
 
 .liveMadal{
 	display: none;
