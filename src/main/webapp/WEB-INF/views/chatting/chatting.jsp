@@ -14,13 +14,13 @@
 
 <!-- 채팅 -->
 
-                          reservation == ${reservation}
-
+                          reservation == ${reservation} <br>
+                          chattingList == ${chattingList}
         <section class="chatting-content" id="right">
         <%-- <button onclick="selectChattingFn()">버튼</button> --%>
 
         <ul id="display-chatting" class="display-chatting" >
-            <li onclick="selectChattingFn()" id="chattingStart" petsitterNo="${reservation[0].petSitterNo}" memberNo="${reservation[0].memberNo}">채팅시작하기</li>
+            <li onclick="selectChattingFn()" id="chattingStart" >채팅시작하기</li>
             <%-- <li class="result-row" data-id="1">
                <img class="result-row-img" src="/resources/images/user.png">
                <span> <mark>유저</mark>일</span>
@@ -56,6 +56,16 @@
     <script>
         // 로그인한 회원 번호
         const loginMemberNo = "${loginMember.memberNo}";
+
+        let chatNo = "${reservation[0].rsNo}";
+
+        let selectTargetNo = "${chattingList[0].targetNo}";
+
+        let selectTargetProfile = "${chattingList[0].targetProfile}"; // 대상의 프로필
+
+        let selectTargetName = "${chattingList[0].targetNickName}"; // 대상의 이름
+
+
     </script>
     <script src="/resources/js/chatting/chatting.js"></script>
 </body>

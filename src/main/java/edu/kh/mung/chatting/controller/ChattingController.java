@@ -58,22 +58,25 @@ public class ChattingController {
 		int memberNo = loginMember.getMemberNo();
 		
 		
-		if(loginMember.getPetsitterFlag().equals("N")) {
+		if(loginMember.getPetsitterFlag().equals("N")) { // 일반회원일때 
 			
 			List<ChattingRoom> chattingList = service.chattingList(memberNo);
 			System.out.println("N=="+chattingList);
 			model.addAttribute("chattingList",chattingList);
-		}else {
+			List<Reservation> reservation = service.reservation(memberNo);
+			model.addAttribute("reservation",reservation);
+			return "chatting/chatting";
+		}else { //펫시터일때
 			List<ChattingRoom> chattingList = service.chattingList1(memberNo);
 			
 			System.out.println("Y=="+chattingList);
 		
 			model.addAttribute("chattingList",chattingList);
+			List<Reservation> reservation = service.reservation(memberNo);
+			model.addAttribute("reservation",reservation);
+			return "chatting/chatting";
 		}
 		
-		List<Reservation> reservation = service.reservation(memberNo);
-		model.addAttribute("reservation",reservation);
-		return "chatting/chatting";
 	}
 	
 	// 채팅방 메세지 조회
