@@ -15,7 +15,7 @@
 <!-- 채팅 -->
         rere == ${reservation}
         <section class="chatting-content" id="right">
-        <button id="start">버튼</button>
+        <button id="start">시작</button>
         <div id="chattingBox">
             <div id="chattingInfo">
                 <h3 id="chattingStart">채팅시작</h3>
