@@ -45,6 +45,7 @@ public class ChattingController2 {
     	
     	Map<String, Object> map = new HashMap<String, Object>();
     	map.put("memberNo", loginMember.getMemberNo());
+    	map.put("flag",loginMember.getPetsitterFlag());
     
     	return service.chattingTarget(map);
     }
@@ -66,7 +67,7 @@ public class ChattingController2 {
         	
         	result = service.createChattingRoom(map);
         }
-      
+        System.out.println("reulst == " + result);
         return result;
     }
 

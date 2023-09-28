@@ -19,7 +19,7 @@ document.getElementById("start").addEventListener("click",e =>{
    fetch("/chatting/target2")
    .then(resp => resp.json())
    .then(targetList =>{
-
+      alert("이유가뭐냐?")
       document.getElementById("chattingInfo").innerHTML = "";
 
       for(let target of targetList){
