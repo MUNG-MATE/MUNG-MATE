@@ -21,8 +21,9 @@
                 <h3 id="chattingStart">채팅시작</h3>
                 <div id="div">
                     <img src="/resources/images/member/m.gif">
-                    <span>문광민 펫시터</span>
-                    <span>010-1234-1234</span>
+                    <span>문광민</span>
+                    <p>마지막메세지<br><span>안녕하세요124214343214124214122142124324</span></p>
+                    <p>마지막대화시간<br><span>2023-09-28 15:00</span></p>
                 </div>
             </div>
             <ul id="display-chatting" class="display-chatting" >

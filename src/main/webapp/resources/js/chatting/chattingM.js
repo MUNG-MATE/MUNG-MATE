@@ -1,7 +1,3 @@
-// live.jsp 에서 시작버튼 누르면 onClick 해서 채팅방생성하는 함수 발동
-// 해당 펫시터와 해당고객 1대1 채팅방. (선생님꺼 targetNo 를 petsitterNo or 고객 memberNo 로하면 될듯)
-// so, 채팅상대목록(검색)은 필요 없음.
-
 const chattingPet = document.getElementById("chattingStart").getAttribute("petsitterNo");
 const chattingMember = document.getElementById("chattingStart").getAttribute("petsitterNo");
 
@@ -28,22 +24,6 @@ document.getElementById("start").addEventListener("click",e =>{
          h3.setAttribute("data-id",target.memberNo);
          h3.innerText="채팅시작";
 
-         // const img = document.createElement("img");
-         // img.setAttribute("data-id",target.memberNo);
-
-         // if(target.profileImage == null) img.setAttribute("src", "/resources/images/user.png ")
-         // else img.setAttribute("src",target.profileImage);
-
-         // const span1 = document.createElement("span");
-         // const span2 = document.createElement("span");
-         
-         // span1.setAttribute("data-id",target.memberNo);
-         // span2.setAttribute("data-id",target.memberNo);
-
-         // span1.innerText = target.memberName+ "펫시터"
-         // span2.innerText = target.memberTel;
-
-         // document.getElementById("chattingInfo").append(h3,img,span1,span2);
          document.getElementById("chattingInfo").append(h3);
 
           h3.addEventListener('click',chattingEnter);
@@ -54,9 +34,7 @@ document.getElementById("start").addEventListener("click",e =>{
 })
    
 function chattingEnter(e){
-   console.log(e.target)
-   console.log(e.currentTarget);
-
+  
    const targetNo = e.currentTarget.getAttribute("data-id");
 
    fetch("/chatting/enter2?targetNo="+targetNo)
@@ -65,98 +43,62 @@ function chattingEnter(e){
       console.log(chattingNo);
       alert("여기까지와라")
       
-      selectRoomList();
-
-      setTimeout(()=>{ 
-         // 만약 채팅방 목록 중 이미 존재하는 채팅방이 있으면 클릭해서 입장
-         const itemList = document.querySelectorAll(".chatting-item")
-         for(let item of itemList) {      
-            if(item.getAttribute("chat-no") == chattingNo){
-               item.focus();
-               item.click();
-               addTargetPopupLayer.classList.toggle("popup-layer-close");
-               targetInput.value = "";
-               resultArea.innerHTML = "";
-               return;
-            }
-         }
-
-      }, 200);
+      targets();
 
    })
    .catch(err => console.log(err));
 }
 
-function selectRoomList(){
+function targets(){
 
-   fetch("/chatting/petsitter")
+   fetch("/chatting/target")
    .then(resp => resp.json())
-   .then(roomList => {
-      console.log(roomList);
-
-      const div = document.createElement("div");
-      // 채팅방 목록 지우기
-      const h3 = document.createElement("h3");
-      document.createElement("h3").innerText ="123213123"
-      document.getElementById("div").append(h3)
-      // 조회한 채팅방 목록을 화면에 추가
-      for(let room of roomList){
-         const li = document.createElement("li");
-         li.classList.add("chatting-item");
-         li.setAttribute("chat-no", room.chattingNo);
-         li.setAttribute("target-no", room.targetNo);
-
-         if(room.chattingNo == selectChattingNo){
-            li.classList.add("select");
-         }
-
-         // item-header 부분
-         const itemHeader = document.createElement("div");
-         itemHeader.classList.add("item-header");
-
-         const listProfile = document.createElement("img");
-         listProfile.classList.add("list-profile");
-
-         if(room.targetProfile == undefined)   
-            listProfile.setAttribute("src", "/resources/images/user.png");
-         else                        
-            listProfile.setAttribute("src", room.targetProfile);
-
-         itemHeader.append(listProfile);
-
-         // item-body 부분
-         const itemBody = document.createElement("div");
-         itemBody.classList.add("item-body");
-
-         const p = document.createElement("p");
-
-         const targetName = document.createElement("span");
-         targetName.classList.add("target-name");
-         targetName.innerText = room.targetNickName;
-         
-         const recentSendTime = document.createElement("span");
-         recentSendTime.classList.add("recent-send-time");
-         recentSendTime.innerText = room.sendTime;
-         
-         
-         p.append(targetName, recentSendTime);
-         
-         
+   .then(target => {
+      console.log(target);
+      
+      for(let t of target){
          const div = document.createElement("div");
-         
-         const recentMessage = document.createElement("p");
-         recentMessage.classList.add("recent-message");
+         div.setAttribute("id","div")
+         div.setAttribute("chat-no", t.chatNo);
+         div.setAttribute("target-no", t.targetNo);
 
-         if(room.lastMessage != undefined){
-            recentMessage.innerHTML = room.lastMessage;
-         }
-         
-         div.append(recentMessage);
+         const img = document.createElement("img");
 
-         itemBody.append(p,div);
+         if(t.targetProfile == undefined)   
+            img.setAttribute("src", "/resources/images/member/user.png");
+         else                        
+            img.setAttribute("src", t.targetProfile);
+
+         const span1 =document.createElement("span");
+         span1.innerText= t.targetNickName
+         
+         const p1 = document.createElement("p");
+         p1.innerHTML="마지막메세지<br>"
+         
+         const span2 = document.createElement("span");
+
+         if(t.lastMessage != undefined){
+            span2.innerHTML = t.lastMessage;
+         }else span2.innerText = "메세지가 없습니다!"
+
+         p1.append(span2);
+
+         const p2 = document.createElement("p");
+         p2.innerHTML="마지막대화시간<br>"
+         
+         const span3 = document.createElement("span");
+         if(t.sendTime != undefined){
+            span3.innerHTML = t.sendTime;
+         }else span3.innerText = "-"         
+
+         p2.append(span3);
+         
+         div.append(img,span1,p1,p2)
+         
+         document.getElementById("chattingInfo").append(div);
 
          // 현재 채팅방을 보고있는게 아니고 읽지 않은 개수가 0개 이상인 경우 -> 읽지 않은 메세지 개수 출력
-         if(room.notReadCount > 0 && room.chattingNo != selectChattingNo ){
+         /* if(t.notReadCount > 0 && t.chattingNo != selectChattingNo ){
          // if(room.chattingNo != selectChattingNo ){
             const notReadCount = document.createElement("p");
             notReadCount.classList.add("not-read-count");
@@ -173,12 +115,9 @@ function selectRoomList(){
             .then(result => console.log(result))
             .catch(err => console.log(err));
 
-         }
-         li.append(itemHeader, itemBody);
-         chattingList.append(li);
+         } */
       }
 
-      roomListAddEvent();
    })
    .catch(err => console.log(err));
 }
@@ -356,9 +295,6 @@ chattingSock.onmessage = function (e) {
 
 // 문서 로딩 완료 후 수행할 기능
 document.addEventListener("DOMContentLoaded", () => {
-
-   /* // 채팅방 목록에 클릭 이벤트 추가
-   roomListAddEvent(); */
 
    // 보내기 버튼에 이벤트 추가
    send.addEventListener("click", sendMessage);

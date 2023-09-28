@@ -46,7 +46,7 @@ public class ChattingController2 {
     	Map<String, Object> map = new HashMap<String, Object>();
     	map.put("memberNo", loginMember.getMemberNo());
     	map.put("flag",loginMember.getPetsitterFlag());
-    
+    	System.out.println("map =="+map);
     	return service.chattingTarget(map);
     }
     
@@ -87,7 +87,7 @@ public class ChattingController2 {
 	}
 	
 	// 채팅방 목록 조회
-    @GetMapping(value="/chatting/petsitter", produces="application/json; charset=UTF-8")
+    @GetMapping(value="/chatting/target", produces="application/json; charset=UTF-8")
     @ResponseBody
     public List<ChattingRoom> selectRoomList(@SessionAttribute("loginMember") Member loginMember) {
        return service.chatList(loginMember.getMemberNo());
