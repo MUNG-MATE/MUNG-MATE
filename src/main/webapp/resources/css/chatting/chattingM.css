@@ -1,11 +1,12 @@
 
+*{margin: 0;padding: 0;}li {list-style: none;}
+
 #display-chatting {
     height: 500px;
     background-color: #fff;
     list-style: none;
     overflow: auto;
     border: 3px solid rgb(0, 30, 60);
-    margin: 0;
 }
 
 #input-area {
@@ -44,7 +45,6 @@
     
 }
 
-
 .chat {
     display: inline-block;
     border-radius: 5px;
@@ -53,9 +53,7 @@
     word-break: break-all;
     white-space: pre-wrap;
 }
-.target-chat {
-    margin-left: 15px;
-}
+
 .target-chat > img {
     width: 50px;
     height: 50px;
@@ -71,6 +69,7 @@
 .my-chat {
     text-align: right;
     margin-right: 15px;
+    margin-top: 10px;
 }
 
 .my-chat > p {
@@ -84,6 +83,7 @@
     text-align: left;
     display: flex;
     align-items: center;
+    margin-left: 15px;
 }
 
 .target-chat p {
@@ -91,13 +91,20 @@
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
-li {
-    list-style: none;
-}
 #chattingBox{
     width: 1000px;
     height: 700px;
     margin: 0 auto;
+}
+#chattingInfo{
+    width: 994px;
+    height: 70px;
+    display: flex;
+    background-color: beige;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+    border-top: 3px solid black;
+    text-align: center;
 }
 #chattingStart{
     width: 200px;
@@ -110,36 +117,41 @@ li {
     cursor: pointer;
     margin: 0;
 }
-#chattingInfo{
-    width: 994px;
-    height: 70px;
-    display: flex;
-    background-color: beige;
-    border-left: 3px solid black;
-    border-right: 3px solid black;
-    border-top: 3px solid black;
-    text-align: center;
-}
-#chattingInfo img{
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: 2px solid black;
-}
-#chattingInfo span:nth-of-type(1){
-    margin: 0 30px;
-    font-size: 22px;
-    font-weight: bold;
-    width: 150px;
-}
-#chattingInfo span:nth-of-type(2){
-    font-size: 18px;
-    font-weight: bold;
-    width: 150px;
-}
 #div{
     width: 800px;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+}
+#div img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid black;
+    margin-left: 15px;
+}
+#div>span{
+    margin: 0 30px;
+    font-size: 22px;
+    font-weight: bold;
+    width: 150px;
+}
+#div p> span{
+    display: inline-block;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 170px;
+}
+#div p:nth-of-type(1){
+    font-size: 20px;
+    font-weight: bold;
+    width: 220px;
+}
+#div p:nth-of-type(2){
+    font-size: 20px;
+    font-weight: bold;
+    width: 180px;
 }
