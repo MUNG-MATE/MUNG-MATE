@@ -59,7 +59,6 @@
     <script>
         // 로그인한 회원 번호
         const loginMemberNo = "${loginMember.memberNo}";
-        const chatNo = "${reservation[0].rsNo}";
     </script>
     <script src="/resources/js/chatting/chattingM.js"></script>
 </body>
