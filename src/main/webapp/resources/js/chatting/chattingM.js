@@ -4,10 +4,10 @@ const chattingMember = document.getElementById("chattingStart").getAttribute("pe
 let petsitter = chattingPet;
 let member = chattingMember;
 
-let selectChattingNo; // 선택한 채팅방 번호
-let selectTargetNo; // 현재 채팅 대상
-let selectTargetName; // 대상의 이름
-let selectTargetProfile; // 대상의 프로필
+let chatNo; // 선택한 채팅방 번호
+let targetNo; // 현재 채팅 대상
+let targetName; // 대상의 이름
+let targetProfile; // 대상의 프로필
 
 // 채팅방 입장 또는 선택 함수
 document.getElementById("start").addEventListener("click",e =>{
@@ -15,7 +15,6 @@ document.getElementById("start").addEventListener("click",e =>{
    fetch("/chatting/target2")
    .then(resp => resp.json())
    .then(targetList =>{
-      alert("이유가뭐냐?")
       document.getElementById("chattingInfo").innerHTML = "";
 
       for(let target of targetList){
@@ -97,6 +96,12 @@ function targets(){
          
          document.getElementById("chattingInfo").append(div);
 
+         chatNo = t.chatNo;
+         targetNo = t.targetNo;
+         targetName = t.targetNickName;
+         targetProfile = t.targetProfile;
+
+         selectChattingFn();
          // 현재 채팅방을 보고있는게 아니고 읽지 않은 개수가 0개 이상인 경우 -> 읽지 않은 메세지 개수 출력
          /* if(t.notReadCount > 0 && t.chattingNo != selectChattingNo ){
          // if(room.chattingNo != selectChattingNo ){
@@ -162,13 +167,14 @@ function selectChattingFn() {
                // 상대 프로필
                // <img src="/resources/images/user.png">
                const img = document.createElement("img");
-               img.setAttribute("src", selectTargetProfile);
+               if(targetProfile == null) img.setAttribute("src", "/resources/images/member/user.png");
+               else img.setAttribute("src", targetProfile);
 
                const div = document.createElement("div");
 
                // 상대 이름
                const b = document.createElement("b");
-               b.innerText = selectTargetName; // 전역변수
+               b.innerText = targetName; // 전역변수
 
                const br = document.createElement("br");
 
@@ -210,7 +216,7 @@ const sendMessage = () => {
    } else {
       var obj = {
          "senderNo": loginMemberNo,
-         "targetNo": 2,
+         "targetNo": targetNo,
          "chatNo" : chatNo,
          "messageContent": inputChatting.value,
       };
@@ -271,13 +277,15 @@ chattingSock.onmessage = function (e) {
          // 상대 프로필
          // <img src="/resources/images/user.png">
          const img = document.createElement("img");
-         img.setAttribute("src", selectTargetProfile);
+         if(targetProfile == null) img.setAttribute("src", "/resources/images/member/user.png");
+         else img.setAttribute("src", targetProfile);
+         
 
          const div = document.createElement("div");
 
          // 상대 이름
          const b = document.createElement("b");
-         b.innerText = selectTargetName; // 전역변수
+         b.innerText = targetName; // 전역변수
 
          const br = document.createElement("br");
 
@@ -288,8 +296,6 @@ chattingSock.onmessage = function (e) {
 
       ul.append(li)
       display.scrollTop = display.scrollHeight; // 스크롤 제일 밑으로
-
-
 
 }
 
