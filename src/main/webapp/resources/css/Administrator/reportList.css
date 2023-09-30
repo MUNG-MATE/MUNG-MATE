@@ -7,7 +7,7 @@ table{border-collapse: collapse;}
 main{
     width: 1100px;
     height: auto;
-    margin: 75px auto 180px;
+    margin: 75px auto 100px;
 }
 section:nth-of-type(1)::after{
     content: "";
