@@ -25,6 +25,9 @@
 		<result property="serviceTime" column="SERVICE_TIME" />
 		<result property="serviceSt" column="SERVICE_ST" />
 		<result property="petsitterNo" column="PETSITTER_NO" />
+		<result property="reportContent" column="REPORT_CONTENT" />
+		<result property="reportDate" column="REPORT_DATE" />
+		<result property="reportNo" column="REPORT_NO" />
 	</resultMap>
 	
 	<resultMap type="PetSitter" id="petSitter_rm">
@@ -293,7 +296,7 @@
 		WHERE RS_DATE BETWEEN TO_DATE('2023-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS') AND TO_DATE('2023-12-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS')
 	</select>
 	
-	<!-- 펫시터 신고 목록-->
+	<!-- 신고 펫시터 목록-->
 	<select id="declarationList" resultMap="member_rm">
 		SELECT MEMBER_NM,MEMBER_NO,PETSITTER_NO FROM MEMBER
 		JOIN PETSITTER USING(MEMBER_NO)
@@ -301,7 +304,7 @@
 		WHERE PETSITTER_NO IN (SELECT PETSITTER_NO FROM RESERVATION
 		WHERE MEMBER_NO = #{memberNo} AND SERVICE_ST = 'Y'))
 	</select>
-	<!-- 펫시터 신고 정보 목록-->
+	<!-- 신고 펫시터 정보 목록-->
 	<select id="declarationPetsitter" resultMap="member_rm">
 		SELECT M.MEMBER_NO,MEMBER_NM,RS_DATE,RS_START_DATE,MEMBER_TEL,SERVICE_TIME,SERVICE_PRICE,PROFILE_IMG,P.PETSITTER_NO FROM MEMBER M
         JOIN PETSITTER P ON P.MEMBER_NO = M.MEMBER_NO
@@ -311,10 +314,21 @@
                 WHERE MEMBER_NO = (SELECT MEMBER_NO FROM PETSITTER
                                     WHERE PETSITTER_NO =#{petsitterNo}))
 	</select>
-	
 	<!-- 신고삽입  -->
 	<insert id="declarationInsert">
-		INSERT INTO REPORT VALUES (${memberNo}, ${pet}, #{singo},DEFAULT)
+		<selectKey keyProperty="reportNo" order="BEFORE"
+			resultType="_int">
+			SELECT SEQ_REPORT_NO.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO REPORT VALUES (#{reportNo},${memberNo}, ${pet}, #{singo},DEFAULT)
 	</insert>
+	<!-- 신고목록관리-->
+	<select id="reportList" resultMap="member_rm">
+		SELECT REPORT_NO,M.MEMBER_NM,R.MEMBER_NO,PETSITTER_NO,REPORT_DATE,REPORT_CONTENT FROM REPORT R
+		LEFT JOIN MEMBER M ON R.MEMBER_NO = M.MEMBER_NO
+	</select>
+	<select id="reportCount" resultType="_int">
+		SELECT COUNT(*) FROM REPORT
+	</select>
 		
 </mapper>

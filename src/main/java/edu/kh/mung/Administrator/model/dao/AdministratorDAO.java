@@ -179,6 +179,21 @@ public class AdministratorDAO {
 		
 		return sqlSession.insert("AdministratorMapper.declarationInsert",map);
 	}
+	// 신고관리
+	public List<Member> reportList(Pagination pagination) {
+		
+		int offset
+		=(pagination.getCurrentPage() -1) * pagination.getLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset,pagination.getLimit());
+		
+		return sqlSession.selectList("AdministratorMapper.reportList",null,rowBounds);
+	}
+	// 신고갯수
+	public int reportCount() {
+		
+		return sqlSession.selectOne("AdministratorMapper.reportCount");
+	}
 	
 	
 	

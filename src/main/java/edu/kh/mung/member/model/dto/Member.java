@@ -37,6 +37,9 @@ public class Member {
 	private String serviceTime;
 	private String serviceSt;
 	private int petsitterNo;
+	private String reportContent;
+	private Date reportDate;
+	private int reportNo;
 	
 	
 
