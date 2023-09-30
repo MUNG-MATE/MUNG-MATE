@@ -55,7 +55,6 @@ public class ChattingController2 {
     @ResponseBody
     public int chattingEnter2(int targetNo, @SessionAttribute("loginMember") Member loginMember) {
     	
-    	System.out.println("enter=="+targetNo);
         Map<String, Integer> map = new HashMap<String, Integer>();
         
         map.put("targetNo", targetNo);
@@ -67,7 +66,6 @@ public class ChattingController2 {
         	
         	result = service.createChattingRoom(map);
         }
-        System.out.println("reulst == " + result);
         return result;
     }
 
