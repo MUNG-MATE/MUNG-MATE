@@ -177,11 +177,30 @@ public class AdministratorServiceImpl implements AdministratorService{
 		
 		return dao.declarationPesitter(petsitterNo);
 	}
-
+	
+	// 펫시터 신고삽입
 	@Override
 	public int declarationInsert(Map<String, Object> map) {
 		
 		return dao.declarationInsert(map);
+	}
+	
+	// 신고관리목록 조회
+	@Override
+	public Map<String, Object> reportList(int cp) {
+		
+		int reportCount = dao.reportCount();
+		
+		Pagination pagination = new Pagination(cp,reportCount);
+		
+		List<Member> reportList = dao.reportList(pagination);
+
+		Map<String, Object> map = new HashMap<>();
+		
+		map.put("pagination", pagination);
+		map.put("reportList",reportList);
+
+		return map;
 	}
 
 

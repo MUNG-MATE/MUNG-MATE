@@ -112,10 +112,16 @@ public class AdministratorController_m {
 		ra.addFlashAttribute("message",message);
 		return path; 
 	}
-	@GetMapping("/declarationList")
-	public String declarationList(Model model) {
+	
+	// 신고관리목록 조회
+	@GetMapping("/reportList")
+	public String declarationList(@RequestParam(value="cp", required = false, defaultValue = "1") int cp,Model model) {
 		
-		return "Administrator/declarationList";
+		Map<String,Object> map = service.reportList(cp);
+		
+		model.addAttribute("map",map);
+		
+		return "Administrator/reportList";
 	}
 
 }

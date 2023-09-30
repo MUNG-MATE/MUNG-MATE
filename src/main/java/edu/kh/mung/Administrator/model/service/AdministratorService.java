@@ -37,5 +37,8 @@ public interface AdministratorService {
 	
 	// 펫시터 신고삽입
 	int declarationInsert(Map<String, Object> map);
+	
+	// 신고관리목록 조회
+	Map<String, Object> reportList(int cp);
 
 }

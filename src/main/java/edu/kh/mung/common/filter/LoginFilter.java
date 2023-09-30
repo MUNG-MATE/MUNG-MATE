@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import edu.kh.mung.member.model.dto.Member;
 
-@WebFilter(filterName = "loginFilter", urlPatterns = {"/reservation/*"})
+@WebFilter(filterName = "loginFilter", urlPatterns = {"/reservation/*","/chatting/chatting2"})
 
 public class LoginFilter implements Filter {
 
