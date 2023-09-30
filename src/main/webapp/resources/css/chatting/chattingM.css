@@ -2,6 +2,7 @@
 *{margin: 0;padding: 0;}li {list-style: none;}
 
 #display-chatting {
+    width: 994px;
     height: 500px;
     background-color: #fff;
     list-style: none;
@@ -108,7 +109,7 @@
     text-align: center;
 }
 #chattingStart{
-    width: 200px;
+    width: 110px;
     height: 100%;
     line-height: 70px;
     text-align: center;
@@ -118,8 +119,21 @@
     cursor: pointer;
     margin: 0;
 }
+#lastMessage{
+    width: 170px;
+    border-left: 1px solid #999;
+    height: 100%;
+    line-height: 70px;
+    text-align: center;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    margin: 0;
+}
+
 #div{
-    width: 800px;
+    width: 715px;
     display: flex;
     align-items: center;
     justify-content: center;

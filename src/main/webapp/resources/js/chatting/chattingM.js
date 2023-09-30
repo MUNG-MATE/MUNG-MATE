@@ -1,8 +1,8 @@
-const chattingPet = document.getElementById("chattingStart").getAttribute("petsitterNo");
+/* const chattingPet = document.getElementById("chattingStart").getAttribute("petsitterNo");
 const chattingMember = document.getElementById("chattingStart").getAttribute("petsitterNo");
 
 let petsitter = chattingPet;
-let member = chattingMember;
+let member = chattingMember; */
 
 let chatNo; // 선택한 채팅방 번호
 let targetNo; // 현재 채팅 대상
@@ -19,13 +19,18 @@ document.getElementById("start").addEventListener("click",e =>{
 
       for(let target of targetList){
          const h3 = document.createElement("h3");
+         const h31 = document.createElement("h3");
          h3.setAttribute("id","chattingStart")
          h3.setAttribute("data-id",target.memberNo);
          h3.innerText="채팅시작";
+         h31.setAttribute("id","lastMessage")
+         h31.innerText="전체 메세지보기";
 
-         document.getElementById("chattingInfo").append(h3);
+         
 
-          h3.addEventListener('click',chattingEnter);
+         document.getElementById("chattingInfo").append(h3,h31);
+
+         h3.addEventListener('click',chattingEnter);
       }
    })
    .catch(err => console.log(err) );
@@ -38,11 +43,11 @@ function chattingEnter(e){
 
    fetch("/chatting/enter2?targetNo="+targetNo)
    .then(resp => resp.text())
-   .then(chattingNo => {
-      console.log(chattingNo);
-      alert("여기까지와라")
+   .then(chatNo => {
       
       targets();
+      document.getElementById("chattingStart").removeEventListener("click",chattingEnter);
+      document.getElementById("chattingStart").style.cursor="default";
 
    })
    .catch(err => console.log(err));
@@ -101,7 +106,9 @@ function targets(){
          targetName = t.targetNickName;
          targetProfile = t.targetProfile;
 
-         selectChattingFn();
+         document.getElementById("lastMessage").addEventListener("click", ()=>{
+            selectChattingFn();
+         })
          // 현재 채팅방을 보고있는게 아니고 읽지 않은 개수가 0개 이상인 경우 -> 읽지 않은 메세지 개수 출력
          /* if(t.notReadCount > 0 && t.chattingNo != selectChattingNo ){
          // if(room.chattingNo != selectChattingNo ){

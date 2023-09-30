@@ -13,12 +13,12 @@
    <%-- live.jsp 의 시작버튼 누르면 비동기로 채팅창! --%>
 
 <!-- 채팅 -->
-        rere == ${reservation}
         <section class="chatting-content" id="right">
         <button id="start">시작</button>
         <div id="chattingBox">
             <div id="chattingInfo">
                 <h3 id="chattingStart">채팅시작</h3>
+                <h3 id="lastMessage">전체 메세지보기</h3>
                 <div id="div">
                     <img src="/resources/images/member/m.gif">
                     <span>문광민</span>
@@ -60,6 +60,7 @@
         // 로그인한 회원 번호
         const loginMemberNo = "${loginMember.memberNo}";
     </script>
-    <script src="/resources/js/chatting/chattingM.js"></script>
+   <script src="/resources/js/Administrator/code.jquery.com_jquery-3.7.1.min.js"></script>
+   <script src="/resources/js/chatting/chattingM.js"></script>
 </body>
 </html>
