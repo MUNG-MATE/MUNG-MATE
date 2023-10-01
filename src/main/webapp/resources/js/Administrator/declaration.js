@@ -66,16 +66,18 @@ function textValidate(){
 
     const textarea = document.getElementById("singo");
 
+    let flag = false;
+
     if(petNo == 0){
         alert("신고할 펫시터를 선택해주세요.")
-        return false;
+        return flag;
     }
 
     if( textarea.value.trim().length <= 20) {
         textarea.value="";
         textarea.focus();
         alert("신고하는이유를 상세하게 써주세요!!")
-        return false;
+        return flag;
     }
     const obj = {"memberNo" : loginMemberNo ,"petNo": petNo}
 
@@ -86,10 +88,16 @@ function textValidate(){
     })
     .then(resp=>resp.text())
     .then(result => {
-        alert("redsd")
+        
+        if(result>0){
+            alert("이미신고완료된 펫시터입니다.")
+            location.href =location;
+        }else{
+            flag=true;
+        }   
     })
 
-    return false;
+    return flag;
 }
 
 

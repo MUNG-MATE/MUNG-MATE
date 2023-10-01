@@ -42,6 +42,6 @@ public interface AdministratorService {
 	Map<String, Object> reportList(int cp);
 	
 	// 신고 체크
-	int check(Map<Integer, Object> obj);
+	int check(Map<String, Object> obj);
 
 }

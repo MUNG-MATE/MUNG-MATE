@@ -27,7 +27,7 @@
             </div>
         </div>
         <div id="petsitterInfo" class="pet-sitter">
-            <div class="pet-sitterimg">
+            <%-- <div class="pet-sitterimg">
                 <img src="/resources/images/member/m.gif">
             </div>
             <div id="pet-sitter-info" class="pet-sitter-info">
@@ -37,7 +37,7 @@
                     <li>이용시간 : 00시간</li>
                     <li>이용요금 : 000.000원</li>
                 </ul>
-            </div>
+            </div> --%>
         </div>
             <textarea name="singo" id="singo" cols="30" rows="10" 
             placeholder="신고하는 이유를 상세하게 적어주세요..&#10;빠른조치후 연락드리겠습니다!"></textarea>

@@ -39,6 +39,8 @@
   		<result property="memberNo" column="MEMBER_NO" />
   		<result property="memberTel" column="MEMBER_TEL" />
   		<result property="memberEmail" column="MEMBER_EMAIL" />
+  		<result property="memberAddress" column="MEMBER_Address" />
+  		<result property="enrollDate" column="ENROLL_DATE" />
   		<result property="profileImg" column="PROFIlE_IMG" />
   		<result property="memberNm" column="MEMBER_NM" />
   	</resultMap>
@@ -161,9 +163,10 @@
 	</select>
 	
 	<select id="petsitterList" resultMap="petSitter_rm">
-		SELECT PETSITTER_NO,LOCATION,PET_CAREER,MEMBER_NO ,PROFILE_IMG,MEMBER_NM,SYSDATE
-		FROM PETSITTER
-		JOIN "MEMBER" USING(MEMBER_NO)
+		SELECT LOCATION,P.MEMBER_NO ,PROFILE_IMG,MEMBER_NM,MEMBER_EMAIL,MEMBER_TEL,
+		SUBSTR(MEMBER_ADDRESS,INSTR(MEMBER_ADDRESS, '^^^') + 3,INSTR(MEMBER_ADDRESS, '^^^', 1, 2) - INSTR(MEMBER_ADDRESS, '^^^') - 3) AS MEMBER_ADDRESS,ENROLL_DATE
+		FROM PETSITTER P
+        LEFT JOIN MEMBER M ON P.MEMBER_NO = M.MEMBER_NO
 		WHERE MEMBER_PETSITTER = 'Y'
 	</select>
 	
@@ -316,8 +319,7 @@
 	</select>
 	<!-- 신고삽입  -->
 	<insert id="declarationInsert">
-		<selectKey keyProperty="reportNo" order="BEFORE"
-			resultType="_int">
+		<selectKey keyProperty="reportNo" order="BEFORE" resultType="_int">
 			SELECT SEQ_REPORT_NO.NEXTVAL FROM DUAL
 		</selectKey>
 		INSERT INTO REPORT VALUES (#{reportNo},${memberNo}, ${pet}, #{singo},DEFAULT)
@@ -326,6 +328,7 @@
 	<select id="reportList" resultMap="member_rm">
 		SELECT REPORT_NO,M.MEMBER_NM,R.MEMBER_NO,PETSITTER_NO,REPORT_DATE,REPORT_CONTENT FROM REPORT R
 		LEFT JOIN MEMBER M ON R.MEMBER_NO = M.MEMBER_NO
+		ORDER BY REPORT_DATE DESC
 	</select>
 	<!-- 신고갯수조회 -->
 	<select id="reportCount" resultType="_int">
@@ -333,8 +336,8 @@
 	</select>
 	
 	<select id="check" resultType="_int">
-	
-	
+		SELECT COUNT(*) FROM REPORT
+		WHERE MEMBER_NO =#{memberNo} AND PETSITTER_NO =#{petNo}
 	</select>
 		
 </mapper>

@@ -50,9 +50,8 @@ public class AjaxController {
 	}
 	
 	// 신고체크
-	@PostMapping("/Administrator/declaration/check")
-	public int check(@RequestBody Map<Integer, Object> obj) {
-		System.out.println("obj=="+obj);
+	@PostMapping(value="/Administrator/declaration/check", produces="application/json; charset=UTF-8" )
+	public int check(@RequestBody Map<String, Object> obj) {
 		return service.check(obj);
 	}
 
