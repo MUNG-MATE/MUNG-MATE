@@ -196,7 +196,7 @@ public class AdministratorDAO {
 	}
 	// 신고 체크
 	
-	public int check(Map<Integer, Object> obj) {
+	public int check(Map<String, Object> obj) {
 		return sqlSession.selectOne("AdministratorMapper.check",obj);
 	}
 	
