@@ -35,23 +35,23 @@
                     <td class="sysdate"></td>
                 </tr>
                 <tr>
-                    <th>처리된 예약</th>
-                    <td>000건</td>
+                    <th>아이디</th>
+                    <td>${petManagement.memberEmail}</td>
                     <td class="sysdate"></td>
                 </tr>
                 <tr>
-                    <th>추후 예약</th>
-                    <td>000건</td>
+                    <th>전화번호</th>
+                    <td>${petManagement.memberTel}</td>
                     <td class="sysdate"></td>
                 </tr>
                 <tr>
-                    <th>신고</th>
-                    <td>000건</td>
+                    <th>주소</th>
+                    <td>${petManagement.memberAddress}</td>
                     <td class="sysdate"></td>
                 </tr>
                 <tr>
-                    <th><span>♥</span> 좋아요</th>
-                    <td><span>♥</span> 10</td>
+                    <th>회원가입일</th>
+                    <td>${petManagement.enrollDate}</td>
                     <td class="sysdate"></td>
                 </tr>
             </table>
