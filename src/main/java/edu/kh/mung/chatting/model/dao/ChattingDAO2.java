@@ -22,9 +22,9 @@ public class ChattingDAO2 {
 	 * @param msg
 	 * @return
 	 */
-	public int insertMessage(Message msg) {
+	public int insertMessage2(Message msg) {
 		
-		return sqlSession.insert("chattingMapper2.insertMessage", msg);
+		return sqlSession.insert("chattingMapper2.insertMessage2", msg);
 	}
 	
 	/** 메세지 목록 0

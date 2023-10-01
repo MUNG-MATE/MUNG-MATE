@@ -327,8 +327,14 @@
 		SELECT REPORT_NO,M.MEMBER_NM,R.MEMBER_NO,PETSITTER_NO,REPORT_DATE,REPORT_CONTENT FROM REPORT R
 		LEFT JOIN MEMBER M ON R.MEMBER_NO = M.MEMBER_NO
 	</select>
+	<!-- 신고갯수조회 -->
 	<select id="reportCount" resultType="_int">
 		SELECT COUNT(*) FROM REPORT
+	</select>
+	
+	<select id="check" resultType="_int">
+	
+	
 	</select>
 		
 </mapper>

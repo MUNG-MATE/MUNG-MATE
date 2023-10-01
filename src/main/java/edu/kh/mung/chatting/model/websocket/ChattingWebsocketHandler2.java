@@ -18,9 +18,10 @@ import com.google.gson.Gson;
 
 import edu.kh.mung.chatting.model.dto.Message;
 import edu.kh.mung.chatting.model.service.ChattingService;
+import edu.kh.mung.chatting.model.service.ChattingService2;
 import edu.kh.mung.member.model.dto.Member;
 
-public class ChattingWebsocketHandler extends TextWebSocketHandler{
+public class ChattingWebsocketHandler2 extends TextWebSocketHandler{
 
 	// 주요 메소드 4가지
 	
@@ -33,7 +34,7 @@ public class ChattingWebsocketHandler extends TextWebSocketHandler{
 	// handleTransportError (WebSocketSession session,Throwable exception) : 연결된 클라이언트에서 예외 발생 시 실행
 	
 	@Autowired
-	private ChattingService service;
+	private ChattingService2 service;
 	
     private Set<WebSocketSession> sessions  = Collections.synchronizedSet(new HashSet<WebSocketSession>());
 	
@@ -62,7 +63,7 @@ public class ChattingWebsocketHandler extends TextWebSocketHandler{
         System.out.println("이미친놈아 메세지뭔데?"+msg); 
         
         // DB 삽입 서비스 호출
-        int result = service.insertMessage(msg);
+        int result = service.insertMessage2(msg);
         System.out.println("result=="+result);
         if(result > 0 ) {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd hh:mm");
