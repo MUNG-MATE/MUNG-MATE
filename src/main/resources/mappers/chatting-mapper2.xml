@@ -20,7 +20,6 @@
       <result property="readFlag" column="READ_FL" />
       <result property="senderNo" column="SENDER_NO" />
       <result property="chatNo" column="CHAT_NO" />
-      <result property="targetNo" column="TARGET_NO" />
       <result property="sendTime" column="SEND_TIME" />
    </resultMap>
    
@@ -48,28 +47,6 @@
 		<result property="petsitterNo" column="PETSITTER_NO" />
 	</resultMap>
 
-	<resultMap type="PetSitter" id="PetSitter_rm">
-		<id property="petSitterNo" column="PETSITTER_NO" />
-		<result property="location" column="LOCATION" />
-		<result property="career" column="CAREER" />
-		<result property="memberNo" column="MEMBER_NO" />
-		<result property="memberEmail" column="MEMBER_EMAIL" />
-		<result property="memberTel" column="MEMBER_TEL" />
-		<result property="profileImg" column="PROFILE_IMG" />
-		<result property="memberNm" column="MEMBER_NM" />
-	</resultMap>
-
-	<resultMap type="Reservation" id="Reservation_rm">
-		<id property="rsNo" column="RS_NO" />
-
-		<result property="rsDate" column="RS_DATE" />
-		<result property="rsStartDate" column="RS_START_TIME" />
-		<result property="petSitterNo" column="PETSITTER_NO" />
-		<result property="memberNo" column="MEMBER_NO" />
-		<result property="serviceType" column="SERVICE_TYPE" />
-		<result property="serviceTime" column="SERVICE_TIME" />
-		<result property="servicePrice" column="SERVICE_PRICE" />
-	</resultMap>
 
 	<select id="chatList" resultMap="chattingRoom_rm">
 	SELECT CHAT_NO
@@ -80,7 +57,7 @@
             WHERE ROWNUM = 1) LAST_MESSAGE
          ,TO_CHAR(NVL((SELECT MAX(SEND_TIME) SEND_TIME 
                FROM CHATTING_MESSAGE M
-               WHERE R.CHAT_NO  = M.CHAT_NO), CHAT_CREATE_DATE), 
+               WHERE R.CHAT_NO  = M.CHAT_NO), ''), 
                'MM"월"DD"일"HH24"시"MI"분"') SEND_TIME
          ,NVL2((SELECT OPEN_MEMBER FROM CHATTING_ROOM R2
             WHERE R2.CHAT_NO = R.CHAT_NO
@@ -123,22 +100,24 @@
       	AND SENDER_NO != #{memberNo}
 	</update>
 
-	<!-- 채팅 메세지 삽입 -->
-	<insert id="insertMessage">
-		INSERT INTO CHATTING_MESSAGE
-	    VALUES(SEQ_MESSAGE_NO.NEXTVAL,#{messageContent}, #{senderNo},SYSDATE,DEFAULT,#{chatNo})
-	</insert> 
-	
 	<!-- 채팅방생성 -->
 	<insert id="createChattingRoom" parameterType="map" useGeneratedKeys="true">
-	  <selectKey keyProperty="chatNo" order="BEFORE" resultType="_int">
+	
+	  <selectKey keyProperty="chat" order="BEFORE" resultType="_int">
          SELECT SEQ_CHATTING_ROOM_NO.NEXTVAL FROM DUAL
       </selectKey>
    
       INSERT INTO CHATTING_ROOM
-      VALUES(#{chatNo}, DEFAULT, #{memberNo}, #{targetNo})
+      VALUES(#{chat}, DEFAULT, #{memberNo}, #{targetNo})
 	
 	</insert>
+	
+	<!-- 채팅 메세지 삽입 -->
+	<insert id="insertMessage2">
+		INSERT INTO CHATTING_MESSAGE
+	    VALUES(SEQ_MESSAGE_NO.NEXTVAL,#{messageContent}, ${senderNo},SYSDATE,DEFAULT,${chatNo})
+	</insert> 
+	
 	
 	 <!-- 채팅 확인 -->
    	 <select id="checkChattingNo" resultType="_int">

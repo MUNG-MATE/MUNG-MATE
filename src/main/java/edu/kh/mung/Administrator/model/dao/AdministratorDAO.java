@@ -194,6 +194,11 @@ public class AdministratorDAO {
 		
 		return sqlSession.selectOne("AdministratorMapper.reportCount");
 	}
+	// 신고 체크
+	
+	public int check(Map<Integer, Object> obj) {
+		return sqlSession.selectOne("AdministratorMapper.check",obj);
+	}
 	
 	
 	

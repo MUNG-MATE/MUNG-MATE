@@ -40,5 +40,8 @@ public interface AdministratorService {
 	
 	// 신고관리목록 조회
 	Map<String, Object> reportList(int cp);
+	
+	// 신고 체크
+	int check(Map<Integer, Object> obj);
 
 }

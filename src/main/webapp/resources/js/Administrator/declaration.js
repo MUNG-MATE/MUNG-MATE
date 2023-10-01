@@ -19,8 +19,6 @@ petsitters.addEventListener("change", ()=>{
         petsitterBox.innerHTML=""
         
         for(let petsitter of petsitterList){
-            petsitterListNo = petsitter.petsitterNo;
-            console.log(petsitterListNo);
             const petsitterImgBox = document.createElement("div");
             petsitterImgBox.classList.add("pet-sitterimg")
     
@@ -79,7 +77,19 @@ function textValidate(){
         alert("신고하는이유를 상세하게 써주세요!!")
         return false;
     }
-    return true;
+    const obj = {"memberNo" : loginMemberNo ,"petNo": petNo}
+
+    fetch("/Administrator/declaration/check",{
+        method :"post",
+        headers : {"Content-Type" : "application/json"},
+        body : JSON.stringify(obj)
+    })
+    .then(resp=>resp.text())
+    .then(result => {
+        alert("redsd")
+    })
+
+    return false;
 }
 
 

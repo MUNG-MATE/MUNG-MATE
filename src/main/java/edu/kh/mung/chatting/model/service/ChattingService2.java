@@ -14,7 +14,7 @@ public interface ChattingService2 {
 	List<ChattingRoom> chatList(int memberNo);
 	
 	// 채팅 메시지 삽입
-	int insertMessage(Message msg);
+	int insertMessage2(Message msg);
 	
 	// 채팅 읽음표시
 	int updateReadFlag(Map<String, Object> paramMap);

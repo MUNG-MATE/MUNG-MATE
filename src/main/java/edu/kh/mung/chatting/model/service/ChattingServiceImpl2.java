@@ -22,9 +22,9 @@ public class ChattingServiceImpl2 implements ChattingService2{
 
 	// 메세지 삽입(websocketHandler에서 보냄)
 	@Override
-	public int insertMessage(Message msg) {
+	public int insertMessage2(Message msg) {
 		msg.setMessageContent(Util.XSSHandling(msg.getMessageContent()));
-		return dao.insertMessage(msg);
+		return dao.insertMessage2(msg);
 	}
 
 	// 채팅 읽음표시

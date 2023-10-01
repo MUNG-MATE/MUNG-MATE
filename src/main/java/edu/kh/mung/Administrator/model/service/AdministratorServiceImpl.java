@@ -202,6 +202,12 @@ public class AdministratorServiceImpl implements AdministratorService{
 
 		return map;
 	}
+	
+	// 신고체크
+	@Override
+	public int check(Map<Integer, Object> obj) {
+		return dao.check(obj);
+	}
 
 
 	

@@ -45,6 +45,9 @@
         </form>
     </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+    <script>
+        const loginMemberNo = "${loginMember.memberNo}";
+    </script>
     <script src="/resources/js/Administrator/declaration.js"></script>
   
 </body>
