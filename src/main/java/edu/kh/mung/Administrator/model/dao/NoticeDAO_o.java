@@ -2,11 +2,14 @@ package edu.kh.mung.Administrator.model.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.kh.mung.Administrator.model.dto.Administrator;
+import edu.kh.mung.Administrator.model.dto.PageInfo;
+import edu.kh.mung.board.model.dto.Pagination;
 
 @Repository
 public class NoticeDAO_o {
@@ -22,12 +25,19 @@ public class NoticeDAO_o {
 		return sqlSession.selectOne("AdministratorMapper_o.getListCount", boardCode);
 	}
 
-	/** 공지사항 리스트 조회
+	/**
+	 * 공지사항 리스트 조회
+	 * 
 	 * @param boardCode
 	 * @return
 	 */
-	public List<Administrator> selectBoardList(int boardCode) {
-		return sqlSession.selectList("AdministratorMapper_o.selectFaqList", boardCode);
+	public List<Administrator> selectBoardList(int boardCode, PageInfo pagination) {
+
+		int offset = (pagination.getCurrentPage() - 1) * pagination.getPageLimit();
+
+		RowBounds rowBounds = new RowBounds(offset, pagination.getPageLimit());
+
+		return sqlSession.selectList("AdministratorMapper_o.selectFaqList", boardCode, rowBounds);
 	}
 
 	/** 공지사항 게시글 삽입

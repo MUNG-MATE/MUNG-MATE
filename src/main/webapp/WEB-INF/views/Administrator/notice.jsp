@@ -8,6 +8,8 @@
             <meta charset="UTF-8">
             <title>notice</title>
             <link rel="stylesheet" href="/resources/css/Administrator/faq.css">
+            <script src="https://kit.fontawesome.com/de9012b52d.js" crossorigin="anonymous"></script>
+            
         </head>
 
         <body>
@@ -65,7 +67,56 @@ ${noticeList.content}
 
                     </article>
 
+
                 </section>
+
+                <!-- 페이지 네이션 영역 -->
+        <div class="pagination-area">
+            <ul class="pagination">
+
+                <c:set var="pagination" value="${map.pagination}"/>
+
+                <c:if test="${!empty boardList}" >
+                <!-- 첫 페이지로 이동 -->
+                <li><a href="/Administrator/notice/${boardCode}?cp=1${sp}"><i class="fa-solid fa-angles-left"></i></a></li>
+
+                <!-- 이전 목록 마지막 번호로 이동 -->
+                <li><a href="/Administrator/notice/${boardCode}?cp=${pagination.prevPage}${sp}"><i class="fa-solid fa-chevron-left"></i></a></li>
+                </c:if>
+
+           
+                <!-- 특정 페이지로 이동 -->
+                <c:forEach var="i" begin="${pagination.startPage}"
+                            end="${pagination.endPage}" step="1">
+
+                    <c:choose>
+                       <c:when test="${ i == pagination.currentPage}">
+                            <!-- 현재 보고있는 페이지 -->
+                            <li><a class="current">${i}</a></li>
+                       </c:when>
+                    
+                       <c:otherwise>
+                            <!-- 현재 페이지를 제외한 나머지 -->
+                            <li><a href="/Administrator/notice/${boardCode}?cp=${i}${sp}">${i}</a></li>
+
+                       </c:otherwise>
+                    </c:choose>
+
+                </c:forEach>
+                
+                <c:if test="${!empty boardList}" >
+                <!-- 다음 목록 시작 번호로 이동 -->
+                <li><a href="/Administrator/notice/${boardCode}?cp=${pagination.nextPage}${sp}"><i class="fa-solid fa-chevron-right"></i></a></li>
+
+                <!-- 끝 페이지로 이동 -->
+                <li><a href="/Administrator/notice/${boardCode}?cp=${pagination.maxPage}${sp}"><i class="fa-solid fa-angles-right"></i></a></li>
+                </c:if>
+
+            </ul>
+        </div>
+
+
+
             </main>
             <jsp:include page="/WEB-INF/views/common/footer.jsp" />
             <script>

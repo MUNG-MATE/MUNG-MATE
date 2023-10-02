@@ -33,11 +33,11 @@ public class NoticeController_o {
 	 */
 	@GetMapping("/notice/{boardCode}")
 	public String noticeList(Model model
-							, @PathVariable(required = false) int boardCode) {
+							, @PathVariable(required = false) int boardCode
+							, @RequestParam(value="cp",required=false, defaultValue = "1") int cp){
 		
-		Map<String, Object> map = service.selectNoticeList(boardCode);
+		Map<String, Object> map = service.selectNoticeList(boardCode, cp);
 		
-
 		model.addAttribute("map", map);
 		
 		return "/Administrator/notice";

@@ -9,7 +9,7 @@ public interface NoticeService_o {
 	/** 공지사항 리스트 조회
 	 * @return
 	 */
-	Map<String, Object> selectNoticeList(int boardCode);
+	Map<String, Object> selectNoticeList(int boardCode, int cp);
 
 	/** 공지사항 게시글 삽입
 	 * @param administrator
@@ -28,5 +28,7 @@ public interface NoticeService_o {
 	 * @return
 	 */
 	int noticeDelete(String boardNo);
+
+	
 
 }

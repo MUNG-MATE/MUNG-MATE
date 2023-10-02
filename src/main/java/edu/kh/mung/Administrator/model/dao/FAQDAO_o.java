@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.kh.mung.Administrator.model.dto.Administrator;
+import edu.kh.mung.Administrator.model.dto.PageInfo;
 
 @Repository
 public class FAQDAO_o {
@@ -29,8 +30,13 @@ public class FAQDAO_o {
 	 * @param boardCode
 	 * @return
 	 */
-	public List<Administrator> selectBoardList(int boardCode) {
-		return sqlSession.selectList("AdministratorMapper_o.selectFaqList", boardCode);
+	public List<Administrator> selectBoardList(int boardCode, PageInfo pagination) {
+		
+		int offset = (pagination.getCurrentPage() - 1) * pagination.getPageLimit();
+
+		RowBounds rowBounds = new RowBounds(offset, pagination.getPageLimit());
+		
+		return sqlSession.selectList("AdministratorMapper_o.selectFaqList", boardCode, rowBounds);
 	}
 
 	/** faq 글 등록
@@ -70,8 +76,13 @@ public class FAQDAO_o {
 	 * @param paramMap
 	 * @return
 	 */
-	public List<Administrator> selectSearchList(Map<String, Object> paramMap) {
-		return sqlSession.selectList("AdministratorMapper_o.selectSearchList", paramMap);
+	public List<Administrator> selectSearchList(Map<String, Object> paramMap, PageInfo pagination) {
+		
+		int offset = (pagination.getCurrentPage() - 1) * pagination.getPageLimit();
+
+		RowBounds rowBounds = new RowBounds(offset, pagination.getPageLimit());
+		
+		return sqlSession.selectList("AdministratorMapper_o.selectSearchList", paramMap, rowBounds);
 	}
 	
 
