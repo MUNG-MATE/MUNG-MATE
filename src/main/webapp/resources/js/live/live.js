@@ -55,12 +55,14 @@ if(lgMemberNo != '') {
 const liveMadal = document.getElementById("liveMadal");
 const gotoLive = document.getElementById("gotoLive");
 
-gotoLive.addEventListener("click", function () {
-	if (liveMadal.style.display = "none") {
-		liveMadal.style.display = "block";
-		map.relayout();
-	}
-})
+if(gotoLive != null) {
+	gotoLive.addEventListener("click", function () {
+		if (liveMadal.style.display = "none") {
+			liveMadal.style.display = "block";
+			map.relayout();
+		}
+	})
+}
 
 window.addEventListener("keyup", e => {
 	if(e.key == "Escape" && liveMadal.style.display == "block") {
