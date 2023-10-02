@@ -38,18 +38,18 @@ if(lgMemberNo != '') {
 			}
         }
 
-		if(!serviceFlag) {
-			document.getElementById("liveMadal").remove();
-			document.getElementById("gotoLive").remove();
-		}
+		// if(!serviceFlag) {
+		// 	document.getElementById("liveMadal").remove();
+		// 	document.getElementById("gotoLive").remove();
+		// }
     })
     .catch(err => {
         console.log(err);
     })
-} else {
-	document.getElementById("liveMadal").remove();
-	document.getElementById("gotoLive").remove();
-}
+} //else {
+	//document.getElementById("liveMadal").remove();
+	//document.getElementById("gotoLive").remove();
+//}
 
 // live 버튼 클릭 시 보였다 안보였다 하기
 const liveMadal = document.getElementById("liveMadal");
