@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import edu.kh.mung.chatting.model.dto.ChattingRoom;
-import edu.kh.mung.chatting.model.dto.Message;
+import edu.kh.mung.chatting.model.dto.ChattingRoom2;
+import edu.kh.mung.chatting.model.dto.Message2;
 import edu.kh.mung.chatting.model.service.ChattingService2;
 import edu.kh.mung.member.model.dto.Member;
 import edu.kh.mung.reservation.model.dto.Reservation;
@@ -32,7 +32,7 @@ public class ChattingController2 {
 	@GetMapping("/chatting/chatting2")
 	public String chattingList2(@SessionAttribute("loginMember") Member loginMember, Model model) {
 		
-		List<ChattingRoom> chatList = service.chatList(loginMember.getMemberNo());
+		List<ChattingRoom2> chatList = service.chatList(loginMember.getMemberNo());
 		model.addAttribute("cahtList",chatList);
 		
 		return "chatting/chattingM";
@@ -73,7 +73,7 @@ public class ChattingController2 {
 	// 채팅방 메세지 조회
 	@GetMapping(value="/chatting/selectMessage2",produces="application/json; charset=UTF-8")
 	@ResponseBody 
-	public List<Message> selectMessageList2(@RequestParam Map<String, Object> paramMap) {
+	public List<Message2> selectMessageList2(@RequestParam Map<String, Object> paramMap) {
 		return service.selectMessageList(paramMap); 
 	}
 
@@ -87,7 +87,7 @@ public class ChattingController2 {
 	// 채팅방 목록 조회
     @GetMapping(value="/chatting/target", produces="application/json; charset=UTF-8")
     @ResponseBody
-    public List<ChattingRoom> selectRoomList(@SessionAttribute("loginMember") Member loginMember) {
+    public List<ChattingRoom2> selectRoomList(@SessionAttribute("loginMember") Member loginMember) {
        return service.chatList(loginMember.getMemberNo());
     }
 	

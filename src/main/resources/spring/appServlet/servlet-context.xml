@@ -50,7 +50,7 @@
 
 	<!-- 웹소켓 처리 클래스를 bean으로 등록 -->
 	<beans:bean id="chatHandler"
-		class="edu.kh.mung.chatting.model.websocket.ChattingWebsocketHandler" />
+		class="edu.kh.mung.chatting.model.websocket.ChattingWebsocketHandler2" />
 	<websocket:handlers>
 		<!-- websocket 매핑 주소 -->
 		<websocket:mapping handler="chatHandler" path="/chattingSock" />

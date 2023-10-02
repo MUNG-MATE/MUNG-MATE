@@ -1,7 +1,6 @@
 package edu.kh.mung.chatting.model.websocket;
 
 import java.text.SimpleDateFormat;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
@@ -16,8 +15,7 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 
-import edu.kh.mung.chatting.model.dto.Message;
-import edu.kh.mung.chatting.model.service.ChattingService;
+import edu.kh.mung.chatting.model.dto.Message2;
 import edu.kh.mung.chatting.model.service.ChattingService2;
 import edu.kh.mung.member.model.dto.Member;
 
@@ -57,7 +55,7 @@ public class ChattingWebsocketHandler2 extends TextWebSocketHandler{
         // JSON String -> VO Object
         ObjectMapper objectMapper = new ObjectMapper();
         
-        Message msg = objectMapper.readValue( message.getPayload(), Message.class);
+        Message2 msg = objectMapper.readValue( message.getPayload(), Message2.class);
         
         // Message 객체 확인
         System.out.println("이미친놈아 메세지뭔데?"+msg); 
