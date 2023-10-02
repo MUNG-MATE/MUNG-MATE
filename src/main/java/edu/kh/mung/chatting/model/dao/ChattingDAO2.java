@@ -7,8 +7,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import edu.kh.mung.chatting.model.dto.ChattingRoom;
-import edu.kh.mung.chatting.model.dto.Message;
+import edu.kh.mung.chatting.model.dto.ChattingRoom2;
+import edu.kh.mung.chatting.model.dto.Message2;
 import edu.kh.mung.reservation.model.dto.Reservation;
 
 
@@ -22,7 +22,7 @@ public class ChattingDAO2 {
 	 * @param msg
 	 * @return
 	 */
-	public int insertMessage2(Message msg) {
+	public int insertMessage2(Message2 msg) {
 		
 		return sqlSession.insert("chattingMapper2.insertMessage2", msg);
 	}
@@ -31,7 +31,7 @@ public class ChattingDAO2 {
 	 * @param parseInt
 	 * @return
 	 */
-	public List<Message> selectMessageList(int chatNo) {
+	public List<Message2> selectMessageList(int chatNo) {
 		
 		return sqlSession.selectList("chattingMapper2.selectMessageList", chatNo);
 	}	
@@ -62,7 +62,7 @@ public class ChattingDAO2 {
 	}
 	
 	// 채팅 페이지
-	public List<ChattingRoom> chatList(int memberNo) {
+	public List<ChattingRoom2> chatList(int memberNo) {
 		
 		return sqlSession.selectList("chattingMapper2.chatList",memberNo);
 	}

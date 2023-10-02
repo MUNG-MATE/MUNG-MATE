@@ -7,10 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import edu.kh.mung.chatting.model.dao.ChattingDAO;
 import edu.kh.mung.chatting.model.dao.ChattingDAO2;
-import edu.kh.mung.chatting.model.dto.ChattingRoom;
-import edu.kh.mung.chatting.model.dto.Message;
+import edu.kh.mung.chatting.model.dto.ChattingRoom2;
+import edu.kh.mung.chatting.model.dto.Message2;
 import edu.kh.mung.common.utility.Util;
 import edu.kh.mung.reservation.model.dto.Reservation;
 
@@ -22,7 +21,7 @@ public class ChattingServiceImpl2 implements ChattingService2{
 
 	// 메세지 삽입(websocketHandler에서 보냄)
 	@Override
-	public int insertMessage2(Message msg) {
+	public int insertMessage2(Message2 msg) {
 		msg.setMessageContent(Util.XSSHandling(msg.getMessageContent()));
 		return dao.insertMessage2(msg);
 	}
@@ -35,9 +34,9 @@ public class ChattingServiceImpl2 implements ChattingService2{
 		
 	// 채팅메세지 목록
 	@Override
-	public List<Message> selectMessageList(Map<String, Object> paramMap) {
+	public List<Message2> selectMessageList(Map<String, Object> paramMap) {
 		
-		 List<Message> messageList = dao.selectMessageList(  Integer.parseInt( String.valueOf(paramMap.get("chatNo") )));
+		 List<Message2> messageList = dao.selectMessageList(  Integer.parseInt( String.valueOf(paramMap.get("chatNo") )));
 		 if(!messageList.isEmpty()) {
 	            int result = dao.updateReadFlag(paramMap);
 	        }
@@ -66,7 +65,7 @@ public class ChattingServiceImpl2 implements ChattingService2{
 	
 	// 채팅 페이지
 	@Override
-	public List<ChattingRoom> chatList(int memberNo) {
+	public List<ChattingRoom2> chatList(int memberNo) {
 		return dao.chatList(memberNo);
 	}
 	
