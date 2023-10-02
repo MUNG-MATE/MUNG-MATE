@@ -10,7 +10,7 @@ public interface FAQService {
 	 * @param boardCode
 	 * @return
 	 */
-	Map<String, Object> selectFaqList(int boardCode);
+	Map<String, Object> selectFaqList(int boardCode, int cp);
 
 	/** faq 글 등록
 	 * @param boardCode
@@ -36,6 +36,6 @@ public interface FAQService {
 	 * @param paramMap
 	 * @return
 	 */
-	Map<String, Object> selectSearchList(Map<String, Object> paramMap);
+	Map<String, Object> selectSearchList(Map<String, Object> paramMap, int cp);
 
 }

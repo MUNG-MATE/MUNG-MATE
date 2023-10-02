@@ -83,27 +83,27 @@ public class FAQController_o {
 	 */
 	
 	@GetMapping("/faq/{boardCode:[0-9]+}")
-	public String FAQ(@PathVariable(required = false) int boardCode
-						, Model model
-						, @RequestParam Map<String, Object> paramMap
-						){
-		
-		if (paramMap.get("faqCat") == null) { // 검색어가 없을 때
+	public String FAQ(@PathVariable(required = false) int boardCode, Model model,
+			@RequestParam Map<String, Object> paramMap,
+			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp) {
 
+		if (paramMap.get("faqCat") == null) { // 검색어가 없을 때
+			System.out.println(paramMap.get("faqCat") == null);
 			// 게시글 목록 조회 서비스 호출
-			Map<String, Object> map = service.selectFaqList(boardCode);
+			Map<String, Object> map = service.selectFaqList(boardCode, cp);
 
 			model.addAttribute("map", map);
 
-		} else { // 검색어가 있을 때
+		}
+
+		else { // 검색어가 있을 때
 			paramMap.put("boardCode", boardCode);
 
-			 Map<String, Object> map = service.selectSearchList(paramMap);
-			
-			 System.out.println("검색어가 있을 때 map : " + map);
+			Map<String, Object> map = service.selectSearchList(paramMap, cp);
+
 			model.addAttribute("map", map);
 		}
-		
+
 		return "/Administrator/faq";
 	}
 	

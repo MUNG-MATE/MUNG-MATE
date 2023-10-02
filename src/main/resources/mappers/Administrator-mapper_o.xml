@@ -35,6 +35,7 @@
 		WHERE
 		BOARD_CD = #{boardCode}
 		AND BOARD_ST = 'N'
+		
 	</select>
 
 	<!-- faq 게시글 삽입 -->
@@ -72,18 +73,27 @@
 		BOARD_ST = 'N'
 		<choose>
 			<when test='faqCat == "서비스이용"'>
-				AND BOARD_NM LIKE '%${"서비스이용"}%'
 				AND BOARD_CD = 4
+				AND BOARD_CONTENT LIKE '%${faq}%'
+				OR BOARD_TITLE LIKE
+				'%${faq}%'
+
 			</when>
 
 			<when test='faqCat == "기타"'>
-				AND BOARD_NM LIKE '%${"기타"}%'
 				AND BOARD_CD = 5
+				AND BOARD_CONTENT LIKE '%${faq}%'
+				OR
+				BOARD_TITLE LIKE
+				'%${faq}%'
 			</when>
 
 			<when test='faqCat == "예약관련"'>
 				AND BOARD_CD = 3
-				AND BOARD_NM LIKE '%${"예약관련"}%'
+				AND BOARD_CONTENT LIKE '%${faq}%'
+				OR
+				BOARD_TITLE LIKE
+				'%${faq}%'
 			</when>
 		</choose>
 
