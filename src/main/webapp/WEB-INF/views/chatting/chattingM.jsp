@@ -18,7 +18,7 @@
         <div id="chattingBox">
             <div id="chattingInfo">
                 <h3 id="chattingStart">채팅시작</h3>
-                <h3 id="lastMessage">전체 메세지보기</h3>
+                <%-- <h3 id="lastMessage">전체 메세지보기</h3> --%>
                 <div id="div">
                     <img src="/resources/images/member/m.gif">
                     <span>문광민</span>
@@ -29,7 +29,6 @@
             <ul id="display-chatting" class="display-chatting" >
                     <%-- notReadCount를 카톡처럼 1있다가 사라지게?! --%>
                     <%-- <li class="my-chat">
-                        <p class="not-read-count">${room.notReadCount}</p>
                         <span class="chatDate">09.04 16:00</span>
                         <p class="chat">떵 치워주세여</p>
                     </li>
