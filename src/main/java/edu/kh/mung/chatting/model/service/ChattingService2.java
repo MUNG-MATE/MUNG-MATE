@@ -31,4 +31,7 @@ public interface ChattingService2 {
 	// 채팅 상대 조회 
 	List<Reservation> chattingTarget(Map<String, Object> map);
 	
+	// Live적용할 reNo 구하기
+	int selectRsNo(Map<String, Object> map);
+	
 }
