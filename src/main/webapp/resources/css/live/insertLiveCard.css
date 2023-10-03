@@ -55,6 +55,7 @@
 
 #petImage {
     width: 200px;
+    height: 200px;
 }
 
 #inputContent {
@@ -99,7 +100,7 @@
     position: relative;
 }
 
-#submitBtn {
+.btnStyle {
     width: 100px;
     height: 50px;
     font-size: 14px;

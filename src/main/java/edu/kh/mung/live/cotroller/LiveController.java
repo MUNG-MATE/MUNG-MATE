@@ -38,9 +38,6 @@ public class LiveController {
 	@Autowired
 	private LiveService service;
 	
-	@Autowired
-	private MyPageService_k myPageService;
-	
 	@GetMapping
 	public String test() {
 		return "/live/live";
@@ -55,6 +52,7 @@ public class LiveController {
 	@GetMapping("/selectLocation")
 	@ResponseBody
 	public List<LocationService> selectLocation(LocationService ls) {
+		System.out.println(ls);
 		return service.selectLocation(ls);
 	}
 	
@@ -70,12 +68,14 @@ public class LiveController {
 	}
 	
 	@PostMapping("/card/insert")
-	public int insertLiveCard(
+	public String insertLiveCard(
 			LiveCard lc,
 			@RequestParam(value="inputImage", required=false) List<MultipartFile> images,
 			@SessionAttribute("loginMember") Member loginMember,
 			RedirectAttributes ra,
 			HttpSession session) throws IllegalStateException, IOException {
+		
+		lc.setPetsitterNo(loginMember.getMemberNo());
 		
 		System.out.println("LiveCard : " + lc);
 		System.out.println("images : " + images);
@@ -83,9 +83,23 @@ public class LiveController {
 		String webPath = "/resources/images/live/";
 		String filePath = session.getServletContext().getRealPath(webPath);
 		
-		//int liveNo = service.insertLiveCard(lc, images, webPath, filePath);
+		int liveNo = service.insertLiveCard(lc, images, webPath, filePath);
 		
-		return 0;
+		String message = null;
+		String path = "redirect:";
+		
+		if(liveNo > 0) {
+			message = "라이브 카드가 등록되었습니다.";
+			path += "/";
+					
+		} else {
+			message = "라이브 카드가 등록에 실패했습니다.";
+			path += "/";
+		}
+		
+		ra.addFlashAttribute("message", message);
+		
+		return path;
 	}
 	
 }

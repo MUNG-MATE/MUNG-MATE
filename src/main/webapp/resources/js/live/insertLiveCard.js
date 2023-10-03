@@ -6,11 +6,19 @@ let deleteCheck = -1;
 const startTime = document.getElementById("startTime");
 const endTime = document.getElementById("endTime");
 
-const localTime = localStorage.realTime.substring(0,2);
+let localTime = localStorage.realTime.substring(0,2);
 
-startTime.innerText = guessAmPm(localTime) + " : " + localStorage.realTime.substring(5,7);
+if(localTime > 12) {
+    localTime = localTime - 12;
+    localTime = "오후 " + localTime;
+} else {
+    localTime = "오전 " + localTime;
+}
+
+startTime.innerText = localTime + " : " + localStorage.realTime.substring(5,7);
+document.getElementById("inputStartTime").value = localTime + " : " + localStorage.realTime.substring(5,7);
 endTime.innerText = guessAmPm(new Date().getHours()) + " : " + new Date().getMinutes();
-
+document.getElementById("inputEndTime").value = guessAmPm(new Date().getHours()) + " : " + new Date().getMinutes();
 
 
 function guessAmPm(localTime) {
@@ -73,4 +81,10 @@ insertForm.addEventListener("submit", e => {
         e.preventDefault();
         return;
     }
+})
+
+const cancelBtn = document.getElementById("cancelBtn");
+
+cancelBtn.addEventListener("click", () => {
+    location.href = document.referrer;
 })

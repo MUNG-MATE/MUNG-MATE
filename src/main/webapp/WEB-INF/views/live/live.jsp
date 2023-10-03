@@ -14,7 +14,7 @@
         펫시팅 실시간 LIVE
         <button id="closeBtn" class="btncss" type="button" onclick = "closeBtn()">&times;</button>
     </div>
-
+    
     <!-- 지도 -->
     <section id="section">
         <section id="left">
@@ -25,7 +25,7 @@
                         <img src="/resources/images/myPage/petsitter.png" id="profile">
                     </div>
                     <div>
-                        <span>김광수</span>
+                        <span id="petSitterNm">김광수</span>
                     </div>
                 </div>
                 
@@ -45,14 +45,12 @@
 
                     <div>
                         <div class="stateText ing">산책 중</div>
-
                         <div class="stateText ing" id ="elapsedTime"></div>
-
                     </div>
 
                     <div id="displayBtn">
                         <!-- 시작 중지 토글 (스위치라고 생각하셈) -->
-                        <button id="startStopButton"></button>
+                        <button type="button" id="startStopButton"></button>
                     </div>
                 </div>
             </div>

@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import edu.kh.mung.live.model.dto.LiveCard;
 import edu.kh.mung.member.model.dto.Member;
 import edu.kh.mung.myPage.model.dto.Pet;
 import edu.kh.mung.reservation.model.dto.Pet2;
@@ -68,5 +69,21 @@ public class MyPageDAO_k {
 	 */
 	public Member selectMember(int memberNo) {
 		return sqlSession.selectOne("myPageMapper_k.selectMember", memberNo);
+	}
+
+	/** 라이브 카드 조회
+	 * @param rs
+	 * @return liveCard
+	 */
+	public LiveCard selectLiveCard(Reservation rs) {
+		return sqlSession.selectOne("myPageMapper_k.selectLiveCard", rs);
+	}
+
+	/** 예약 번호로 예약 내역 조회
+	 * @param rs
+	 * @return reservation
+	 */
+	public Reservation selectReservation(Reservation rs) {
+		return sqlSession.selectOne("myPageMapper_k.selectReservation", rs);
 	}
 }

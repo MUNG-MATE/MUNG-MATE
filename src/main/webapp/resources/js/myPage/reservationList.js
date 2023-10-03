@@ -239,7 +239,7 @@ function setDate(day,time) {
         $("#petsitterName").html(rList[i].petSitterList[0].memberNm); // 펫시터 이름
         $("#point").html("♥ " + rList[i].petSitterList[0].wishListCount); // 찜목록 수
         if(rList[i].serviceState == 'Y') { // 서비스 완료 상태인 경우
-          $("#liveCardDiv").html('<button class="liveCardBtn" ><a href="#">라이브 카드</a></button>');
+          $("#liveCardDiv").html(`<button class="liveCardBtn" ><a href="/myPage/liveCard?rsNo=${rList[i].rsNo}">라이브 카드</a></button>`);
         } else {
           $("#liveCardDiv").html('');
         }

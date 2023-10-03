@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import edu.kh.mung.live.model.dto.LiveCard;
 import edu.kh.mung.member.model.dto.Member;
 import edu.kh.mung.myPage.model.dto.Pet;
 import edu.kh.mung.myPage.model.service.MyPageService_k;
@@ -53,4 +54,16 @@ public class MyPageController_k {
 		return service.selectMember(memberNo);
 	}
 	
+	// 라이브 카드 조회
+	@GetMapping("/liveCard")
+	public String selectLiveCard(Reservation rs, Model model) {
+		
+		LiveCard liveCard = service.selectLiveCard(rs);
+		Reservation reservation = service.selectReservation(rs);
+		
+		model.addAttribute("liveCard", liveCard);
+		model.addAttribute("reservation", reservation);
+		
+		return "/myPage/liveCard";
+	}
 }

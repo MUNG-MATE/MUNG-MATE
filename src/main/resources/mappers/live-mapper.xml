@@ -24,6 +24,17 @@
 		<result property="liveImage" column="LIVE_IMAGE" />
 		<result property="liveContent" column="LIVE_CONTENT" />
 		<result property="rsNo" column="RS_NO" />
+		<result property="startTime" column="START_TIME" />
+		<result property="endTime" column="END_TIME" />
+	</resultMap>
+	
+	<resultMap type="LiveCardImage" id="LiveCardImage_rm">
+		<id property="imageNo" column="IMG_NO" />
+		<result property="imagePath" column="IMG_PATH" />
+		<result property="imageReName" column="IMG_RENAME" />
+		<result property="imageOriginal" column="IMG_ORIGINAL" />
+		<result property="imageOrder" column="IMG_ORDER" />
+		<result property="liveNo" column="LIVE_NO" />
 	</resultMap>
 	
 	<insert id="insertLocation">
@@ -47,12 +58,12 @@
 			SELECT SEQ_LIVE_NO.NEXTVAL FROM DUAL
 		</selectKey>
 		
-		INSERT INTO LIVE_CARD VALUES(#{liveNo}, #{liveImage}, #{liveContent}, #{rsNo})
+		INSERT INTO LIVE_CARD VALUES(#{liveNo}, #{liveContent}, #{startTime}, #{endTime}, #{rsNo})
 	</insert>
 	
 	<insert id="insertImageList" parameterType="list">
 		INSERT INTO LIVE_CARD_IMAGE
-		SELECT SEQ_IMG_NO.NEXTVAL, A.*
+		SELECT SEQ_LIVE_IMG_NO.NEXTVAL, A.*
 		FROM(
 		
 			<foreach collection="list" item="img" separator=" UNION ALL ">
@@ -60,10 +71,16 @@
 					#{img.imageReName} IMG_RENAME,
 					#{img.imageOriginal} IMG_ORIGINAL,
 					#{img.imageOrder} IMG_ORDER,
-					#{img.boardNo} BOARD_NO
+					#{img.liveNo} LIVE_NO
 				FROM DUAL
 			</foreach>
 		
 			) A
 	</insert>
+	
+	<update id="updateServiceState" parameterType="LiveCard">
+		UPDATE RESERVATION SET
+		SERVICE_ST = 'Y'
+		WHERE RS_NO = ${rsNo}
+	</update>
 </mapper>

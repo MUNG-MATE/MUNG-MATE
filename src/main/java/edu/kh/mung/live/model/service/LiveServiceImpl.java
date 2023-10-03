@@ -49,8 +49,6 @@ public class LiveServiceImpl implements LiveService {
 		
 		int liveNo = dao.insertLiveCard(lc);
 		
-		System.out.println(liveNo);
-		
 		if(liveNo > 0) {
 			List<LiveCardImage> uploadList = new ArrayList<>();
 			for(int i = 0; i < images.size(); i++) {
@@ -76,6 +74,7 @@ public class LiveServiceImpl implements LiveService {
 				int result = dao.insertImageList(uploadList);
 				
 				if(result == uploadList.size()) {
+					int updateResult = dao.updateServiceState(lc);
 					for(int i = 0; i < uploadList.size(); i++) {
 						
 						int index = uploadList.get(i).getImageOrder();
@@ -91,7 +90,7 @@ public class LiveServiceImpl implements LiveService {
 			}
 		}
 		
-		return 0;
+		return liveNo;
 	}
 	
 }

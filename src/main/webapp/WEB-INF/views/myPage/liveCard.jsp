@@ -1,12 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="small-logo.png">
-    <link rel="stylesheet" href="/resources/css/live/insertLiveCard.css">
-    <link rel="stylesheet" href="/resources/css/live/petsittingLive.css">
+    <link rel="stylesheet" href="/resources/css/myPage/liveCard.css">
+    <link rel="stylesheet" href="petsittingLive.css">
     <title>MUNG MATE</title>
 </head>
 
@@ -15,32 +18,20 @@
 <body>
     <section id="liveCardSection">
         <div id="titleArea">
-            <img src="${param.profileImg}" class="profile">
-            <span>${param.memberNm} 펫시터 님의 산책 LIVE 카드</span>
+            <img src="${reservation.petSitterList[0].profileImg}" class="profile">
+            <span>${reservation.petSitterList[0].memberNm} 펫시터 님의 산책 LIVE 카드</span>
         </div>
-        
-        <form method="POST" action="insert?rsNo=${param.rsNo}" enctype="multipart/form-data" id="insertForm">
-            <div id="serviceName">
-                <div>시작 시간</div>
-                <div id="startTime" name="startTime"></div>
-                <div>종료 시간</div>
-                <div id="endTime" name="endTime"></div>
-                <input type="hidden" id="inputStartTime" name="startTime">
-                <input type="hidden" id="inputEndTime" name="endTime">
-            </div>
-        
-            <div id="liveCardContent">
-                <label id="imgLabel">
-                    <input type="file" id="inputImage" name="inputImage" for="imageLabel"/>
-                    <img id="petImage" src="/resources/images/reservation/inputpetimage.png">
-                </label>
-                <textarea id="inputContent" name="liveContent"></textarea>
-                <div id="btnArea">
-                    <button class="btnStyle">등록</button>
-                    <button class="btnStyle" id="cancelBtn" type="button">취소</button>
-                </div>
-            </div>
-        </form>
+
+        <div id="serviceName">
+            <div>산책 시작</div>
+            <div>${liveCard.startTime}</div>
+            <div>산책 종료</div>
+            <div>${liveCard.endTime}</div>
+        </div>
+        <div id="liveCardContent">
+            <img src="${liveCard.imageList[0].imagePath}${liveCard.imageList[0].imageReName}">
+            <p>${liveCard.liveContent}</p>
+        </div>
     </section>
 
     <div id="liveText">펫시팅 LIVE 다시보기</div>
@@ -52,10 +43,10 @@
             <div id="stateArea">
                 <div id="profileDiv">
                     <div>
-                        <img src="${param.profileImg}" class="profile">
+                        <img src="${reservation.petSitterList[0].profileImg}" class="profile">
                     </div>
                     <div>
-                        <span>${param.memberNm}</span>
+                        <span>${reservation.petSitterList[0].memberNm}</span>
                     </div>
                 </div>
                 
@@ -64,13 +55,18 @@
                 </div>
 
                 <div id="iconArea">
-                    <img src="/resources/images/reservation/stroll.png" id="stateIcon">
+                    <c:if test="${reservation.serviceNo > 0 && reservation.serviceNo < 4}">
+                        <img src="/resources/images/reservation/stroll.png" id="stateIcon">
+                    </c:if>
+                    <c:if test="${reservation.serviceNo > 3 && reservation.serviceNo < 7}">
+                        <img src="/resources/images/reservation/care.png" id="stateIcon">
+                    </c:if>
                 </div>
 
                 <div id="stateTextArea">
                     <div>
                         <div class="stateText">산책 시작</div>
-                        <div class="stateText">오후 03:00</div>
+                        <div class="stateText">${liveCard.startTime}</div>
                     </div>
 
                     <div>
@@ -80,7 +76,7 @@
 
                     <div>
                         <div class="stateText">산책 종료</div>
-                        <div class="stateText">-</div>
+                        <div class="stateText">${liveCard.endTime}</div>
                     </div>
                 </div>
             </div>
@@ -94,9 +90,9 @@
                     <p class="chat">떵 치워주세여</p>
                 </li>
                 <li class="opponentChat">
-                    <img src="${param.profileImg}">
+                    <img src="${reservation.petSitterList[0].profileImg}">
                     <div>
-                        <b>${param.memberNm} 펫시터</b> <br>
+                        <b>${reservation.petSitterList[0].memberNm}</b> <br>
                         <p class="chat">알겠습니다 고갱님</p>
                         <span class="chatDate">09.04 16:01</span>
                     </div>
@@ -112,8 +108,7 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e99da29f2b6829aa0cab8a9aa4d50a98"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="/resources/js/live/petsittingLive.js"></script>
-    <script src="/resources/js/live/insertLiveCard.js"></script>
+    <script src="petsittingLive.js"></script>
+    <script src="liveCard.js"></script>
 </body>
 </html>
