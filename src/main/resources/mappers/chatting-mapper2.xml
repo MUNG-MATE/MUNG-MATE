@@ -155,9 +155,8 @@
    		FROM RESERVATION
     	WHERE MEMBER_NO = #{memberNo}
     	AND RS_DATE >= TO_CHAR(SYSDATE, 'YYYY-MM-DD')
-    	AND SERVICE_ST = 'N'
 		)
-		WHERE RS = 1;
+		WHERE RS = 1
      	</if>
      	<choose>
 			<when test='flag == "Y" '>
@@ -165,11 +164,10 @@
 			FROM (
 	   		SELECT RS_NO, ROW_NUMBER() OVER (ORDER BY RS_START_DATE DESC) AS RS
 	   		FROM RESERVATION
-	    	WHERE MEMBER_NO = #{memberNo}
+	    	WHERE PETSITTER_NO = (SELECT PETSITTER_NO FROM PETSITTER WHERE MEMBER_NO = #{memberNo})
 	    	AND RS_DATE >= TO_CHAR(SYSDATE, 'YYYY-MM-DD')
-	    	AND SERVICE_ST = 'N'
 			)
-			WHERE RS = 1;
+			WHERE RS = 1
 			</when>
 		</choose>
      
