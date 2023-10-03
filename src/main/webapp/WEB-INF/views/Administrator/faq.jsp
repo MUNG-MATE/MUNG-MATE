@@ -24,7 +24,8 @@
                                 질문 중 가장 빈도수가 높은 질문들을 모아, 친절한 답변과 함께 제공해드리고 있습니다.</h4>
                             <img src="/resources/images/Administrator/faq.png">
                         </div>
-                    </article>
+                        
+                        </article>
                     <article class="search-box">
                         <form action="/Administrator/faq/${boardCode}" method="GET" id="faqSearch">
                             <select name="faqCat" id="faqCat">

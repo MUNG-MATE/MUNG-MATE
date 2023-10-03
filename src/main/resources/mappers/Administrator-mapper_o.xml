@@ -103,6 +103,7 @@
 	<select id="selectSearchList" resultMap="ad_rm">
 		SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT
 		FROM BOARD
+		JOIN BOARD_TYPE USING (BOARD_CD)
 		WHERE BOARD_ST =
 		'N'
 
