@@ -247,14 +247,16 @@ body{font-family:'Montserrat','pretendard';}
 
 .liveMadal{
 	display: none;
-	width: 1200px;
+    width: 1200px;
     height: 90%;
-	box-shadow: 3px 3px 3px 3px lightgray;
+    box-shadow: 3px 3px 3px 3px lightgray;
     position: fixed;
-    top: 50px;
-	left: 329px;
+    top: 8%;
+    left: 50%;
     background-color: white;
     border: 2px solid rgb(0, 30, 60);
-	z-index: 1;
+    z-index: 1;
+    margin: 0 auto;
+    transform: translate(-50%);
 }
 

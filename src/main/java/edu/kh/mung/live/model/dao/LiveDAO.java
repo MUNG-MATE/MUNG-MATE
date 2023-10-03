@@ -61,5 +61,12 @@ public class LiveDAO {
 	public int insertImageList(List<LiveCardImage> uploadList) {
 		return sqlSession.insert("liveMapper.insertImageList", uploadList);
 	}
+
+	/** 서비스 상태 업데이트(N -> Y)
+	 * @param liveNo
+	 */
+	public int updateServiceState(LiveCard lc) {
+		return sqlSession.update("liveMapper.updateServiceState", lc);
+	}
 	
 }

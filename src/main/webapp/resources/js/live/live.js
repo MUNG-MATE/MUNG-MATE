@@ -29,6 +29,10 @@ if(lgMemberNo != '') {
 			// 오늘이 예약 날짜/시간이면서 서비스 상태가 N인 경우
 			if(today >= rsDate && rs.serviceState == 'N') {
 				reservation = rs;
+
+				document.getElementById("profile").setAttribute("src", reservation.petSitterList[0].profileImg);
+				document.getElementById("petSitterNm").innerHTML = reservation.petSitterList[0].memberNm;
+
 				rsNo = rs.rsNo;
 				serviceFlag = true;
 				return;
@@ -38,18 +42,18 @@ if(lgMemberNo != '') {
 			}
         }
 
-		// if(!serviceFlag) {
-		// 	document.getElementById("liveMadal").remove();
-		// 	document.getElementById("gotoLive").remove();
-		// }
+		if(!serviceFlag) {
+			document.getElementById("liveMadal").remove();
+			document.getElementById("gotoLive").remove();
+		}
     })
     .catch(err => {
         console.log(err);
     })
-} //else {
-	//document.getElementById("liveMadal").remove();
-	//document.getElementById("gotoLive").remove();
-//}
+} else {
+	document.getElementById("liveMadal").remove();
+	document.getElementById("gotoLive").remove();
+}
 
 // live 버튼 클릭 시 보였다 안보였다 하기
 const liveMadal = document.getElementById("liveMadal");
@@ -132,16 +136,18 @@ document.addEventListener("DOMContentLoaded", function () {
 			localStorage.setItem("startTime", startTime);
 			interval = setInterval(updateEleTime, 1000);
 			startStopButton.textContent = "서비스 종료";
+			startStopButton.setAttribute("type", "submit");
+			
 		} else {
 			if(confirm("서비스를 종료하고 라이브 카드를 작성하시겠습니까?")) {
 				clearInterval(interval);
 				startTime = 0;
 				localStorage.removeItem("startTime");
 				timeEle.textContent = "";
-				/* startStopButton.textContent = "시작"; */
+
 				location.href = "/live/card/insert?rsNo=" + rsNo +
 								"&memberNm=" + reservation.petSitterList[0].memberNm + 
-								"&profileImg=" + reservation.petSitterList[0].profileImage;
+								"&profileImg=" + reservation.petSitterList[0].profileImg;
 				// 이 주소는 라이브 카드 페이지로 변경하면 됩니다 !
 			}
 		}
@@ -157,17 +163,12 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-function closeBtn() {
-	liveMadal.style.display = "none"
-}
+function closeBtn() { liveMadal.style.display = "none"; }
 
 let sharedData = localStorage.getItem("startTime");
 
-if(sharedData){
-	console.log("공유된 데이터 : " , sharedData)
-}else{
-	console.log('공유된 데이터 없음')
-}
+if(sharedData){ console.log("공유된 데이터 : " , sharedData); }
+else{ console.log('공유된 데이터 없음'); }
 
 // ------------------------------------------------------------------------------
 
@@ -203,6 +204,8 @@ function startService() {
 	
 				var lat = position.coords.latitude, // 위도
 					lon = position.coords.longitude; // 경도
+					console.log("lat : " + lat);
+					console.log("lon : " + lon);
 	
 			fetch("/live/insertLocation?lat=" + lat + "&lon=" + lon)
 			.then(resp => resp.text())
