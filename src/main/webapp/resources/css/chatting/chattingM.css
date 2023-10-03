@@ -12,7 +12,7 @@
 
 #input-area {
     height: 100px;
-    border: 2px solid rgb(226, 223, 39);
+    border: 2px solid rgb(0, 30, 60);
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -44,6 +44,9 @@
     background-color: transparent;
     font-weight: bold;
     
+}
+.sendBtn{
+    color: red;
 }
 
 .chat {
