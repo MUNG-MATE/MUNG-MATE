@@ -15,7 +15,7 @@
 					<p>일석2조</p> </a></li>
 		</ul> -->
 
-		<div class="gotoLive" id="gotoLive"><h4>LIVE</h4></div>
+		<div class="gotoLive" id="gotoLive" ><h4>LIVE</h4></div>
 
 		<div class="footer_wrap">
 			<div class="container">

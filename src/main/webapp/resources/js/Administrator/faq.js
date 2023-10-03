@@ -1,3 +1,46 @@
+// 검색창 이전 검색 기록을 남겨놓기
+const faqSearch = document.getElementById("faqSearch");
+const searchKey = document.getElementById("faqCat");
+const searchQuery = document.getElementById("faq");
+
+const options = document.querySelectorAll("#faqCat > option");
+
+(()=>{
+    const params = new URL(location.href).searchParams;
+
+    const key = params.get("faqCat"); // 옵션
+    const query = params.get("faq"); // 검색어
+    if(key != null){ //검색을 했을때
+        searchQuery.value = query; // 검색어를 화면에 출력
+        
+        // option태그를 하나씩 순차 접근해서 value가 key랑 같으면
+        // selected 속성 추가
+        for(let op of options){
+            if(op.value == key){
+                op.selected = true;
+            }
+        }
+
+    }
+
+})();
+
+// 검색어 입력 없이 제출된 경우
+faqSearch.addEventListener("submit", e=>{
+
+    if(searchQuery.value.trim().length == 0){// 검색어 미 입력시
+        e.preventDefault(); // form 기본 이벤트 제거
+
+        location.href = location.pathname// 해당 게시판 1페이지로 이동
+
+    
+    }
+
+})
+
+
+
+
 const toggleButtons = document.querySelectorAll('.td'); 
 
 toggleButtons.forEach((button, index) => {
@@ -126,47 +169,6 @@ faqFrm.addEventListener("submit", e => {
     }
 })
 
- // 검색창 이전 검색 기록을 남겨놓기
- const faqSearch = document.querySelector("#faqSearch");
- const searchKey = document.querySelector("#faqCat");
- const searchQuery = document.querySelector("#faq");
-
- const options = document.querySelectorAll("#searchKey > option");
-
- (()=>{
-    console.log("왔따")
-     const params = new URL(location.href).searchParams;
-
-     const key = params.get("faqCat"); // 옵션
-     const query = params.get("faq"); // 검색어
-
-     if(key != null){ //검색을 했을때
-         searchQuery.value = query; // 검색어를 화면에 출력
-         
-         // option태그를 하나씩 순차 접근해서 value가 key랑 같으면
-         // selected 속성 추가
-         for(let op of options){
-             if(op.value == key){
-                 op.selected = true;
-             }
-         }
-
-     }
-
- })();
-
- // 검색어 입력 없이 제출된 경우
- faqSearch.addEventListener("submit", e=>{
-
-     if(searchQuery.value.trim().length == 0){// 검색어 미 입력시
-         e.preventDefault(); // form 기본 이벤트 제거
-
-         location.href = location.pathname// 해당 게시판 1페이지로 이동
-
-     
-     }
-
- })
-
+ 
 
 

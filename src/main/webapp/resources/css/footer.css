@@ -135,16 +135,16 @@ body{font-family:'Montserrat','pretendard';}
 	height: 100px;
 	cursor: pointer;
 	background: url("/resources/images/puppyButton.png") center center / 100% no-repeat;
-	transition: all ease 1s;
+	/* transition: all ease 1s; */
 }
 
-#gotoLive:hover {
-	 animation: gotoLive 1s linear 1 both; 
-	 animation-iteration-count: infinite;
+/* #gotoLive:hover { */
+	 /* animation: gotoLive 1s linear 1 both; 
+	 animation-iteration-count: infinite; */
 	/* transform: rotate( 35deg ); */
-}
+/* } */
 
-@keyframes gotoLive {
+/* @keyframes gotoLive { */
 	/* 0% {transform: translate(0);} */
 	/* 20% {transform: translate(-10px, 10px);} */
 	/* 30% {transform: translate(-10px, 10px);} */
@@ -154,20 +154,91 @@ body{font-family:'Montserrat','pretendard';}
 	 /* 80% {transform: translate(2px, -2px);}  */
 	/* 100% {transform: translate(0);} */
 
-	0% { transform: translateX(0); }
-    50% { transform: translateX(-3px);} /* 왼쪽으로 10px 이동 */
-    100% { transform: translateX(3px);} /* 다시 오른쪽으로 10px 이동 */
-}
- 
-.gotoLive{
+/* } */
+
+/*base code*/
+.gotoLive {
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+  }
+  .gotoLive.infinite {
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+  }
+  .gotoLive.hinge {
+	-webkit-animation-duration: 2s;
+	animation-duration: 2s;
+  }
+  /*the animation definition*/
+  @-webkit-keyframes bounce {
+	0%, 100%, 20%, 53%, 80% {
+	  -webkit-transition-timing-function: cubic-bezier(0.215, .61, .355, 1);
+	  transition-timing-function: cubic-bezier(0.215, .61, .355, 1);
+	  -webkit-transform: translate3d(0, 0, 0);
+	  transform: translate3d(0, 0, 0)
+	}
+	40%,
+	43% {
+	  -webkit-transition-timing-function: cubic-bezier(0.755, .050, .855, .060);
+	  transition-timing-function: cubic-bezier(0.755, .050, .855, .060);
+	  -webkit-transform: translate3d(0, -30px, 0);
+	  transform: translate3d(0, -30px, 0)
+	}
+	70% {
+	  -webkit-transition-timing-function: cubic-bezier(0.755, .050, .855, .060);
+	  transition-timing-function: cubic-bezier(0.755, .050, .855, .060);
+	  -webkit-transform: translate3d(0, -15px, 0);
+	  transform: translate3d(0, -15px, 0)
+	}
+	90% {
+	  -webkit-transform: translate3d(0, -4px, 0);
+	  transform: translate3d(0, -4px, 0)
+	}
+  }
+  @keyframes bounce {
+	0%, 100%, 20%, 53%, 80% {
+	  -webkit-transition-timing-function: cubic-bezier(0.215, .61, .355, 1);
+	  transition-timing-function: cubic-bezier(0.215, .61, .355, 1);
+	  -webkit-transform: translate3d(0, 0, 0);
+	  -ms-transform: translate3d(0, 0, 0);
+	  transform: translate3d(0, 0, 0)
+	}
+	40%,
+	43% {
+	  -webkit-transition-timing-function: cubic-bezier(0.755, .050, .855, .060);
+	  transition-timing-function: cubic-bezier(0.755, .050, .855, .060);
+	  -webkit-transform: translate3d(0, -30px, 0);
+	  -ms-transform: translate3d(0, -30px, 0);
+	  transform: translate3d(0, -30px, 0)
+	}
+	70% {
+	  -webkit-transition-timing-function: cubic-bezier(0.755, .050, .855, .060);
+	  transition-timing-function: cubic-bezier(0.755, .050, .855, .060);
+	  -webkit-transform: translate3d(0, -15px, 0);
+	  -ms-transform: translate3d(0, -15px, 0);
+	  transform: translate3d(0, -15px, 0)
+	}
+	90% {
+	  -webkit-transform: translate3d(0, -4px, 0);
+	  -ms-transform: translate3d(0, -4px, 0);
+	  transform: translate3d(0, -4px, 0)
+	}
+  }
+  .gotoLive {
 	color: red;
 	font-size: 25px;
 	text-align: center;
 	position: fixed;
 	bottom : 50px;
 	left: 20px;
-}
-
+	-webkit-animation-name: bounce;
+	animation-name: bounce;
+	-webkit-transform-origin: center bottom;
+	-ms-transform-origin: center bottom;
+	transform-origin: center bottom
+  }
 #gotoLive > h4 {
 	margin-top: 92px;
 }

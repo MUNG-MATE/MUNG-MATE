@@ -98,6 +98,8 @@ public class FAQController_o {
 
 		else { // 검색어가 있을 때
 			paramMap.put("boardCode", boardCode);
+			
+			System.out.println("파람맵 : "  + paramMap);
 
 			Map<String, Object> map = service.selectSearchList(paramMap, cp);
 
