@@ -67,5 +67,11 @@ public class ChattingDAO2 {
 		return sqlSession.selectList("chattingMapper2.chatList",memberNo);
 	}
 	
+	// Live적용할 reNo 구하기
+	public int selectRsNo(Map<String, Object> map) {
+		
+		return sqlSession.selectOne("chattingMapper2.selectRsNo",map);
+	}
+	
 
 }

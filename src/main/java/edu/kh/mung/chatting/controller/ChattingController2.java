@@ -46,7 +46,10 @@ public class ChattingController2 {
     	Map<String, Object> map = new HashMap<String, Object>();
     	map.put("memberNo", loginMember.getMemberNo());
     	map.put("flag",loginMember.getPetsitterFlag());
-    	System.out.println("map =="+map);
+    	
+    	int rsNo = service.selectRsNo(map);
+    	map.put("rsNo", rsNo);
+    	
     	return service.chattingTarget(map);
     }
     

@@ -133,7 +133,7 @@
 		WHERE MEMBER_NO =(SELECT MEMBER_NO FROM PETSITTER P
 		WHERE P.PETSITTER_NO = (SELECT PETSITTER_NO FROM RESERVATION
 		WHERE MEMBER_NO = #{memberNo}
-		AND RS_NO = 1))
+		AND RS_NO = #{rsNo}))
      	</if>
      	<choose>
 			<when test='flag == "Y" '>
@@ -141,11 +141,24 @@
 			WHERE MEMBER_NO =(SELECT MEMBER_NO FROM RESERVATION
 			WHERE PETSITTER_NO = (SELECT PETSITTER_NO FROM PETSITTER
 			WHERE MEMBER_NO = #{memberNo})
-			AND RS_NO = 1)
+			AND RS_NO = #{rsNo)
 			</when>
 		</choose>
     
-     	
+     </select>
+     <!-- rsNo구하기  -->
+     <select id="selectRsNo" resultType="_int">
+     	<if test='flag == "N"'>
+     	SELECT RS_NO FROM RESERVATION
+		WHERE MEMBER_NO = #{memberNo}
+     	</if>
+     	<choose>
+			<when test='flag == "Y" '>
+			SELECT RS_NO FROM RESERVATION
+			WHERE PETSITTER_NO = (SELECT PETSITTER_NO FROM PETSITTER WHERE MEMBER_NO = #{memberNo})
+			</when>
+		</choose>
+     
      </select>
      
      

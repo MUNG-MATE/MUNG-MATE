@@ -69,4 +69,11 @@ public class ChattingServiceImpl2 implements ChattingService2{
 		return dao.chatList(memberNo);
 	}
 	
+	// Live적용할 reNo 구하기
+	@Override
+	public int selectRsNo(Map<String, Object> map) {
+		
+		return dao.selectRsNo(map);
+	}
+	
 }
