@@ -44,7 +44,7 @@
                 <div id="input-area">
                     <textarea id="inputChatting" placeholder="펫시터에게 전달할 내용이 있다면 남겨보세요."></textarea>
                     <div>
-                        <button id="send">보내기</button>
+                        <button id="send" class="send">보내기</button>
                     </div>
                 </div>
         </div>
