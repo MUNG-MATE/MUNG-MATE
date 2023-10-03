@@ -232,10 +232,8 @@ if (loginMemberNo != "") {
 // 채팅 입력
 const send = document.getElementById("send");
 
-
+const inputChatting = document.getElementById("inputChatting");
 const sendMessage = () => {
-   const inputChatting = document.getElementById("inputChatting");
-
 
    if (inputChatting.value.trim().length == 0) {
       alert("채팅을 입력해주세요.");
@@ -253,9 +251,20 @@ const sendMessage = () => {
       chattingSock.send(JSON.stringify(obj));
 
       inputChatting.value = "";
+      send.classList.remove("sendBtn");
    }
 }
 
+inputChatting.addEventListener("input",()=>{
+   
+   send.classList.add("sendBtn");
+
+   if(inputChatting.value == ""){
+      
+      send.classList.remove("sendBtn");
+   }
+
+})
 // 엔터 == 제출
 // 쉬프트 + 엔터 == 줄바꿈
 inputChatting.addEventListener("keyup", e => {
