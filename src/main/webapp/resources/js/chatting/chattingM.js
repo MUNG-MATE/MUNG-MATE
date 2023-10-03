@@ -8,6 +8,7 @@ let chatNo; // 선택한 채팅방 번호
 let targetNo; // 현재 채팅 대상
 let targetName; // 대상의 이름
 let targetProfile; // 대상의 프로필
+let flag;
 
 // 채팅방 입장 또는 선택 함수
 document.getElementById("start").addEventListener("click",e =>{
@@ -109,9 +110,11 @@ function targets(){
          document.getElementById("lastMessage").addEventListener("click", ()=>{
             selectChattingFn();
          })
+
          // 현재 채팅방을 보고있는게 아니고 읽지 않은 개수가 0개 이상인 경우 -> 읽지 않은 메세지 개수 출력
-         /* if(t.notReadCount > 0 && t.chattingNo != selectChattingNo ){
-         // if(room.chattingNo != selectChattingNo ){
+
+         if(t.notReadCount > 0 && t.chattingNo != targetNo ){
+         
             const notReadCount = document.createElement("p");
             notReadCount.classList.add("not-read-count");
             notReadCount.innerText = room.notReadCount;
@@ -127,7 +130,7 @@ function targets(){
             .then(result => console.log(result))
             .catch(err => console.log(err));
 
-         } */
+         }
       }
 
    })
@@ -156,7 +159,7 @@ function selectChattingFn() {
             // 보낸 시간
             const span = document.createElement("span");
             span.classList.add("chatDate");
-            span.innerText = msg.sendTime;
+            span.innerHTML = msg.sendTime;
 
             // 메세지 내용
             const p = document.createElement("p");
@@ -224,7 +227,7 @@ const sendMessage = () => {
       var obj = {
          "senderNo": loginMemberNo,
          "targetNo": targetNo,
-         "chatNo" : chatNo,
+         "chatNo" : chatNo, 
          "messageContent": inputChatting.value,
       };
       console.log(obj)
