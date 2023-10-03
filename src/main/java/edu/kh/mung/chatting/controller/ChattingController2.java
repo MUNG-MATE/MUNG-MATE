@@ -49,7 +49,7 @@ public class ChattingController2 {
     	
     	int rsNo = service.selectRsNo(map);
     	map.put("rsNo", rsNo);
-    	
+    	System.out.println("rsNo == " + rsNo);
     	return service.chattingTarget(map);
     }
     
