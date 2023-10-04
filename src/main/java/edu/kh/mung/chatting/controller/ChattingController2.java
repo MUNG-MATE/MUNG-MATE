@@ -33,8 +33,7 @@ public class ChattingController2 {
 	public String chattingList2(@SessionAttribute("loginMember") Member loginMember, Model model) {
 		
 		List<ChattingRoom2> chatList = service.chatList(loginMember.getMemberNo());
-		model.addAttribute("cahtList",chatList);
-		
+		model.addAttribute("chatList",chatList);
 		return "chatting/chattingM";
 	}
 	

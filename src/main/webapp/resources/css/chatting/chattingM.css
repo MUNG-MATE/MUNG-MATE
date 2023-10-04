@@ -190,3 +190,7 @@
     font-weight: bold;
     width: 180px;
 }
+
+.div1{
+    transition: 3s;
+}

@@ -62,7 +62,7 @@
 
             <!-- 내용 영역 -->
             <div class="h-contentArea">
-                <pre>${board.boardContent}</pre>
+                <textarea class="h-contentArea">${board.boardContent}</textarea>
             </div>
 
             

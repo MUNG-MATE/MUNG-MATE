@@ -69,6 +69,7 @@ h1{
     padding: 30px;
     border-top: 3px solid #ccc;
     border-bottom: 3px solid #ccc;
+    white-space: nowrap;
 }
 
 [name="boardContent"]{
@@ -77,10 +78,10 @@ h1{
     height: 300px;
     resize: none;
     outline: none;
-    border: 0;
-
     font-size: 18px;
-    white-space: nowrap;
+    border: none;
+    line-height: 30px;
+    
 
 }
 

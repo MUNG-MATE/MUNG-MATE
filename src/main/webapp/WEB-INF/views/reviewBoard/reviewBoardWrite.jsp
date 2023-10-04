@@ -45,7 +45,7 @@
 
                     <!-- 내용 -->
                     <div class="boardContent">
-                        <textarea name="boardContent" placeholder="내용을 입력해주세요."></textarea>
+                        <textarea name="boardContent" placeholder="내용을 입력해주세요." ></textarea>
                     </div>
 
                     <div class="frame">
