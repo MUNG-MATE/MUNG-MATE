@@ -71,6 +71,7 @@
 
 #section {
     display: flex;
+    margin-bottom: 30px;
 }
 
 #section > section {

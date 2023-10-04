@@ -90,7 +90,7 @@ public class LiveController {
 		
 		if(liveNo > 0) {
 			message = "라이브 카드가 등록되었습니다.";
-			path += "/";
+			path += "/myPage/liveCard?rsNo=" + lc.getRsNo();
 					
 		} else {
 			message = "라이브 카드가 등록에 실패했습니다.";
