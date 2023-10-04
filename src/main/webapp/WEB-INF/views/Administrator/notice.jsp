@@ -8,7 +8,6 @@
             <meta charset="UTF-8">
             <title>notice</title>
             <link rel="stylesheet" href="/resources/css/Administrator/faq.css">
-            <script src="https://kit.fontawesome.com/de9012b52d.js" crossorigin="anonymous"></script>
             
         </head>
 

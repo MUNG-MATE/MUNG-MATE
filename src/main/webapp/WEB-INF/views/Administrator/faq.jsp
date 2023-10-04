@@ -53,6 +53,11 @@
 
                             </ul>
                         </div>
+
+                        <c:if test="${empty map.boardList}" >
+                            <p id = "emptyText">게시글이 없습니다.</p>
+                        </c:if>
+
                         <c:forEach items="${map.boardList}" var="faqList">
                             <table id="table">
                                 <form action="/Administrator/faq/update" method="POST" name="updateFrm">
@@ -74,7 +79,7 @@
 
                                     <tr class="faq-answer" id="result2">
                                         <td rowspan="4" id="resultContent">
-                                            ${faqList.content}
+${faqList.content}
                                             <input type="hidden" name="content" value="${faqList.content}">
                                             <input type="hidden" name="title" value="${faqList.title}">
                                             <input type="hidden" name="boardNo" value="${faqList.boardNo}">
@@ -83,23 +88,22 @@
                                 </form>
                             </table>
                         </c:forEach>
+
                     </article>
 
-
-                </section>
-                
                 <!-- 페이지 네이션 영역 -->
         <div class="pagination-area">
             <ul class="pagination">
 
                 <c:set var="pagination" value="${map.pagination}"/>
+                <c:set var="boardList" value="${map.boardList}"/>
 
-                <c:if test="${!empty boardList}" >
+                <c:if test="${!empty faqList}" >
                 <!-- 첫 페이지로 이동 -->
-                <li><a href="/Administrator/faq/${boardCode}?cp=1${sp}"><i class="fa-solid fa-angles-left"></i></a></li>
+                <li><a href="/Administrator/faq/${boardCode}?cp=1"><i class="fa-solid fa-angles-left"></i></a></li>
 
                 <!-- 이전 목록 마지막 번호로 이동 -->
-                <li><a href="/Administrator/faq/${boardCode}?cp=${pagination.prevPage}${sp}"><i class="fa-solid fa-chevron-left"></i></a></li>
+                <li><a href="/Administrator/faq/${boardCode}?cp=${pagination.prevPage}"><i class="fa-solid fa-chevron-left"></i></a></li>
                 </c:if>
 
            
@@ -115,27 +119,29 @@
                     
                        <c:otherwise>
                             <!-- 현재 페이지를 제외한 나머지 -->
-                            <li><a href="/Administrator/faq/${boardCode}?cp=${i}${sp}">${i}</a></li>
+                            <li><a href="/Administrator/faq/${boardCode}?cp=${i}">${i}</a></li>
 
                        </c:otherwise>
                     </c:choose>
 
                 </c:forEach>
                 
-                <c:if test="${!empty boardList}" >
+                <c:if test="${!empty faqList}" >
                 <!-- 다음 목록 시작 번호로 이동 -->
-                <li><a href="/Administrator/faq/${boardCode}?cp=${pagination.nextPage}${sp}"><i class="fa-solid fa-chevron-right"></i></a></li>
+                <li><a href="/Administrator/faq/${boardCode}?cp=${pagination.nextPage}"><i class="fa-solid fa-chevron-right"></i></a></li>
 
                 <!-- 끝 페이지로 이동 -->
-                <li><a href="/Administrator/faq/${boardCode}?cp=${pagination.maxPage}${sp}"><i class="fa-solid fa-angles-right"></i></a></li>
+                <li><a href="/Administrator/faq/${boardCode}?cp=${pagination.maxPage}"><i class="fa-solid fa-angles-right"></i></a></li>
                 </c:if>
 
             </ul>
         </div>
+                </section>
+
+               
 
 
-
-
+                
             </main>
             <jsp:include page="/WEB-INF/views/common/footer.jsp" />
             <script>
