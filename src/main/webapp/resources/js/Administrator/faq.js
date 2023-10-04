@@ -1,3 +1,28 @@
+
+
+
+const toggleButtons = document.querySelectorAll('.td'); 
+
+toggleButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        const faqAnswerRows = document.querySelectorAll('.faq-answer'); 
+
+        // 현재 클릭한 버튼 다음의 답변 행을 토글하여 보이거나 숨깁니다.
+        faqAnswerRows.forEach((row, rowIndex) => {
+            if (rowIndex === index) {
+                if (row.style.display === 'block' || row.style.display === '') {
+                    row.style.display = 'none';
+                } else {
+                    row.style.display = 'block';
+                }
+            } else {
+                row.style.display = 'none'; 
+            }
+        });
+    });
+});
+
+
 // 검색창 이전 검색 기록을 남겨놓기
 const faqSearch = document.getElementById("faqSearch");
 const searchKey = document.getElementById("faqCat");
@@ -41,26 +66,6 @@ faqSearch.addEventListener("submit", e=>{
 
 
 
-const toggleButtons = document.querySelectorAll('.td'); 
-
-toggleButtons.forEach((button, index) => {
-    button.addEventListener('click', () => {
-        const faqAnswerRows = document.querySelectorAll('.faq-answer'); 
-
-        // 현재 클릭한 버튼 다음의 답변 행을 토글하여 보이거나 숨깁니다.
-        faqAnswerRows.forEach((row, rowIndex) => {
-            if (rowIndex === index) {
-                if (row.style.display === 'block' || row.style.display === '') {
-                    row.style.display = 'none';
-                } else {
-                    row.style.display = 'block';
-                }
-            } else {
-                row.style.display = 'none'; 
-            }
-        });
-    });
-});
 
 
 // faq 삭제 함수

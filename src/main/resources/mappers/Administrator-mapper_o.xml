@@ -35,6 +35,7 @@
 		WHERE
 		BOARD_CD = #{boardCode}
 		AND BOARD_ST = 'N'
+		ORDER BY BOARD_NO DESC
 		
 	</select>
 
@@ -73,27 +74,27 @@
 		BOARD_ST = 'N'
 		<choose>
 			<when test='faqCat == "서비스이용"'>
-				AND BOARD_CD = 4
-				AND BOARD_CONTENT LIKE '%${faq}%'
+				AND BOARD_NM = #{faqCat}
+				AND (BOARD_CONTENT LIKE '%${faq}%'
 				OR BOARD_TITLE LIKE
-				'%${faq}%'
+				'%${faq}%')
 
 			</when>
 
 			<when test='faqCat == "기타"'>
-				AND BOARD_CD = 5
-				AND BOARD_CONTENT LIKE '%${faq}%'
+				AND BOARD_NM = #{faqCat}
+				AND (BOARD_CONTENT LIKE '%${faq}%'
 				OR
 				BOARD_TITLE LIKE
-				'%${faq}%'
+				'%${faq}%')
 			</when>
 
 			<when test='faqCat == "예약관련"'>
-				AND BOARD_CD = 3
-				AND BOARD_CONTENT LIKE '%${faq}%'
+				AND BOARD_NM = #{faqCat}
+				AND (BOARD_CONTENT LIKE '%${faq}%'
 				OR
 				BOARD_TITLE LIKE
-				'%${faq}%'
+				'%${faq}%')
 			</when>
 		</choose>
 
@@ -109,29 +110,30 @@
 
 		<choose>
 			<when test='faqCat == "서비스이용"'>
-				AND BOARD_CD = 4
-				AND BOARD_CONTENT LIKE '%${faq}%'
+				AND BOARD_NM = #{faqCat}
+				AND (BOARD_CONTENT LIKE '%${faq}%'
 				OR BOARD_TITLE LIKE
-				'%${faq}%'
+				'%${faq}%')
 
 			</when>
 
 			<when test='faqCat == "기타"'>
-				AND BOARD_CD = 5
-				AND BOARD_CONTENT LIKE '%${faq}%'
+				AND BOARD_NM = #{faqCat}
+				AND (BOARD_CONTENT LIKE '%${faq}%'
 				OR
 				BOARD_TITLE LIKE
-				'%${faq}%'
+				'%${faq}%')
 			</when>
 
 			<when test='faqCat == "예약관련"'>
-				AND BOARD_CD = 3
-				AND BOARD_CONTENT LIKE '%${faq}%'
+				AND BOARD_NM = #{faqCat}
+				AND (BOARD_CONTENT LIKE '%${faq}%'
 				OR
 				BOARD_TITLE LIKE
-				'%${faq}%'
+				'%${faq}%')
 			</when>
 		</choose>
+		ORDER BY BOARD_NO DESC
 	</select>
 	
 	
