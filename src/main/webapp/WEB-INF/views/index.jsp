@@ -35,10 +35,15 @@
                             <div class="review">
                                 <div class="reviewContent">
                                     <div class="reviewInfo">
+                                    <c:if test="${empty rList.profileImage}" >
+                                    <img src="/resources/images/user.png">
+                                    </c:if>
+                                    <c:if test="${!empty rList.profileImage}" >
                                         <img src="${rList.profileImage}">
+                                    </c:if>
                                         <span class="reviewNickname">${rList.memberNickname}</span>
                                     </div>
-                                    <p>
+                                    <p id = "reviewContent">
                                         ${rList.boardContent}
                                     </p>
                                     <div class="reviewImage">

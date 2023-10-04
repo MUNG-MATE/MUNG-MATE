@@ -49,7 +49,7 @@ if (memberInfoUpdate != null) {
     })
 
     // 전화번호 유효성 검사
-    memberName.addEventListener("input", () => {
+    phone.addEventListener("input", () => {
 
         // 변경 전 전화번호와 입력 값이 같을 경우
         if (initTel == phone.value) {
@@ -131,7 +131,7 @@ if (imageInput != null) {
         if (file == undefined) {
             deleteCheck = -1;
 
-            profileImage.setAttribute("src", originalImage);
+            profileImage.setAttribute("src", "/resources/images/user.png");
 
             return;
         }
@@ -156,40 +156,19 @@ if (imageInput != null) {
             deleteCheck = 1;
         }
     })
+    const imagesChoicedelete = document.getElementById("imagesChoicedelete");
 
-    // 사진을 지웠을 때
-    deleteImage.addEventListener("click", () => {
-        profileImage.setAttribute("src", "/resources/images/user.png");
-        imageInput.value = "";
+    imagesChoicedelete.addEventListener("click", () => {
 
-        deleteCheck = 0;
+            profileImage.setAttribute("src", "/resources/images/user.png");
+
+
     })
+
+
+
 }
 
-document.getElementById("memberInfoUpdate").addEventListener("submit", e => {
-
-    let flag = true;
-
-    // 프로필 이미지가 없다 -> 있다
-    if(!initCheck &&deleteCheck == 1){
-        flag = false;
-    }
-    // 이전 프로필 이미지가 있다 -> 삭제
-    if(initCheck &&deleteCheck == 0){
-        flag = false;
-    }
-
-    // 이전 프로필 이미지가 있다 -> 새 이미지
-    if(initCheck &&deleteCheck == 1){
-        flag = false;
-    }
-
-    if(flag){ 
-        e.preventDefault(); 
-        alert("이미지 변경 후 클릭하세요.");
-    }
 
 
 
-
-})

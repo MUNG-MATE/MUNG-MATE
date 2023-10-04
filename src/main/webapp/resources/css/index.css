@@ -239,7 +239,7 @@
 
 .reviewImage {
     width: 275px;
-    height: 220px;
+    height: 227px;
     position: relative;
     top: 13px;
 
@@ -401,3 +401,10 @@
     background: #AD9E87;
     color: #fff;
 }
+
+
+#reviewContent{
+    height: 88px;
+    overflow: hidden;
+}
+
