@@ -10,7 +10,7 @@ let targetName; // 대상의 이름
 let targetProfile; // 대상의 프로필
 
 // 채팅방 입장 또는 선택 함수
-document.getElementById("start").addEventListener("click", e => {//시작 버튼 누르면
+document.getElementById("chattingStart").addEventListener("click", e => {//시작 버튼 누르면
 
    fetch("/chatting/target2")
       .then(resp => resp.json())
@@ -22,7 +22,7 @@ document.getElementById("start").addEventListener("click", e => {//시작 버튼
             const h31 = document.createElement("h3");
             h3.setAttribute("id", "chattingStart")
             h3.setAttribute("data-id", target.memberNo);
-            h3.innerText = "채팅시작";
+            h3.innerText = "채팅하기";
             // h31.setAttribute("id", "lastMessage")
             // h31.innerText = "전체 메세지보기";
 
@@ -30,7 +30,7 @@ document.getElementById("start").addEventListener("click", e => {//시작 버튼
 
             document.getElementById("chattingInfo").append(h3, h31);
 
-            h3.addEventListener('click', chattingEnter);
+            // h3.addEventListener('click', chattingEnter);
 
 
          }
@@ -38,7 +38,7 @@ document.getElementById("start").addEventListener("click", e => {//시작 버튼
       })
       .catch(err => console.log(err));
 
-
+      chattingEnter(e);
 })
 
 function chattingEnter(e) {
@@ -106,7 +106,7 @@ function targets() {
 
             p2.append(span3);
 
-            div.append(img, span1, p1, p2)
+            div.append(img, span1,p2) //p1,p2 있던 자리
 
             document.getElementById("chattingInfo").append(div);
 
@@ -178,7 +178,7 @@ function selectChattingFn() {
 
                const readFlag = document.createElement("span");
 
-               if (msg.readFlag == 'Y') {
+               if (msg.readFlag == "Y") {
 
                   readFlag.innerText = "읽음";
 
@@ -305,7 +305,6 @@ chattingSock.onmessage = function (e) {
    if (loginMemberNo == msg.senderNo) {
       li.classList.add("my-chat");
 
-      li.append(span, p);
 
    } else { // 상대가 작성한 메세지인 경우
       li.classList.add("target-chat");

@@ -121,101 +121,19 @@
     font-weight: bold;
 }
 
-#chattingArea {
-    width: 100%;
-    height: 665px;
-    background-color: #fff;
-    margin: 0;
-    padding: 0;
-    border-left: 2px solid rgb(0,30,60);
-    border-bottom: 2px solid rgb(0,30,60);
 
-}
 
-#input-area {
-    height: 100px;
-    border: 1px solid gray;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    padding-left: 15px;
-}
 
-#inputChatting {
-    width: 90%;
-    height: 32px;
-    resize: none;
-    outline: 0;
-    border: none;
-    line-height: 32px;
-    padding-left: 15px;
-    font-size: 20px;
-}
 
-#inputChatting::placeholder {
-    line-height: 32px;
-}
 
-#send {
-    width: 10%;
-    background-color: transparent;
-    border: none;
-    font-weight: bold;
-}
 
-#chattingArea {
-    padding: 10px 0;
-    list-style: none;
-    overflow: auto;
-}
 
-.chat {
-    display: inline-block;
-    border-radius: 5px;
-    margin: 3px 0;
-    padding: 5px;
-    word-break: break-all;
-    white-space: pre-wrap;
-}
 
-.opponentChat > img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin: 0 5px;
-}
 
-.opponentChat {
-    display: flex;
-    align-items: flex-start;
-}
 
-.chatDate {
-    font-size: 9px;
-    margin: 0 5px;
-}
 
-.myChat {
-    text-align: right;
-}
 
-.myChat > p {
-    background-color: rgb(0,30,60);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    color: white;
-    font-weight: bold;
-}
 
-.opponentChat {
-    text-align: left;
-    display: flex;
-    align-items: center;
-}
-
-.opponentChat p {
-    background-color: rgb(253, 249, 244);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-}
 
 li {
     list-style: none;
