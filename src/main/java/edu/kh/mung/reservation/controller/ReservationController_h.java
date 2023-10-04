@@ -60,6 +60,7 @@ public class ReservationController_h {
 	public String reservation2(Model model, Reservation rs) {
 		
 		model.addAttribute("rs", rs);
+		System.out.println("rs2 : " + rs);
 		return "/reservation/reservation_2";
 	}
 
@@ -75,6 +76,7 @@ public class ReservationController_h {
 		// 펫시터 정보 얻어오기
 		List<PetSitter> petSitterList = service.selectPetSitter(rs);
 		rs.setPetSitterList(petSitterList);
+		System.out.println("rs3 : " + rs);
 
 		model.addAttribute("rs", rs);
 		model.addAttribute("pet", pet);

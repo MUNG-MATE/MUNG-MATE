@@ -51,7 +51,7 @@
                             <p class="history" name="memberTel">전화번호 : ${i.memberTel}</p>
                             <p class="history" name="memberEmail">이메일 : ${i.memberEmail}</p>
                             
-                            <button class="reservationBtn">예약하기</button>
+                            <button class="reservationBtn">예약</button>
                             
                             <input name="petSitterNo" type="hidden" value="${i.petSitterNo}" class="petSitterNo">
                         </div>
