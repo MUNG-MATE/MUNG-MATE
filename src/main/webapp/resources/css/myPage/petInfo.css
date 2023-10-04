@@ -78,7 +78,7 @@ tr {
     width: 320px;
     height: 200px;
     resize: none;
-    margin-left: 30px;
+    margin: auto;
     display: block;
     border-radius: 10px;
     padding: 10px;
@@ -243,7 +243,8 @@ p {
     width: 380px;
     height: 150px;
     display: flex;
-    justify-content: center;
+    justify-content: center;   
+    margin: auto;
 
 }
 
