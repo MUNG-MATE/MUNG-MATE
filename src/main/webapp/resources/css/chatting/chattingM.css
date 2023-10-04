@@ -1,19 +1,30 @@
 
 *{margin: 0;padding: 0;}li {list-style: none;}
 
+#start{
+    display: none;
+}
+
+.chatting-content{
+    width: 478px;
+}
+
 #display-chatting {
-    width: 994px;
+    width: 478px;
     height: 500px;
     background-color: rgb(241, 248, 255, 0.7);
     list-style: none;
     overflow: auto;
-    border: 3px solid rgb(0, 30, 60);
+    border: 1px solid rgb(0, 30, 60);
+    border-right: none;
     border-bottom: none;
 }
 
 #input-area {
-    height: 100px;
-    border: 3px solid rgb(0, 30, 60);
+    width: 478px;
+    height: 95px;
+    border: 1px solid rgb(0, 30, 60);
+    border-right: none;
     display: flex;
     align-items: center;
     padding-left: 15px;
@@ -33,9 +44,9 @@
     line-height: 32px;
 }
 #input-area div{
-    width: 10%;
+    width: 100px;
     height: 100%;
-    border-left: 3px solid black;
+    border-left: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -106,18 +117,18 @@
 }
 
 #chattingBox{
-    width: 1000px;
-    height: 700px;
+    width: 478px;
+    height: 768px;
     margin: 0 auto;
 }
 #chattingInfo{
-    width: 994px;
+    width: 478px;
     height: 70px;
     display: flex;
     background-color: beige;
-    border-left: 3px solid black;
-    border-right: 3px solid black;
-    border-top: 3px solid black;
+    border-left: 1px solid black;
+    border-right: none;
+    border-top: 1px solid black;
     text-align: center;
 }
 #chattingStart{
@@ -145,7 +156,6 @@
 }
 
 #div{
-    width: 715px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -155,27 +165,25 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    border: 2px solid black;
+    border: 1px solid black;
     margin-left: 15px;
 }
 #div>span{
     margin: 0 30px;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: bold;
-    width: 150px;
+    width: 100px;
 }
 #div p> span{
     display: inline-block;
-    font-size: 14px;
+    font-size: 10px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: 170px;
 }
 #div p:nth-of-type(1){
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
-    width: 220px;
 }
 #div p:nth-of-type(2){
     font-size: 20px;
