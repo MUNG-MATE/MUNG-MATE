@@ -17,7 +17,7 @@
         <button id="start">시작</button>
         <div id="chattingBox">
             <div id="chattingInfo">
-                <h3 id="chattingStart">채팅하기</h3>
+                <h3 id="chattingStart" class="chattingStart">채팅하기</h3>
                 <%-- <h3 id="lastMessage">전체 메세지보기</h3> --%>
                 <div id="div">
                     <%-- <img src="/resources/images/member/m.gif"> --%>

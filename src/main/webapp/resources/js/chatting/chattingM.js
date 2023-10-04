@@ -11,7 +11,7 @@ let targetProfile; // 대상의 프로필
 
 // 채팅방 입장 또는 선택 함수
 document.getElementById("chattingStart").addEventListener("click", e => {//시작 버튼 누르면
-
+   
    fetch("/chatting/target2")
       .then(resp => resp.json())
       .then(targetList => {
@@ -107,6 +107,7 @@ function targets() {
             p2.append(span3);
 
             div.append(img, span1,p2) //p1,p2 있던 자리
+            div.classList.add("div1");
 
             document.getElementById("chattingInfo").append(div);
 
@@ -118,6 +119,7 @@ function targets() {
             /* document.getElementById("lastMessage").addEventListener("click", () => {
                selectChattingFn();
             }) */
+            
             selectChattingFn();
 
             // 상대방이 현재 채팅방을 보고있으면
@@ -131,13 +133,14 @@ function targets() {
                   .then(resp => resp.text())
                   .then(result => {
                      console.log(result)
+
+
                   })
                   .catch(err => console.log(err));
 
             }
-
+            
          }
-
       })
       .catch(err => console.log(err));
 }
