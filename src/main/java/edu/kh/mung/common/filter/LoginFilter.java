@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import edu.kh.mung.member.model.dto.Member;
 
-@WebFilter(filterName = "loginFilter", urlPatterns = {"/reservation/*","/chatting/chatting2"})
+@WebFilter(filterName = "loginFilter", urlPatterns = {"/reservation/*","/chatting/chatting2","/myPage/*","/Administrator/declaration"})
 
 public class LoginFilter implements Filter {
 
@@ -37,7 +37,7 @@ public class LoginFilter implements Filter {
 		
 		if(loginMember == null) {
 			
-			session.setAttribute("message", "로그인후 이용해주세요 뿌우~.~");
+			session.setAttribute("message", "로그인후 이용해주세요.");
 			resp.sendRedirect("/member/login");
 			
 		} else {

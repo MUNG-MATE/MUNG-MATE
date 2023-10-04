@@ -42,13 +42,8 @@
                             <li><a href = "/myPage/memberInfo">내 정보</a></li>
                             <li><a href = "/myPage/petInfo">내 반려견</a></li>
                             <li><a href = "/petsitterLikeList">내 찜목록</a></li>
-                            <c:if test="${loginMember.petsitterFlag == 'N'}" >
-                                <li><a href = "/petsitter/toPetsitterApply">펫시터 되기</a></li>
-                            </c:if>
-                            <c:if test="${loginMember.petsitterFlag == 'Y'}" >
-                                <li><a  href = "/petsitter/toGeneralApply">펫시터 그만두기</a></li>
-                            </c:if>
-                            <li><a href = "/myPage/memberSecession">계정 탈퇴</a></li>
+                            <li><a  href = "/myPage/myPost">내 게시글</a></li>
+                            <li><a href="/myPage/memberSecession">회원탈퇴</a></li>
                            <%--  <c:if test="${loginMember.petsitterFlag == 'Y'}" >
                             <li><a href="/petsitter/reservationList_p"> 펫시터 예약목록     증발띠    </a></li>
                             </c:if>  --%>
@@ -56,31 +51,31 @@
                     </li>
                 </c:if>
                     <li>
-                        <a href='javascript:void(0);'>멍메이트</a>
+                        <a href='javascript:void(0);'>Report & Application</a>
                         <ul class="sub_gnb">
-                            <li><a  href = "/myPage/myPost">내 게시글</a></li>
-                            <li><a  href = "/chatting/chatting2">채팅-광민</a></li>
-                            <li>4</li>
+                            <li><a href="/Administrator/declaration">신고</a></li>
+                            <c:if test="${loginMember.petsitterFlag == 'N'}" >
+                                <li><a href = "/petsitter/toPetsitterApply">펫시터 되기</a></li>
+                            </c:if>
+                            <c:if test="${loginMember.petsitterFlag == 'Y'}" >
+                                <li><a  href = "/petsitter/toGeneralApply">펫시터 그만두기</a></li>
+                            </c:if>
+                            
                         </ul>
                     </li>
 
                     <li>
-                       <a href='javascript:void(0);'>신고하기</a>
-                        <ul class="sub_gnb">
-                            <li><a href="/Administrator/declaration">신고</a></li>
-                            <li>모르겠는데?</li>
-                            <li>3</li>
-                            <li>4</li>
-                        </ul>
+                       <a href="/myPage/rsList">Reservation</a>
                     </li>
+
                     <c:if test="${loginMember.adminFlag == 'Y'}" >
                         <li>
-                            <a href='javascript:void(0);'>관리자</a>
+                            <a href='javascript:void(0);'>Admin</a>
                             <ul class="sub_gnb">
                                 <li><a href="/Administrator/management">회원정보 관리</a></li>
                                 <li><a href="/Administrator/petManagement">펫시터 관리</a></li>
-                                <li><a href="/Administrator/reserve">예약 관리</a></li>
                                 <li><a href="/petsitter/admin/petsitterlist1">펫시터 신청 관리</a></li>
+                                <li><a href="/Administrator/reserve">예약 관리</a></li>
                                 <li><a href="/Administrator/reportList">신고 관리</a></li>
                             </ul>
                         </li>
