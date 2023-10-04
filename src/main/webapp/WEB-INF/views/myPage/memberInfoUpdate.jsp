@@ -44,9 +44,16 @@
                     </c:if>
 
                     </div>
-                    <div class="profile-btn-area"> 
-                        <label for="imageInput" id="imagesChoice">이미지 선택</label>
-                        <input type="file" name="profileImage" id="imageInput" accept="image/*">
+                    <div class="btn-display-row">
+                        <div class="profile-btn-area"> 
+                            <label for="imageInput" id="imagesChoice">이미지 선택</label>
+                            <input type="file" name="profileImage" id="imageInput" accept="image/*">
+                        </div>
+                        <c:if test="${!empty loginMember.profileImage}" >
+                            <div class="profile-btn-area"> 
+                                <label id="imagesChoicedelete">이미지 삭제</label>
+                            </div>
+                        </c:if>
                     </div>
                 </div>
 

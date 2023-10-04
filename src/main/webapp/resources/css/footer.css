@@ -226,6 +226,8 @@ body{font-family:'Montserrat','pretendard';}
 	  transform: translate3d(0, -4px, 0)
 	}
   }
+
+  
   .gotoLive {
 	color: red;
 	font-size: 25px;
