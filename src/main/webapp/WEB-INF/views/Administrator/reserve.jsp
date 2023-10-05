@@ -152,7 +152,7 @@
     let day = date.getDate(); 
 
     if(month < 10 ) month = "0"+month; month;
-    if(day < 10 ) day = "0"+month; day;
+    if(day < 10 ) day = "0"+day; day;
 
     let sysdate = year+"년 "+month+"월 "+day+" 일 기준 예약현황"
 

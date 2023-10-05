@@ -46,6 +46,7 @@ h2{
 .pet-sitterimg img{
     width: 80%;
     height: 100%;
+    border-radius: 10px;
 }
 .pet-sitter-info{
     width: 50%;
