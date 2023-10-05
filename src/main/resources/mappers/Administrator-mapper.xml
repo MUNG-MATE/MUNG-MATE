@@ -63,6 +63,7 @@
 	</select>
 	<select id="mungCount" resultType="_int">
 		SELECT COUNT(*) FROM MEMBER
+		WHERE MEMBER_NO != '999'
 	</select>
 	<select id="petCount" resultType="_int">
 		SELECT COUNT(*) FROM MEMBER
@@ -73,6 +74,7 @@
 		SELECT COUNT(*) FROM MEMBER
 		WHERE SECESSION_FL = 'N'
 		AND MEMBER_PETSITTER != 'Y'
+		AND MEMBER_NO != '999'
 	</select>
 	<select id="flagCount" resultType="_int">
 		SELECT COUNT(*) FROM MEMBER
@@ -95,6 +97,7 @@
 		<if test='managementType == "전체"'>
 		WHERE
         (MEMBER_EMAIL LIKE '%${managementSearch}%' OR MEMBER_NM LIKE '%${managementSearch}%' OR MEMBER_TEL LIKE '%${managementSearch}%')
+        AND MEMBER_NO != '999'
 			ORDER BY SECESSION_FL
 		</if>
 		<choose>
@@ -103,6 +106,7 @@
 				AND MEMBER_PETSITTER ='N'
 				AND 
         (MEMBER_EMAIL LIKE '%${managementSearch}%' OR MEMBER_NM LIKE '%${managementSearch}%' OR MEMBER_TEL LIKE '%${managementSearch}%')
+        		AND MEMBER_NO != '999'
 			</when>
 			<when test='managementType == "펫시터"'>
 				WHERE MEMBER_PETSITTER ='Y'
@@ -125,6 +129,7 @@
 		<if test='managementType == "전체"'>
 			WHERE
         (MEMBER_EMAIL LIKE '%${managementSearch}%' OR MEMBER_NM LIKE '%${managementSearch}%' OR MEMBER_TEL LIKE '%${managementSearch}%')
+        AND MEMBER_NO != '999'
         	ORDER BY SECESSION_FL 
 		</if>
 		<choose>
@@ -133,6 +138,7 @@
 				AND MEMBER_PETSITTER ='N'
 				AND 
         (MEMBER_EMAIL LIKE '%${managementSearch}%' OR MEMBER_NM LIKE '%${managementSearch}%' OR MEMBER_TEL LIKE '%${managementSearch}%')
+        		AND MEMBER_NO != '999'
         		ORDER BY ENROLL_DATE DESC
 			</when>
 			<when test='managementType == "펫시터"'>
