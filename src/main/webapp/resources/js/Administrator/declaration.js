@@ -1,5 +1,5 @@
 const petsitters = document.getElementById("declarationNo");
-const petsitterBox = document.getElementById("petsitterInfo");
+const petsitterInfoBox = document.getElementById("petsitterInfo");
 
 let petNo = 0;
 
@@ -16,12 +16,13 @@ petsitters.addEventListener("change", ()=>{
     .then(petsitterList =>{
         
         
-        petsitterBox.innerHTML=""
+        petsitterInfoBox.innerHTML=""
         
         for(let petsitter of petsitterList){
-            const petsitterImgBox = document.createElement("div");
-            petsitterImgBox.classList.add("pet-sitterimg")
-    
+        
+            const petSitterInfo = document.createElement("div");
+            petSitterInfo.classList.add("pet-sitter-info");
+            
             const petsitterImg = document.createElement("img");
     
             if( petsitter.profileImage !=null){
@@ -29,11 +30,6 @@ petsitters.addEventListener("change", ()=>{
             }else{
                 petsitterImg.setAttribute("src","/resources/images/member/petsitter.jpg")
             }
-            
-            petsitterImgBox.append(petsitterImg);
-    
-            const petSitterInfo = document.createElement("div");
-            petSitterInfo.classList.add("pet-sitter-info");
     
             const ul = document.createElement("ul");
     
@@ -52,9 +48,14 @@ petsitters.addEventListener("change", ()=>{
     
             ul.append(li1,li2,li3,li4,li5,li6);
     
-            petSitterInfo.append(ul);
-    
-            petsitterBox.append(petsitterImgBox,petSitterInfo);
+            petSitterInfo.append(petsitterImg,ul);
+            
+            const textarea = document.createElement("textarea");
+            textarea.setAttribute("name","singo");
+            textarea.setAttribute("id","singo");
+            textarea.setAttribute("placeholder","신고하는 이유를 상세하게 적어주세요.");
+
+            petsitterInfoBox.append(petSitterInfo,textarea);
         }
 
        
