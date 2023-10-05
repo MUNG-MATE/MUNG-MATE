@@ -30,15 +30,12 @@ document.getElementById("chattingStart").addEventListener("click", e => {//시�
 
             document.getElementById("chattingInfo").append(h3, h31);
 
-            // h3.addEventListener('click', chattingEnter);
+            chattingEnter();
 
          }
 
       })
       .catch(err => console.log(err));
-
-      chattingEnter();
-
 
 })
 
@@ -46,6 +43,7 @@ function chattingEnter() {
 
    const targetNo = document.getElementById("chattingStart").getAttribute("data-id");
 
+   console.log("씨발좀=="+targetNo);
    fetch("/chatting/enter2?targetNo=" + targetNo)
       .then(resp => resp.text())
       .then(chatNo => {

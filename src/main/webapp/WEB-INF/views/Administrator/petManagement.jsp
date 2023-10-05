@@ -32,27 +32,22 @@
                 <tr>
                     <th>선호지역</th>
                     <td>${petManagement.location}</td>
-                    <td class="sysdate"></td>
                 </tr>
                 <tr>
                     <th>아이디</th>
                     <td>${petManagement.memberEmail}</td>
-                    <td class="sysdate"></td>
                 </tr>
                 <tr>
                     <th>전화번호</th>
                     <td>${petManagement.memberTel}</td>
-                    <td class="sysdate"></td>
                 </tr>
                 <tr>
                     <th>주소</th>
                     <td>${petManagement.memberAddress}</td>
-                    <td class="sysdate"></td>
                 </tr>
                 <tr>
                     <th>회원가입일</th>
                     <td>${petManagement.enrollDate}</td>
-                    <td class="sysdate"></td>
                 </tr>
             </table>
         </div>
