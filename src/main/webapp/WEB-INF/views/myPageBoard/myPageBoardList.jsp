@@ -46,8 +46,8 @@
 	                   <div>${post.memberNickname} | ${post.boardDate }</div>
 	               </div>
 	
-	               <div>
-	                   <img src="${post.imagePath}" class="h-listImg">
+	               <div class="thumbNail">
+	                   <img class="thumbNail" src="${post.imagePath}" class="h-listImg">
 	               </div>
 	
 	           </div>
