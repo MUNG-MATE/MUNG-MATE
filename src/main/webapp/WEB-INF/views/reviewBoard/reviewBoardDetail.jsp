@@ -75,8 +75,8 @@
                 <button id="h-deleteBtn">삭제</button>
                 </c:if>
                 <button id="h-backListBtn">목록으로</button>
+        ${board.boardNo}
             </div>
-
 
 
 
@@ -87,7 +87,7 @@
 
 
         <!-- 댓글 영역 -->
-        <jsp:include page="reply.jsp"/>
+        <jsp:include page="/WEB-INF/views/reviewBoard/reply.jsp"/>
 
 
     </main>
@@ -96,6 +96,14 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
     <script>
+
+
+
+        // 로그인한 회원 번호를 전역 변수로 선언
+        
+        const loginMemberNo = "${loginMember.memberNo}";
+        
+
         // 목록으로 버튼 클릭 시
         const goToListBtn = document.getElementById("h-backListBtn");
 
@@ -174,23 +182,8 @@
         
     </script>
 
-    <script>
-       
-
-        // 게시글 번호 전역 변수로 선언
-        const boardNo = "${board.boardNo}";
-        
-
-
-        // 로그인한 회원 번호를 전역 변수로 선언
-        
-        const loginMemberNo = "${loginMember.memberNo}";
-
-       
-
-    </script>
+    <script src="/resources/js/reviewBoard/reply.js"></script>  
     
-    <script src="../../../resources/js/reviewBoard/reply.js"></script>  
 
 
     

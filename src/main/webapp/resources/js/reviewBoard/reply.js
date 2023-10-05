@@ -1,3 +1,4 @@
+
 // 댓글 목록 조회
 function selectReplyList(){
 
@@ -153,7 +154,7 @@ addReply.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 �
     // 3) AJAX를 이용해서 댓글 내용 DB에 저장(INSERT)
     const data = {"replyContent" : replyContent.value,
                     "memberNo" : loginMemberNo,
-                    "boardNo" : boardNo}; // JS 객체 (k:v)형태
+                    "boardNo" : boardNo} // JS 객체 (k:v)형태
 
     fetch("/reply", {
         method : "POST",
@@ -421,7 +422,7 @@ function insertChildReply(parentNo, btn){
                     "boardNo" : boardNo,
                     "parentNo" : parentNo
                 }
-
+                
 
     fetch("/reply", {
         method: "POST",
