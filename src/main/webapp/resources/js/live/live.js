@@ -8,6 +8,13 @@ if(lgMemberNo != '') {
 	if(psFlag == 'Y') {
 		document.getElementById("startStopButton").style.display = 'block';
 	}
+	
+	if(psFlag == 'N') {
+		document.getElementById("stateTextArea").remove();
+		document.getElementById("profileDiv").style.width = '20%';
+		document.getElementById("petsitterText").style.width = '60%';
+		document.getElementById("iconArea").style.width = '20%';
+	}
 
     fetch("/myPage/selectRsList?memberNo=" + lgMemberNo)
     .then(resp => resp.json())
