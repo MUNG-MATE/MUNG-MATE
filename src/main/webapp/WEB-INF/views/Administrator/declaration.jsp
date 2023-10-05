@@ -27,7 +27,7 @@
             </div>
         </div>
         <div id="petsitterInfo" class="pet-sitter">
-            <div id="pet-sitter-info" class="pet-sitter-info">
+            <%-- <div id="pet-sitter-info" class="pet-sitter-info">
                 <img src="/resources/images/member/m.gif">
                 <ul>
                     <li>이름 : 000 펫시터</li>
@@ -36,7 +36,10 @@
                     <li>이용요금 : 000.000원</li>
                 </ul>
             </div>
-            <textarea name="singo" id="singo" placeholder="신고하는 이유를 상세하게 적어주세요..&#10;빠른조치후 연락드리겠습니다!"></textarea>
+            <textarea name="singo" id="singo" placeholder="신고하는 이유를 상세하게 적어주세요..&#10;빠른조치후 연락드리겠습니다!"></textarea> --%>
+            <div id="pet-sitter-info" class="pet-sitter-info h1" >
+            <h1>신고할 펫시터를 선택하세요</h1>
+            </div>
         </div>
             <button id="button">신고하기</button>
         </form>

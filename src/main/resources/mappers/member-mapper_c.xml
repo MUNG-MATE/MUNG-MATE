@@ -62,7 +62,7 @@
 				, #{memberPw}
 				, #{memberTel}
 				, #{memberAddress}
-				, DEFAULT, DEFAULT, 'Y', DEFAULT, '/resources/images/member/user.jpg')
+				, DEFAULT, DEFAULT, 'Y', DEFAULT, '/resources/images/member/user.png')
 	</insert>
 	
 	<!-- 로그인 -->
