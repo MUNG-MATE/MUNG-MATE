@@ -72,7 +72,8 @@ textarea{
     margin-left: 50px;
 }
 form button{
-    background-color: antiquewhite;
+    background-color: rgb(0,30,60);
+    color: white;
     width: 90px;
     height: 35px;
     line-height: 35px;
@@ -83,15 +84,15 @@ form button{
     margin-bottom : 15px;
 }
 form button:hover{
-    background-color: rgb(255, 175, 175);
-    color: rgb(208, 53, 49);
+    border: 1px solid rgb(0,30,60);
+    color: white;
 }
 .selectBox {
     position: relative;
     width: 180px;
     height: 35px;
     border-radius: 4px;
-    border: 3px solid lightcoral;
+    border: 2px solid white;
     margin-right: 2px;
 }
 .selectBox .select {
@@ -108,7 +109,7 @@ form button:hover{
     font-size: 16px;
 }
 .selectBox .select option {
-    background: lightcoral;
+    background: rgb(0,30,60);
     color: #fff;
     padding: 3px 0;
     font-size: 16px;
@@ -120,5 +121,5 @@ form button:hover{
     z-index: 1; 
     width: 18px; 
     height: 30px;
-    border-left: 2px solid lightcoral;   
+  
 }
