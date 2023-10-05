@@ -216,11 +216,11 @@ function startService() {
 	
 		if (petsitterFlag == 'Y') { // 로그인한 회원이 펫시터인 경우
 			getCurrentPlace();
-			setInterval(() => getCurrentPlace(), 10000);
+			setInterval(() => getCurrentPlace(), 5000);
 	
 		} else { // 로그인한 회원이 일반 회원인 경우
 			selectLocation();
-			setInterval(() => selectLocation(), 10000);
+			setInterval(() => selectLocation(), 5000);
 		}
 	
 		function getCurrentPlace() { // GeoLocation을 이용해서 접속 위치를 얻어오는 함수
@@ -261,12 +261,7 @@ function startService() {
 					linePath.push(new kakao.maps.LatLng(location.lat, location.lon));
 					deleteMarker(deleteLCList);
 				}
-	
-				// 마커와 인포윈도우를 표시합니다
-				var locPosition = new kakao.maps.LatLng(locationList[locationList.length - 1].lat,
-														locationList[locationList.length - 1].lon);
-				displayMarker(locPosition);
-	
+				console.log(linePath);
 				// 지도에 표시할 선을 생성합니다
 				var polyline = new kakao.maps.Polyline({
 					path: linePath, // 선을 구성하는 좌표배열 입니다
@@ -276,9 +271,13 @@ function startService() {
 					strokeStyle: 'solid' // 선의 스타일입니다
 				});
 				
-				polyline.setPath(linePath);
+				//polyline.setPath(linePath);
 				polyline.setMap(map);
-	
+				
+				// 마커와 인포윈도우를 표시합니다
+				var locPosition = new kakao.maps.LatLng(locationList[locationList.length - 1].lat,
+														locationList[locationList.length - 1].lon);
+				displayMarker(locPosition);
 			})
 			.catch(err => console.log(err))
 		}
