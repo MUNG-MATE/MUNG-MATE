@@ -59,9 +59,11 @@
 
 	<select id="getListCount" resultType="_int">
 		SELECT COUNT(*) FROM MEMBER
+		WHERE MEMBER_NO != '999'
 	</select>
 	<select id="mungCount" resultType="_int">
 		SELECT COUNT(*) FROM MEMBER
+		WHERE MEMBER_NO != '999'
 	</select>
 	<select id="petCount" resultType="_int">
 		SELECT COUNT(*) FROM MEMBER
@@ -72,6 +74,7 @@
 		SELECT COUNT(*) FROM MEMBER
 		WHERE SECESSION_FL = 'N'
 		AND MEMBER_PETSITTER != 'Y'
+		AND MEMBER_NO != '999'
 	</select>
 	<select id="flagCount" resultType="_int">
 		SELECT COUNT(*) FROM MEMBER
@@ -83,6 +86,7 @@
 		SELECT
 		MEMBER_NO,MEMBER_EMAIL,MEMBER_NM,MEMBER_TEL,ENROLL_DATE,
 		MEMBER_PETSITTER,SECESSION_FL FROM MEMBER
+		WHERE MEMBER_NO != '999'
 		ORDER BY SECESSION_FL
 	</select>
 	
@@ -93,6 +97,7 @@
 		<if test='managementType == "전체"'>
 		WHERE
         (MEMBER_EMAIL LIKE '%${managementSearch}%' OR MEMBER_NM LIKE '%${managementSearch}%' OR MEMBER_TEL LIKE '%${managementSearch}%')
+        AND MEMBER_NO != '999'
 			ORDER BY SECESSION_FL
 		</if>
 		<choose>
@@ -101,6 +106,7 @@
 				AND MEMBER_PETSITTER ='N'
 				AND 
         (MEMBER_EMAIL LIKE '%${managementSearch}%' OR MEMBER_NM LIKE '%${managementSearch}%' OR MEMBER_TEL LIKE '%${managementSearch}%')
+        		AND MEMBER_NO != '999'
 			</when>
 			<when test='managementType == "펫시터"'>
 				WHERE MEMBER_PETSITTER ='Y'
@@ -123,6 +129,7 @@
 		<if test='managementType == "전체"'>
 			WHERE
         (MEMBER_EMAIL LIKE '%${managementSearch}%' OR MEMBER_NM LIKE '%${managementSearch}%' OR MEMBER_TEL LIKE '%${managementSearch}%')
+        AND MEMBER_NO != '999'
         	ORDER BY SECESSION_FL 
 		</if>
 		<choose>
@@ -131,6 +138,7 @@
 				AND MEMBER_PETSITTER ='N'
 				AND 
         (MEMBER_EMAIL LIKE '%${managementSearch}%' OR MEMBER_NM LIKE '%${managementSearch}%' OR MEMBER_TEL LIKE '%${managementSearch}%')
+        		AND MEMBER_NO != '999'
         		ORDER BY ENROLL_DATE DESC
 			</when>
 			<when test='managementType == "펫시터"'>
@@ -305,7 +313,7 @@
 		JOIN PETSITTER USING(MEMBER_NO)
 		WHERE MEMBER_NO IN (SELECT MEMBER_NO FROM PETSITTER
 		WHERE PETSITTER_NO IN (SELECT PETSITTER_NO FROM RESERVATION
-		WHERE MEMBER_NO = 1 AND SERVICE_ST = 'Y'))
+		WHERE MEMBER_NO = ${memberNo} AND SERVICE_ST = 'Y'))
         AND MEMBER_NO !='5'
 	</select>
 	<!-- 신고 펫시터 정보 목록-->

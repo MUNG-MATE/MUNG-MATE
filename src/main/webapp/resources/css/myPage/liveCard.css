@@ -58,6 +58,7 @@
 }
 
 #liveText {
+    width: 900px;
     height: 40px;
     background-color: rgb(0,30,60);
     color: white;
@@ -67,6 +68,7 @@
     align-items: center;
     justify-content: center;
     font-size: 18px;
+    margin: 0 auto;
 }
 
 #section {
@@ -81,11 +83,7 @@
 #left {
     width: 60%;
     height: 100%;
-}
-
-#right {
-    width: 40%;
-    height: 100%;
+    margin: 0 auto;
 }
 
 #map {
@@ -110,7 +108,7 @@
 }
 
 #profileDiv {
-    width: 10%;
+    width: 20%;
     padding-top: 15px;
 }
 
@@ -142,7 +140,7 @@
 }
 
 #iconArea {
-    width: 10%;
+    width: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -272,4 +270,15 @@
 
 li {
     list-style: none;
+}
+
+#petProfile {
+    width: 64px;
+    height: 69px;
+    border-radius: 50%;
+}
+
+#petName {
+    text-align: center;
+    font-weight: bold;
 }
