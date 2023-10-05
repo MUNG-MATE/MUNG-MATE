@@ -75,7 +75,6 @@
                 <button id="h-deleteBtn">삭제</button>
                 </c:if>
                 <button id="h-backListBtn">목록으로</button>
-        ${board.boardNo}
             </div>
 
 

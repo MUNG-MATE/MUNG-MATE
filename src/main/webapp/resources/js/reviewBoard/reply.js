@@ -301,7 +301,7 @@ function updateCancel(btn){
     // 전역변수 beforeReplyRow : 수정 전 원래 행(댓글)을 저장한 변수
 
     if(confirm("댓글 수정을 취소하시겠습니까?")){
-        btn.parentElement.parentElement.innerText = beforeReplyRow;
+        selectReplyList();
     }
 }
 

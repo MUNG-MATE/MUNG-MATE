@@ -47,7 +47,7 @@
         <c:if test="${!empty param.key}" >
             <h3 style="margin:30px">"${param.query}" 검색결과<h3>
         </c:if>
-
+        
         <section>
 
             <!-- 게시글 영역 -->
@@ -56,7 +56,7 @@
                 <!-- 게시글 목록 조회 결과가 비어있다면 -->
                     <div id="nothing"><h3>게시글이 존재하지 않습니다</h3><div>
                </c:when>
-            
+                
                <c:otherwise>
                     <c:forEach items="${boardList}" var="board">
                     <%-- 게시글 있으면 --%>
