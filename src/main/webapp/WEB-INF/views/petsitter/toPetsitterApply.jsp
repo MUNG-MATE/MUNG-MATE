@@ -48,7 +48,7 @@
                 <div class="main_sixth">
                     <div><input type="checkbox" id="apply_all"> 전체 동의하기</div><br>
                     <div><input type="checkbox" name="apply_agree" id="essential"> 지원서에 기재된 내용은 모두 본인이 작성하였으며, 사실과 다름 없음을 확인했습니다(필수) </div><br>
-                    <div><input type="checkbox" name="apply_agree"> 보다 나은 리뷰 서비스 제공을 위해 개인 정보 수집∙이용에 동의합니다.(필수)</div>
+                    <div><input type="checkbox" name="apply_agree" id="essential2"> 보다 나은 리뷰 서비스 제공을 위해 개인 정보 수집∙이용에 동의합니다.(선택)</div>
                 </div>
                 <div class="main_last"><button id="btn_apply">등 록</button></div>
             </form>
@@ -103,7 +103,7 @@
             const radio = document.getElementsByName("exper");
             const motive = document.getElementsByName("motive")[0];
             const essential = document.getElementById("essential");
-
+            const essential2 = document.getElementById("essential2");
 
             if(!radio[0].checked && !radio[1].checked){
 
@@ -122,6 +122,13 @@
 
 
             if(essential.checked == false){
+
+                alert("필수 항목을 체크 해주세요!");
+                
+                return false;
+            }
+
+            if(essential2.checked = false){
 
                 alert("필수 항목을 체크 해주세요!");
                 

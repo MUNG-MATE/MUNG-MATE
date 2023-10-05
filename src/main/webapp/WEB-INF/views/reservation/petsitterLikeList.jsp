@@ -41,7 +41,12 @@
                 <form action="/reservation/1?petSitterNo=${i.petSitterNo}" method="get">
                         <div class="profileArea" id="profileArea">
                         <div class="imageArea">
-                            <img src=${i.profileImg} class="profileImage">
+                            <c:if test="${!empty i.profileImg}" >
+                                <img src=${i.profileImg} class="profileImage">
+                            </c:if>
+                            <c:if test="${empty i.profileImg}" >
+                                <img src= "/resources/images/member/petsitterNo.jpg" class="profileImage">
+                            </c:if>
                         </div>
                         <div class="info">
                             <div class="petsitterName">${i.memberNm} 펫시터</div>
