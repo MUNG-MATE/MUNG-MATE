@@ -32,18 +32,19 @@ document.getElementById("chattingStart").addEventListener("click", e => {//ì‹œìž
 
             // h3.addEventListener('click', chattingEnter);
 
-
          }
 
       })
       .catch(err => console.log(err));
 
-      chattingEnter(e);
+      chattingEnter();
+
+
 })
 
-function chattingEnter(e) {
+function chattingEnter() {
 
-   const targetNo = e.currentTarget.getAttribute("data-id");
+   const targetNo = document.getElementById("chattingStart").getAttribute("data-id");
 
    fetch("/chatting/enter2?targetNo=" + targetNo)
       .then(resp => resp.text())
