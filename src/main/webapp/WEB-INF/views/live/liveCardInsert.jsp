@@ -37,7 +37,6 @@
                 <textarea id="inputContent" name="liveContent"></textarea>
                 <div id="btnArea">
                     <button class="btnStyle">등록</button>
-                    <button class="btnStyle" id="cancelBtn" type="button">취소</button>
                 </div>
             </div>
         </form>

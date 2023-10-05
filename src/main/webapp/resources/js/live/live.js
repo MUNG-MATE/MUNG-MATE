@@ -1,6 +1,7 @@
 let serviceFlag = false;
 let rsNo = 0;
 let reservation;
+let deleteLCList = [];
 
 if(lgMemberNo != '') {
 
@@ -27,13 +28,30 @@ if(lgMemberNo != '') {
 			let rsDate = rs.rsDate.substring(0,10) + " " + rs.rsStartDate;
 			
 			// 오늘이 예약 날짜/시간이면서 서비스 상태가 N인 경우
-			if(today >= rsDate && rs.serviceState == 'N') {
+			if(today >= rsDate && (rs.serviceState == 'N' || rs.serviceState == 'ING')) {
 				reservation = rs;
 
 				document.getElementById("profile").setAttribute("src", reservation.petSitterList[0].profileImg);
 				document.getElementById("petSitterNm").innerHTML = reservation.petSitterList[0].memberNm;
 
 				rsNo = rs.rsNo;
+
+				fetch("/live/serviceCheck?rsNo=" + rsNo)
+				.then(resp => resp.text())
+				.then(result => {
+					if(result == 'ING') {
+						startService();
+					}
+
+					if(result == 'Y') {
+						serviceFlag = false;
+						return;
+					}
+				})
+				.catch(err => {
+					console.log(err);
+				})
+				
 				serviceFlag = true;
 				return;
 
@@ -137,7 +155,15 @@ document.addEventListener("DOMContentLoaded", function () {
 			interval = setInterval(updateEleTime, 1000);
 			startStopButton.textContent = "서비스 종료";
 			startStopButton.setAttribute("type", "submit");
-			
+
+			fetch("/live/startService?rsNo=" + rsNo)
+			.then(resp => resp.text())
+			.then(result => {
+				if(result > 0) console.log("성공");
+				else console.log("실패");
+			})
+			.catch(err => console.log(err))
+
 		} else {
 			if(confirm("서비스를 종료하고 라이브 카드를 작성하시겠습니까?")) {
 				clearInterval(interval);
@@ -188,11 +214,11 @@ var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니
 function startService() {
 	if (navigator.geolocation) {
 	
-		if (petsitterFlag == 'Y') { // 펫시터인 경우
+		if (petsitterFlag == 'Y') { // 로그인한 회원이 펫시터인 경우
 			getCurrentPlace();
 			setInterval(() => getCurrentPlace(), 10000);
 	
-		} else { // 일반 회원인 경우
+		} else { // 로그인한 회원이 일반 회원인 경우
 			selectLocation();
 			setInterval(() => selectLocation(), 10000);
 		}
@@ -204,10 +230,9 @@ function startService() {
 	
 				var lat = position.coords.latitude, // 위도
 					lon = position.coords.longitude; // 경도
-					console.log("lat : " + lat);
-					console.log("lon : " + lon);
-	
-			fetch("/live/insertLocation?lat=" + lat + "&lon=" + lon)
+			
+			// 예약 번호, 위도, 경도 DB 삽입
+			fetch("/live/insertLocation?rsNo=" + rsNo + "&lat=" + lat + "&lon=" + lon)
 			.then(resp => resp.text())
 			.then(result => {
 				if (result > 0) {
@@ -224,22 +249,22 @@ function startService() {
 		// 펫시터 현재 위치 지도 표시
 		function selectLocation() {
 	
-			fetch("/live/selectLocation?rsNo=1")
+			fetch("/live/selectLocation?rsNo=" + rsNo)
 			.then(resp => resp.json())
 			.then(locationList => {
 	
-				console.log(locationList);
+				// 지도에 선을 표시할 좌표 리스트
 				var linePath = [];
-	
+				
+				// DB에 저장된 좌표를 좌표 리스트에 삽입
 				for (let location of locationList) {
 					linePath.push(new kakao.maps.LatLng(location.lat, location.lon));
+					deleteMarker(deleteLCList);
 				}
 	
-				linePath.push(new kakao.maps.LatLng(locationList[locationList.length - 1].lat, locationList[locationList.length - 1].lon));
-	
 				// 마커와 인포윈도우를 표시합니다
-				var locPosition = new kakao.maps.LatLng(locationList[locationList.length - 1].lat, locationList[locationList.length - 1].lon);
-	
+				var locPosition = new kakao.maps.LatLng(locationList[locationList.length - 1].lat,
+														locationList[locationList.length - 1].lon);
 				displayMarker(locPosition);
 	
 				// 지도에 표시할 선을 생성합니다
@@ -250,7 +275,7 @@ function startService() {
 					strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
 					strokeStyle: 'solid' // 선의 스타일입니다
 				});
-	
+				
 				polyline.setPath(linePath);
 				polyline.setMap(map);
 	
@@ -268,49 +293,43 @@ function startService() {
 	// 지도에 마커와 인포윈도우를 표시하는 함수입니다
 	function displayMarker(locPosition) {
 	
-		fetch("/live/selectPetImage?rsNo=1")
+		fetch("/live/selectPetImage?rsNo=" + rsNo)
 		.then(resp => resp.json())
 		.then(petImageList => {
-	
+
+			// 커스텀 오버레이 이미지
 			var content =
 			`<div>
-				<img src="${petImageList[0].petProfile}" id="petProfile">
-				<div id="petName">${petImageList[0].petName}</div>
+			<img src="${petImageList[0].petProfile}" id="petProfile">
+			<div id="petName">${petImageList[0].petName}</div>
 			</div>`
-	
+			
 			// 커스텀 오버레이를 생성합니다
 			var customOverlay = new kakao.maps.CustomOverlay({
 				position: locPosition,
 				content: content,
 				yAnchor: 1.0
 			});
-	
+			
+			// 삭제할 커스텀 오버레이 리스트에 삽입
+			deleteLCList.push(customOverlay);
+
 			// 커스텀 오버레이를 지도에 표시합니다
-			customOverlay.setMap(null);
 			customOverlay.setMap(map);
-	
-			/* // 마커 디자인
-			var imageSrc = petImageList[0].petProfile, // 마커이미지의 주소입니다
-				imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
-				imageOption = { offset: new kakao.maps.Point(27, 69) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
-		
-			// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
-			var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
-				markerPosition = locPosition; // 마커가 표시될 위치입니다
-		
-			// 마커를 생성합니다
-			var marker = new kakao.maps.Marker({
-				position: markerPosition,
-				image: markerImage // 마커이미지 설정 
-			});
-		
-			marker.setMap(null);
-			marker.setMap(map); */
 		
 			// 지도 중심좌표를 접속위치로 변경합니다
 			map.setCenter(locPosition);
 		})
 		.catch(err => console.log(err))
 	
+	}
+
+	// 커스텀 오버레이 삭제
+	function deleteMarker(deleteLCList) {
+		if(deleteLCList != null) {
+			for(let location of deleteLCList) {
+				location.setMap(null);
+			}
+		}
 	}
 }

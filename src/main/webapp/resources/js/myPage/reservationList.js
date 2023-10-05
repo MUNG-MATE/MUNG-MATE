@@ -247,6 +247,12 @@ function setDate(day,time) {
       
       if(petsitterFlag == 'Y') { // 로그인 회원이 펫시터인 경우
         
+        if(rList[i].serviceState == 'Y') { // 서비스 완료 상태인 경우
+          $("#liveCardDiv").html(`<button class="liveCardBtn" ><a href="/myPage/liveCard?rsNo=${rList[i].rsNo}">라이브 카드</a></button>`);
+        } else {
+          $("#liveCardDiv").html('');
+        }
+
         fetch("selectMember?memberNo=" + rList[i].memberNo)
         .then(resp => resp.json())
         .then(member => {
@@ -259,7 +265,6 @@ function setDate(day,time) {
           $("#point").html(member.memberTel.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`)); // 회원 연락처
         })
         .catch(e => console.log(e))
-
       }
 
       // 펫 프로필

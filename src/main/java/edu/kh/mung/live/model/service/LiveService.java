@@ -37,4 +37,21 @@ public interface LiveService {
 	 */
 	int insertLiveCard(LiveCard lc, List<MultipartFile> images, String webPath, String filePath) throws IllegalStateException, IOException;
 	
+	/** 서비스 상태 체크
+	 * @param rsNo
+	 * @return result
+	 */
+	String serviceCheck(int rsNo);
+
+	/** 서비스 상태 업데이트(ING -> Y)
+	 * @param rsNo
+	 */
+	void updateServiceState(int rsNo);
+
+	/** 서비스 상태 업데이트(N -> ING)
+	 * @param rsNo
+	 * @return
+	 */
+	int startService(int rsNo);
+	
 }

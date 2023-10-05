@@ -62,11 +62,27 @@ public class LiveDAO {
 		return sqlSession.insert("liveMapper.insertImageList", uploadList);
 	}
 
-	/** 서비스 상태 업데이트(N -> Y)
+	/** 서비스 상태 업데이트(ING -> Y)
 	 * @param liveNo
 	 */
-	public int updateServiceState(LiveCard lc) {
-		return sqlSession.update("liveMapper.updateServiceState", lc);
+	public void updateServiceState(int rsNo) {
+		sqlSession.update("liveMapper.updateServiceState", rsNo);
+	}
+
+	/** 서비스 상태 체크
+	 * @param rsNo
+	 * @return result
+	 */
+	public String serviceCheck(int rsNo) {
+		return sqlSession.selectOne("liveMapper.serviceCheck", rsNo);
+	}
+	
+	/** 서비스 상태 업데이트(N -> ING)
+	 * @param rsNo
+	 * @return result
+	 */
+	public int startService(int rsNo) {
+		return sqlSession.update("liveMapper.startService", rsNo);
 	}
 	
 }
