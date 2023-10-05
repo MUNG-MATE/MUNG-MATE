@@ -143,7 +143,7 @@ i .만14세 미만의 아동이 부모 등의 법정대리인의 동의를 얻�
 
             <!-- 탈퇴 버튼 -->
             <div class="secessionBtn">
-                <button id="secessionCancelBtn">돌아가기</button>
+                <button type="button" id="secessionCancelBtn" onclick="history.go(-1)">돌아가기</button>
                 <button id="secessionBtn">탈퇴</button>
             </div>
         </form>

@@ -22,7 +22,12 @@
             <c:forEach var="i" items="${rs.petSitterList}">
                 <div class="profileArea" id="${i.petSitterNo}" onclick="selectPetSitterNo('${i.petSitterNo}')">
                     <div class="imageArea">
+                        <c:if test="${!empty i.profileImg}" >
                         <img src=${i.profileImg} class="profileImage">
+                        </c:if>
+                        <c:if test="${empty i.profileImg}" >
+                         <img src= "/resources/images/member/petsitterNo.jpg" class="profileImage">
+                        </c:if>
                     </div>
                     <div class="info">
                         <div class="petsitterName">${i.memberNm} 펫시터</div>
