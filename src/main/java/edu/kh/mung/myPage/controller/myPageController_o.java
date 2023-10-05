@@ -158,7 +158,6 @@ public class myPageController_o {
 		int result = service.infoUpdate(member);
 		
 		System.out.println(result);
-		
 		// 회원 프로필 수정
 		int result2 = service.profileUpdate(profileImage, webPath, filePath, loginMember);
 		
