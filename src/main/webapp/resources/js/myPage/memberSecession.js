@@ -1,6 +1,6 @@
 const agree = document.getElementById("agree");
 const secessionBtn = document.getElementById("secessionBtn");
-
+const secessionCancelBtn = document.getElementById("secessionCancelBtn");
 
 secessionBtn.addEventListener("click", function(e){
 
@@ -10,3 +10,9 @@ secessionBtn.addEventListener("click", function(e){
     }
     return;
 })
+
+// secessionCancelBtn.addEventListener("click", e =>{
+
+
+
+// } )
