@@ -142,6 +142,7 @@ public class myPageController_c {
 						  , @SessionAttribute("loginMemberPet") List<Pet> loginMemberPetList 
 						  , HttpSession session
 						  , RedirectAttributes ra
+						  , Model model
 						  , @SessionAttribute("loginMemberPet")List<Pet> loginMemberPet) throws IllegalStateException, IOException {
 		
 		Pet pet = new Pet();
@@ -168,10 +169,10 @@ public class myPageController_c {
 		String webPath = "/resources/images/pet/";
 
 		String filePath = session.getServletContext().getRealPath(webPath);
-
+		
 		int result = service.updatePet(profileImage, webPath, filePath, pet);
 		 
-		String message = "redirect:";
+		String message = "";
 		String path;
 		
 		if(result > 0) {
@@ -186,18 +187,20 @@ public class myPageController_c {
 			    	petInfo.setPetOption(pet.getPetOption());
 			    	petInfo.setPetProfile(pet.getPetProfile());
 			    	petInfo.setPetType(pet.getPetType());
-
+			    	
+			    
 			    }
 			}
-				
+			
 			message = "반려견의 정보가 수정되었습니다.";
 			path = "myPage/petInfo";
+			model.addAttribute("message", message);
 		}else {
 			message = "반려견 정보 수정 실패 !!";
-			path = "myPage/petInfoUpdate";
+			path = "redirect:myPage/petInfoUpdate";
+			ra.addFlashAttribute("message", message);
 		}
 		
-		ra.addFlashAttribute("message", message);
 		
 		
 		return path;
