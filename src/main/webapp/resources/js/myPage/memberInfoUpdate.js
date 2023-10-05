@@ -131,7 +131,7 @@ if (imageInput != null) {
         if (file == undefined) {
             deleteCheck = -1;
 
-            profileImage.setAttribute("src", "/resources/images/user.png");
+            profileImage.setAttribute("src", originalImage);
 
             return;
         }
@@ -165,9 +165,25 @@ if (imageInput != null) {
 
     })
 
+    memberInfoUpdate.addEventListener("submit", e=> {
+        
+        let flag = true;
+        // 프로필 이미지가 없다 -> 있다
+        if(!initCheck && deleteCheck == 1) flag = false;
+        // 이전 프로필 이미지가 있다 -> 삭제
+        if(initCheck && deleteCheck == 0) flag = false;
+        
+        // 이전 프로필 이미지가 있다 -> 새 이미지
+        if(initCheck && deleteCheck == 1) flag = false;
+
+        if(flag){ // flag == true -> 제출하면 안되는 경우
+            e.preventDefault(); // form 기본 이벤트 제거
+            alert("이미지 변경 후 클릭해주세요.");
+            
+        }
+    })
 
 
-}
 
-
+}    
 
