@@ -1,7 +1,7 @@
 
 #display-chatting {
     width: 1000px;
-    height: 500px;
+    height: 595px;
     background-color: #fff;
     margin: 100px auto 0;
     padding: 0 0 10px 0;
@@ -12,7 +12,7 @@
 
 #input-area {
     width: 990px;
-    height: 100px;
+    height: 122px;
     border: 2px solid rgb(226, 223, 39);
     border-radius: 5px;
     display: flex;
