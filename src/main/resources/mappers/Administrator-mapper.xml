@@ -171,7 +171,7 @@
 	</select>
 	
 	<update id="petsitterDelete">
-		UPDATE MEMBERW
+		UPDATE MEMBER
 		SET MEMBER_PETSITTER = 'N'
 		WHERE MEMBER_NO = #{petNo} AND MEMBER_NO IN (SELECT MEMBER_NO FROM PETSITTER)
 	</update>
