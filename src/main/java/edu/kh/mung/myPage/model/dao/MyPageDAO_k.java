@@ -40,6 +40,7 @@ public class MyPageDAO_k {
 		for (Reservation rs : rsList) {
 
 			// 펫시터 번호로 찜 목록 수를 조회
+			System.out.println(rs);
 			int petSitterNo = rs.getPetSitterNo();
 			int wishListCount = sqlSession.selectOne("myPageMapper_k.selectWishListCount", petSitterNo);
 			rs.getPetSitterList().get(0).setWishListCount(wishListCount); // 찜 목록 수를 펫시터 리스트에 삽입
