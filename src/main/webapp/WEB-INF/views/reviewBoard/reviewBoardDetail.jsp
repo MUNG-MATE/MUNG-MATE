@@ -62,7 +62,7 @@
 
             <!-- 내용 영역 -->
             <div class="h-contentArea">
-                <textarea class="h-contentArea">${board.boardContent}</textarea>
+                <textarea spellcheck="false" class="h-contentArea" readOnly >${board.boardContent}</textarea>
             </div>
 
             
