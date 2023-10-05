@@ -38,11 +38,11 @@
 	</resultMap>
 	
 	<insert id="insertLocation">
-		INSERT INTO LOCATION_SERVICE VALUES(1, #{lat}, #{lon})
+		INSERT INTO LOCATION_SERVICE VALUES(#{rsNo}, #{lat}, #{lon})
 	</insert>
 	
 	<select id="selectLocation" resultMap="LocationService_rm">
-		SELECT * FROM LOCATION_SERVICE WHERE RS_NO = 1
+		SELECT * FROM LOCATION_SERVICE WHERE RS_NO = #{rsNo}
 	</select>
 	
 	<select id="selectPetImage" resultMap="Pet_rm">
@@ -78,9 +78,20 @@
 			) A
 	</insert>
 	
-	<update id="updateServiceState" parameterType="LiveCard">
+	<update id="updateServiceState">
 		UPDATE RESERVATION SET
 		SERVICE_ST = 'Y'
+		WHERE RS_NO = ${rsNo}
+	</update>
+	
+	<select id="serviceCheck" resultType="string">
+		SELECT SERVICE_ST FROM RESERVATION
+		WHERE RS_NO = #{rsNo}
+	</select>
+	
+	<update id="startService">
+		UPDATE RESERVATION SET
+		SERVICE_ST = 'ING'
 		WHERE RS_NO = ${rsNo}
 	</update>
 </mapper>

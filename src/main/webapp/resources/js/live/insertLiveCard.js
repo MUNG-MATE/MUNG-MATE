@@ -1,3 +1,6 @@
+// // LIVE 버튼 삭제
+// gotoLive.remove();
+
 // 이미지 파일 추가
 const inputImage = document.getElementById("inputImage");
 const petImage = document.getElementById("petImage");
@@ -15,11 +18,13 @@ if(localTime > 12) {
     localTime = "오전 " + localTime;
 }
 
+let currentMinutes = new Date().getMinutes();
+if(currentMinutes < 10) currentMinutes = "0" + currentMinutes;
+
 startTime.innerText = localTime + " : " + localStorage.realTime.substring(5,7);
 document.getElementById("inputStartTime").value = localTime + " : " + localStorage.realTime.substring(5,7);
-endTime.innerText = guessAmPm(new Date().getHours()) + " : " + new Date().getMinutes();
-document.getElementById("inputEndTime").value = guessAmPm(new Date().getHours()) + " : " + new Date().getMinutes();
-
+endTime.innerText = guessAmPm(new Date().getHours()) + " : " + currentMinutes;
+document.getElementById("inputEndTime").value = guessAmPm(new Date().getHours()) + " : " + currentMinutes;
 
 function guessAmPm(localTime) {
     if(localTime > 12) {
@@ -83,8 +88,4 @@ insertForm.addEventListener("submit", e => {
     }
 })
 
-const cancelBtn = document.getElementById("cancelBtn");
-
-cancelBtn.addEventListener("click", () => {
-    location.href = document.referrer;
-})
+selectLocation();

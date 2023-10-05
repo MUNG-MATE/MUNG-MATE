@@ -74,7 +74,7 @@ public class LiveServiceImpl implements LiveService {
 				int result = dao.insertImageList(uploadList);
 				
 				if(result == uploadList.size()) {
-					int updateResult = dao.updateServiceState(lc);
+					
 					for(int i = 0; i < uploadList.size(); i++) {
 						
 						int index = uploadList.get(i).getImageOrder();
@@ -91,6 +91,24 @@ public class LiveServiceImpl implements LiveService {
 		}
 		
 		return liveNo;
+	}
+	
+	// 서비스 상태 체크
+	@Override
+	public String serviceCheck(int rsNo) {
+		return dao.serviceCheck(rsNo);
+	}
+	
+	// 서비스 상태 업데이트(ING -> Y)
+	@Override
+	public void updateServiceState(int rsNo) {
+		dao.updateServiceState(rsNo);
+	}
+	
+	// 서비스 상태 업데이트(N -> ING)
+	@Override
+	public int startService(int rsNo) {
+		return dao.startService(rsNo);
 	}
 	
 }

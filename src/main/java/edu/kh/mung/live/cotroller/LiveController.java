@@ -52,7 +52,6 @@ public class LiveController {
 	@GetMapping("/selectLocation")
 	@ResponseBody
 	public List<LocationService> selectLocation(LocationService ls) {
-		System.out.println(ls);
 		return service.selectLocation(ls);
 	}
 	
@@ -64,6 +63,9 @@ public class LiveController {
 	
 	@GetMapping("/card/insert")
 	public String selectLiveCard(int rsNo, Model model) {
+		
+		service.updateServiceState(rsNo);
+		
 		return "/live/liveCardInsert";
 	}
 	
@@ -102,4 +104,15 @@ public class LiveController {
 		return path;
 	}
 	
+	@GetMapping("/serviceCheck")
+	@ResponseBody
+	public String serviceCheck(int rsNo) {
+		return service.serviceCheck(rsNo);
+	}
+	
+	@GetMapping("/startService")
+	@ResponseBody
+	public int startService(int rsNo) {
+		return service.startService(rsNo);
+	}
 }
