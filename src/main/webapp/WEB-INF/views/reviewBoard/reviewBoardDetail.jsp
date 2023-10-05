@@ -98,10 +98,7 @@
 
 
 
-        // 로그인한 회원 번호를 전역 변수로 선언
-        
-        const loginMemberNo = "${loginMember.memberNo}";
-        
+       
 
         // 목록으로 버튼 클릭 시
         const goToListBtn = document.getElementById("h-backListBtn");
@@ -181,6 +178,11 @@
         
     </script>
 
+    <script> // 로그인한 회원 번호를 전역 변수로 선언
+        
+        const loginMemberNo = "${loginMember.memberNo}";
+    </script>
+    
     <script src="/resources/js/reviewBoard/reply.js"></script>  
     
 
