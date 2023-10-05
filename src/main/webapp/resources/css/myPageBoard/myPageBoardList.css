@@ -63,7 +63,7 @@ h1{
 
 /* 게시글 영역 */
 .h-list{
-    height: 200px;
+    height: 250px;
 
     display: flex;
     justify-content: space-between;
@@ -121,4 +121,19 @@ footer{
     min-height: 500px;
     height: auto;
     color: #ccc;
+}
+
+.postListImageDiv{
+    width: 200px;
+    height: 200px;
+}
+.postImagePart{
+    width: 150px;
+    height: auto;
+}
+.thumbNail{
+    width: 200px;
+    height: 200px;
+    border: none;
+    border-radius: 5px;
 }
