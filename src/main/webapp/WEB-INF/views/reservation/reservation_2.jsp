@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/resources/css/reservation/reservation_2.css">
 </head>
     <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
-<body>
+<body class="body">
 	<h1 id="resTitle">예약 서비스[2/3]</h1>
    	<h4 id="resSubTitle">언제/어디로 방문할까요?</h4>
 	<section id="container">
