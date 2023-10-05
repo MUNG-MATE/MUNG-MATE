@@ -1,0 +1,13 @@
+diff a/src/main/webapp/resources/js/myPage/memberInfoUpdate.js b/src/main/webapp/resources/js/myPage/memberInfoUpdate.js	(rejected hunks)
+@@ -86,9 +86,9 @@
+         }
+ 
+         // 전화번호가 유효하지 않은 경우
+-        if (memberTel.style.color == "red") {
++        if (phone.style.color == "red") {
+             alert("전화번호가 유효하지 않습니다.")
+-            memberTel.focus();
++            phone.focus();
+             e.preventDefault();
+             return;
+         }
