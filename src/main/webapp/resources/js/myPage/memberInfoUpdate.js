@@ -125,7 +125,7 @@ if (imageInput != null) {
     imageInput.addEventListener("change", e => {
 
         const maxSize = 1 * 1024 * 1024 * 2;
-
+        
         const file = e.target.files[0];
 
         if (file == undefined) {
@@ -168,7 +168,6 @@ if (imageInput != null) {
 
 
 }
-
 
 
 

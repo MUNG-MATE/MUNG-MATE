@@ -20,7 +20,7 @@
     <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
   
     <div class="content">
-
+        ${loginMember.profileImage}
         <!-- 일석이님의 회원 정보 -->
         <div class="infoTitle">
             <h1>${loginMember.memberNickname}님의 회원 정보 수정</h1>
