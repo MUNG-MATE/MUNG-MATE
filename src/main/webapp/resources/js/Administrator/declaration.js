@@ -61,11 +61,11 @@ petsitters.addEventListener("change", ()=>{
     })
     .catch(e => console.log(e));
 })
-function textValidate(){
+/* function textValidate(){
 
     const textarea = document.getElementById("singo");
 
-    let flag = false;
+    flag = false;
 
     if(petNo == 0){
         alert("신고할 펫시터를 선택해주세요.")
@@ -76,7 +76,6 @@ function textValidate(){
         textarea.value="";
         textarea.focus();
         alert("신고하는이유를 상세하게 써주세요!!");
-        console.log("글씨 적어서 나오는 flag" + flag);
         return flag;
         
     }
@@ -84,7 +83,6 @@ function textValidate(){
     
     const obj = {"memberNo" : loginMemberNo ,"petNo": petNo}
     
-    console.log("신고 비동기 하기전 flag" + flag);
 
     fetch("/Administrator/declaration/check",{
         method :"post",
@@ -93,8 +91,6 @@ function textValidate(){
     })
     .then(resp=>resp.text())
     .then(result => {
-
-        console.log(result + "result 결과에 의한 flag"+flag);
     
         if(result > 0){
             
@@ -102,54 +98,56 @@ function textValidate(){
             location.href =location;
 
         }else{ 
-            alert("ㅅㅂ"); 
-            flag = true;} 
+            flag = true;
+        
+
+        }
     })
     .catch(e => {
         console.log(e);
     });
 
     return flag;
+} */
+
+function textValidate() {
+    const textarea = document.getElementById("singo");
+    let flag = false;
+
+    if (petNo == 0) {
+        alert("신고할 펫시터를 선택해주세요.")
+        return flag;
+    }
+
+    if (textarea.value.trim().length <= 20) {
+        textarea.value = "";
+        textarea.focus();
+        alert("신고하는 이유를 상세하게 써주세요!!");
+        return flag;
+    }
+
+    const obj = { "memberNo": loginMemberNo, "petNo": petNo }
+
+    return fetch("/Administrator/declaration/check", {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(obj)
+    })
+    .then(resp => resp.text())
+    .then(result => {
+        if (result > 0) {
+            alert("이미 신고 완료된 펫시터입니다.")
+            location.href = location;
+            
+        } else {
+            flag = true;
+        }
+        return flag;
+    })
+    .catch(e => {
+        console.log(e);
+        return flag;
+    });
 }
 
-// function textValidate() {
-//     const textarea = document.getElementById("singo");
-//     let flag = false;
 
-//     if (petNo == 0) {
-//         alert("신고할 펫시터를 선택해주세요.");
-//         return flag;
-//     }
-
-//     if (textarea.value.trim().length <= 20) {
-//         textarea.value = "";
-//         textarea.focus();
-//         alert("신고하는 이유를 상세하게 써주세요!!");
-
-//         return flag;
-//     }
-
-//     const obj = { "memberNo": loginMemberNo, "petNo": petNo };
-
-
-//     fetch("/Administrator/declaration/check", {
-//         method: "post",
-//         headers: { "Content-Type": "application/json" },
-//         body: JSON.stringify(obj)
-//     })
-//     .then(resp => resp.text())
-//     .then(result => {
-
-//         if (result > 0) {
-//             alert("이미 신고 완료된 펫시터입니다.");
-//             location.href = location;
-//         } else {
-//             alert("신고 완료");
-//             flag = true;
-//         }
-//     })
-    
-
-//     // 여기서 flag를 반환하지 않습니다.
-//     return flag
-// }
