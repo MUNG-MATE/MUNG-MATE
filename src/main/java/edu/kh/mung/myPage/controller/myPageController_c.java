@@ -142,8 +142,7 @@ public class myPageController_c {
 						  , @SessionAttribute("loginMemberPet") List<Pet> loginMemberPetList 
 						  , HttpSession session
 						  , RedirectAttributes ra
-						  , Model model
-						  , @SessionAttribute("loginMemberPet")List<Pet> loginMemberPet) throws IllegalStateException, IOException {
+						  , Model model) throws IllegalStateException, IOException {
 		
 		Pet pet = new Pet();
 		
@@ -188,9 +187,12 @@ public class myPageController_c {
 			    	petInfo.setPetProfile(pet.getPetProfile());
 			    	petInfo.setPetType(pet.getPetType());
 			    	
-			    
+			    	
+			    	
 			    }
 			}
+			
+			model.addAttribute("loginMemberPetList", loginMemberPetList);
 			
 			message = "반려견의 정보가 수정되었습니다.";
 			path = "myPage/petInfo";
