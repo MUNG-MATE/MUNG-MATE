@@ -75,6 +75,105 @@ if(lgMemberNo != '') {
     .catch(err => {
         console.log(err);
     })
+
+	// 문서가 로딩될때
+	document.addEventListener("DOMContentLoaded", function () {
+
+		// 스타트 버튼 토글 적용함 
+		let startStopButton = document.getElementById('startStopButton');
+		// 경과 시간
+		let timeEle = document.getElementById('elapsedTime');
+		let readyTime = document.getElementById('startTime');
+
+		// 시작 시간 기본값 null 로컬에서 다시 값받아서 interval 돌리기위함
+		let startTime = localStorage.getItem("startTime");
+		let realTime = localStorage.getItem("realTime");
+		var interval;
+
+		// 서비스 시작한 시간
+		function currentStartTime() {
+
+			const currentStartTime = new Date;
+
+			let hour = currentStartTime.getHours();
+			let min = currentStartTime.getMinutes();
+			let sec = currentStartTime.getSeconds();
+
+			if (hour < 10) hour = "0" + hour;
+			if (min < 10) min = "0" + min;
+			if (sec < 10) sec = "0" + sec;
+
+			realTime = hour + " : " + min + " : " + sec;
+
+			localStorage.setItem("realTime", realTime)
+		}
+
+		function updateEleTime() {
+			// 현재시간
+			const currentTime = new Date;
+			// 현재시간 - 시작시간 = 진행시간
+			const elapsedTime = Math.floor((currentTime - startTime) / 1000);
+
+			let hour = parseInt(elapsedTime / 3600);
+			let min = parseInt((elapsedTime % 3600) / 60);
+			let sec = elapsedTime % 60;
+
+			if (hour < 10) hour = "0" + hour;
+			if (min < 10) min = "0" + min;
+			if (sec < 10) sec = "0" + sec;
+
+			// 시간 출력 	초단위는 나중에 원래대로 변경할 예정!
+			timeEle.textContent = hour + " : " + min + " : " + sec;
+			localStorage.setItem("startTime", startTime)
+			readyTime.innerHTML = localStorage.getItem("realTime");
+
+		}
+
+		function toggleTime() {
+
+			if (!startTime) {
+				currentStartTime();
+				startService();
+				startTime = Date.now();
+				localStorage.setItem("startTime", startTime);
+				interval = setInterval(updateEleTime, 1000);
+				startStopButton.textContent = "서비스 종료";
+				startStopButton.setAttribute("type", "submit");
+
+				fetch("/live/startService?rsNo=" + rsNo)
+				.then(resp => resp.text())
+				.then(result => {
+					if(result > 0) console.log("성공");
+					else console.log("실패");
+				})
+				.catch(err => console.log(err))
+
+			} else {
+				if(confirm("서비스를 종료하고 라이브 카드를 작성하시겠습니까?")) {
+					clearInterval(interval);
+					startTime = 0;
+					localStorage.removeItem("startTime");
+					timeEle.textContent = "";
+
+					location.href = "/live/card/insert?rsNo=" + rsNo +
+									"&memberNm=" + reservation.petSitterList[0].memberNm + 
+									"&profileImg=" + reservation.petSitterList[0].profileImg;
+					// 이 주소는 라이브 카드 페이지로 변경하면 됩니다 !
+				}
+			}
+		}
+
+		if(psFlag == "Y") {
+			if(startTime) {
+				interval = setInterval(updateEleTime, 1000);
+				startStopButton.textContent = "서비스 종료";
+			} else {
+				startStopButton.textContent = "서비스 시작";
+			}
+			startStopButton.addEventListener("click", toggleTime);
+		}
+	});
+
 } else {
 	document.getElementById("liveMadal").remove();
 	document.getElementById("gotoLive").remove();
@@ -98,103 +197,6 @@ window.addEventListener("keyup", e => {
 		liveMadal.style.display = "none";
 	}
 })
-
-// 문서가 로딩될때 
-document.addEventListener("DOMContentLoaded", function () {
-
-	// 스타트 버튼 토글 적용함 
-	let startStopButton = document.getElementById('startStopButton');
-	// 경과 시간
-	let timeEle = document.getElementById('elapsedTime');
-	let readyTime = document.getElementById('startTime');
-
-	// 시작 시간 기본값 null 로컬에서 다시 값받아서 interval 돌리기위함
-	let startTime = localStorage.getItem("startTime");
-	let realTime = localStorage.getItem("realTime");
-	var interval;
-
-	// 서비스 시작한 시간
-	function currentStartTime() {
-
-		const currentStartTime = new Date;
-
-		let hour = currentStartTime.getHours();
-		let min = currentStartTime.getMinutes();
-		let sec = currentStartTime.getSeconds();
-
-		if (hour < 10) hour = "0" + hour;
-		if (min < 10) min = "0" + min;
-		if (sec < 10) sec = "0" + sec;
-
-		realTime = hour + " : " + min + " : " + sec;
-
-		localStorage.setItem("realTime", realTime)
-	}
-
-	function updateEleTime() {
-		// 현재시간
-		const currentTime = new Date;
-		// 현재시간 - 시작시간 = 진행시간
-		const elapsedTime = Math.floor((currentTime - startTime) / 1000);
-
-		let hour = parseInt(elapsedTime / 3600);
-		let min = parseInt((elapsedTime % 3600) / 60);
-		let sec = elapsedTime % 60;
-
-		if (hour < 10) hour = "0" + hour;
-		if (min < 10) min = "0" + min;
-		if (sec < 10) sec = "0" + sec;
-
-		// 시간 출력 	초단위는 나중에 원래대로 변경할 예정!
-		timeEle.textContent = hour + " : " + min + " : " + sec;
-		localStorage.setItem("startTime", startTime)
-		readyTime.innerHTML = localStorage.getItem("realTime");
-
-	}
-
-	function toggleTime() {
-
-		if (!startTime) {
-			currentStartTime();
-			startService();
-			startTime = Date.now();
-			localStorage.setItem("startTime", startTime);
-			interval = setInterval(updateEleTime, 1000);
-			startStopButton.textContent = "서비스 종료";
-			startStopButton.setAttribute("type", "submit");
-
-			fetch("/live/startService?rsNo=" + rsNo)
-			.then(resp => resp.text())
-			.then(result => {
-				if(result > 0) console.log("성공");
-				else console.log("실패");
-			})
-			.catch(err => console.log(err))
-
-		} else {
-			if(confirm("서비스를 종료하고 라이브 카드를 작성하시겠습니까?")) {
-				clearInterval(interval);
-				startTime = 0;
-				localStorage.removeItem("startTime");
-				timeEle.textContent = "";
-
-				location.href = "/live/card/insert?rsNo=" + rsNo +
-								"&memberNm=" + reservation.petSitterList[0].memberNm + 
-								"&profileImg=" + reservation.petSitterList[0].profileImg;
-				// 이 주소는 라이브 카드 페이지로 변경하면 됩니다 !
-			}
-		}
-	}
-
-	if (startTime) {
-		interval = setInterval(updateEleTime, 1000);
-		startStopButton.textContent = "서비스 종료";
-	} else {
-		startStopButton.textContent = "서비스 시작";
-	}
-	startStopButton.addEventListener("click", toggleTime);
-});
-
 
 function closeBtn() { liveMadal.style.display = "none"; }
 
