@@ -121,3 +121,14 @@
     justify-content: center;
     align-items: center;
 }
+
+#petProfile {
+    width: 64px;
+    height: 69px;
+    border-radius: 50%;
+}
+
+#petName {
+    text-align: center;
+    font-weight: bold;
+}
