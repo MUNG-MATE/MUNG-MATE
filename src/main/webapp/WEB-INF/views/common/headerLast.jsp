@@ -26,7 +26,6 @@
         </c:if>
         <c:if test="${!empty loginMember}" >
         <a href = "/myPage/memberInfo">My Page</a>
-        <span>|</span>
              <a href="/member/logout">Logout</a>
         </c:if>
         </div>
@@ -59,7 +58,7 @@
             <a href ="/info">Info</a>
             <a href ="/Administrator/notice/1">Notice</a>
             <a href="/reservation/1">Matching</a>
-            <a href="/reviewBoard/reviewBoardList">Community</a>
+            <a href="/reviewBoard/reviewBoardList">Review</a>
             <a href="/Administrator/faq/3">FAQ</a>
         <jsp:include page="/WEB-INF/views/common/sidebar.jsp" />
         </div>
