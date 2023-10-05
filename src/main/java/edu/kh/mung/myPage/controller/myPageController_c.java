@@ -178,7 +178,7 @@ public class myPageController_c {
 		if(result > 0) {
 			
 			for (Pet petInfo : loginMemberPetList) {
-			    if (petInfo.getPetName().equals(petName)) {
+			    if (petInfo.getPetNo() == petNo) {
 			    	
 			    	petInfo.setPetName(pet.getPetName());
 			    	petInfo.setPetBirth(pet.getPetBirth());
@@ -191,6 +191,8 @@ public class myPageController_c {
 			    
 			    }
 			}
+			System.out.println(loginMemberPetList);
+			session.setAttribute("loginMemberPetList", loginMemberPetList);
 			
 			message = "반려견의 정보가 수정되었습니다.";
 			path = "myPage/petInfo";
