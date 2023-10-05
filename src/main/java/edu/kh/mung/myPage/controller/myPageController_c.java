@@ -177,7 +177,7 @@ public class myPageController_c {
 		if(result > 0) {
 			
 			for (Pet petInfo : loginMemberPetList) {
-			    if (petInfo.getPetName().equals(petName)) {
+			    if (petInfo.getPetNo() == petNo ) {
 			    	
 			    	petInfo.setPetName(pet.getPetName());
 			    	petInfo.setPetBirth(pet.getPetBirth());
