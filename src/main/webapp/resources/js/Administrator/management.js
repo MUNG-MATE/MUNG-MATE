@@ -93,43 +93,52 @@ for(let i=0; i<flag.length; i++){
     }
 }   
 
-deleteButton.addEventListener("click",function(){
-
+deleteButton.addEventListener("click", function () {
     let flags = false;
-   
-    for(let i=0; i<checkbox.length; i++){
-        
-        if(checkbox[i].checked){
+    let promises = [];
+
+    for (let i = 0; i < checkbox.length; i++) {
+        if (checkbox[i].checked) {
             flags = true;
             checkarr.push(checkbox[i].value);
-            
-            if(flag[i].value !='Y'){
-
-                fetch("/Administrator/management",{
-                    method : "put",
-                    headers : {"Content-Type" : "application/json"},
-                    body : JSON.stringify(checkarr)
-                })
-                .then( resp => resp.text())
-                .then(result =>{
-            
-                    if(result >0){
-                        alert("탈퇴")
-                        location.href =location;
-                        //managementList()
-                    }else{
-                        alert("실패")
-                    }
-                })
-                .catch(e => console.log(e));
-            }else{
-                alert("이미 탈퇴된회원입니다.")
-                checkbox[i].checked =false;
+            if (flag[i].value != 'Y') {
+                promises.push(
+                    fetch("/Administrator/management", {
+                        method: "put",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(checkarr),
+                    })
+                    .then((resp) => resp.text())
+                );
+            } else {
+                alert("이미 탈퇴된 회원입니다.");
+                checkbox[i].checked = false;
             }
         }
     }
 
-    if(!flags) alert("회원을 선택한후 탈퇴버튼을 눌러주세요!")
-    
-})
+    if (!flags) {
+        alert("체크박스를 체크한 후 탈퇴 버튼을 눌러주세요.");
+        return;
+    }
+
+    if (confirm("정말 탈퇴시키겠습니까?")) {
+        Promise.all(promises)
+        .then((results) => {
+            const totalResults = results.reduce((acc, result) => acc + Number(result), 0);
+            if (totalResults > 0) {
+                alert("탈퇴");
+                location.href = location;
+            } else {
+                alert("실패");
+            }
+        })
+        .catch((e) => console.log(e));
+    }
+});
+
+
+
+
+
 
