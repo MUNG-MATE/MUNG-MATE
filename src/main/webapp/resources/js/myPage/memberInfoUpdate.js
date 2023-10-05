@@ -86,9 +86,9 @@ if (memberInfoUpdate != null) {
         }
 
         // 전화번호가 유효하지 않은 경우
-        if (memberTel.style.color == "red") {
+        if (phone.style.color == "red") {
             alert("전화번호가 유효하지 않습니다.")
-            memberTel.focus();
+            phone.focus();
             e.preventDefault();
             return;
         }
@@ -175,12 +175,6 @@ if (imageInput != null) {
         
         // 이전 프로필 이미지가 있다 -> 새 이미지
         if(initCheck && deleteCheck == 1) flag = false;
-
-        if(flag){ // flag == true -> 제출하면 안되는 경우
-            e.preventDefault(); // form 기본 이벤트 제거
-            alert("이미지 변경 후 클릭해주세요.");
-            
-        }
     })
 
 
