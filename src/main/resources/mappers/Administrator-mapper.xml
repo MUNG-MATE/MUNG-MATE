@@ -305,7 +305,8 @@
 		JOIN PETSITTER USING(MEMBER_NO)
 		WHERE MEMBER_NO IN (SELECT MEMBER_NO FROM PETSITTER
 		WHERE PETSITTER_NO IN (SELECT PETSITTER_NO FROM RESERVATION
-		WHERE MEMBER_NO = #{memberNo} AND SERVICE_ST = 'Y'))
+		WHERE MEMBER_NO = 1 AND SERVICE_ST = 'Y'))
+        AND MEMBER_NO !='5'
 	</select>
 	<!-- 신고 펫시터 정보 목록-->
 	<select id="declarationPetsitter" resultMap="member_rm">
