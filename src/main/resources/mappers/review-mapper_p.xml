@@ -173,7 +173,7 @@
 		BOARD_ST = 'N'
 		AND BOARD_CD
 		= 6
-		ORDER BY BOARD_DT DESC
+		ORDER BY BOARD_NO DESC
 	</select>
 
 	<!-- 이미지 목록 조회 -->
