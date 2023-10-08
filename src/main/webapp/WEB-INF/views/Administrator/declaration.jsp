@@ -15,7 +15,7 @@
 	<main>
         <form action="/Administrator/declaration" method="Post" onsubmit="return textValidate()">
         <div class="titleBox">
-            <h2>펫시터 신고</h2>
+            <h2>펫시터 신고!</h2>
             <div class=selectBox>
             <select name="pet" id="declarationNo" class="select">
                 <option value="0">펫시터를 고르세요</option>
