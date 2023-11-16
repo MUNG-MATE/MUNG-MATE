@@ -71,7 +71,7 @@ petsitters.addEventListener("change", ()=>{
                 const textarea = document.createElement("textarea");
                 textarea.setAttribute("name","singo");
                 textarea.setAttribute("id","singo");
-                textarea.setAttribute("placeholder","신고하는 이유를 상세하게 적어주세요.");
+                textarea.setAttribute("placeholder","신고하는 이유를 30글자이상으로 써주세요!!");
     
                 petsitterInfoBox.append(petSitterInfo,textarea);
             }
@@ -85,42 +85,41 @@ petsitters.addEventListener("change", ()=>{
 
 function textValidate() {
     const textarea = document.getElementById("singo");
-    let flag = false;
+    const form = document.getElementById("form");
 
     if (petNo == 0) {
-        alert("신고할 펫시터를 선택해주세요.")
-        return flag;
+        alert("신고할 펫시터를 선택해주세요.");
+        return false;
     }
 
     if (textarea.value.trim().length <= 20) {
         textarea.value = "";
         textarea.focus();
-        alert("신고하는 이유를 상세하게 써주세요!!");
-        return flag;
+        alert("신고하는 이유를 30글자이상으로 써주세요!!");
+        return false;
     }
 
-    const obj = { "memberNo": loginMemberNo, "petNo": petNo }
+    const obj = { "memberNo": loginMemberNo, "petNo": petNo };
 
-    return fetch("/Administrator/declaration/check", {
+    fetch("/Administrator/declaration/check", {
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(obj)
     })
     .then(resp => resp.text())
     .then(result => {
+        console.log(result);
         if (result > 0) {
-            alert("이미 신고 완료된 펫시터입니다.")
-            location.href = location;
-            
+            alert("이미 신고 완료된 펫시터입니다.");
         } else {
-            flag = true;
+            form.submit(); // Ajax 요청이 성공한 후에 폼을 제출
         }
-        return flag;
     })
     .catch(e => {
         console.log(e);
-        return flag;
     });
+
+    return false; 
 }
 
 

@@ -13,7 +13,7 @@
 <body>		
      <jsp:include page="/WEB-INF/views/common/headerLast.jsp" />
 	<main>
-        <form action="/Administrator/declaration" method="Post" onsubmit="return textValidate()">
+        <form id="form" action="/Administrator/declaration" method="Post" onsubmit="return textValidate()">
         <div class="titleBox">
             <h2>펫시터 신고</h2>
             <div class=selectBox>
