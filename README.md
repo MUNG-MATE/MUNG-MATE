@@ -23,25 +23,41 @@
 검증된 펫시터의 서비스가 시작되면 진행되는 동안은<br>
 펫시터 위치를 실시간으로 볼 수 있고, 원하는 요구사항은 채팅으로 전달할 수 있습니다.<br>
 
+<br>
+<br>
+<br>
 
-  ## 📚 개발 환경
-  <a name="개발-환경"></a>
+ ## ❗주요 기능
+
+ 
+  <b>사용자가 원하는 서비스 선택 및 결제</b> 
+    <p>원하는 서비스와 시간, 날짜를 선택하고 결제해보세요.</p>
+     <b>petsitter GPS Live</b>
+    <p>반려견을 데리고 있는 펫시터의 현 위치를 실시간으로 확인하세요.</p>
+  <b>펫시터와 1:1 채팅</b>
+    <p>펫시터에게 하고 싶은 말이 있다면 실시간으로 전달해보세요.</p>
+   <b>리뷰 작성</b>
+    <p>여러분의 소중한 경험을 남김으로 다른 사용자들에게 신뢰감을 주세요.</p>
+
+
+
+  ## 📕 개발 환경
 
   ![Java](https://img.shields.io/badge/java-007396?style=flat&logo=java&logoColor=white)
   ![Spring](https://img.shields.io/badge/spring-000000?style=flat&logo=Spring&logoColor=green)
   ![JavaScript](https://img.shields.io/badge/javascript-F7DF1E?style=flat&logo=javascript&logoColor=white)
   ![jQuery](https://img.shields.io/badge/jquery-0769AD?style=flat&logo=jquery&logoColor=white)
+  
   ![HTML5](https://img.shields.io/badge/html5-E34F26?style=flat&logo=html5&logoColor=white)
   ![CSS3](https://img.shields.io/badge/css3-1572B6?style=flat&logo=css3&logoColor=white)
-  
   ![Apache Tomcat](https://img.shields.io/badge/apachetomcat-F8DC75?style=flat&logo=apachetomcat&logoColor=white)
   ![Oracle](https://img.shields.io/badge/oracle-F80000?style=flat&logo=oracle&logoColor=white)
+  
   ![VSCode](https://img.shields.io/badge/visualstudiocode-007ACC?style=flat&logo=visualstudiocode&logoColor=white)
   ![JSON](https://img.shields.io/badge/json-000000?style=flat&logo=json&logoColor=white)
   ![My Batis](https://img.shields.io/badge/mybatis-0078D6?style=flat&logo=mybatis&logoColor=white)
-
- 
   ![Windows 10](https://img.shields.io/badge/windows10-0078D6?style=flat&logo=windows10&logoColor=white)
+  
   ![GitHub](https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white)
   ![Sourcetree](https://img.shields.io/badge/sourcetree-0052CC?style=flat&logo=sourcetree&logoColor=white)
 
