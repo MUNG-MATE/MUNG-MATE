@@ -26,7 +26,9 @@
 
   ## 📚 개발 환경
   <a name="개발-환경"></a>
-  
+
+  ![Java](https://img.shields.io/badge/java-007396?style=flat&logo=java&logoColor=white)
+  ![Spring](https://img.shields.io/badge/spring-000000?style=flat&logo=Spring&logoColor=green)
   ![JavaScript](https://img.shields.io/badge/javascript-F7DF1E?style=flat&logo=javascript&logoColor=white)
   ![jQuery](https://img.shields.io/badge/jquery-0769AD?style=flat&logo=jquery&logoColor=white)
   ![HTML5](https://img.shields.io/badge/html5-E34F26?style=flat&logo=html5&logoColor=white)
@@ -36,9 +38,9 @@
   ![Oracle](https://img.shields.io/badge/oracle-F80000?style=flat&logo=oracle&logoColor=white)
   ![VSCode](https://img.shields.io/badge/visualstudiocode-007ACC?style=flat&logo=visualstudiocode&logoColor=white)
   ![JSON](https://img.shields.io/badge/json-000000?style=flat&logo=json&logoColor=white)
+  ![My Batis](https://img.shields.io/badge/mybatis-0078D6?style=flat&logo=mybatis&logoColor=white)
 
-  ![Java](https://img.shields.io/badge/java-007396?style=flat&logo=java&logoColor=white)
-  ![Spring](https://img.shields.io/badge/spring-000000?style=flat&logo=Spring&logoColor=green)
+ 
   ![Windows 10](https://img.shields.io/badge/windows10-0078D6?style=flat&logo=windows10&logoColor=white)
   ![GitHub](https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white)
   ![Sourcetree](https://img.shields.io/badge/sourcetree-0052CC?style=flat&logo=sourcetree&logoColor=white)
