@@ -64,7 +64,7 @@
                     <tr>
                         <td>내일 예약</td>
                         <td>${tomorrowR}건</td>
-                        <td>23년도 예상 총매출</td>
+                        <td>24년도 예상 총매출</td>
                         <td>${totalSales}원</td>
                     </tr>
                 </tbody>
