@@ -1,9 +1,3 @@
-/* const chattingPet = document.getElementById("chattingStart").getAttribute("petsitterNo");
-const chattingMember = document.getElementById("chattingStart").getAttribute("petsitterNo");
-
-let petsitter = chattingPet;
-let member = chattingMember; */
-
 let chatNo; // 선택한 채팅방 번호
 let targetNo; // 현재 채팅 대상
 let targetName; // 대상의 이름
@@ -23,10 +17,6 @@ document.getElementById("chattingStart").addEventListener("click", e => {//시�
             h3.setAttribute("id", "chattingStart")
             h3.setAttribute("data-id", target.memberNo);
             h3.innerText = "채팅하기";
-            // h31.setAttribute("id", "lastMessage")
-            // h31.innerText = "전체 메세지보기";
-
-
 
             document.getElementById("chattingInfo").append(h3, h31);
 
@@ -48,7 +38,6 @@ function chattingEnter() {
       .then(chatNo => {
 
          console.log(chatNo);
-
 
          targets();
          document.getElementById("chattingStart").removeEventListener("click", chattingEnter);
@@ -114,9 +103,6 @@ function targets() {
             targetName = t.targetNickName;
             targetProfile = t.targetProfile;
 
-            /* document.getElementById("lastMessage").addEventListener("click", () => {
-               selectChattingFn();
-            }) */
             
             selectChattingFn();
 
@@ -131,7 +117,6 @@ function targets() {
                   .then(resp => resp.text())
                   .then(result => {
                      console.log(result)
-
 
                   })
                   .catch(err => console.log(err));
@@ -223,6 +208,7 @@ function selectChattingFn() {
 
 // 로그인이 되어 있을 경우에만
 // /chattingSock 이라는 요청 주소로 통신할 수 있는  WebSocket 객체 생성
+
 let chattingSock;
 
 if (loginMemberNo != "") {
@@ -305,20 +291,14 @@ chattingSock.onmessage = function (e) {
    // 내가 작성한 메세지인 경우
    if (loginMemberNo == msg.senderNo) {
       li.classList.add("my-chat");
-
-
    } else { // 상대가 작성한 메세지인 경우
       li.classList.add("target-chat");
-
       // 상대 프로필
-      // <img src="/resources/images/user.png">
       const img = document.createElement("img");
       if (targetProfile == null) img.setAttribute("src", "/resources/images/member/user.png");
       else img.setAttribute("src", targetProfile);
 
-
       const div = document.createElement("div");
-
       // 상대 이름
       const b = document.createElement("b");
       b.innerText = targetName; // 전역변수
